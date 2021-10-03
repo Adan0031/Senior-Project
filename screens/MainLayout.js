@@ -19,7 +19,7 @@ import { setSelectedTab } from "../stores/tab/tabActions";
 
 import {
     Home,
-    Search,
+    // Search,
     CartTab,
     Favourite,
     Notification
@@ -172,6 +172,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
         setSelectedTab(constants.screens.home)
     }, [])
     // Fix use effect when we get rid of bottom tabs
+    // Have Also to fix indexes to not go out of bounds
     React.useEffect(() => {
         if (selectedTab == constants.screens.home) {
             flatListRef?.current?.scrollToIndex({
@@ -186,22 +187,23 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
             homeTabColor.value = withTiming(COLORS.white, { duration: 500 })
         }
 
-        if (selectedTab == constants.screens.search) {
-            flatListRef?.current?.scrollToIndex({
-                index: 1,
-                animated: false
-            })
+        // if (selectedTab == constants.screens.search) {
+        //     flatListRef?.current?.scrollToIndex({
+        //         index: 1,
+        //         animated: false
+        //     })
 
-            searchTabFlex.value = withTiming(4, { duration: 500 })
-            searchTabColor.value = withTiming(COLORS.primary, { duration: 500 })
-        } else {
-            searchTabFlex.value = withTiming(1, { duration: 500 })
-            searchTabColor.value = withTiming(COLORS.white, { duration: 500 })
-        }
+        //     searchTabFlex.value = withTiming(4, { duration: 500 })
+        //     searchTabColor.value = withTiming(COLORS.primary, { duration: 500 })
+        // } else {
+        //     searchTabFlex.value = withTiming(1, { duration: 500 })
+        //     searchTabColor.value = withTiming(COLORS.white, { duration: 500 })
+        // }
 
         if (selectedTab == constants.screens.cart) {
             flatListRef?.current?.scrollToIndex({
-                index: 2,
+                //  index: 2,
+                index: 1,
                 animated: false
             })
 
@@ -214,7 +216,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
 
         if (selectedTab == constants.screens.favourite) {
             flatListRef?.current?.scrollToIndex({
-                index: 3,
+                index: 2,
                 animated: false
             })
 
@@ -227,7 +229,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
 
         if (selectedTab == constants.screens.notification) {
             flatListRef?.current?.scrollToIndex({
-                index: 4,
+                index: 3,
                 animated: false
             })
 
@@ -319,7 +321,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                                 }}
                             >
                                 {item.label == constants.screens.home && <Home />}
-                                {item.label == constants.screens.search && <Search />}
+                                {/* {item.label == constants.screens.search && <Search />} */}
                                 {item.label == constants.screens.cart && <CartTab />}
                                 {item.label == constants.screens.favourite && <Favourite />}
                                 {item.label == constants.screens.notification && <Notification />}
@@ -372,15 +374,15 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                         innerContainerStyle={homeColorStyle}
                         onPress={() => setSelectedTab(constants.screens.home)}
                     />
-
-                    <TabButton
+                    {/* First Remove Functionality and then Remove from UI */}
+                    {/* <TabButton
                         label={constants.screens.search}
                         icon={icons.search}
                         isFocused={selectedTab == constants.screens.search}
                         outerContainerStyle={searchFlexStyle}
                         innerContainerStyle={searchColorStyle}
                         onPress={() => setSelectedTab(constants.screens.search)}
-                    />
+                    /> */}
 
                     <TabButton
                         label={constants.screens.cart}

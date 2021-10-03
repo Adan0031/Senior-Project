@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import CustomDrawer from './navigation/CustomDrawer';
 
+// Redux Used to Keep track of Drawer Items and Seletcted Bottom Tabs
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { useFonts } from 'expo-font';

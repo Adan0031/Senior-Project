@@ -31,7 +31,7 @@ const screens = {
     notification: "Notification",
     my_wallet: "My Wallet",
 }
-
+// Look into bottom tabs
 const bottom_tabs = [
     {
         id: 0,

@@ -171,7 +171,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
     React.useEffect(() => {
         setSelectedTab(constants.screens.home)
     }, [])
-
+    // Fix use effect when we get rid of bottom tabs
     React.useEffect(() => {
         if (selectedTab == constants.screens.home) {
             flatListRef?.current?.scrollToIndex({

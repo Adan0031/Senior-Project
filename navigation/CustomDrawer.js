@@ -1,3 +1,4 @@
+// Don't let this file render. 
 import React from 'react';
 import {
     View,
@@ -262,14 +263,14 @@ const CustomDrawer = ({ selectedTab, setSelectedTab }) => {
                     setTimeout(() => {
                         setProgress(props.progress)
                     }, 0)
-
-                    return (
-                        <CustomDrawerContent
-                            navigation={props.navigation}
-                            selectedTab={selectedTab}
-                            setSelectedTab={setSelectedTab}
-                        />
-                    )
+                    // To Not Render Drawer
+                    // return (
+                    //     <CustomDrawerContent
+                    //         navigation={props.navigation}
+                    //         selectedTab={selectedTab}
+                    //         setSelectedTab={setSelectedTab}
+                    //     />
+                    // )
                 }}
             >
                 <Drawer.Screen name="MainLayout">

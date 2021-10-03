@@ -39,6 +39,7 @@ import {
 
 const TabButton = ({ label, icon, isFocused, outerContainerStyle, innerContainerStyle, onPress }) => {
     return (
+        // Elements that respond to press shoudl have visual feedback when touched
         <TouchableWithoutFeedback
             onPress={onPress}
         >
@@ -73,7 +74,7 @@ const TabButton = ({ label, icon, isFocused, outerContainerStyle, innerContainer
                             tintColor: isFocused ? COLORS.white : COLORS.gray
                         }}
                     />
-
+                    {/* Necesarry to render */}
                     {isFocused &&
                         <Text
                             numberOfLines={1}
@@ -98,10 +99,11 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
 
     // Reanimated Shared Value
 
+    // Not neede for our application
     const homeTabFlex = useSharedValue(1)
     const homeTabColor = useSharedValue(COLORS.white)
-    const searchTabFlex = useSharedValue(1)
-    const searchTabColor = useSharedValue(COLORS.white)
+    // const searchTabFlex = useSharedValue(1)
+    // const searchTabColor = useSharedValue(COLORS.white)
     const cartTabFlex = useSharedValue(1)
     const cartTabColor = useSharedValue(COLORS.white)
     const favouriteTabFlex = useSharedValue(1)
@@ -336,7 +338,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                     }}
                 />
             </View>
-            {/* This is where the bottom tabs are placed */}
+            {/* This is where the bottom tabs are placed and animations*/}
             {/* Footer */}
             <View
                 style={{
@@ -369,15 +371,16 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                         paddingBottom: 10,
                         borderTopLeftRadius: 20,
                         borderTopRightRadius: 20,
-                        backgroundColor: COLORS.white
+                        backgroundColor: COLORS.transparentPrimary
                     }}
                 >
                     <TabButton
-                        label={constants.screens.home}
+                        // label={constants.screens.home}
                         icon={icons.home}
                         isFocused={selectedTab == constants.screens.home}
-                        outerContainerStyle={homeFlexStyle}
-                        innerContainerStyle={homeColorStyle}
+                        // Animations for Tabs next two lines
+                        // outerContainerStyle={homeFlexStyle}
+                        // innerContainerStyle={homeColorStyle}
                         onPress={() => setSelectedTab(constants.screens.home)}
                     />
                     {/* First Remove Functionality and then Remove from UI */}
@@ -391,29 +394,29 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                     /> */}
 
                     <TabButton
-                        label={constants.screens.cart}
+                        // label={constants.screens.cart}
                         icon={icons.cart}
                         isFocused={selectedTab == constants.screens.cart}
-                        outerContainerStyle={cartFlexStyle}
-                        innerContainerStyle={cartColorStyle}
+                        // outerContainerStyle={cartFlexStyle}
+                        // innerContainerStyle={cartColorStyle}
                         onPress={() => setSelectedTab(constants.screens.cart)}
                     />
 
                     <TabButton
-                        label={constants.screens.favourite}
+                        // label={constants.screens.favourite}
                         icon={icons.favourite}
                         isFocused={selectedTab == constants.screens.favourite}
-                        outerContainerStyle={favouriteFlexStyle}
-                        innerContainerStyle={favouriteColorStyle}
+                        // outerContainerStyle={favouriteFlexStyle}
+                        // innerContainerStyle={favouriteColorStyle}
                         onPress={() => setSelectedTab(constants.screens.favourite)}
                     />
 
                     <TabButton
-                        label={constants.screens.notification}
+                        // label={constants.screens.notification}
                         icon={icons.notification}
                         isFocused={selectedTab == constants.screens.notification}
-                        outerContainerStyle={notificationFlexStyle}
-                        innerContainerStyle={notificationColorStyle}
+                        // outerContainerStyle={notificationFlexStyle}
+                        // innerContainerStyle={notificationColorStyle}
                         onPress={() => setSelectedTab(constants.screens.notification)}
                     />
                 </View>

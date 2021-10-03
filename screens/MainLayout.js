@@ -1,3 +1,4 @@
+// This Screen Hosts our Header and our bottom tabs
 import React from 'react';
 import {
     View,
@@ -8,6 +9,8 @@ import {
     FlatList,
     Platform
 } from 'react-native';
+
+// Importing hooks from teh React Native Animated Library 
 import Animated, {
     useSharedValue,
     useAnimatedStyle,
@@ -120,17 +123,17 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
         }
     })
 
-    const searchFlexStyle = useAnimatedStyle(() => {
-        return {
-            flex: searchTabFlex.value
-        }
-    })
+    // const searchFlexStyle = useAnimatedStyle(() => {
+    //     return {
+    //         flex: searchTabFlex.value
+    //     }
+    // })
 
-    const searchColorStyle = useAnimatedStyle(() => {
-        return {
-            backgroundColor: searchTabColor.value
-        }
-    })
+    // const searchColorStyle = useAnimatedStyle(() => {
+    //     return {
+    //         backgroundColor: searchTabColor.value
+    //     }
+    // })
 
     const cartFlexStyle = useAnimatedStyle(() => {
         return {
@@ -249,6 +252,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                 ...drawerAnimationStyle
             }}
         >
+            {/* This is where the header is implemented */}
             {/* Header */}
             <Header
                 containerStyle={{
@@ -257,25 +261,27 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                     marginTop: 40,
                     alignItems: 'center'
                 }}
+                // Will udpate Header Title to the selected tab based on state we are in
                 title={selectedTab.toUpperCase()}
-                leftComponent={
-                    <TouchableOpacity
-                        style={{
-                            width: 40,
-                            height: 40,
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            borderWidth: 1,
-                            borderColor: COLORS.gray2,
-                            borderRadius: SIZES.radius
-                        }}
-                        onPress={() => navigation.openDrawer()}
-                    >
-                        <Image
-                            source={icons.menu}
-                        />
-                    </TouchableOpacity>
-                }
+                // Commented Out the Drawer Button on the left Hand Side, had to restyle header
+                // leftComponent={
+                //     <TouchableOpacity
+                //         style={{
+                //             width: 40,
+                //             height: 40,
+                //             alignItems: 'center',
+                //             justifyContent: 'center',
+                //             borderWidth: 1,
+                //             borderColor: COLORS.gray2,
+                //             borderRadius: SIZES.radius
+                //         }}
+                //         onPress={() => navigation.openDrawer()}
+                //     >
+                //         <Image
+                //             source={icons.menu}
+                //         />
+                //     </TouchableOpacity>
+                // }
                 rightComponent={
                     <TouchableOpacity
                         style={{
@@ -330,7 +336,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                     }}
                 />
             </View>
-
+            {/* This is where the bottom tabs are placed */}
             {/* Footer */}
             <View
                 style={{
@@ -415,7 +421,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
         </Animated.View>
     )
 }
-
+// More Boiler Plate code (Redux) to connect our main layout screen to our redux
 function mapStateToProps(state) {
     return {
         selectedTab: state.tabReducer.selectedTab

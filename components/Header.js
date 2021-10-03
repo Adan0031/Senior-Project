@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 import { FONTS } from "../constants"
 
+// The header tag being passed in props
 const Header = ({ containerStyle, title, titleStyle, leftComponent, rightComponent }) => {
     return (
         <View

@@ -50,7 +50,9 @@ const App = () => {
     if (!loaded) {
         return null;
     }
+    // Update Screen rendering here without affecting state (Redux)
     return (
+        // This Tag wraps aroud all of our screens for state management purposes
         <Provider store={store}>
             <NavigationContainer>
                 <Stack.Navigator

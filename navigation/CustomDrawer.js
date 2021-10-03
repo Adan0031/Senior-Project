@@ -10,6 +10,8 @@ import {
     createDrawerNavigator,
     DrawerContentScrollView
 } from "@react-navigation/drawer";
+
+// For the state used with the Drawer Tabs
 import Animated from "react-native-reanimated";
 import { connect } from "react-redux";
 import { setSelectedTab } from "../stores/tab/tabActions";
@@ -139,7 +141,9 @@ const CustomDrawerContent = ({ navigation, selectedTab, setSelectedTab }) => {
                         icon={icons.home}
                         isFocused={selectedTab == constants.screens.home}
                         onPress={() => {
+                             // When home icon is pressed change tab to be this home tab instead
                             setSelectedTab(constants.screens.home)
+                            // Once state is updated we will navigate to the screen we want. 
                             navigation.navigate("MainLayout")
                         }}
                     />
@@ -280,7 +284,7 @@ const CustomDrawer = ({ selectedTab, setSelectedTab }) => {
         </View>
     )
 }
-
+// More Boiler Plate Code Here (Redux)
 function mapStateToProps(state) {
     return {
         selectedTab: state.tabReducer.selectedTab
@@ -289,8 +293,10 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
+        // Pressing a tab will pass our new tab into 'setSelected' tab function we defined and do its job
         setSelectedTab: (selectedTab) => { return dispatch(setSelectedTab(selectedTab)) }
     }
 }
 
+// Remove, this is for state used when pressing a tab on the custom drawer. 
 export default connect(mapStateToProps, mapDispatchToProps)(CustomDrawer)

@@ -282,24 +282,24 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                 //         />
                 //     </TouchableOpacity>
                 // }
-                rightComponent={
-                    <TouchableOpacity
-                        style={{
-                            borderRadius: SIZES.radius,
-                            alignItems: 'center',
-                            justifyContent: 'center'
-                        }}
-                    >
-                        <Image
-                            source={dummyData?.myProfile?.profile_image}
-                            style={{
-                                width: 40,
-                                height: 40,
-                                borderRadius: SIZES.radius
-                            }}
-                        />
-                    </TouchableOpacity>
-                }
+                // rightComponent={
+                //     <TouchableOpacity
+                //         style={{
+                //             borderRadius: SIZES.radius,
+                //             alignItems: 'center',
+                //             justifyContent: 'center'
+                //         }}
+                //     >
+                //         <Image
+                //             source={dummyData?.myProfile?.profile_image}
+                //             style={{
+                //                 width: 40,
+                //                 height: 40,
+                //                 borderRadius: SIZES.radius
+                //             }}
+                //         />
+                //     </TouchableOpacity>
+                // }
             />
 
             {/* Content */}

@@ -53,6 +53,7 @@ const App = () => {
     // Update Screen rendering here without affecting state (Redux)
     return (
         // This Tag wraps aroud all of our screens for state management purposes
+        // Comment out screens to change order
         <Provider store={store}>
             <NavigationContainer>
                 <Stack.Navigator
@@ -85,7 +86,7 @@ const App = () => {
                         name="Otp"
                         component={Otp}
                     />
-
+                    {/* Remove this screen */}
                     <Stack.Screen
                         name="Home"
                         component={CustomDrawer}

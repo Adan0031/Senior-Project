@@ -250,8 +250,8 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
         <Animated.View
             style={{
                 flex: 1,
-                backgroundColor: COLORS.white,
-                ...drawerAnimationStyle
+                backgroundColor: COLORS.grey,
+                // ...drawerAnimationStyle
             }}
         >
             {/* This is where the header is implemented */}
@@ -371,7 +371,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                         paddingBottom: 10,
                         borderTopLeftRadius: 20,
                         borderTopRightRadius: 20,
-                        backgroundColor: COLORS.transparentPrimary
+                        backgroundColor: COLORS.primary
                     }}
                 >
                     <TabButton

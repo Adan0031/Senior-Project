@@ -21,14 +21,17 @@ const onboarding_screens = [
         description: "You’ll receive the great food within a hour. And get free delivery credits for every order."
     }
 ]
-// Removed a screen
+// Removed search screen
+// Removed Favorite Screen
+// Added Account screen
 const screens = {
     main_layout: "MainLayout",
     home: "Home",
     // search: "Search",
     cart: "Cart",
-    favourite: "Favourite",
+    // favourite: "Favourite",
     notification: "Notification",
+    my_account: 'My Account', // Added This screen
     my_wallet: "My Wallet",
 }
 // Look into bottom tabs
@@ -47,9 +50,14 @@ const bottom_tabs = [
         id: 1,
         label: screens.cart,
     },
+    // {
+    //     id: 2,
+    //     label: screens.favourite,
+    // },
+    // Fix Order of Screens here
     {
         id: 2,
-        label: screens.favourite,
+        label: screens.my_account,
     },
     {
         id: 3,

@@ -24,7 +24,7 @@ import {
     Home,
     // Search,
     CartTab,
-    Favourite,
+    // Favourite,
     Notification
 } from "../screens";
 import { Header } from "../components";
@@ -106,8 +106,8 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
     // const searchTabColor = useSharedValue(COLORS.white)
     const cartTabFlex = useSharedValue(1)
     const cartTabColor = useSharedValue(COLORS.white)
-    const favouriteTabFlex = useSharedValue(1)
-    const favouriteTabColor = useSharedValue(COLORS.white)
+    // const favouriteTabFlex = useSharedValue(1)
+    // const favouriteTabColor = useSharedValue(COLORS.white)
     const notificationTabFlex = useSharedValue(1)
     const notificationTabColor = useSharedValue(COLORS.white)
 
@@ -149,17 +149,17 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
         }
     })
 
-    const favouriteFlexStyle = useAnimatedStyle(() => {
-        return {
-            flex: favouriteTabFlex.value
-        }
-    })
+    // const favouriteFlexStyle = useAnimatedStyle(() => {
+    //     return {
+    //         flex: favouriteTabFlex.value
+    //     }
+    // })
 
-    const favouriteColorStyle = useAnimatedStyle(() => {
-        return {
-            backgroundColor: favouriteTabColor.value
-        }
-    })
+    // const favouriteColorStyle = useAnimatedStyle(() => {
+    //     return {
+    //         backgroundColor: favouriteTabColor.value
+    //     }
+    // })
 
     const notificationFlexStyle = useAnimatedStyle(() => {
         return {
@@ -219,18 +219,18 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
             cartTabColor.value = withTiming(COLORS.white, { duration: 500 })
         }
 
-        if (selectedTab == constants.screens.favourite) {
-            flatListRef?.current?.scrollToIndex({
-                index: 2,
-                animated: false
-            })
+        // if (selectedTab == constants.screens.favourite) {
+        //     flatListRef?.current?.scrollToIndex({
+        //         index: 2,
+        //         animated: false
+        //     })
 
-            favouriteTabFlex.value = withTiming(4, { duration: 500 })
-            favouriteTabColor.value = withTiming(COLORS.primary, { duration: 500 })
-        } else {
-            favouriteTabFlex.value = withTiming(1, { duration: 500 })
-            favouriteTabColor.value = withTiming(COLORS.white, { duration: 500 })
-        }
+        //     favouriteTabFlex.value = withTiming(4, { duration: 500 })
+        //     favouriteTabColor.value = withTiming(COLORS.primary, { duration: 500 })
+        // } else {
+        //     favouriteTabFlex.value = withTiming(1, { duration: 500 })
+        //     favouriteTabColor.value = withTiming(COLORS.white, { duration: 500 })
+        // }
 
         if (selectedTab == constants.screens.notification) {
             flatListRef?.current?.scrollToIndex({
@@ -331,7 +331,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                                 {item.label == constants.screens.home && <Home />}
                                 {/* {item.label == constants.screens.search && <Search />} */}
                                 {item.label == constants.screens.cart && <CartTab />}
-                                {item.label == constants.screens.favourite && <Favourite />}
+                                {/* {item.label == constants.screens.favourite && <Favourite />} */}
                                 {item.label == constants.screens.notification && <Notification />}
                             </View>
                         )
@@ -402,14 +402,14 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                         onPress={() => setSelectedTab(constants.screens.cart)}
                     />
 
-                    <TabButton
+                    {/* <TabButton
                         // label={constants.screens.favourite}
                         icon={icons.favourite}
                         isFocused={selectedTab == constants.screens.favourite}
                         // outerContainerStyle={favouriteFlexStyle}
                         // innerContainerStyle={favouriteColorStyle}
                         onPress={() => setSelectedTab(constants.screens.favourite)}
-                    />
+                    /> */}
 
                     <TabButton
                         // label={constants.screens.notification}

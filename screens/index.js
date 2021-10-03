@@ -24,7 +24,7 @@ import Checkout from "./Cart/Checkout"
 import Success from "./Cart/Success"
 
 // Favourite
-import Favourite from "./Favourite/Favourite";
+// import Favourite from "./Favourite/Favourite";
 
 // Notification
 import Notification from "./Notification/Notification"
@@ -55,7 +55,7 @@ export {
     FilterModal,
     // Search,
     CartTab,
-    Favourite,
+    // Favourite,
     Notification,
 
     FoodDetail,

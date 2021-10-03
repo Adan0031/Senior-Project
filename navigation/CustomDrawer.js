@@ -251,7 +251,8 @@ const CustomDrawer = ({ selectedTab, setSelectedTab }) => {
             }}
         >
             <Drawer.Navigator
-                drawerType="slide"
+                // To not allow fingers to slide it open
+                // drawerType="slide"
                 overlayColor="transparent"
                 drawerStyle={{
                     flex: 1,
@@ -277,6 +278,7 @@ const CustomDrawer = ({ selectedTab, setSelectedTab }) => {
                     // )
                 }}
             >
+                {/* Modify Name of this */}
                 <Drawer.Screen name="MainLayout">
                     {props => <MainLayout {...props} drawerAnimationStyle={animatedStyle} />}
                 </Drawer.Screen>

@@ -49,6 +49,7 @@ const call = require("../assets/icons/call.png")
 const location_pin = require("../assets/icons/location_pin.png")
 const navigator = require("../assets/icons/navigator.png")
 const navigator1 = require("../assets/icons/navigator1.png")
+const user = require("../assets/icons/user.png") // Added for account tab
 
 export default {
     apple,
@@ -101,5 +102,6 @@ export default {
     call,
     location_pin,
     navigator,
-    navigator1
+    navigator1,
+    user //Added for account tab
 }

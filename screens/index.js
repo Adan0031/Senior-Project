@@ -29,6 +29,9 @@ import Success from "./Cart/Success"
 // Notification
 import Notification from "./Notification/Notification"
 
+// Account added
+import Account from "./Account/Account"
+
 // Food
 import FoodDetail from "./Food/FoodDetail"
 
@@ -57,6 +60,7 @@ export {
     CartTab,
     // Favourite,
     Notification,
+    Account, // Added 
 
     FoodDetail,
     MyCart,

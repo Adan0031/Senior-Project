@@ -31,7 +31,7 @@ const screens = {
     cart: "Cart",
     // favourite: "Favourite",
     notification: "Notification",
-    my_account: 'My Account', // Added This screen
+    account: 'Account', // Added This screen
     my_wallet: "My Wallet",
 }
 // Look into bottom tabs
@@ -54,14 +54,15 @@ const bottom_tabs = [
     //     id: 2,
     //     label: screens.favourite,
     // },
-    // Fix Order of Screens here
+    // ID Order was Altered
     {
+        // id: 3,
         id: 2,
-        label: screens.my_account,
+        label: screens.notification,
     },
     {
         id: 3,
-        label: screens.notification,
+        label: screens.account,
     },
 ]
 

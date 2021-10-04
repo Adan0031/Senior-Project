@@ -25,7 +25,8 @@ import {
     // Search,
     CartTab,
     // Favourite,
-    Notification
+    Notification,
+    Account
 } from "../screens";
 import { Header } from "../components";
 import {
@@ -234,7 +235,8 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
 
         if (selectedTab == constants.screens.notification) {
             flatListRef?.current?.scrollToIndex({
-                index: 3,
+                // If we change ID in screens we need to change index here as well
+                index: 2,
                 animated: false
             })
 
@@ -244,6 +246,14 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
             notificationTabFlex.value = withTiming(1, { duration: 500 })
             notificationTabColor.value = withTiming(COLORS.white, { duration: 500 })
         }
+        // Added this to State when adding the Account Screen
+        if (selectedTab == constants.screens.account) {
+            flatListRef?.current?.scrollToIndex({
+                // If we change ID in screens we need to change index here as well
+                index: 3,
+                animated: false
+            })
+        } 
     }, [selectedTab])
 
     return (
@@ -333,6 +343,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                                 {item.label == constants.screens.cart && <CartTab />}
                                 {/* {item.label == constants.screens.favourite && <Favourite />} */}
                                 {item.label == constants.screens.notification && <Notification />}
+                                {item.label == constants.screens.account && <Account />}
                             </View>
                         )
                     }}
@@ -419,6 +430,13 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                         // innerContainerStyle={notificationColorStyle}
                         onPress={() => setSelectedTab(constants.screens.notification)}
                     />
+
+                    <TabButton
+                        // label={constants.screens.my_account}
+                        icon={icons.user}
+                        isFocused={selectedTab == constants.screens.account}
+                        onPress={() => setSelectedTab(constants.screens.account)}
+                    />      
                 </View>
             </View>
         </Animated.View>

@@ -171,7 +171,8 @@ const OnBoarding = ({ navigation }) => {
                 backgroundColor: COLORS.white
             }}
         >
-            {renderHeaderLogo()}
+            {/* Do Not Render Logo, Render UTRGV LOGO */}
+            {/* {renderHeaderLogo()} */}
 
             <Animated.FlatList
                 ref={flatListRef}

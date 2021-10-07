@@ -13,8 +13,10 @@ import { TextButton } from "../../components";
 const OnBoarding = ({ navigation }) => {
 
     const scrollX = React.useRef(new Animated.Value(0)).current;
+    // To help make our text buttons functional ref like in HTML to change webpages
     const flatListRef = React.useRef()
 
+    // To keep track of which on boarding screen is currently visible
     const [currentIndex, setCurrentIndex] = React.useState(0)
 
     const onViewChangeRef = React.useRef(({ viewableItems, changed }) => {
@@ -106,6 +108,7 @@ const OnBoarding = ({ navigation }) => {
                 </View>
 
                 {/* Buttons */}
+                {/* While we are still within the two out of three screens */}
                 {currentIndex < constants.onboarding_screens.length - 1 &&
                     <View
                         style={{
@@ -123,6 +126,7 @@ const OnBoarding = ({ navigation }) => {
                             labelStyle={{
                                 color: COLORS.darkGray2
                             }}
+                            // Takes you to the next set of screens
                             onPress={() => navigation.replace("SignIn")}
                         />
 
@@ -133,6 +137,7 @@ const OnBoarding = ({ navigation }) => {
                                 width: 200,
                                 borderRadius: SIZES.radius
                             }}
+                             // When Button is pressed we increase our index to scroll to the next screen
                             onPress={() => {
                                 flatListRef?.current?.scrollToIndex({
                                     index: currentIndex + 1,
@@ -142,7 +147,7 @@ const OnBoarding = ({ navigation }) => {
                         />
                     </View>
                 }
-
+                {/* Once we have reached the last screen the buttons should change */}
                 {currentIndex == constants.onboarding_screens.length - 1 &&
                     <View
                         style={{
@@ -156,6 +161,7 @@ const OnBoarding = ({ navigation }) => {
                                 height: 60,
                                 borderRadius: SIZES.radius
                             }}
+                            // Takes you to the next set of screens
                             onPress={() => navigation.replace("SignIn")}
                         />
                     </View>
@@ -182,12 +188,14 @@ const OnBoarding = ({ navigation }) => {
                 scrollEventThrottle={16}
                 snapToAlignment="center"
                 showsHorizontalScrollIndicator={false}
+                // Horizontal Scroll for the three screens
                 onScroll={Animated.event(
                     [
                         { nativeEvent: { contentOffset: { x: scrollX } } }
                     ],
                     { useNativeDriver: false }
                 )}
+                // Which screen is currently visible
                 onViewableItemsChanged={onViewChangeRef.current}
                 keyExtractor={(item) => `${item.id}`}
                 renderItem={({ item, index }) => {

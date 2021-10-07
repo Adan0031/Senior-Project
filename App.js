@@ -60,33 +60,35 @@ const App = () => {
                     screenOptions={{
                         headerShown: false
                     }}
+                    // Do not want to route to this screen yet
                     initialRouteName={'OnBoarding'}
                 >
+                    {/* Do not Display this one yet */}
                     <Stack.Screen
                         name="OnBoarding"
                         component={OnBoarding}
                     />
-
+                    {/* Do not Display this one yet */}
                     <Stack.Screen
                         name="SignIn"
                         component={SignIn}
                     />
-
+                    {/* Do not Display this one yet */}
                     <Stack.Screen
                         name="SignUp"
                         component={SignUp}
                     />
-
+                    {/* Do not Display this one yet */}
                     <Stack.Screen
                         name="ForgotPassword"
                         component={ForgotPassword}
                     />
-
+                    {/* Do not Display this one yet */}
                     <Stack.Screen
                         name="Otp"
                         component={Otp}
                     />
-                    {/* Remove this screen */}
+                    {/* Rename */}
                     <Stack.Screen
                         name="Home"
                         component={CustomDrawer}

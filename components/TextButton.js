@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 import { FONTS, COLORS } from "../constants";
 
+// Props or Parameters passed into our Custom Functional Component
 const TextButton = ({
     buttonContainerStyle,
     disabled,
@@ -20,6 +21,7 @@ const TextButton = ({
                 alignItems: 'center',
                 justifyContent: 'center',
                 backgroundColor: COLORS.primary,
+                // We destructure this prop because this prop itself may be coming in with more props
                 ...buttonContainerStyle
             }}
             disabled={disabled}

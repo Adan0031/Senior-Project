@@ -1,3 +1,5 @@
+// Will change images here to UTRGV images
+// May not need the three screens that are in here
 const onboarding_screens = [
     {
         id: 1,

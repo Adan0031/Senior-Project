@@ -42,6 +42,7 @@ const FormInput = ({
                     ...inputContainerStyle
                 }}
             >
+                {/* Before You Input Text */}
                 {
                     prependComponent
                 }
@@ -57,6 +58,7 @@ const FormInput = ({
                     maxLength={maxLength}
                     onChangeText={(text) => onChange(text)}
                 />
+                {/* After You Input Text */}
                 {
                     appendComponent
                 }

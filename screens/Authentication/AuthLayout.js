@@ -7,6 +7,7 @@ import {
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { images, FONTS, SIZES, COLORS } from "../../constants"
 
+// This is a general layout for most of the Authentication Screens 
 const AuthLayout = ({ title, subtitle, titleContainerStyle, children }) => {
     return (
         <View
@@ -24,7 +25,7 @@ const AuthLayout = ({ title, subtitle, titleContainerStyle, children }) => {
                 }}
             >
                 {/* App Logo */}
-                <View
+                {/* <View
                     style={{
                         alignItems: 'center',
                     }}
@@ -37,7 +38,7 @@ const AuthLayout = ({ title, subtitle, titleContainerStyle, children }) => {
                             width: 200
                         }}
                     />
-                </View>
+                </View> */}
 
                 {/* Title */}
                 <View

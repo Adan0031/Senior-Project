@@ -10,8 +10,9 @@ import { COLORS, FONTS, icons, SIZES } from '../constants';
 const VerticalFoodCard = ({ containerStyle, item, onPress }) => {
     return (
         <TouchableOpacity
+            //card styling
             style={{
-                width: 200,
+                width: 400,
                 paddingVertical: SIZES.radius,
                 paddingHorizontal: SIZES.radius,
                 alignItems: 'center',

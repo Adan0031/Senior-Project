@@ -24,46 +24,46 @@ const categories = [
 
 const hamburger = {
     id: 1,
-    name: "Hamburger",
-    description: "Chicken patty hamburger",
+    name: "Milkflower",
+    description: "Italian Pizza",
     categories: [1, 2],
     price: 15.99,
     calories: 78,
     isFavourite: true,
-    image: require("../assets/dummyData/hamburger.png")
+    image: require("../assets/dummyData/pizza.png")
 }
 
 const hotTacos = {
     id: 2,
-    name: "Hot Tacos",
-    description: "Mexican tortilla & tacos",
+    name: "Milkflower",
+    description: "Italian Pizza",
     categories: [1, 3],
     price: 10.99,
     calories: 78,
     isFavourite: false,
-    image: require("../assets/dummyData/hot_tacos.png")
+    image: require("../assets/dummyData/pizza.png")
 }
 
 const vegBiryani = {
     id: 3,
-    name: "Veg Biryani",
-    description: "Indian Vegetable Biryani",
+    name: "Milkflower",
+    description: "Italian Pizza",
     categories: [1, 2, 3],
     price: 10.99,
     calories: 78,
     isFavourite: true,
-    image: require("../assets/dummyData/veg_biryani.png")
+    image: require("../assets/dummyData/pizza.png")
 }
 
 const wrapSandwich = {
     id: 4,
-    name: "Wrap Sandwich",
-    description: "Grilled vegetables sandwich",
+    name: "Milkflower",
+    description: "Italian Pizza",
     categories: [1, 2],
     price: 10.99,
     calories: 78,
     isFavourite: true,
-    image: require("../assets/dummyData/wrap_sandwich.png")
+    image: require("../assets/dummyData/pizza.png")
 }
 
 const menu = [

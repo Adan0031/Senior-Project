@@ -188,7 +188,7 @@ const Home = () => {
                     renderItem={({ item, index }) => (
                         <HorizontalFoodCard
                             containerStyle={{
-                                height: 180,
+                                height: 200,
                                 width: SIZES.width * 0.85,
                                 marginLeft: index == 0 ? SIZES.padding : 18,
                                 marginRight: index == recommends.length - 1 ? SIZES.padding : 0,
@@ -347,24 +347,24 @@ const Home = () => {
                 data={menuList}
                 keyExtractor={(item) => `${item.id}`}
                 showsVerticalScrollIndicator={false}
-                ListHeaderComponent={
-                    <View>
-                        {/* Delivery To */}
-                        {renderDeliveryTo()}
+                // ListHeaderComponent={
+                //     <View>
+                //         {/* Delivery To */}
+                //         {renderDeliveryTo()}
 
-                        {/* Food Categories */}
-                        {renderFoodCategories()}
+                //         {/* Food Categories */}
+                //         {renderFoodCategories()}
 
-                        {/* Popular */}
-                        {renderPopularSection()}
+                //         {/* Popular */}
+                //         {renderPopularSection()}
 
-                        {/* Recommended */}
-                        {renderRecommendedSection()}
+                //         {/* Recommended */}
+                //         {renderRecommendedSection()}
 
-                        {/* Menu Type */}
-                        {renderMenuTypes()}
-                    </View>
-                }
+                //         {/* Menu Type */}
+                //         {renderMenuTypes()}
+                //     </View>
+                // }
                 renderItem={({ item, index }) => {
                     return (
                         <HorizontalFoodCard
@@ -377,7 +377,9 @@ const Home = () => {
                             imageStyle={{
                                 marginTop: 20,
                                 height: 110,
-                                width: 110
+                                width: 110,
+                                marginHorizontal: 10,
+                                marginBottom: 15
                             }}
                             item={item}
                             onPress={() => navigation.navigate("FoodDetail")}

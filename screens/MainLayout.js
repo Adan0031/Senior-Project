@@ -38,6 +38,11 @@ import {
     dummyData
 } from "../constants";
 
+
+
+
+
+
 const TabButton = ({ label, icon, isFocused, outerContainerStyle, innerContainerStyle, onPress }) => {
     return (
         // Elements that respond to press shoudl have visual feedback when touched
@@ -356,18 +361,20 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                     height: 100,
                     justifyContent: 'flex-end'
                 }}
+                
             >
                 {/* Shadow */}
                 <LinearGradient
                     start={{ x: 0, y: 0 }}
-                    end={{ x: 0, y: 1 }}
                     colors={[COLORS.transparent, COLORS.lightGray1]}
                     style={{
                         position: 'absolute',
                         top: -15,
                         left: 0,
                         right: 0,
-                        height: Platform.OS === 'ios' ? 200 : 50,
+                        
+                        // This gives the white shadow on the top border of the tab
+                        //height: Platform.OS === 'ios' ? 200 : 50,   
                         borderTopLeftRadius: 15,
                         borderTopRightRadius: 15
                     }}
@@ -385,7 +392,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                         backgroundColor: COLORS.primary
                     }}
                 >
-                    <TabButton
+                    <TabButton                                                             // This adds and modifies the notifications button on the navigation ta
                         // label={constants.screens.home}
                         icon={icons.home}
                         isFocused={selectedTab == constants.screens.home}
@@ -395,7 +402,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                         onPress={() => setSelectedTab(constants.screens.home)}
                     />
                     {/* First Remove Functionality and then Remove from UI */}
-                    {/* <TabButton
+                    {/* <TabButton                                                             // This reomves the search button on the navigation ta
                         label={constants.screens.search}
                         icon={icons.search}
                         isFocused={selectedTab == constants.screens.search}
@@ -404,7 +411,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                         onPress={() => setSelectedTab(constants.screens.search)}
                     /> */}
 
-                    <TabButton
+                    <TabButton                                                             // This adds and modifies the cart button on the navigation ta
                         // label={constants.screens.cart}
                         icon={icons.cart}
                         isFocused={selectedTab == constants.screens.cart}
@@ -413,7 +420,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                         onPress={() => setSelectedTab(constants.screens.cart)}
                     />
 
-                    {/* <TabButton
+                    {/* <TabButton                                                             // This removes the favorite button on the navigation ta
                         // label={constants.screens.favourite}
                         icon={icons.favourite}
                         isFocused={selectedTab == constants.screens.favourite}
@@ -422,7 +429,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                         onPress={() => setSelectedTab(constants.screens.favourite)}
                     /> */}
 
-                    <TabButton
+                    <TabButton                                                             // This adds and modifies the notifications button on the navigation tab
                         // label={constants.screens.notification}
                         icon={icons.notification}
                         isFocused={selectedTab == constants.screens.notification}
@@ -431,11 +438,13 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                         onPress={() => setSelectedTab(constants.screens.notification)}
                     />
 
-                    <TabButton
+                    <TabButton                                                             // This adds and modifies the user account button on the navigation tab
+                        
                         // label={constants.screens.my_account}
                         icon={icons.user}
                         isFocused={selectedTab == constants.screens.account}
                         onPress={() => setSelectedTab(constants.screens.account)}
+                        
                     />      
                 </View>
             </View>

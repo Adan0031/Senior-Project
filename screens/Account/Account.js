@@ -4,12 +4,15 @@ import {
     Text,
     TouchableOpacity,
     Linking,
-    StyleSheet
+    StyleSheet,
+    ScrollView
 } from 'react-native';
 import { COLORS, FONTS, SIZES } from "../../constants";
 const Account = ({ navigation }) => {
     return (
-        <View>
+        <ScrollView
+            style={{backgroundColor: 'grey'}}
+        >
         
             <Text style={{
                 ...FONTS.h1,
@@ -186,7 +189,7 @@ const Account = ({ navigation }) => {
                         paddingBottom: SIZES.padding
                     }}
             />
-        </View>
+        </ScrollView>
 
     )
 }

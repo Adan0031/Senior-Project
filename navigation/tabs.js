@@ -10,7 +10,10 @@ import { isIphoneX } from 'react-native-iphone-x-helper';
 
 // Update Path to Home, Paths added below will redirect us to different screens
 // Might Need to Use State
-import { Home } from "../screens"
+import { Home } from "../screens";
+import { Account } from "../screens";
+import  CartTab  from "../screens/Cart/CartTab";
+import { Notification } from '../screens';
 
 import { COLORS, icons } from "../constants"
 
@@ -81,8 +84,8 @@ const CustomTabBar = (props) => {
                         bottom: 0,
                         left: 0,
                         right: 0,
-                        height: 30,
-                        backgroundColor: COLORS.white
+                        height: 0,
+                        backgroundColor: COLORS.black
                     }}
                 ></View>
                 <BottomTabBar
@@ -103,7 +106,7 @@ const CustomTabBar = (props) => {
 const Tabs = () => {
     return (
         <Tab.Navigator
-            screenOptions={{
+            tabBarOptions={{
                 showLabel: false,
                 style: {
                     position: 'absolute',
@@ -111,6 +114,7 @@ const Tabs = () => {
                     bottom: 0,
                     right: 0,
                     borderTopWidth: 0,
+                    // what makes tab bar transparent
                     backgroundColor: "transparent",
                     elevation: 0
                 }
@@ -132,7 +136,7 @@ const Tabs = () => {
                             style={{
                                 width: 25,
                                 height: 25,
-                                tintColor: focused ? COLORS.white : COLORS.secondary
+                                tintColor: focused ? COLORS.white : COLORS.black
                             }}
                         />
                     ),
@@ -147,7 +151,7 @@ const Tabs = () => {
             <Tab.Screen
                 name="Cart"
                 // Modify Components to show other screens
-                component={Home}
+                component={CartTab}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <Image
@@ -156,7 +160,7 @@ const Tabs = () => {
                             style={{
                                 width: 25,
                                 height: 25,
-                                tintColor: focused ? COLORS.white : COLORS.secondary
+                                tintColor: focused ? COLORS.white : COLORS.black
                             }}
                         />
                     ),
@@ -170,7 +174,7 @@ const Tabs = () => {
 
             <Tab.Screen
                 name="Notification"
-                component={Home}
+                component={Notification}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <Image
@@ -179,7 +183,7 @@ const Tabs = () => {
                             style={{
                                 width: 25,
                                 height: 25,
-                                tintColor: focused ? COLORS.white : COLORS.secondary
+                                tintColor: focused ? COLORS.white : COLORS.black
                             }}
                         />
                     ),
@@ -193,7 +197,7 @@ const Tabs = () => {
 
             <Tab.Screen
                 name="User"
-                component={Home}
+                component={Account}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <Image
@@ -202,7 +206,7 @@ const Tabs = () => {
                             style={{
                                 width: 25,
                                 height: 25,
-                                tintColor: focused ? COLORS.white : COLORS.secondary
+                                tintColor: focused ? COLORS.white : COLORS.black
                             }}
                         />
                     ),

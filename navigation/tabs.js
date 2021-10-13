@@ -2,9 +2,11 @@ import React from 'react';
 import {
     View,
     Image,
-    TouchableOpacity
+    TouchableOpacity,
+    StatusBar
 } from 'react-native';
-import { createBottomTabNavigator, BottomTabBar } from "@react-navigation/bottom-tabs"
+import { createBottomTabNavigator, BottomTabBar } from "@react-navigation/bottom-tabs";
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
 import { isIphoneX } from 'react-native-iphone-x-helper';
 
@@ -16,8 +18,10 @@ import  CartTab  from "../screens/Cart/CartTab";
 import { Notification } from '../screens';
 
 import { COLORS, icons } from "../constants"
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const Tab = createBottomTabNavigator();
+
 
 const TabBarCustomButton = ({ accessibilityState, children, onPress }) => {
 
@@ -104,19 +108,28 @@ const CustomTabBar = (props) => {
 }
 
 const Tabs = () => {
+
+    const insets = useSafeAreaInsets();
     return (
+        <SafeAreaView style={{
+            flex: 1,
+            paddingTop: 0 - insets.top,
+            paddingBottom: 0,
+            backgroundColor: COLORS.primary
+        }}>
         <Tab.Navigator
-            tabBarOptions={{
-                showLabel: false,
-                style: {
-                    position: 'absolute',
-                    left: 0,
-                    bottom: 0,
-                    right: 0,
-                    borderTopWidth: 0,
+            screenOptions={{
+                tabBarShowLabel: false,
+                tabBarStyle: {
                     // what makes tab bar transparent
                     backgroundColor: "transparent",
-                    elevation: 0
+                    position: 'absolute',
+                    left: 0,
+                    bottom: 0 - insets.bottom,
+                    right: 0,
+                    borderTopWidth: 0,
+                    elevation: 0,
+
                 }
             }}
             tabBar={(props) => (
@@ -218,6 +231,7 @@ const Tabs = () => {
                 }}
             />
         </Tab.Navigator>
+        </SafeAreaView>
     )
 }
 

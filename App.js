@@ -2,6 +2,8 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from '@react-navigation/native';
 
+// Import Tabs Used for Navigation
+import Tabs from './navigation/tabs';
 import CustomDrawer from './navigation/CustomDrawer';
 
 // Redux Used to Keep track of Drawer Items and Seletcted Bottom Tabs
@@ -92,7 +94,9 @@ const App = () => {
                     {/* Rename */}
                     <Stack.Screen
                         name="Home"
-                        component={CustomDrawer}
+                        // Instead Load Tabs Navigation
+                        // component={CustomDrawer}
+                        component={Tabs}
                     />
 
                     <Stack.Screen

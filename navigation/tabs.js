@@ -8,7 +8,8 @@ import { createBottomTabNavigator, BottomTabBar } from "@react-navigation/bottom
 import Svg, { Path } from 'react-native-svg';
 import { isIphoneX } from 'react-native-iphone-x-helper';
 
-// Update Path to Home
+// Update Path to Home, Paths added below will redirect us to different screens
+// Might Need to Use State
 import { Home } from "../screens"
 
 import { COLORS, icons } from "../constants"
@@ -126,7 +127,7 @@ const Tabs = () => {
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <Image
-                            source={icons.cutlery}
+                            source={icons.home}
                             resizeMode="contain"
                             style={{
                                 width: 25,
@@ -144,12 +145,13 @@ const Tabs = () => {
             />
 
             <Tab.Screen
-                name="Search"
+                name="Cart"
+                // Modify Components to show other screens
                 component={Home}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <Image
-                            source={icons.search}
+                            source={icons.cart}
                             resizeMode="contain"
                             style={{
                                 width: 25,
@@ -167,12 +169,12 @@ const Tabs = () => {
             />
 
             <Tab.Screen
-                name="Like"
+                name="Notification"
                 component={Home}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <Image
-                            source={icons.like}
+                            source={icons.notification}
                             resizeMode="contain"
                             style={{
                                 width: 25,

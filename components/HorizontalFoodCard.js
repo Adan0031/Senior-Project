@@ -13,10 +13,10 @@ const HorizontalFoodCard = ({ containerStyle, imageStyle, item, onPress }) => {
             style={{
                 flexDirection: 'row',
                 borderRadius: SIZES.radius,
-                backgroundColor: COLORS.lightGray2,
+                backgroundColor: COLORS.grey,
                 ...containerStyle
             }}
-            onPress={onPress}
+            // onPress={onPress}
         >
             {/* Image */}
             <Image
@@ -30,7 +30,7 @@ const HorizontalFoodCard = ({ containerStyle, imageStyle, item, onPress }) => {
             <View
                 style={{
                     flex: 1,
-                    //marginTop: SIZES.padding
+                    marginTop: SIZES.padding
                 }}
             >
                 {/* Name */}

@@ -3,24 +3,20 @@ import {
     View,
     Text,
     TouchableOpacity,
-    Linking,
-    StyleSheet,
-    ScrollView
+    ScrollView,
 } from 'react-native';
 import { COLORS, FONTS, SIZES } from "../../constants";
-const Account = ({ navigation }) => {
+const Account = () => {
     return (
         <ScrollView
-            style={{backgroundColor: COLORS.gray}}
+            style={{ backgroundColor: COLORS.gray }}
         >
-        
             <Text style={{
                 ...FONTS.h1,
                 color: COLORS.white,
                 paddingBottom: '10%',
-                paddingTop:'10%',
+                paddingTop: '10%',
                 marginHorizontal: SIZES.padding
-
             }}
             >
                 Hi Username
@@ -30,23 +26,21 @@ const Account = ({ navigation }) => {
                 <Text // This is the button for Name
                     style={{
                         color: COLORS.white2,
-                        ...FONTS.h2,
+                        ...FONTS.h3,
                         marginHorizontal: SIZES.padding,
                         paddingTop: SIZES.padding,
-
                     }}
                 >
                     Name
                 </Text>
- 
+
             </TouchableOpacity>
             <View // This is the line for name
-                    style={{
-                        borderBottomColor: COLORS.linelightGray,
-                        borderBottomWidth: 1,
-                        paddingTop: SIZES.padding,
-                        paddingBottom: SIZES.padding
-                    }}
+                style={{
+                    borderBottomColor: COLORS.linelightGray,
+                    borderBottomWidth: 1,
+                    paddingTop: SIZES.padding,
+                }}
             />
 
 
@@ -54,7 +48,7 @@ const Account = ({ navigation }) => {
                 <Text // This is the button for Email
                     style={{
                         color: COLORS.white2,
-                        ...FONTS.h2,
+                        ...FONTS.h3,
                         marginHorizontal: SIZES.padding,
                         paddingTop: SIZES.padding,
 
@@ -65,19 +59,18 @@ const Account = ({ navigation }) => {
 
             </TouchableOpacity>
             <View // This is the line for email
-                    style={{
-                        borderBottomColor: COLORS.linelightGray,
-                        borderBottomWidth: 1,
-                        paddingTop: SIZES.padding,
-                        paddingBottom: SIZES.padding
-                    }}
+                style={{
+                    borderBottomColor: COLORS.linelightGray,
+                    borderBottomWidth: 1,
+                    paddingTop: SIZES.padding,
+                }}
             />
 
             <TouchableOpacity onPress={() => navigation.navigate('Account_password')}>
                 <Text // This is the button for Password
                     style={{
                         color: COLORS.white2,
-                        ...FONTS.h2,
+                        ...FONTS.h3,
                         marginHorizontal: SIZES.padding,
                         paddingTop: SIZES.padding,
 
@@ -88,12 +81,11 @@ const Account = ({ navigation }) => {
 
             </TouchableOpacity>
             <View // This is the line for password
-                    style={{
-                        borderBottomColor: COLORS.linelightGray,
-                        borderBottomWidth: 1,
-                        paddingTop: SIZES.padding,
-                        paddingBottom: SIZES.padding
-                    }}
+                style={{
+                    borderBottomColor: COLORS.linelightGray,
+                    borderBottomWidth: 1,
+                    paddingTop: SIZES.padding,
+                }}
             />
 
 
@@ -101,7 +93,7 @@ const Account = ({ navigation }) => {
                 <Text  // This is the button for Payment
                     style={{
                         color: COLORS.white2,
-                        ...FONTS.h2,
+                        ...FONTS.h3,
                         marginHorizontal: SIZES.padding,
                         paddingTop: SIZES.padding,
 
@@ -111,12 +103,11 @@ const Account = ({ navigation }) => {
                 </Text>
             </TouchableOpacity>
             <View // This is the line for Payment
-                    style={{
-                        borderBottomColor: COLORS.linelightGray,
-                        borderBottomWidth: 1,
-                        paddingTop: SIZES.padding,
-                        paddingBottom: SIZES.padding
-                    }}
+                style={{
+                    borderBottomColor: COLORS.linelightGray,
+                    borderBottomWidth: 1,
+                    paddingTop: SIZES.padding,
+                }}
             />
 
 
@@ -124,7 +115,7 @@ const Account = ({ navigation }) => {
                 <Text // This is the button for Order History
                     style={{
                         color: COLORS.white2,
-                        ...FONTS.h2,
+                        ...FONTS.h3,
                         marginHorizontal: SIZES.padding,
                         paddingTop: SIZES.padding,
 
@@ -135,12 +126,11 @@ const Account = ({ navigation }) => {
 
             </TouchableOpacity>
             <View // This is the line for order history
-                    style={{
-                        borderBottomColor: COLORS.linelightGray,
-                        borderBottomWidth: 1,
-                        paddingTop: SIZES.padding,
-                        paddingBottom: SIZES.padding
-                    }}
+                style={{
+                    borderBottomColor: COLORS.linelightGray,
+                    borderBottomWidth: 1,
+                    paddingTop: SIZES.padding,
+                }}
             />
 
 
@@ -148,7 +138,7 @@ const Account = ({ navigation }) => {
                 <Text // This is the button for Push Notifications
                     style={{
                         color: COLORS.white2,
-                        ...FONTS.h2,
+                        ...FONTS.h3,
                         marginHorizontal: SIZES.padding,
                         paddingTop: SIZES.padding,
 
@@ -159,12 +149,11 @@ const Account = ({ navigation }) => {
 
             </TouchableOpacity>
             <View // This is the line for push notifications
-                    style={{
-                        borderBottomColor: COLORS.linelightGray,
-                        borderBottomWidth: 1,
-                        paddingTop: SIZES.padding,
-                        paddingBottom: SIZES.padding
-                    }}
+                style={{
+                    borderBottomColor: COLORS.linelightGray,
+                    borderBottomWidth: 1,
+                    paddingTop: SIZES.padding,
+                }}
             />
 
 
@@ -172,25 +161,52 @@ const Account = ({ navigation }) => {
                 <Text // This is the button for App Feedback
                     style={{
                         color: COLORS.white2,
-                        ...FONTS.h2,
+                        ...FONTS.h3,
                         marginHorizontal: SIZES.padding,
                         paddingTop: SIZES.padding,
 
                     }}
                 >
-                   App Feedback 
+                    App Feedback
                 </Text>
             </TouchableOpacity>
             <View // This is the line for app feedback
-                    style={{
-                        borderBottomColor: COLORS.linelightGray,
-                        borderBottomWidth: 1,
-                        paddingTop: SIZES.padding,
-                        paddingBottom: SIZES.padding
-                    }}
+                style={{
+                    borderBottomColor: COLORS.linelightGray,
+                    borderBottomWidth: 1,
+                    paddingTop: SIZES.padding,
+                }}
             />
-        </ScrollView>
+            <TouchableOpacity style={{
+                marginTop: "10%",
+                paddingTop: "2%",
+                paddingBottom: "2%",
+                margin: "5%",
+                width: "50%",
+                alignSelf: "center",
+                backgroundColor: COLORS.primary,
+                borderRadius: 30,
+            }}
+                onPress={() => navigation.navigate('Account_app_feedback')}
+            >
+                <Text style={{
+                    textAlign: "center", color: COLORS.white2,
+                    ...FONTS.h4,
+                    marginHorizontal: SIZES.padding,
+                }}>
+                    Log Out 
+                </Text>
+            </TouchableOpacity>
+            <View // This is the line for app feedback
+                style={{
+                    borderBottomColor: COLORS.linelightGray,
+                    borderBottomWidth: 1,
+                    paddingTop: SIZES.padding,
+                    paddingBottom: (SIZES.padding * 2)
+                }}
+            />
 
+        </ScrollView>
     )
 }
 export default Account;

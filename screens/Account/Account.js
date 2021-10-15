@@ -177,6 +177,11 @@ const Account = () => {
                     paddingTop: SIZES.padding,
                 }}
             />
+            <View // This is the space between the button and the last gray line
+                style={{
+                    paddingTop: "5%",
+                }}
+            />
             <TouchableOpacity style={{
                 marginTop: "10%",
                 paddingTop: "2%",
@@ -194,15 +199,12 @@ const Account = () => {
                     ...FONTS.h4,
                     marginHorizontal: SIZES.padding,
                 }}>
-                    Log Out 
+                    Log Out
                 </Text>
             </TouchableOpacity>
             <View // This is the line for app feedback
                 style={{
-                    borderBottomColor: COLORS.linelightGray,
-                    borderBottomWidth: 1,
-                    paddingTop: SIZES.padding,
-                    paddingBottom: (SIZES.padding * 2)
+                    paddingTop: "20%",
                 }}
             />
 

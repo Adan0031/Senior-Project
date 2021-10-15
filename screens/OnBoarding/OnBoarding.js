@@ -127,7 +127,8 @@ const OnBoarding = ({ navigation }) => {
                                 color: COLORS.darkGray2
                             }}
                             // Takes you to the next set of screens
-                            onPress={() => navigation.replace("SignIn")}
+                            // onPress={() => navigation.replace("SignIn")}
+                            onPress={() => navigation.replace("Home")}
                         />
 
                         <TextButton
@@ -138,12 +139,13 @@ const OnBoarding = ({ navigation }) => {
                                 borderRadius: SIZES.radius
                             }}
                              // When Button is pressed we increase our index to scroll to the next screen
-                            onPress={() => {
-                                flatListRef?.current?.scrollToIndex({
-                                    index: currentIndex + 1,
-                                    animated: true
-                                })
-                            }}
+                            // onPress={() => {
+                            //     flatListRef?.current?.scrollToIndex({
+                            //         index: currentIndex + 1,
+                            //         animated: true
+                            //     })
+                            // }}
+                            onPress={() => navigation.replace("Home")}
                         />
                     </View>
                 }
@@ -162,7 +164,8 @@ const OnBoarding = ({ navigation }) => {
                                 borderRadius: SIZES.radius
                             }}
                             // Takes you to the next set of screens
-                            onPress={() => navigation.replace("SignIn")}
+                            // onPress={() => navigation.replace("SignIn")}
+                            onPress={() => navigation.replace("Home")}
                         />
                     </View>
                 }

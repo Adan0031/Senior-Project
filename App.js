@@ -64,8 +64,8 @@ const App = () => {
                         headerShown: false
                     }}
                     // Do not want to route to this screen yet
-                    // initialRouteName={'OnBoarding'}
-                    initialRouteName={'Home'}
+                    initialRouteName={'OnBoarding'}
+                    // initialRouteName={'Home'}
                 >
                     {/* Do not Display this one yet */}
                     <Stack.Screen

@@ -21,14 +21,15 @@ const Section = ({ title, onPress, children }) => {
         <View>
             {/* Header */}
             <View
-                style={{
-                    flexDirection: 'row',
-                    marginHorizontal: SIZES.padding,
-                    marginTop: 30,
-                    marginBottom: 20
-                }}
+                //EDIT* commented out to remove padding and show all
+                // style={{
+                //     flexDirection: 'row',
+                //     marginHorizontal: SIZES.padding,
+                //     marginTop: 30,
+                //     marginBottom: 20
+                // }}
             >
-                <Text style={{ flex: 1, ...FONTS.h3 }}>
+                {/* <Text style={{ flex: 1, ...FONTS.h3 }}>
                     {title}
                 </Text>
 
@@ -38,7 +39,7 @@ const Section = ({ title, onPress, children }) => {
                     <Text style={{ color: COLORS.primary, ...FONTS.body3 }}>
                         Show All
                     </Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </View>
 
             {/* Content */}
@@ -49,11 +50,16 @@ const Section = ({ title, onPress, children }) => {
 
 const Home = () => {
 
+    
+
     const [selectedCategoryId, setSelectedCategoryId] = React.useState(1)
     const [selectedMenuType, setSelectedMenuType] = React.useState(1)
     const [popular, setPopular] = React.useState([])
     const [recommends, setRecommends] = React.useState([])
     const [menuList, setMenuList] = React.useState([])
+
+    //restaurant list
+    const [list, setList] = React.useState([])
 
     const [showFilterModal, setShowFilterModal] = React.useState(false)
 
@@ -66,6 +72,7 @@ const Home = () => {
     // Handler
 
     function handleChangeCategory(categoryId, menuTypeId) {
+
         // Retrieve the popular menu
         let selectedPopular = dummyData.menu.find(a => a.name == "Popular")
 
@@ -75,6 +82,8 @@ const Home = () => {
         // Find the menu based on the menuTypeId
         let selectedMenu = dummyData.menu.find(a => a.id == menuTypeId)
 
+       
+
         // Set the popular menu based on the categoryId
         setPopular(selectedPopular?.list.filter(a => a.categories.includes(categoryId)))
 
@@ -83,6 +92,12 @@ const Home = () => {
 
         // Set the menu based on the categoryId
         setMenuList(selectedMenu?.list.filter(a => a.categories.includes(categoryId)))
+
+
+        // Retrieve restaurant list
+        //let selectedList = dummyData.restaurant.find(a => a.name == "List")
+        //setList(selectedList?.list.filter(a => a.categories.includes(categoryId)))
+
     }
 
     // Render
@@ -212,19 +227,18 @@ const Home = () => {
     function renderPopularSection() {
         return (
             <Section
-                title="Popular Near You"
-                onPress={() => console.log("Show all popular items")}
+                // title="Popular Near You"
+                // onPress={() => console.log("Show all popular items")}
             >
                 <FlatList
                     data={popular}
                     keyExtractor={item => `${item.id}`}
-                    horizontal
                     showsHorizontalScrollIndicator={false}
                     renderItem={({ item, index }) => (
                         <VerticalFoodCard
                             containerStyle={{
-                                marginLeft: index == 0 ? SIZES.padding : 18,
-                                marginRight: index == popular.length - 1 ? SIZES.padding : 0
+                                marginLeft: index == 0 ? SIZES.padding : 25,
+                                marginRight: index == popular.length - 1 ? SIZES.padding : 25,
                             }}
                             item={item}
                             onPress={() => navigation.navigate("FoodDetail", { foodItem: item })}
@@ -328,7 +342,10 @@ const Home = () => {
     return (
         <View
             style={{
-                flex: 1
+                flex: 1,
+                //padding to bottom so card is not behind tab.
+                marginBottom: 60
+                
             }}
         >
             {/* Search */}
@@ -344,51 +361,54 @@ const Home = () => {
 
             {/* List */}
             <FlatList
+            
                 data={menuList}
                 keyExtractor={(item) => `${item.id}`}
                 showsVerticalScrollIndicator={false}
-                // ListHeaderComponent={
-                //     <View>
-                //         {/* Delivery To */}
-                //         {renderDeliveryTo()}
+                
+                ListHeaderComponent={
+                    <View>
+                        {/* Delivery To */}
+                        {/* {renderDeliveryTo()} */}
 
-                //         {/* Food Categories */}
-                //         {renderFoodCategories()}
+                        {/* Food Categories */}
+                        {/* {renderFoodCategories()} */}
 
-                //         {/* Popular */}
-                //         {renderPopularSection()}
+                        {/* Popular */}
+                        {renderPopularSection()}
 
-                //         {/* Recommended */}
-                //         {renderRecommendedSection()}
+                        {/* Recommended */}
+                        {/* {renderRecommendedSection()} */}
 
-                //         {/* Menu Type */}
-                //         {renderMenuTypes()}
-                //     </View>
-                // }
-                renderItem={({ item, index }) => {
-                    return (
-                        <HorizontalFoodCard
-                            containerStyle={{
-                                height: 130,
-                                alignItems: 'center',
-                                marginHorizontal: SIZES.padding,
-                                marginBottom: SIZES.radius
-                            }}
-                            imageStyle={{
-                                marginTop: 20,
-                                height: 110,
-                                width: 110,
-                                marginHorizontal: 10,
-                                marginBottom: 15
-                            }}
-                            item={item}
-                            onPress={() => navigation.navigate("FoodDetail")}
-                        />
-                    )
-                }}
-                ListFooterComponent={
-                    <View style={{ height: 200 }} />
+                        {/* Menu Type */}
+                        {/* {renderMenuTypes()} */}
+                        
+                    </View>
                 }
+                // renderItem={({ item, index }) => {
+                //     return (
+                //         <HorizontalFoodCard
+                //             containerStyle={{
+                //                 height: 130,
+                //                 alignItems: 'center',
+                //                 marginHorizontal: SIZES.padding,
+                //                 marginBottom: SIZES.radius
+                //             }}
+                //             imageStyle={{
+                //                 marginTop: 20,
+                //                 height: 110,
+                //                 width: 110,
+                //                 marginHorizontal: 10,
+                //                 marginBottom: 15
+                //             }}
+                //             item={item}
+                //             onPress={() => navigation.navigate("FoodDetail")}
+                //         />
+                //     )
+                // }}
+                // ListFooterComponent={
+                //     <View style={{ height: 200 }} />
+                // }
             />
         </View>
     )

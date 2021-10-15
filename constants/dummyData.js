@@ -66,6 +66,17 @@ const wrapSandwich = {
     image: require("../assets/dummyData/pizza.png")
 }
 
+//for list of restaurants
+const restaurant = [
+    {
+        id: 1,
+        name: "List",
+        list: [
+            hamburger, hotTacos, vegBiryani,
+        ]
+    }
+]
+
 const menu = [
     {
         id: 1,

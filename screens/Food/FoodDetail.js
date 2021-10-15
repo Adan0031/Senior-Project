@@ -18,7 +18,9 @@ import {
 } from "../../components"
 import { FONTS, SIZES, COLORS, icons, images, dummyData } from "../../constants"
 
+
 const FoodDetail = ({ navigation, route }) => {
+
 
     const [selectedSize, setSelectedSize] = React.useState("")
     const [foodItem, setFoodItem] = React.useState([])
@@ -34,13 +36,14 @@ const FoodDetail = ({ navigation, route }) => {
     function renderHeader() {
         return (
             <Header
-                title="DETAILS"
+                //title="DETAILS"
                 containerStyle={{
                     height: 50,
                     marginHorizontal: SIZES.padding,
                     marginTop: 40
                 }}
                 leftComponent={
+                    //back button style and onpress
                     <IconButton
                         icon={icons.back}
                         containerStyle={{
@@ -83,7 +86,7 @@ const FoodDetail = ({ navigation, route }) => {
                     style={{
                         height: 190,
                         borderRadius: 15,
-                        backgroundColor: COLORS.lightGray2,
+                        backgroundColor: COLORS.grey,
                     }}
                 >
                     {/* Calories & Favourite */}
@@ -95,8 +98,9 @@ const FoodDetail = ({ navigation, route }) => {
                             paddingHorizontal: SIZES.radius,
                         }}
                     >
+                        {/* EDIT* commented out calories and favorite */}
                         {/* Calories */}
-                        <View
+                        {/* <View
                             style={{ flexDirection: 'row' }}
                         >
                             <Image
@@ -107,25 +111,27 @@ const FoodDetail = ({ navigation, route }) => {
                                 }}
                             />
                             <Text style={{ color: COLORS.darkGray2, ...FONTS.body4 }}>{foodItem?.calories} calories</Text>
-                        </View>
+                        </View> */}
 
                         {/* Favourite */}
-                        <Image
+                        {/* <Image
                             source={icons.love}
                             style={{
                                 height: 20,
                                 width: 20,
                                 tintColor: foodItem?.isFavourite ? COLORS.primary : COLORS.gray
                             }}
-                        />
+                        /> */}
 
                     </View>
 
                     {/* Food Image */}
                     <Image
+                    
                         source={foodItem?.image}
                         resizeMode="contain"
                         style={{
+                            borderRadius: 5,
                             height: 170,
                             width: "100%"
                         }}
@@ -144,7 +150,7 @@ const FoodDetail = ({ navigation, route }) => {
                     <Text
                         style={{
                             marginTop: SIZES.base,
-                            color: COLORS.darkGray,
+                            color: COLORS.grey,
                             textAlign: 'justify',
                             ...FONTS.body3,
                         }}
@@ -159,8 +165,9 @@ const FoodDetail = ({ navigation, route }) => {
                             marginTop: SIZES.padding
                         }}
                     >
+                        {/* EDIT* commented out ratings, duration and shipping label*/}
                         {/* Ratings */}
-                        <IconLabel
+                        {/* <IconLabel
                             containerStyle={{
                                 backgroundColor: COLORS.primary
                             }}
@@ -169,10 +176,10 @@ const FoodDetail = ({ navigation, route }) => {
                             labelStyle={{
                                 color: COLORS.white
                             }}
-                        />
+                        /> */}
 
                         {/* Duration */}
-                        <IconLabel
+                        {/* <IconLabel
                             containerStyle={{
                                 marginLeft: SIZES.radius,
                                 paddingHorizontal: 0
@@ -182,10 +189,10 @@ const FoodDetail = ({ navigation, route }) => {
                                 tintColor: COLORS.black
                             }}
                             label="30 Mins"
-                        />
+                        /> */}
 
                         {/* Shipping */}
-                        <IconLabel
+                        {/* <IconLabel
                             containerStyle={{
                                 marginLeft: SIZES.radius,
                                 paddingHorizontal: 0
@@ -195,7 +202,7 @@ const FoodDetail = ({ navigation, route }) => {
                                 tintColor: COLORS.black
                             }}
                             label="Free shipping"
-                        />
+                        /> */}
                     </View>
 
                     {/* Sizes */}
@@ -255,17 +262,17 @@ const FoodDetail = ({ navigation, route }) => {
                 }}
             >
                 {/* Image */}
-                <Image
+                {/* <Image
                     source={images.profile}
                     style={{
                         width: 50,
                         height: 50,
                         borderRadius: SIZES.radius
                     }}
-                />
+                /> */}
 
                 {/* Info */}
-                <View
+                {/* <View
                     style={{
                         flex: 1,
                         marginLeft: SIZES.radius,
@@ -274,15 +281,15 @@ const FoodDetail = ({ navigation, route }) => {
                 >
                     <Text style={{ ...FONTS.h3 }}>ByProgrammers</Text>
                     <Text style={{ color: COLORS.gray, ...FONTS.body4 }}>1.2 KM away from you</Text>
-                </View>
+                </View> */}
 
                 {/* Ratings */}
-                <Rating
+                {/* <Rating
                     rating={4}
                     iconStyle={{
                         marginLeft: 3
                     }}
-                />
+                /> */}
             </View>
         )
     }
@@ -320,7 +327,7 @@ const FoodDetail = ({ navigation, route }) => {
                     }}
                     label="Buy Now"
                     label2="$15.99"
-                    onPress={() => navigation.navigate("MyCart")}
+                    //onPress={() => navigation.navigate("MyCart")}
                 />
             </View>
         )

@@ -12,18 +12,21 @@ const VerticalFoodCard = ({ containerStyle, item, onPress }) => {
         <TouchableOpacity
             //card styling
             style={{
-                width: 400,
+
                 paddingVertical: SIZES.radius,
                 paddingHorizontal: SIZES.radius,
                 alignItems: 'center',
                 borderRadius: SIZES.radius,
-                backgroundColor: COLORS.lightGray2,
+                backgroundColor: COLORS.grey,
+                marginBottom: 15,
+                
                 ...containerStyle
             }}
             onPress={onPress}
         >
+            {/*EDIT* TOOK OFF FIRE ICON, # OF CALORIES, LIKE ICON*/}
             {/* Calories and Favourite */}
-            <View style={{ flexDirection: 'row' }}>
+            {/* <View style={{ flexDirection: 'row' }}>
                 <View style={{ flex: 1, flexDirection: 'row' }}>
                     <Image
                         source={icons.calories}
@@ -42,13 +45,16 @@ const VerticalFoodCard = ({ containerStyle, item, onPress }) => {
                         tintColor: item.isFavourite ? COLORS.primary : COLORS.gray
                     }}
                 />
-            </View>
+            </View> */}
+
+
 
             {/* Image */}
             <View
                 style={{
                     height: 150,
-                    width: 150,
+                    //EDIT* increased width to fit to card
+                    width: 350,
                     alignItems: 'center',
                     justifyContent: 'center'
                 }}
@@ -63,12 +69,16 @@ const VerticalFoodCard = ({ containerStyle, item, onPress }) => {
             <View
                 style={{
                     alignItems: 'center',
-                    marginTop: -20
+                    marginTop: 5,
+                    //EDIT* adding padding to text
+                    marginBottom: -5
+                    
                 }}
             >
-                <Text style={{ ...FONTS.h3 }}>{item.name}</Text>
-                <Text style={{ ...FONTS.body5, color: COLORS.darkGray2, textAlign: 'center' }}>{item.description}</Text>
-                <Text style={{ ...FONTS.h2, marginTop: SIZES.radius }}>${item.price}</Text>
+                <Text style={{ ...FONTS.h2, color: COLORS.white  }}>{item.name}</Text>
+                <Text style={{ ...FONTS.body5, color: COLORS.white, textAlign: 'center' }}>{item.description}</Text>
+                {/*removed marginTop */}
+                <Text style={{ ...FONTS.h2, color: COLORS.white}}>${item.price}</Text>
             </View>
         </TouchableOpacity>
     )

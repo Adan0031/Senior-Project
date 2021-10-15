@@ -81,8 +81,7 @@ const Home = () => {
         // Find the menu based on the menuTypeId
         let selectedMenu = dummyData.menu.find(a => a.id == menuTypeId)
 
-        // Retrieve restaurant list
-        //let selectedList = dummyData.restaurant.find(a => a.name == "List")
+       
 
         // Set the popular menu based on the categoryId
         setPopular(selectedPopular?.list.filter(a => a.categories.includes(categoryId)))
@@ -93,6 +92,9 @@ const Home = () => {
         // Set the menu based on the categoryId
         setMenuList(selectedMenu?.list.filter(a => a.categories.includes(categoryId)))
 
+
+        // Retrieve restaurant list
+        //let selectedList = dummyData.restaurant.find(a => a.name == "List")
         //setList(selectedList?.list.filter(a => a.categories.includes(categoryId)))
 
     }

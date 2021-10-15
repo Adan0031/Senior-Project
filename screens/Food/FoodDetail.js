@@ -4,6 +4,7 @@ import {
     Text,
     Image,
     ScrollView,
+    TextInput,
 } from 'react-native';
 
 import {
@@ -127,7 +128,7 @@ const FoodDetail = ({ navigation, route }) => {
 
                     {/* Food Image */}
                     <Image
-                    
+
                         source={foodItem?.image}
                         resizeMode="contain"
                         style={{
@@ -155,16 +156,17 @@ const FoodDetail = ({ navigation, route }) => {
                             ...FONTS.body3,
                         }}
                     >
-                        A popular spice and vegetables mixed favoured rice dish which is typically prepared by layering the biryani gravy and basmati rice in flat bottom vessel.
+                        Tomato, mozzarella, basil, parmigiano-reggiano.
                     </Text>
 
                     {/* Ratings & Duration & Shipping */}
                     <View
-                        style={{
-                            flexDirection: 'row',
-                            marginTop: SIZES.padding
-                        }}
+                    // style={{
+                    //     flexDirection: 'row',
+                    //     marginTop: SIZES.padding
+                    // }}
                     >
+
                         {/* EDIT* commented out ratings, duration and shipping label*/}
                         {/* Ratings */}
                         {/* <IconLabel
@@ -215,6 +217,7 @@ const FoodDetail = ({ navigation, route }) => {
                     >
                         <Text style={{ ...FONTS.h3 }}>Sizes:</Text>
 
+
                         <View
                             style={{
                                 flexDirection: 'row',
@@ -251,6 +254,58 @@ const FoodDetail = ({ navigation, route }) => {
         )
     }
 
+    function renderInstructions() {
+        return (
+            <View
+                style={{
+                    flexDirection: 'row',
+                    marginVertical: SIZES.padding,
+                    paddingHorizontal: SIZES.padding,
+                    alignItems: 'center'
+                }}
+            >
+                <Text
+                    style={{
+                        marginTop: SIZES.base,
+                        color: COLORS.grey,
+                        textAlign: 'justify',
+                        ...FONTS.body3,
+                    }}
+                >
+                    Please note that special requests may result in price adjustments after your order is processed
+                </Text>
+            </View >
+        )
+    }
+
+    function renderInput() {
+        return (
+            <View
+                style={{
+                    flexDirection: 'row',
+                    height: 40,
+                    alignItems: 'center',
+                    marginHorizontal: SIZES.padding,
+                    marginVertical: SIZES.base,
+                    paddingHorizontal: SIZES.radius,
+                    borderRadius: SIZES.radius,
+                    backgroundColor: COLORS.lightGray2
+                }}
+            >
+                {/* Text Input */}
+                <TextInput
+                    style={{
+                        flex: 1,
+                        marginLeft: SIZES.radius,
+                        ...FONTS.body3
+                    }}
+                    placeholder="instructions..."
+                />
+            </View>
+        )
+    }
+
+    //EDIT* commented out function call
     function renderRestaurant() {
         return (
             <View
@@ -261,18 +316,27 @@ const FoodDetail = ({ navigation, route }) => {
                     alignItems: 'center'
                 }}
             >
+                <Text
+                    style={{
+                        marginTop: SIZES.base,
+                        color: COLORS.grey,
+                        textAlign: 'justify',
+                        ...FONTS.body3,
+                    }}
+                >
+                    Please note that special requests may result in price adjustments after your order is processed                    </Text>
                 {/* Image */}
-                {/* <Image
+                <Image
                     source={images.profile}
                     style={{
                         width: 50,
                         height: 50,
                         borderRadius: SIZES.radius
                     }}
-                /> */}
+                />
 
                 {/* Info */}
-                {/* <View
+                <View
                     style={{
                         flex: 1,
                         marginLeft: SIZES.radius,
@@ -281,15 +345,15 @@ const FoodDetail = ({ navigation, route }) => {
                 >
                     <Text style={{ ...FONTS.h3 }}>ByProgrammers</Text>
                     <Text style={{ color: COLORS.gray, ...FONTS.body4 }}>1.2 KM away from you</Text>
-                </View> */}
+                </View>
 
                 {/* Ratings */}
-                {/* <Rating
+                <Rating
                     rating={4}
                     iconStyle={{
                         marginLeft: 3
                     }}
-                /> */}
+                />
             </View>
         )
     }
@@ -327,7 +391,7 @@ const FoodDetail = ({ navigation, route }) => {
                     }}
                     label="Buy Now"
                     label2="$15.99"
-                    //onPress={() => navigation.navigate("MyCart")}
+                //onPress={() => navigation.navigate("MyCart")}
                 />
             </View>
         )
@@ -340,6 +404,7 @@ const FoodDetail = ({ navigation, route }) => {
                 backgroundColor: COLORS.white
             }}
         >
+
             {/* Header */}
             {renderHeader()}
 
@@ -348,9 +413,14 @@ const FoodDetail = ({ navigation, route }) => {
                 {renderDetails()}
 
                 <LineDivider />
+                {/* Instructions */}
+                {renderInstructions()}
+                {renderInput()}
 
                 {/* Restaurant */}
-                {renderRestaurant()}
+                {/* {renderRestaurant()} */}
+                
+
             </ScrollView>
 
             {/* Footer */}

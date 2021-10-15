@@ -21,14 +21,15 @@ const Section = ({ title, onPress, children }) => {
         <View>
             {/* Header */}
             <View
-                style={{
-                    flexDirection: 'row',
-                    marginHorizontal: SIZES.padding,
-                    marginTop: 30,
-                    marginBottom: 20
-                }}
+                //EDIT* commented out to remove padding and show all
+                // style={{
+                //     flexDirection: 'row',
+                //     marginHorizontal: SIZES.padding,
+                //     marginTop: 30,
+                //     marginBottom: 20
+                // }}
             >
-                <Text style={{ flex: 1, ...FONTS.h3 }}>
+                {/* <Text style={{ flex: 1, ...FONTS.h3 }}>
                     {title}
                 </Text>
 
@@ -38,7 +39,7 @@ const Section = ({ title, onPress, children }) => {
                     <Text style={{ color: COLORS.primary, ...FONTS.body3 }}>
                         Show All
                     </Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </View>
 
             {/* Content */}
@@ -237,7 +238,7 @@ const Home = () => {
                         <VerticalFoodCard
                             containerStyle={{
                                 marginLeft: index == 0 ? SIZES.padding : 25,
-                                marginRight: index == popular.length - 1 ? SIZES.padding : 25
+                                marginRight: index == popular.length - 1 ? SIZES.padding : 25,
                             }}
                             item={item}
                             onPress={() => navigation.navigate("FoodDetail", { foodItem: item })}
@@ -341,7 +342,10 @@ const Home = () => {
     return (
         <View
             style={{
-                flex: 1
+                flex: 1,
+                //padding to bottom so card is not behind tab.
+                marginBottom: 60
+                
             }}
         >
             {/* Search */}
@@ -378,6 +382,7 @@ const Home = () => {
 
                         {/* Menu Type */}
                         {/* {renderMenuTypes()} */}
+                        
                     </View>
                 }
                 // renderItem={({ item, index }) => {

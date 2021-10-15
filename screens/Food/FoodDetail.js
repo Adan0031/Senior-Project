@@ -152,7 +152,6 @@ const FoodDetail = ({ navigation, route }) => {
                         style={{
                             marginTop: SIZES.base,
                             color: COLORS.grey,
-                            textAlign: 'justify',
                             ...FONTS.body3,
                         }}
                     >
@@ -268,11 +267,10 @@ const FoodDetail = ({ navigation, route }) => {
                     style={{
                         marginTop: SIZES.base,
                         color: COLORS.grey,
-                        textAlign: 'justify',
                         ...FONTS.body3,
                     }}
                 >
-                    Please note that special requests may result in price adjustments after your order is processed
+                    Please note that special requests may result in price adjustments after your order is processed.
                 </Text>
             </View >
         )
@@ -286,7 +284,7 @@ const FoodDetail = ({ navigation, route }) => {
                     height: 40,
                     alignItems: 'center',
                     marginHorizontal: SIZES.padding,
-                    marginVertical: SIZES.base,
+                    marginBottom: SIZES.base,
                     paddingHorizontal: SIZES.radius,
                     borderRadius: SIZES.radius,
                     backgroundColor: COLORS.lightGray2
@@ -324,7 +322,8 @@ const FoodDetail = ({ navigation, route }) => {
                         ...FONTS.body3,
                     }}
                 >
-                    Please note that special requests may result in price adjustments after your order is processed                    </Text>
+                    Please note that special requests may result in price adjustments after your order is processed.
+                    </Text>
                 {/* Image */}
                 <Image
                     source={images.profile}
@@ -419,7 +418,7 @@ const FoodDetail = ({ navigation, route }) => {
 
                 {/* Restaurant */}
                 {/* {renderRestaurant()} */}
-                
+
 
             </ScrollView>
 

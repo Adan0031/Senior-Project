@@ -104,12 +104,13 @@ const OnBoarding = ({ navigation }) => {
                         justifyContent: 'center'
                     }}
                 >
-                    <Dots />
+                    {/* Don't Render Dots */}
+                    {/* <Dots /> */}
                 </View>
 
                 {/* Buttons */}
                 {/* While we are still within the two out of three screens */}
-                {currentIndex < constants.onboarding_screens.length - 1 &&
+                {/* {currentIndex < constants.onboarding_screens.length - 1 && */}
                     <View
                         style={{
                             flexDirection: 'row',
@@ -119,7 +120,8 @@ const OnBoarding = ({ navigation }) => {
                         }}
                     >
                         <TextButton
-                            label="Skip"
+                            // label="Skip"
+                            label="Sign Up"
                             buttonContainerStyle={{
                                 backgroundColor: null
                             }}
@@ -132,7 +134,8 @@ const OnBoarding = ({ navigation }) => {
                         />
 
                         <TextButton
-                            label="Next"
+                            // label="Next"
+                            label="Log In"
                             buttonContainerStyle={{
                                 height: 60,
                                 width: 200,
@@ -148,9 +151,9 @@ const OnBoarding = ({ navigation }) => {
                             onPress={() => navigation.replace("Home")}
                         />
                     </View>
-                }
+                {/* } */}
                 {/* Once we have reached the last screen the buttons should change */}
-                {currentIndex == constants.onboarding_screens.length - 1 &&
+                {/* {currentIndex == constants.onboarding_screens.length - 1 &&
                     <View
                         style={{
                             paddingHorizontal: SIZES.padding,
@@ -168,7 +171,7 @@ const OnBoarding = ({ navigation }) => {
                             onPress={() => navigation.replace("Home")}
                         />
                     </View>
-                }
+                } */}
             </View>
         )
     }
@@ -181,7 +184,7 @@ const OnBoarding = ({ navigation }) => {
             }}
         >
             {/* Do Not Render Logo, Render UTRGV LOGO */}
-            {/* {renderHeaderLogo()} */}
+            {renderHeaderLogo()}
 
             <Animated.FlatList
                 ref={flatListRef}

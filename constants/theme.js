@@ -6,6 +6,7 @@ export const COLORS = {
     primary: '#CF4411', // Our Colors Palette 
     // secondary: 'black',
     transparentPrimary: 'rgba(227, 120, 75, 0.4)',
+    orange: "#FFA133",
     lightOrange: "#FFA133",
     lightOrange2: "#FDDED4",
     lightOrange3: '#FFD9AD',
@@ -16,12 +17,12 @@ export const COLORS = {
     darkBlue: "#111A2C",
     darkGray: "#525C67",
     darkGray2: "#757D85",
-    gray: "#373F46", // Our Gray secondary color
+    gray: "#898B9A",
     gray2: "#BBBDC1",
     gray3: '#CFD0D7',
-    linelightGray: "#757575",
+    lightGray1: "#DDDDDD",
     lightGray2: "#F5F5F8",
-    white2: "#F0F0F0",
+    white2: "#FBFBFB",
     white: '#FFFFFF',
     black: "#000000",
     grey: '#373F46', // Our Color Palette 
@@ -42,7 +43,7 @@ export const SIZES = {
     // font sizes
     largeTitle: 40,
     h1: 30,
-    h2: 20,
+    h2: 22,
     h3: 16,
     h4: 14,
     h5: 12,

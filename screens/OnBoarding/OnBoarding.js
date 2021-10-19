@@ -115,12 +115,14 @@ const OnBoarding = ({ navigation }) => {
                     <View
                         style={{
                             flexDirection: 'row',
-                            justifyContent: 'space-between',
+                            // justifyContent: 'space-between',
+                            justifyContent: 'center',
                             paddingHorizontal: SIZES.padding,
                             marginVertical: SIZES.padding
                         }}
                     >
-                        <TextButton
+                        {/* Have TO fix routing with Sign Up Button */}
+                        {/* <TextButton
                             // label="Skip"
                             label="Sign Up"
                             buttonContainerStyle={{
@@ -131,8 +133,8 @@ const OnBoarding = ({ navigation }) => {
                             }}
                             // Takes you to the next set of screens
                             // onPress={() => navigation.replace("SignIn")}
-                            onPress={() => navigation.replace("SignUp")}
-                        />
+                            onPress={() => navigation.replace("SignIn")}
+                        /> */}
 
                         <TextButton
                             // label="Next"

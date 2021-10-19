@@ -199,12 +199,12 @@ const SignUp = ({ navigation }) => {
                         borderRadius: SIZES.radius,
                         backgroundColor: COLORS.lightGray2,
                     }}
-                    icon={icons.google}
+                    icon={icons.outlook}
                     iconPosition="LEFT"
                     iconStyle={{
                         tintColor: null
                     }}
-                    label="Continue With Google"
+                    label="Continue With Outlook"
                     labelStyle={{
                         marginLeft: SIZES.radius,
                     }}

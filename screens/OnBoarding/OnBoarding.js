@@ -131,7 +131,7 @@ const OnBoarding = ({ navigation }) => {
                             }}
                             // Takes you to the next set of screens
                             // onPress={() => navigation.replace("SignIn")}
-                            onPress={() => navigation.replace("Home")}
+                            onPress={() => navigation.replace("SignUp")}
                         />
 
                         <TextButton
@@ -149,7 +149,7 @@ const OnBoarding = ({ navigation }) => {
                             //         animated: true
                             //     })
                             // }}
-                            onPress={() => navigation.replace("Home")}
+                            onPress={() => navigation.replace("SignIn")}
                         />
                     </View>
                 {/* } */}
@@ -189,22 +189,22 @@ const OnBoarding = ({ navigation }) => {
 
             {/* <Animated.FlatList */}
             <FlatList
-                ref={flatListRef}
+                // ref={flatListRef}
                 // horizontal
                 pagingEnabled
                 data={constants.onboarding_screens}
                 // scrollEventThrottle={16}
-                snapToAlignment="center"
-                showsHorizontalScrollIndicator={false}
+                // snapToAlignment="center"
+                // showsHorizontalScrollIndicator={false}
                 // Horizontal Scroll for the three screens
-                onScroll={Animated.event(
-                    [
-                        { nativeEvent: { contentOffset: { x: scrollX } } }
-                    ],
-                    { useNativeDriver: false }
-                )}
+                // onScroll={Animated.event(
+                //     [
+                //         { nativeEvent: { contentOffset: { x: scrollX } } }
+                //     ],
+                //     { useNativeDriver: false }
+                // )}
                 // Which screen is currently visible
-                onViewableItemsChanged={onViewChangeRef.current}
+                // onViewableItemsChanged={onViewChangeRef.current}
                 keyExtractor={(item) => `${item.id}`}
                 renderItem={({ item, index }) => {
                     return (
@@ -214,12 +214,12 @@ const OnBoarding = ({ navigation }) => {
                             }}
                         >
                             {/* Header */}
-                            <View
+                            {/* <View
                                 style={{
                                     flex: 3
                                 }}
                             >
-                                {/* <ImageBackground
+                                <ImageBackground
                                     source={item.backgroundImage}
                                     style={{
                                         flex: 1,
@@ -238,8 +238,8 @@ const OnBoarding = ({ navigation }) => {
                                             marginBottom: -SIZES.padding
                                         }}
                                     />
-                                </ImageBackground> */}
-                            </View>
+                                </ImageBackground>
+                            </View> */}
 
                             {/* Detail */}
                             <View

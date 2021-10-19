@@ -72,7 +72,6 @@ const App = () => {
                         name="OnBoarding"
                         component={OnBoarding}
                     />
-                    {/* Do not Display this one yet */}
                     <Stack.Screen
                         name="SignIn"
                         component={SignIn}

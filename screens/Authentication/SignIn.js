@@ -164,7 +164,7 @@ const SignIn = ({ navigation }) => {
 
             {/* Footer */}
             <View>
-                <TextIconButton
+                {/* <TextIconButton
                     containerStyle={{
                         height: 50,
                         alignItems: 'center',
@@ -182,7 +182,7 @@ const SignIn = ({ navigation }) => {
                         color: COLORS.white
                     }}
                     onPress={() => navigation.replace("Home")}
-                />
+                /> */}
 
                 <TextIconButton
                     containerStyle={{

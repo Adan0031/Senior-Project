@@ -27,29 +27,6 @@ import { FONTS, SIZES, COLORS, icons, images, dummyData } from "../../constants"
 const Section = ({ title, onPress, children }) => {
     return (
         <View>
-            {/* Header */}
-            <View
-            //EDIT* commented out to remove padding and show all
-            // style={{
-            //     flexDirection: 'row',
-            //     marginHorizontal: SIZES.padding,
-            //     marginTop: 30,
-            //     marginBottom: 20
-            // }}
-            >
-                {/* <Text style={{ flex: 1, ...FONTS.h3 }}>
-                    {title}
-                </Text>
-
-                <TouchableOpacity
-                    onPress={onPress}
-                >
-                    <Text style={{ color: COLORS.primary, ...FONTS.body3 }}>
-                        Show All
-                    </Text>
-                </TouchableOpacity> */}
-            </View>
-
             {/* Content */}
             {children}
         </View>
@@ -64,30 +41,31 @@ const FoodSelection = ({ route }) => {
     const [menuList, setMenuList] = React.useState([])
 
 
+
+    const [foodItem, setFoodItem] = React.useState([])
+    React.useEffect(() => {
+        let { foodItem } = route.params
+        setFoodItem(foodItem)
+    }, [])
+    // const [milkFlower, setRestaurant] = React.useState([])
+    // const [tacoBell, setRestaurant] = React.useState([])
+    // const [burgerKing, setRestaurant] = React.useState([])
     React.useEffect(() => {
         handleChangeCategory(selectedCategoryId)
     }, [])
     function handleChangeCategory(categoryId, menuTypeId) {
 
 
-        let selectedPopular = dummyData.menu.find(a => a.name == "Popular")
+        let selectedPopular = dummyData.menu.find(a => a.name == "Milkflower")
+        // let selectedMilkFlower = dummyData.menu.find(a => a.name == "Popular")
+        // let selectedTacoBell = dummyData.menu.find(a => a.name == "Popular")
+        // let selectedBurgerKing = dummyData.menu.find(a => a.name == "Popular")
 
 
 
-
-        setPopular(selectedPopular?.list.filter(a => a.categories.includes(categoryId)))
+        setPopular(selectedPopular?.list)
     }
 
-    const [selectedSize, setSelectedSize] = React.useState("")
-    const [foodItem, setFoodItem] = React.useState([])
-    const [qty, setQty] = React.useState(1)
-
-    React.useEffect(() => {
-        let { foodItem } = route.params
-        setFoodItem(foodItem)
-    }, [])
-
-    // Render
 
     function renderHeader() {
         return (
@@ -127,32 +105,6 @@ const FoodSelection = ({ route }) => {
             />
         )
     }
-    //////////////////////////////////////////////////////////////////////////////
-    function renderPopularSection() {
-        return (
-            <Section
-            // title="Popular Near You"
-            // onPress={() => console.log("Show all popular items")}
-            >
-                <FlatList
-                    data={popular}
-                    keyExtractor={item => `${item.id}`}
-                    showsHorizontalScrollIndicator={false}
-                    renderItem={({ item, index }) => (
-                        <VerticalFoodCard
-                            containerStyle={{
-                                marginLeft: index == 0 ? SIZES.padding : 25,
-                                marginRight: index == popular.length - 1 ? SIZES.padding : 25,
-                            }}
-                            item={item}
-                            onPress={() => navigation.navigate("FoodDetail", { foodItem: item })}
-                        />
-                    )}
-                />
-            </Section>
-        )
-    }
-    //////////////////////////////////////////////////////////////////////////////////
 
     function renderDetails() {
         return (
@@ -166,11 +118,12 @@ const FoodSelection = ({ route }) => {
                 {/* Food Card */}
                 <View
                     style={{
-                        height: 190,
+                        height: 250,
                         borderRadius: 15,
                         backgroundColor: COLORS.grey,
                     }}
                 >
+
                     {/* Calories & Favourite */}
                     <View
                         style={{
@@ -178,57 +131,70 @@ const FoodSelection = ({ route }) => {
                             justifyContent: 'space-between',
                             marginTop: SIZES.base,
                             paddingHorizontal: SIZES.radius,
+                    
                         }}
-                    ></View>
+                    >
+                    </View>
 
                     {/* Food Image */}
+                    <Image
 
-                    <TouchableOpacity >
-                        <Image
-
-                            source={foodItem?.image}
-                            resizeMode="contain"
-                            style={{
-                                borderRadius: 5,
-                                height: 170,
-                                width: "100%"
-                            }}
-
-                        />
-                    </TouchableOpacity>
-                    {/*ADDED*/}
-                    {/* <FlatList>
-                        data={popular}
-                        keyExtractor={item => `${item.id}`}
-                        showsHorizontalScrollIndicator={false}
-                        renderItem={({ item, index }) => (
-                            <VerticalFoodCard
-                                containerStyle={{
-                                    marginLeft: index == 0 ? SIZES.padding : 25,
-                                    marginRight: index == popular.length - 1 ? SIZES.padding : 25,
-                                }}
-                                item={item}
-                                onPress={() => navigation.navigate("FoodSelection", { foodItem: item })}
-                            />
-                        )}
-                            
-                    </FlatList> */}
+                        source={foodItem?.image}
+                        resizeMode="contain"
+                        style={{
+                            borderRadius: 5,
+                            height: 170,
+                            width: "100%"
+                        }}
+                    />
+                    {/* Name & Description */}
+                    <Text style={{ ...FONTS.h2, marginLeft: "5%", color: COLORS.white }}>{foodItem?.name}</Text>
+                    <Text style={{ ...FONTS.body5, marginLeft: "5%", color: COLORS.white}}>{foodItem?.description}</Text>
+                    <Text style={{ ...FONTS.body5, marginLeft: "5%", color: COLORS.white}}>{foodItem?.distance}</Text>
 
                 </View>
+
+
             </View>
         )
     }
 
-   
+    //////////////////////////////////////////////////////////////////////////////
+    function renderPopularSection() {
+        return (
+            <Section
+            // title="Popular Near You"
+            // onPress={() => console.log("Show all popular items")}
+            >
+                <FlatList
+                    data={popular}
+                    keyExtractor={item => `${item.id}`}
+                    showsHorizontalScrollIndicator={false}
+                    renderItem={({ item, index }) => (
 
-   
+                        <VerticalFoodCard
+                            containerStyle={{
+                                marginLeft: index == 0 ? SIZES.padding : 25,
+                                marginRight: index == popular.length - 1 ? SIZES.padding : 25,
+                            }}
+
+
+                            item={item}
+                            onPress={() => navigation.navigate("FoodDetail", { foodItem: item })}
+                        />
+                    )}
+                />
+            </Section>
+        )
+    }
+    //////////////////////////////////////////////////////////////////////////////////
 
     return (
         <View
             style={{
                 flex: 1,
                 //padding to bottom so card is not behind tab.
-                marginBottom: 60
+                marginBottom: 60,
 
             }}
         >
@@ -249,10 +215,15 @@ const FoodSelection = ({ route }) => {
                 showsVerticalScrollIndicator={false}
 
                 ListHeaderComponent={
-                    <View>
+                    <View
+                        
+                    >
 
                         {/* Header */}
                         {renderHeader()}
+
+                        {renderDetails()}
+
                         {/* Popular */}
                         {renderPopularSection()}
 

@@ -22,25 +22,20 @@ const categories = [
     }
 ]
 
+//////////////////////////Restaurants list///////////////////////////////
 const milkFlower = {
     id: 1,
     name: "Milkflower",
     description: "Italian Pizza",
-    categories: [1, 2],
-    price: 15.99,
-    calories: 78,
-    isFavourite: true,
-    image: require("../assets/dummyData/pizza.png")
+    distance: "12-15min - $1.99 Delivery",
+    image: require("../assets/dummyData/milkFlower.png")
 }
 
 const tacoBell = {
     id: 2,
     name: "Tacobell",
     description: "tacos",
-    categories: [1, 3],
-    price: 10.99,
-    calories: 78,
-    isFavourite: false,
+    distance: "12-15min - $1.99 Delivery",
     image: require("../assets/dummyData/hot_tacos.png")
 }
 
@@ -48,10 +43,7 @@ const burgerKing = {
     id: 3,
     name: "Burger King",
     description: "burgers",
-    categories: [1, 2, 3],
-    price: 10.99,
-    calories: 78,
-    isFavourite: true,
+    distance: "12-15min - $1.99 Delivery",
     image: require("../assets/dummyData/hamburger.png")
 }
 
@@ -59,20 +51,48 @@ const wrapSandwich = {
     id: 4,
     name: "Milkflower",
     description: "Italian Pizza",
+    distance: "12-15min - $1.99 Delivery",
     categories: [1, 2],
-    price: 10.99,
-    calories: 78,
-    isFavourite: true,
     image: require("../assets/dummyData/pizza.png")
 }
 
 
+/////////////////////////////////////menu list//////////////////////////////
+const pizza = {
+    id: 1,
+    name: "Milkflower",
+    price: "$15.99",
+    calories: 78,
+    isFavourite: true,
+    image: require("../assets/dummyData/pizza.png")
+}
+const salad = {
+    id: 2,
+    name: "Swiss Chard Caesar",
+    categories: [1, 2],
+    price: "$15.99",
+    calories: 78,
+    isFavourite: true,
+    image: require("../assets/dummyData/salad.png")
+}
+const drink = {
+    id: 3,
+    name: "Hamburger",
+    categories: [1, 2],
+    price: "$15.99",
+    calories: 78,
+    isFavourite: true,
+    image: require("../assets/dummyData/hamburger.png")
+}
+
+///////////////////////////////////////////////////////////////////////////////////////
+
 const menu = [
     {
         id: 1,
-        name: "Featured",
+        name: "Milkflower",
         list: [
-            milkFlower, tacoBell, burgerKing,
+            pizza, salad, drink,
         ]
     },
     // {
@@ -84,7 +104,7 @@ const menu = [
     // },
     {
         id: 2,
-        name: "Nearby you",
+        name: "Taco Bell",
         list: [
             milkFlower, burgerKing, wrapSandwich,
         ]
@@ -227,41 +247,16 @@ const fromLocs = [
 
 
 
-// const pizza = {
-//     id: 1,
-//     name: "Milkflower",
-//     description: "Italian Pizza",
-//     categories: [1, 2],
-//     price: 15.99,
-//     calories: 78,
-//     isFavourite: true,
-//     image: require("../assets/dummyData/pizza.png")
-// }
+// const first = [
+//     {
+//         id: 0,
+//         name: "Milk Flower",
+//         list: [
+//             pizza, salad, drink,
+//         ]
+//     }
+// ]
 
-
-// const salad = {
-//     id: 1,
-//     name: "Milkflower",
-//     description: "Italian Pizza",
-//     categories: [1, 2],
-//     price: 15.99,
-//     calories: 78,
-//     isFavourite: true,
-//     image: require("../assets/dummyData/hot_tacos.png")
-// }
-
-
-
-// const drink = {
-//     id: 1,
-//     name: "Milkflower",
-//     description: "Italian Pizza",
-//     categories: [1, 2],
-//     price: 15.99,
-//     calories: 78,
-//     isFavourite: true,
-//     image: require("../assets/dummyData/hamburger.png")
-// }
 
 
 

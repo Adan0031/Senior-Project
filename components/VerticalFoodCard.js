@@ -66,6 +66,7 @@ const VerticalFoodCard = ({ containerStyle, item, onPress }) => {
             </View>
 
             {/* Info */}
+            
             <View
                 style={{
                     alignItems: 'center',
@@ -78,7 +79,10 @@ const VerticalFoodCard = ({ containerStyle, item, onPress }) => {
                 <Text style={{ ...FONTS.h2, color: COLORS.white  }}>{item.name}</Text>
                 <Text style={{ ...FONTS.body5, color: COLORS.white, textAlign: 'center' }}>{item.description}</Text>
                 {/*removed marginTop */}
-                <Text style={{ ...FONTS.h2, color: COLORS.white}}>${item.price}</Text>
+              
+                <Text style={{ ...FONTS.h2, color: COLORS.white}}>{item.price}</Text>
+         
+
             </View>
         </TouchableOpacity>
     )

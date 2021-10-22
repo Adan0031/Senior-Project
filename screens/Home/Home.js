@@ -60,6 +60,9 @@ const Home = () => {
 
     //added new list for restaurant
     const [restaurant, setRestaurant] = React.useState([])
+    // const [milkFlower, setRestaurant] = React.useState([])
+    // const [tacoBell, setRestaurant] = React.useState([])
+    // const [burgerKing, setRestaurant] = React.useState([])
 
 
     //restaurant list
@@ -80,7 +83,7 @@ const Home = () => {
         // Retrieve the popular menu
         // let selectedPopular = dummyData.menu.find(a => a.name == "Popular")
         let selectedRestaurant = dummyData.restaurant.find(a => a.name == "Restaurant")
-
+ 
 
         // // Retrieve the recommended menu
         // let selectedRecommend = dummyData.menu.find(a => a.name == "Recommended")
@@ -92,8 +95,9 @@ const Home = () => {
 
         // Set the popular menu based on the categoryId
         // setPopular(selectedPopular?.list.filter(a => a.categories.includes(categoryId)))
+        setRestaurant(selectedRestaurant?.list)
 
-        setRestaurant(selectedRestaurant?.list.filter(a => a.categories.includes(categoryId)))
+
 
         // // Set the recommended menu based on the categoryId
         // setRecommends(selectedRecommend?.list.filter(a => a.categories.includes(categoryId)))
@@ -256,6 +260,7 @@ const Home = () => {
     //         </Section>
     //     )
     // }
+
     function renderRestaurantSection() {
         return (
             <Section
@@ -280,6 +285,7 @@ const Home = () => {
             </Section>
         )
     }
+    
 
     // function renderFoodCategories() {
     //     return (

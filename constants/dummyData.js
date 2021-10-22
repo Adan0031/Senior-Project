@@ -22,7 +22,7 @@ const categories = [
     }
 ]
 
-const hamburger = {
+const milkFlower = {
     id: 1,
     name: "Milkflower",
     description: "Italian Pizza",
@@ -33,26 +33,26 @@ const hamburger = {
     image: require("../assets/dummyData/pizza.png")
 }
 
-const hotTacos = {
+const tacoBell = {
     id: 2,
-    name: "Milkflower",
-    description: "Italian Pizza",
+    name: "Tacobell",
+    description: "tacos",
     categories: [1, 3],
     price: 10.99,
     calories: 78,
     isFavourite: false,
-    image: require("../assets/dummyData/pizza.png")
+    image: require("../assets/dummyData/hot_tacos.png")
 }
 
-const vegBiryani = {
+const burgerKing = {
     id: 3,
-    name: "Milkflower",
-    description: "Italian Pizza",
+    name: "Burger King",
+    description: "burgers",
     categories: [1, 2, 3],
     price: 10.99,
     calories: 78,
     isFavourite: true,
-    image: require("../assets/dummyData/pizza.png")
+    image: require("../assets/dummyData/hamburger.png")
 }
 
 const wrapSandwich = {
@@ -66,58 +66,55 @@ const wrapSandwich = {
     image: require("../assets/dummyData/pizza.png")
 }
 
-//for list of restaurants
-const restaurant = [
-    {
-        id: 1,
-        name: "List",
-        list: [
-            hamburger, hotTacos, vegBiryani,
-        ]
-    }
-]
 
 const menu = [
     {
         id: 1,
         name: "Featured",
         list: [
-            hamburger, hotTacos, vegBiryani,
+            milkFlower, tacoBell, burgerKing,
         ]
     },
+    // {
+    //     id: 1,
+    //     name: "Restaurant",
+    //     list: [
+    //         milkFlower, tacoBell, burgerKing,
+    //     ]
+    // },
     {
         id: 2,
         name: "Nearby you",
         list: [
-            hamburger, vegBiryani, wrapSandwich,
+            milkFlower, burgerKing, wrapSandwich,
         ]
     },
     {
         id: 3,
         name: "Popular",
         list: [
-            hamburger, hotTacos, wrapSandwich,
+            milkFlower, tacoBell, wrapSandwich,
         ]
     },
     {
         id: 4,
         name: "Newest",
         list: [
-            hamburger, hotTacos, vegBiryani,
+            milkFlower, tacoBell, burgerKing,
         ]
     },
     {
         id: 5,
         name: "Trending",
         list: [
-            hamburger, vegBiryani, wrapSandwich,
+            milkFlower, burgerKing, wrapSandwich,
         ]
     },
     {
         id: 6,
         name: "Recommended",
         list: [
-            hamburger, hotTacos, wrapSandwich,
+            milkFlower, tacoBell, wrapSandwich,
         ]
     },
 
@@ -144,15 +141,15 @@ const sizes = [
 
 const myCart = [
     {
-        ...hamburger,
+        ...milkFlower,
         qty: 1
     },
     {
-        ...hotTacos,
+        ...tacoBell,
         qty: 1
     },
     {
-        ...vegBiryani,
+        ...burgerKing,
         qty: 1
     }
 ]
@@ -228,10 +225,94 @@ const fromLocs = [
     }
 ]
 
+
+
+// const pizza = {
+//     id: 1,
+//     name: "Milkflower",
+//     description: "Italian Pizza",
+//     categories: [1, 2],
+//     price: 15.99,
+//     calories: 78,
+//     isFavourite: true,
+//     image: require("../assets/dummyData/pizza.png")
+// }
+
+
+// const salad = {
+//     id: 1,
+//     name: "Milkflower",
+//     description: "Italian Pizza",
+//     categories: [1, 2],
+//     price: 15.99,
+//     calories: 78,
+//     isFavourite: true,
+//     image: require("../assets/dummyData/hot_tacos.png")
+// }
+
+
+
+// const drink = {
+//     id: 1,
+//     name: "Milkflower",
+//     description: "Italian Pizza",
+//     categories: [1, 2],
+//     price: 15.99,
+//     calories: 78,
+//     isFavourite: true,
+//     image: require("../assets/dummyData/hamburger.png")
+// }
+
+
+
+const restaurant = [
+    {
+        id: 0,
+        name: "Restaurant",
+        list: [
+            milkFlower, tacoBell, burgerKing,
+        ]
+    },
+    // {
+    //     id: 2,
+    //     name: "Taco Bell",
+    //     list: [
+    //         burgerKing, tacoBell, milkFlower,
+    //     ]
+    // },
+    // {
+    //     id: 3,
+    //     name: "Burger King",
+    //     list: [
+    //         salad, drink, pizza,
+    //     ]
+    // }
+
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export default {
     myProfile,
     categories,
     menu,
+    restaurant,
     sizes,
     myCart,
     myCards,

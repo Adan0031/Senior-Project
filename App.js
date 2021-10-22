@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from '@react-navigation/native';
-import { SafeAreaProvider  } from "react-native-safe-area-context";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 // Import Tabs Used for Navigation
 import Tabs from './navigation/tabs';
@@ -22,6 +22,7 @@ import {
     ForgotPassword,
     Otp,
     FoodDetail,
+    FoodSelection,
     MyCart,
     Checkout,
     Success,
@@ -30,7 +31,7 @@ import {
     AddCard,
 
     DeliveryStatus,
-    
+
     Map,
 } from "./screens";
 
@@ -65,7 +66,7 @@ const App = () => {
                     }}
                     // Do not want to route to this screen yet
                     initialRouteName={'OnBoarding'}
-                    // initialRouteName={'Home'}
+                // initialRouteName={'Home'}
                 >
                     {/* Do not Display this one yet */}
                     <Stack.Screen
@@ -102,6 +103,11 @@ const App = () => {
                     <Stack.Screen
                         name="FoodDetail"
                         component={FoodDetail}
+                    />
+
+                    <Stack.Screen
+                        name="FoodSelection"
+                        component={FoodSelection}
                     />
 
                     <Stack.Screen

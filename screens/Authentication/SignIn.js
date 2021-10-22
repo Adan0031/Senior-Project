@@ -31,7 +31,7 @@ const SignIn = ({ navigation }) => {
     return (
         <AuthLayout
             title="Let's Sign You In"
-            subtitle="Welcome back, you've been missed!"
+            subtitle="Welcome back Vaquero, you've been missed!"
         >
             <View
                 style={{
@@ -46,7 +46,7 @@ const SignIn = ({ navigation }) => {
                     autoCompleteType="email"
                     value={email}
                     onChange={(value) => {
-                        utils.validateEmail(value, setEmailError)
+                        // utils.validateEmail(value, setEmailError)
                         setEmail(value)
                     }}
                     errorMsg={emailError}
@@ -57,7 +57,9 @@ const SignIn = ({ navigation }) => {
                             }}
                         >
                             <Image
-                                source={(email == "") || (email != "" && emailError == "") ? icons.correct : icons.cancel}
+
+                                // source={(email == "") || (email != "" && emailError == "") ? s.ciconorrect : icons.cancel}
+                                source={(email == "") || (email != "" && emailError == "") ? null : null}
                                 style={{
                                     height: 20,
                                     width: 20,
@@ -87,7 +89,8 @@ const SignIn = ({ navigation }) => {
                             onPress={() => setShowPass(!showPass)}
                         >
                             <Image
-                                source={showPass ? icons.eye_close : icons.eye}
+                                // source={showPass ? icons.eye_close : icons.eye}
+                                source={showPass ? null : null}
                                 style={{
                                     height: 20,
                                     width: 20,
@@ -107,13 +110,13 @@ const SignIn = ({ navigation }) => {
                     }}
                 >
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <CustomSwitch
+                        {/* <CustomSwitch
                             value={saveMe}
                             onChange={(value) => setSaveMe(value)}
-                        />
+                        /> */}
                     </View>
                     <TextButton
-                        label="Forgot Password?"
+                        // label="Forgot Password?"
                         buttonContainerStyle={{
                             backgroundColor: null
                         }}

@@ -6,7 +6,7 @@ import {
     ScrollView,
 } from 'react-native';
 import { COLORS, FONTS, SIZES } from "../../constants";
-const Account = () => {
+const Account = ({navigation}) => {
     return (
         <ScrollView
             style={{ backgroundColor: COLORS.gray }}
@@ -111,7 +111,7 @@ const Account = () => {
             />
 
 
-            <TouchableOpacity onPress={() => navigation.navigate('Account_order_history')}>
+            <TouchableOpacity onPress={() => navigation.navigate('Account_orders_history_screen')}>
                 <Text // This is the button for Order History
                     style={{
                         color: COLORS.white2,
@@ -134,7 +134,7 @@ const Account = () => {
             />
 
 
-            <TouchableOpacity onPress={() => navigation.navigate('Account_push_notifications')}>
+            <TouchableOpacity onPress={() => navigation.navigate('App_notifications')}>
                 <Text // This is the button for Push Notifications
                     style={{
                         color: COLORS.white2,
@@ -192,7 +192,7 @@ const Account = () => {
                 backgroundColor: COLORS.primary,
                 borderRadius: 30,
             }}
-                onPress={() => navigation.navigate('Account_app_feedback')}
+                onPress={() => navigation.navigate('Log')}
             >
                 <Text style={{
                     textAlign: "center", color: COLORS.white2,

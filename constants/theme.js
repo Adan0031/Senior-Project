@@ -14,7 +14,7 @@ export const COLORS = {
     red2: "#FF6C44",
     blue: '#0064C0',
     darkBlue: "#111A2C",
-    darkGray: "#525C67",
+    darkGray: "#212121", // Our very dark gray for the account tabs
     darkGray2: "#757D85",
     gray: "#373F46", // Our Gray secondary color
     gray2: "#BBBDC1",

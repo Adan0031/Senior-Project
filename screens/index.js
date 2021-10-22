@@ -40,19 +40,23 @@ import MyCard from "./Card/MyCard"
 import AddCard from "./Card/AddCard"
 // Map
 import Map from "./Map/Map"
-
+import Account_name from "./Account/Acc_Tabs/Account_Name"
+import App_notifications from "./Account/Acc_Tabs/App_Notifications"
 // Delivery
 import DeliveryStatus from "./Delivery/DeliveryStatus"
-
+import Account_email from "./Account/Acc_Tabs/Email"
+import Account_password from "./Account/Acc_Tabs/Password"
+import Account_payment from "./Account/Acc_Tabs/Payment"
+import Account_orders_history_screen from "./Account/Acc_Tabs/Order_History"
 export {
     OnBoarding,
-
+    Account_email,
     AuthLayout,
     SignIn,
     SignUp,
     ForgotPassword,
     Otp,
-
+    App_notifications,
     MainLayout,
     Home,
     FilterModal,
@@ -61,7 +65,7 @@ export {
     // Favourite,
     Notification,
     Account, // Added 
-
+    Account_name,
     FoodDetail,
     MyCart,
     Checkout,
@@ -73,4 +77,7 @@ export {
     DeliveryStatus,
     
     Map,
+    Account_password,
+    Account_payment,
+    Account_orders_history_screen
 }

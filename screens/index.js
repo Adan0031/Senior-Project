@@ -35,6 +35,9 @@ import Account from "./Account/Account"
 // Food
 import FoodDetail from "./Food/FoodDetail"
 
+// Food List
+import FoodSelection from "./Food/FoodSelection"
+
 // Card
 import MyCard from "./Card/MyCard"
 import AddCard from "./Card/AddCard"
@@ -67,6 +70,7 @@ export {
     Account, // Added 
     Account_name,
     FoodDetail,
+    FoodSelection,
     MyCart,
     Checkout,
     Success,

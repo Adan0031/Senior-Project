@@ -22,102 +22,119 @@ const categories = [
     }
 ]
 
-const hamburger = {
+//////////////////////////Restaurants list///////////////////////////////
+const milkFlower = {
     id: 1,
     name: "Milkflower",
     description: "Italian Pizza",
-    categories: [1, 2],
-    price: 15.99,
-    calories: 78,
-    isFavourite: true,
-    image: require("../assets/dummyData/pizza.png")
+    distance: "12-15min - $1.99 Delivery",
+    image: require("../assets/dummyData/milkFlower.png")
 }
 
-const hotTacos = {
+const tacoBell = {
     id: 2,
-    name: "Milkflower",
-    description: "Italian Pizza",
-    categories: [1, 3],
-    price: 10.99,
-    calories: 78,
-    isFavourite: false,
-    image: require("../assets/dummyData/pizza.png")
+    name: "Tacobell",
+    description: "tacos",
+    distance: "12-15min - $1.99 Delivery",
+    image: require("../assets/dummyData/hot_tacos.png")
 }
 
-const vegBiryani = {
+const burgerKing = {
     id: 3,
-    name: "Milkflower",
-    description: "Italian Pizza",
-    categories: [1, 2, 3],
-    price: 10.99,
-    calories: 78,
-    isFavourite: true,
-    image: require("../assets/dummyData/pizza.png")
+    name: "Burger King",
+    description: "burgers",
+    distance: "12-15min - $1.99 Delivery",
+    image: require("../assets/dummyData/hamburger.png")
 }
 
 const wrapSandwich = {
     id: 4,
     name: "Milkflower",
     description: "Italian Pizza",
+    distance: "12-15min - $1.99 Delivery",
     categories: [1, 2],
-    price: 10.99,
+    image: require("../assets/dummyData/pizza.png")
+}
+
+
+/////////////////////////////////////menu list//////////////////////////////
+const pizza = {
+    id: 1,
+    name: "Milkflower",
+    price: "$15.99",
     calories: 78,
     isFavourite: true,
     image: require("../assets/dummyData/pizza.png")
 }
+const salad = {
+    id: 2,
+    name: "Swiss Chard Caesar",
+    categories: [1, 2],
+    price: "$15.99",
+    calories: 78,
+    isFavourite: true,
+    image: require("../assets/dummyData/salad.png")
+}
+const drink = {
+    id: 3,
+    name: "Hamburger",
+    categories: [1, 2],
+    price: "$15.99",
+    calories: 78,
+    isFavourite: true,
+    image: require("../assets/dummyData/hamburger.png")
+}
 
-//for list of restaurants
-const restaurant = [
-    {
-        id: 1,
-        name: "List",
-        list: [
-            hamburger, hotTacos, vegBiryani,
-        ]
-    }
-]
+///////////////////////////////////////////////////////////////////////////////////////
 
 const menu = [
     {
         id: 1,
-        name: "Featured",
+        name: "Milkflower",
         list: [
-            hamburger, hotTacos, vegBiryani,
+            pizza, salad, drink,
         ]
     },
+    // {
+    //     id: 1,
+    //     name: "Restaurant",
+    //     list: [
+    //         milkFlower, tacoBell, burgerKing,
+    //     ]
+    // },
     {
         id: 2,
-        name: "Nearby you",
+        name: "Taco Bell",
         list: [
-            hamburger, vegBiryani, wrapSandwich,
+            milkFlower, burgerKing, wrapSandwich,
         ]
     },
     {
         id: 3,
         name: "Popular",
         list: [
-            hamburger, hotTacos, wrapSandwich,
+            milkFlower, tacoBell, wrapSandwich,
         ]
     },
     {
         id: 4,
         name: "Newest",
         list: [
-            hamburger, hotTacos, vegBiryani,
+            milkFlower, tacoBell, burgerKing,
         ]
     },
     {
         id: 5,
         name: "Trending",
         list: [
-            hamburger, vegBiryani, wrapSandwich,
+            milkFlower, burgerKing, wrapSandwich,
         ]
     },
     {
         id: 6,
         name: "Recommended",
         list: [
-            hamburger, hotTacos, wrapSandwich,
+            milkFlower, tacoBell, wrapSandwich,
         ]
     },
 
@@ -144,15 +161,15 @@ const sizes = [
 
 const myCart = [
     {
-        ...hamburger,
+        ...milkFlower,
         qty: 1
     },
     {
-        ...hotTacos,
+        ...tacoBell,
         qty: 1
     },
     {
-        ...vegBiryani,
+        ...burgerKing,
         qty: 1
     }
 ]
@@ -228,10 +245,69 @@ const fromLocs = [
     }
 ]
 
+
+
+// const first = [
+//     {
+//         id: 0,
+//         name: "Milk Flower",
+//         list: [
+//             pizza, salad, drink,
+//         ]
+//     }
+// ]
+
+
+
+
+const restaurant = [
+    {
+        id: 0,
+        name: "Restaurant",
+        list: [
+            milkFlower, tacoBell, burgerKing,
+        ]
+    },
+    // {
+    //     id: 2,
+    //     name: "Taco Bell",
+    //     list: [
+    //         burgerKing, tacoBell, milkFlower,
+    //     ]
+    // },
+    // {
+    //     id: 3,
+    //     name: "Burger King",
+    //     list: [
+    //         salad, drink, pizza,
+    //     ]
+    // }
+
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export default {
     myProfile,
     categories,
     menu,
+    restaurant,
     sizes,
     myCart,
     myCards,

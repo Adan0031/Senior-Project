@@ -6,6 +6,7 @@ import {
     Image,
 } from 'react-native';
 import { COLORS, FONTS, icons, SIZES } from '../constants';
+import { AuthLayout } from '../screens';
 
 const VerticalFoodCard = ({ containerStyle, item, onPress }) => {
     return (
@@ -15,7 +16,7 @@ const VerticalFoodCard = ({ containerStyle, item, onPress }) => {
 
                 paddingVertical: SIZES.radius,
                 paddingHorizontal: SIZES.radius,
-                alignItems: 'center',
+                // alignItems: 'center',
                 borderRadius: SIZES.radius,
                 backgroundColor: COLORS.grey,
                 marginBottom: 15,
@@ -52,16 +53,18 @@ const VerticalFoodCard = ({ containerStyle, item, onPress }) => {
             {/* Image */}
             <View
                 style={{
+                 
                     height: 150,
                     //EDIT* increased width to fit to card
-                    width: 350,
+                    width: 325,
                     alignItems: 'center',
                     justifyContent: 'center'
                 }}
             >
                 <Image
                     source={item.image}
-                    style={{ height: "100%", width: "100%" }}
+                    resizeMode="contain"
+                    style={{height: "100%", width: "100%" }}
                 />
             </View>
 
@@ -69,15 +72,16 @@ const VerticalFoodCard = ({ containerStyle, item, onPress }) => {
             
             <View
                 style={{
-                    alignItems: 'center',
-                    marginTop: 5,
+
                     //EDIT* adding padding to text
-                    marginBottom: -5
+                    marginBottom: -25
                     
                 }}
             >
                 <Text style={{ ...FONTS.h2, color: COLORS.white  }}>{item.name}</Text>
-                <Text style={{ ...FONTS.body5, color: COLORS.white, textAlign: 'center' }}>{item.description}</Text>
+                <Text style={{ ...FONTS.body5, color: COLORS.white}}>{item.description}</Text>
+                <Text style={{ ...FONTS.body5, color: COLORS.white}}>{item.distance}</Text>
+
                 {/*removed marginTop */}
               
                 <Text style={{ ...FONTS.h2, color: COLORS.white}}>{item.price}</Text>

@@ -19,7 +19,7 @@ import {
     Rating,
     StepperInput,
     TextButton,
-
+    HorizontalFoodCard,
     VerticalFoodCard
 } from "../../components"
 import { FONTS, SIZES, COLORS, icons, images, dummyData } from "../../constants"
@@ -38,7 +38,13 @@ const FoodSelection = ({ route }) => {
     const [milkflower, setMilkflower] = React.useState([])
     const navigation = useNavigation();
     const [showFilterModal, setShowFilterModal] = React.useState(false)
+
+    //need for menu list horizantal view
     const [menuList, setMenuList] = React.useState([])
+    const [selectedMenuType, setSelectedMenuType] = React.useState(1)
+
+
+
 
 
 
@@ -47,7 +53,7 @@ const FoodSelection = ({ route }) => {
         let { foodItem } = route.params
         setFoodItem(foodItem)
     }, [])
-  
+
     React.useEffect(() => {
         handleChangeCategory(selectedCategoryId)
     }, [])
@@ -56,6 +62,12 @@ const FoodSelection = ({ route }) => {
 
         let selectedMilkflower = dummyData.menu.find(a => a.name == "Milkflower")
         setMilkflower(selectedMilkflower?.list)
+
+        // // Find the menu based on the menuTypeId
+        let selectedMenu = dummyData.menuHorizontal.find(a => a.id == menuTypeId)
+
+        // // Set the menu based on the categoryId
+        setMenuList(selectedMenu?.list)
     }
 
 
@@ -117,32 +129,34 @@ const FoodSelection = ({ route }) => {
                 >
 
                     {/* Calories & Favourite */}
-                    <View
+                    {/* <View
                         style={{
                             flexDirection: 'row',
                             justifyContent: 'space-between',
                             marginTop: SIZES.base,
                             paddingHorizontal: SIZES.radius,
-                    
+
                         }}
                     >
-                    </View>
+                    </View> */}
 
                     {/* Food Image */}
                     <Image
 
                         source={foodItem?.image}
-                        resizeMode="contain"
+                        resizeMode='contain'
                         style={{
-                            borderRadius: 5,
+                        
+                            alignContent: 'center',
                             height: 170,
-                            width: "100%"
+                            width: "100%",
+
                         }}
                     />
                     {/* Name & Description */}
-                    <Text style={{ ...FONTS.h2, marginLeft: "5%", color: COLORS.white }}>{foodItem?.name}</Text>
-                    <Text style={{ ...FONTS.body5, marginLeft: "5%", color: COLORS.white}}>{foodItem?.description}</Text>
-                    <Text style={{ ...FONTS.body5, marginLeft: "5%", color: COLORS.white}}>{foodItem?.distance}</Text>
+                    <Text style={{ ...FONTS.h2, marginLeft: "2%", color: COLORS.white }}>{foodItem?.name}</Text>
+                    <Text style={{ ...FONTS.body5, marginLeft: "2%", color: COLORS.white }}>{foodItem?.description}</Text>
+                    <Text style={{ ...FONTS.body5, marginLeft: "2%", color: COLORS.white }}>{foodItem?.distance}</Text>
 
                 </View>
 
@@ -180,6 +194,43 @@ const FoodSelection = ({ route }) => {
         )
     }
     //////////////////////////////////////////////////////////////////////////////////
+    function renderMenuTypes() {
+        return (
+            <FlatList
+                horizontal
+                data={dummyData.menuHorizontal}
+                keyExtractor={item => `${item.id}`}
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{
+                    marginTop: 30,
+                    marginBottom: 20
+                }}
+                renderItem={({ item, index }) => (
+                    <TouchableOpacity
+                        style={{
+                            marginLeft: SIZES.padding,
+                            marginRight: index == dummyData.menuHorizontal.length - 1 ? SIZES.padding : 0
+                        }}
+                        onPress={() => {
+                            setSelectedMenuType(item.id)
+                            handleChangeCategory(selectedCategoryId, item.id)
+                        }}
+                    >
+                        <Text
+                            style={{
+                                color: selectedMenuType == item.id ? COLORS.primary : COLORS.black,
+                                ...FONTS.h3
+                            }}
+                        >
+                            {item.name}
+                        </Text>
+                    </TouchableOpacity>
+                )}
+            />
+        )
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////
 
     return (
         <View
@@ -208,7 +259,7 @@ const FoodSelection = ({ route }) => {
 
                 ListHeaderComponent={
                     <View
-                        
+
                     >
 
                         {/* Header */}
@@ -217,10 +268,36 @@ const FoodSelection = ({ route }) => {
                         {renderDetails()}
 
                         {/* Popular */}
-                        {renderPopularSection()}
+                        {/* {renderPopularSection()} */}
+
+                        {renderMenuTypes()}
 
                     </View>
                 }
+                renderItem={({ item, index }) => {
+                    return (
+                        <HorizontalFoodCard
+                            containerStyle={{
+                                height: 130,
+                                alignItems: 'center',
+                                marginHorizontal: SIZES.padding,
+                                marginBottom: SIZES.radius
+                            }}
+                            imageStyle={{
+                                marginTop: 20,
+                                height: 110,
+                                width: 110,
+                                marginHorizontal: 10,
+                                marginBottom: 15
+                            }}
+                            item={item}
+                            onPress={() => navigation.navigate("FoodDetail", { foodItem: item })}
+                        />
+                    )
+                }}
+                // ListFooterComponent={
+                //     <View style={{ height: 200 }} />
+                // }
             />
         </View>
     )

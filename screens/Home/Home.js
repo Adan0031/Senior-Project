@@ -60,9 +60,6 @@ const Home = () => {
 
     //added new list for restaurant
     const [restaurant, setRestaurant] = React.useState([])
-    // const [milkFlower, setRestaurant] = React.useState([])
-    // const [tacoBell, setRestaurant] = React.useState([])
-    // const [burgerKing, setRestaurant] = React.useState([])
 
 
     //restaurant list
@@ -86,10 +83,10 @@ const Home = () => {
  
 
         // // Retrieve the recommended menu
-        // let selectedRecommend = dummyData.menu.find(a => a.name == "Recommended")
+        let selectedRecommend = dummyData.menu.find(a => a.name == "Recommended")
 
         // // Find the menu based on the menuTypeId
-        // let selectedMenu = dummyData.menu.find(a => a.id == menuTypeId)
+        let selectedMenu = dummyData.menuHorizontal.find(a => a.id == menuTypeId)
 
        
 
@@ -100,10 +97,10 @@ const Home = () => {
 
 
         // // Set the recommended menu based on the categoryId
-        // setRecommends(selectedRecommend?.list.filter(a => a.categories.includes(categoryId)))
+        setRecommends(selectedRecommend?.list)
 
         // // Set the menu based on the categoryId
-        // setMenuList(selectedMenu?.list.filter(a => a.categories.includes(categoryId)))
+        setMenuList(selectedMenu?.list)
 
 
         // Retrieve restaurant list
@@ -165,76 +162,76 @@ const Home = () => {
         )
     }
 
-    // function renderMenuTypes() {
-    //     return (
-    //         <FlatList
-    //             horizontal
-    //             data={dummyData.menu}
-    //             keyExtractor={item => `${item.id}`}
-    //             showsHorizontalScrollIndicator={false}
-    //             contentContainerStyle={{
-    //                 marginTop: 30,
-    //                 marginBottom: 20
-    //             }}
-    //             renderItem={({ item, index }) => (
-    //                 <TouchableOpacity
-    //                     style={{
-    //                         marginLeft: SIZES.padding,
-    //                         marginRight: index == dummyData.menu.length - 1 ? SIZES.padding : 0
-    //                     }}
-    //                     onPress={() => {
-    //                         setSelectedMenuType(item.id)
-    //                         handleChangeCategory(selectedCategoryId, item.id)
-    //                     }}
-    //                 >
-    //                     <Text
-    //                         style={{
-    //                             color: selectedMenuType == item.id ? COLORS.primary : COLORS.black,
-    //                             ...FONTS.h3
-    //                         }}
-    //                     >
-    //                         {item.name}
-    //                     </Text>
-    //                 </TouchableOpacity>
-    //             )}
-    //         />
-    //     )
-    // }
+    function renderMenuTypes() {
+        return (
+            <FlatList
+                horizontal
+                data={dummyData.menuHorizontal}
+                keyExtractor={item => `${item.id}`}
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{
+                    marginTop: 30,
+                    marginBottom: 20
+                }}
+                renderItem={({ item, index }) => (
+                    <TouchableOpacity
+                        style={{
+                            marginLeft: SIZES.padding,
+                            marginRight: index == dummyData.menuHorizontal.length - 1 ? SIZES.padding : 0
+                        }}
+                        onPress={() => {
+                            setSelectedMenuType(item.id)
+                            handleChangeCategory(selectedCategoryId, item.id)
+                        }}
+                    >
+                        <Text
+                            style={{
+                                color: selectedMenuType == item.id ? COLORS.primary : COLORS.black,
+                                ...FONTS.h3
+                            }}
+                        >
+                            {item.name}
+                        </Text>
+                    </TouchableOpacity>
+                )}
+            />
+        )
+    }
 
-    // function renderRecommendedSection() {
-    //     return (
-    //         <Section
-    //             title="Recommended"
-    //             onPress={() => console.log("Show all recommended")}
-    //         >
-    //             <FlatList
-    //                 data={recommends}
-    //                 keyExtractor={item => `${item.id}`}
-    //                 horizontal
-    //                 showsHorizontalScrollIndicator={false}
-    //                 renderItem={({ item, index }) => (
-    //                     <HorizontalFoodCard
-    //                         containerStyle={{
-    //                             height: 200,
-    //                             width: SIZES.width * 0.85,
-    //                             marginLeft: index == 0 ? SIZES.padding : 18,
-    //                             marginRight: index == recommends.length - 1 ? SIZES.padding : 0,
-    //                             paddingRight: SIZES.radius,
-    //                             alignItems: 'center'
-    //                         }}
-    //                         imageStyle={{
-    //                             marginTop: 35,
-    //                             height: 150,
-    //                             width: 150
-    //                         }}
-    //                         item={item}
-    //                         onPress={() => navigation.navigate("FoodDetail")}
-    //                     />
-    //                 )}
-    //             />
-    //         </Section>
-    //     )
-    // }
+    function renderRecommendedSection() {
+        return (
+            <Section
+                title="Recommended"
+                onPress={() => console.log("Show all recommended")}
+            >
+                <FlatList
+                    data={recommends}
+                    keyExtractor={item => `${item.id}`}
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    renderItem={({ item, index }) => (
+                        <HorizontalFoodCard
+                            containerStyle={{
+                                height: 200,
+                                width: SIZES.width * 0.85,
+                                marginLeft: index == 0 ? SIZES.padding : 18,
+                                marginRight: index == recommends.length - 1 ? SIZES.padding : 0,
+                                paddingRight: SIZES.radius,
+                                alignItems: 'center'
+                            }}
+                            imageStyle={{
+                                marginTop: 35,
+                                height: 150,
+                                width: 150
+                            }}
+                            item={item}
+                            onPress={() => navigation.navigate("FoodDetail")}
+                        />
+                    )}
+                />
+            </Section>
+        )
+    }
 
     // function renderPopularSection() {
     //     return (
@@ -421,34 +418,34 @@ const Home = () => {
                         {/* {renderRecommendedSection()} */}
 
                         {/* Menu Type */}
-                        {/* {renderMenuTypes()} */}
+                        {renderMenuTypes()}
                         
                     </View>
                 }
-                // renderItem={({ item, index }) => {
-                //     return (
-                //         <HorizontalFoodCard
-                //             containerStyle={{
-                //                 height: 130,
-                //                 alignItems: 'center',
-                //                 marginHorizontal: SIZES.padding,
-                //                 marginBottom: SIZES.radius
-                //             }}
-                //             imageStyle={{
-                //                 marginTop: 20,
-                //                 height: 110,
-                //                 width: 110,
-                //                 marginHorizontal: 10,
-                //                 marginBottom: 15
-                //             }}
-                //             item={item}
-                //             onPress={() => navigation.navigate("FoodDetail")}
-                //         />
-                //     )
-                // }}
-                // ListFooterComponent={
-                //     <View style={{ height: 200 }} />
-                // }
+                renderItem={({ item, index }) => {
+                    return (
+                        <HorizontalFoodCard
+                            containerStyle={{
+                                height: 130,
+                                alignItems: 'center',
+                                marginHorizontal: SIZES.padding,
+                                marginBottom: SIZES.radius
+                            }}
+                            imageStyle={{
+                                marginTop: 20,
+                                height: 110,
+                                width: 110,
+                                marginHorizontal: 10,
+                                marginBottom: 15
+                            }}
+                            item={item}
+                            onPress={() => navigation.navigate("FoodDetail", { foodItem: item })}
+                        />
+                    )
+                }}
+                ListFooterComponent={
+                    <View style={{ height: 200 }} />
+                }
             />
         </View>
     )

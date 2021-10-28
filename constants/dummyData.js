@@ -36,7 +36,7 @@ const tacoBell = {
     name: "Tacobell",
     description: "tacos",
     distance: "12-15min - $1.99 Delivery",
-    image: require("../assets/dummyData/hot_tacos.png")
+    image: require("../assets/dummyData/tacobell.png")
 }
 
 const burgerKing = {
@@ -44,7 +44,7 @@ const burgerKing = {
     name: "Burger King",
     description: "burgers",
     distance: "12-15min - $1.99 Delivery",
-    image: require("../assets/dummyData/hamburger.png")
+    image: require("../assets/dummyData/burgerking.png")
 }
 
 const wrapSandwich = {
@@ -60,29 +60,32 @@ const wrapSandwich = {
 /////////////////////////////////////menu list//////////////////////////////
 const pizza = {
     id: 1,
-    name: "Milkflower",
-    price: "$15.99",
+    name: "Queen Pizza",
+    description: "Tomato, mozzarella, basil, parmigiano-reggiano.",
+    price: "15.99",
     calories: 78,
     isFavourite: true,
-    image: require("../assets/dummyData/pizza.png")
+    image: require("../assets/dummyData/queenpizza.png")
 }
 const salad = {
     id: 2,
     name: "Swiss Chard Caesar",
+    description: "Pangrattato and paresan with lemon anchovy dressing",
     categories: [1, 2],
-    price: "$15.99",
+    price: "15.99",
     calories: 78,
     isFavourite: true,
     image: require("../assets/dummyData/salad.png")
 }
 const drink = {
     id: 3,
-    name: "Hamburger",
+    name: "Coke",
+    description: "12 oz Coca-Cola",
     categories: [1, 2],
-    price: "$15.99",
+    price: "15.99",
     calories: 78,
     isFavourite: true,
-    image: require("../assets/dummyData/hamburger.png")
+    image: require("../assets/dummyData/drink.png")
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -109,36 +112,62 @@ const menu = [
             milkFlower, burgerKing, wrapSandwich,
         ]
     },
+    // {
+    //     id: 3,
+    //     name: "Popular",
+    //     list: [
+    //         milkFlower, tacoBell, wrapSandwich,
+    //     ]
+    // },
+    // {
+    //     id: 4,
+    //     name: "Newest",
+    //     list: [
+    //         milkFlower, tacoBell, burgerKing,
+    //     ]
+    // },
+    // {
+    //     id: 5,
+    //     name: "Trending",
+    //     list: [
+    //         milkFlower, burgerKing, wrapSandwich,
+    //     ]
+    // },
+    // {
+    //     id: 6,
+    //     name: "Recommended",
+    //     list: [
+    //         milkFlower, tacoBell, wrapSandwich,
+    //     ]
+    // },
+
+]
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+const menuHorizontal = [
+    {
+        id: 1,
+        name: "Main Dish",
+        list: [
+            pizza, salad, drink
+        ]
+    },
+    {
+        id: 2,
+        name: "Starters",
+        list: [
+            salad, drink, pizza       ]
+    },
     {
         id: 3,
-        name: "Popular",
+        name: "Drinks",
         list: [
-            milkFlower, tacoBell, wrapSandwich,
-        ]
-    },
-    {
-        id: 4,
-        name: "Newest",
-        list: [
-            milkFlower, tacoBell, burgerKing,
-        ]
-    },
-    {
-        id: 5,
-        name: "Trending",
-        list: [
-            milkFlower, burgerKing, wrapSandwich,
-        ]
-    },
-    {
-        id: 6,
-        name: "Recommended",
-        list: [
-            milkFlower, tacoBell, wrapSandwich,
-        ]
+            drink, pizza, salad     ]
     },
 
 ]
+///////////////////////////////////////////////////////////////////////////////////////
 
 const sizes = [
     {
@@ -247,18 +276,6 @@ const fromLocs = [
 
 
 
-// const first = [
-//     {
-//         id: 0,
-//         name: "Milk Flower",
-//         list: [
-//             pizza, salad, drink,
-//         ]
-//     }
-// ]
-
-
-
 
 const restaurant = [
     {
@@ -268,21 +285,6 @@ const restaurant = [
             milkFlower, tacoBell, burgerKing,
         ]
     },
-    // {
-    //     id: 2,
-    //     name: "Taco Bell",
-    //     list: [
-    //         burgerKing, tacoBell, milkFlower,
-    //     ]
-    // },
-    // {
-    //     id: 3,
-    //     name: "Burger King",
-    //     list: [
-    //         salad, drink, pizza,
-    //     ]
-    // }
-
 ]
 
 
@@ -307,6 +309,7 @@ export default {
     myProfile,
     categories,
     menu,
+    menuHorizontal,
     restaurant,
     sizes,
     myCart,

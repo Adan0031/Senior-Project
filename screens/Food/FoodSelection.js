@@ -35,7 +35,7 @@ const Section = ({ title, onPress, children }) => {
 
 const FoodSelection = ({ route }) => {
     const [selectedCategoryId, setSelectedCategoryId] = React.useState(1)
-    const [popular, setPopular] = React.useState([])
+    const [milkflower, setMilkflower] = React.useState([])
     const navigation = useNavigation();
     const [showFilterModal, setShowFilterModal] = React.useState(false)
     const [menuList, setMenuList] = React.useState([])
@@ -47,23 +47,15 @@ const FoodSelection = ({ route }) => {
         let { foodItem } = route.params
         setFoodItem(foodItem)
     }, [])
-    // const [milkFlower, setRestaurant] = React.useState([])
-    // const [tacoBell, setRestaurant] = React.useState([])
-    // const [burgerKing, setRestaurant] = React.useState([])
+  
     React.useEffect(() => {
         handleChangeCategory(selectedCategoryId)
     }, [])
     function handleChangeCategory(categoryId, menuTypeId) {
 
 
-        let selectedPopular = dummyData.menu.find(a => a.name == "Milkflower")
-        // let selectedMilkFlower = dummyData.menu.find(a => a.name == "Popular")
-        // let selectedTacoBell = dummyData.menu.find(a => a.name == "Popular")
-        // let selectedBurgerKing = dummyData.menu.find(a => a.name == "Popular")
-
-
-
-        setPopular(selectedPopular?.list)
+        let selectedMilkflower = dummyData.menu.find(a => a.name == "Milkflower")
+        setMilkflower(selectedMilkflower?.list)
     }
 
 
@@ -167,7 +159,7 @@ const FoodSelection = ({ route }) => {
             // onPress={() => console.log("Show all popular items")}
             >
                 <FlatList
-                    data={popular}
+                    data={milkflower}
                     keyExtractor={item => `${item.id}`}
                     showsHorizontalScrollIndicator={false}
                     renderItem={({ item, index }) => (
@@ -175,7 +167,7 @@ const FoodSelection = ({ route }) => {
                         <VerticalFoodCard
                             containerStyle={{
                                 marginLeft: index == 0 ? SIZES.padding : 25,
-                                marginRight: index == popular.length - 1 ? SIZES.padding : 25,
+                                marginRight: index == milkflower.length - 1 ? SIZES.padding : 25,
                             }}
 
 

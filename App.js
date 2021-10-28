@@ -13,7 +13,6 @@ import rootReducer from "./stores/rootReducer";
 
 import {
     OnBoarding,
-
     SignIn,
     SignUp,
     ForgotPassword,
@@ -27,7 +26,10 @@ import {
     AddCard,
 
     DeliveryStatus,
-    
+
+    App_notifications,
+    DeliveryStatus,
+    Account_email,
     Map,
 } from "./screens";
 

@@ -3,7 +3,7 @@ import {
     View,
     Text,
 } from "react-native";
-import OTPInputView from '@twotalltotems/react-native-otp-input'
+//import OTPInputView from '@twotalltotems/react-native-otp-input'
 
 import { FONTS, SIZES, COLORS, } from "../../constants"
 import { TextButton } from "../../components"

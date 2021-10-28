@@ -22,6 +22,7 @@ import {
     ForgotPassword,
     Otp,
     FoodDetail,
+    FoodSelection,
     MyCart,
     Checkout,
     Success,
@@ -30,7 +31,11 @@ import {
     AddCard,
     App_notifications,
     DeliveryStatus,
+
+
+
     Account_email,
+
     Map,
     Account_password,
     Account_payment,
@@ -105,6 +110,11 @@ const App = () => {
                     <Stack.Screen
                         name="FoodDetail"
                         component={FoodDetail}
+                    />
+
+                    <Stack.Screen
+                        name="FoodSelection"
+                        component={FoodSelection}
                     />
 
                     <Stack.Screen

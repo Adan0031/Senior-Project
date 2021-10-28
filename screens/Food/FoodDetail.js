@@ -401,6 +401,7 @@ const FoodDetail = ({ navigation, route }) => {
             style={{
                 flex: 1,
                 backgroundColor: COLORS.white
+                
             }}
         >
 
@@ -415,9 +416,6 @@ const FoodDetail = ({ navigation, route }) => {
                 {/* Instructions */}
                 {renderInstructions()}
                 {renderInput()}
-
-                {/* Restaurant */}
-                {/* {renderRestaurant()} */}
 
 
             </ScrollView>

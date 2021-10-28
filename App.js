@@ -25,8 +25,6 @@ import {
     MyCard,
     AddCard,
 
-    DeliveryStatus,
-
     App_notifications,
     DeliveryStatus,
     Account_email,
@@ -64,7 +62,7 @@ const App = () => {
                     }}
                     // Do not want to route to this screen yet
                     // initialRouteName={'OnBoarding'}
-                    initialRouteName={'Home'}
+                    initialRouteName={'OnBoarding'}
                 >
                     {/* Do not Display this one yet */}
                     <Stack.Screen

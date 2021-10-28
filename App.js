@@ -26,13 +26,20 @@ import {
     MyCart,
     Checkout,
     Success,
-
+    Account_name,
     MyCard,
     AddCard,
-
+    App_notifications,
     DeliveryStatus,
 
+
+
+    Account_email,
+
     Map,
+    Account_password,
+    Account_payment,
+    Account_orders_history_screen
 } from "./screens";
 
 const Stack = createStackNavigator();
@@ -146,6 +153,32 @@ const App = () => {
                         name="Map"
                         component={Map}
                     />
+                    <Stack.Screen
+                        name="Account_name"
+                        component={Account_name}
+                    />
+
+                    <Stack.Screen
+                        name="App_notifications"
+                        component={App_notifications}
+                    />
+                    <Stack.Screen
+                        name="Account_email"
+                        component={Account_email}
+                    />
+                    <Stack.Screen
+                        name="Account_password"
+                        component={Account_password}
+                    />
+                    <Stack.Screen
+                        name="Account_payment"
+                        component={Account_payment}
+                    />
+                    <Stack.Screen
+                        name="Account_orders_history_screen"
+                        component={Account_orders_history_screen}
+                    />
+
                 </Stack.Navigator>
             </NavigationContainer>
         </Provider>

@@ -7,7 +7,7 @@ import { FONTS, SIZES, COLORS, icons, images, dummyData } from "../../../constan
 
 const MainStack = createStackNavigator();
 
-const app_notif_screen = ({navigation}) => {
+const acc_screen = ({navigation}) => {
     return (
         <View style={styles.screen}>
 
@@ -51,7 +51,7 @@ const app_notif_screen = ({navigation}) => {
                 backgroundColor: COLORS.primary,
                 borderRadius: 30,
             }}
-                onPress={() => navigation.navigate('Save')}
+                onPress={() => navigation.navigate('Saved')}
             >
                 <Text style={{
                     textAlign: "center", color: COLORS.white,
@@ -65,15 +65,15 @@ const app_notif_screen = ({navigation}) => {
     );
 };
 
-function App_notifications() {
+function Account_name() {
     return (
         <MainStack.Navigator>
             <MainStack.Screen
                 name="home"
-                component={app_notif_screen}
+                component={acc_screen}
 
                 options={{
-                    title: 'Push Notifications',
+                    title: 'Name',
                     headerTintColor: COLORS.white,
                     headerStyle: {
                         backgroundColor: COLORS.gray
@@ -88,7 +88,7 @@ function App_notifications() {
     );
 }
 
-export default App_notifications;
+export default Account_name;
 
 /// Just some styles
 const styles = StyleSheet.create({

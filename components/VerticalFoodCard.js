@@ -56,9 +56,9 @@ const VerticalFoodCard = ({ containerStyle, item, onPress }) => {
                  
                     height: 150,
                     //EDIT* increased width to fit to card
-                    width: 325,
-                    alignItems: 'center',
-                    justifyContent: 'center'
+                    width: '100%',
+                    // alignItems: 'center',
+                    // justifyContent: 'center'
                 }}
             >
                 <Image

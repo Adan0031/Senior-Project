@@ -190,15 +190,15 @@ const sizes = [
 
 const myCart = [
     {
-        ...milkFlower,
+        ...pizza,
         qty: 1
     },
     {
-        ...tacoBell,
+        ...salad,
         qty: 1
     },
     {
-        ...burgerKing,
+        ...drink,
         qty: 1
     }
 ]

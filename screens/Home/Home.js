@@ -418,34 +418,34 @@ const Home = () => {
                         {/* {renderRecommendedSection()} */}
 
                         {/* Menu Type */}
-                        {renderMenuTypes()}
+                        {/* {renderMenuTypes()} */}
                         
                     </View>
                 }
-                renderItem={({ item, index }) => {
-                    return (
-                        <HorizontalFoodCard
-                            containerStyle={{
-                                height: 130,
-                                alignItems: 'center',
-                                marginHorizontal: SIZES.padding,
-                                marginBottom: SIZES.radius
-                            }}
-                            imageStyle={{
-                                marginTop: 20,
-                                height: 110,
-                                width: 110,
-                                marginHorizontal: 10,
-                                marginBottom: 15
-                            }}
-                            item={item}
-                            onPress={() => navigation.navigate("FoodDetail", { foodItem: item })}
-                        />
-                    )
-                }}
-                ListFooterComponent={
-                    <View style={{ height: 200 }} />
-                }
+                // renderItem={({ item, index }) => {
+                //     return (
+                //         <HorizontalFoodCard
+                //             containerStyle={{
+                //                 height: 130,
+                //                 alignItems: 'center',
+                //                 marginHorizontal: SIZES.padding,
+                //                 marginBottom: SIZES.radius
+                //             }}
+                //             imageStyle={{
+                //                 marginTop: 20,
+                //                 height: 110,
+                //                 width: 110,
+                //                 marginHorizontal: 10,
+                //                 marginBottom: 15
+                //             }}
+                //             item={item}
+                //             onPress={() => navigation.navigate("FoodDetail", { foodItem: item })}
+                //         />
+                //     )
+                // }}
+                // ListFooterComponent={
+                //     <View style={{ height: 200 }} />
+                // }
             />
         </View>
     )

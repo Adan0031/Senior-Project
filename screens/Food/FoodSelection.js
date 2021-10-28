@@ -115,14 +115,17 @@ const FoodSelection = ({ route }) => {
             <View
                 style={{
                     marginTop: SIZES.radius,
-                    marginBottom: SIZES.padding,
-                    paddingHorizontal: SIZES.padding
+                    paddingHorizontal: SIZES.padding,
+
                 }}
             >
                 {/* Food Card */}
                 <View
+
                     style={{
-                        height: 250,
+                       
+                        justifyContent: 'center',
+                        height: 275,
                         borderRadius: 15,
                         backgroundColor: COLORS.grey,
                     }}
@@ -146,8 +149,7 @@ const FoodSelection = ({ route }) => {
                         source={foodItem?.image}
                         resizeMode='contain'
                         style={{
-                        
-                            alignContent: 'center',
+                            marginTop: SIZES.base,
                             height: 170,
                             width: "100%",
 
@@ -295,9 +297,9 @@ const FoodSelection = ({ route }) => {
                         />
                     )
                 }}
-                // ListFooterComponent={
-                //     <View style={{ height: 200 }} />
-                // }
+            // ListFooterComponent={
+            //     <View style={{ height: 200 }} />
+            // }
             />
         </View>
     )

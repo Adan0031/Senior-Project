@@ -4,7 +4,7 @@ import {
     Text,
     StyleSheet
 } from 'react-native';
-import MultiSlider from '@ptomasroos/react-native-multi-slider';
+// import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
 import { COLORS, FONTS, SIZES } from "../constants";
 

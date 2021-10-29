@@ -16,7 +16,6 @@ import rootReducer from "./stores/rootReducer";
 
 import {
     OnBoarding,
-
     SignIn,
     SignUp,
     ForgotPassword,
@@ -31,11 +30,7 @@ import {
     AddCard,
     App_notifications,
     DeliveryStatus,
-
-
-
     Account_email,
-
     Map,
     Account_password,
     Account_payment,
@@ -72,8 +67,8 @@ const App = () => {
                         headerShown: false
                     }}
                     // Do not want to route to this screen yet
-                    initialRouteName={'OnBoarding'}
-                // initialRouteName={'Home'}
+                        initialRouteName={'OnBoarding'}
+                    // initialRouteName={'Home'}
                 >
                     {/* Do not Display this one yet */}
                     <Stack.Screen

@@ -22,7 +22,8 @@ const Section = ({ containerStyle, title, children }) => {
         <View
             style={{
                 marginTop: SIZES.padding,
-                ...containerStyle
+                ...containerStyle,
+
             }}
         >
             <Text style={{ ...FONTS.h3 }}>{title}</Text>
@@ -70,7 +71,8 @@ const FilterModal = ({ isVisible, onClose }) => {
             >
                 <View
                     style={{
-                        alignItems: 'center'
+                        alignItems: 'center',
+                        
                     }}
                 >
                     <TwoPointSlider
@@ -91,6 +93,7 @@ const FilterModal = ({ isVisible, onClose }) => {
                 title="Delivery Time"
                 containerStyle={{
                     marginTop: 40
+                    
                 }}
             >
                 <View
@@ -98,6 +101,7 @@ const FilterModal = ({ isVisible, onClose }) => {
                         flexDirection: 'row',
                         flexWrap: 'wrap',
                         marginTop: SIZES.radius
+                        
                     }}
                 >
                     {constants.delivery_time.map((item, index) => {

@@ -103,7 +103,7 @@ const MyCart = ({ navigation }) => {
                     <View
                         style={{
                             height: 100,
-                            backgroundColor: COLORS.lightGray2,
+                            backgroundColor: COLORS.gray,
                             ...styles.cartItemContainer
                         }}
                     >

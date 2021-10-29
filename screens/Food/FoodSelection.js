@@ -256,7 +256,9 @@ const FoodSelection = ({ route }) => {
                 flex: 1,
                 backgroundColor: COLORS.grey,
                 //padding to bottom so card is not behind tab.
+
                 paddingBottom: "2%",
+
 
 
             }}

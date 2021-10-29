@@ -24,7 +24,6 @@ export const COLORS = {
     white2: "#F0F0F0",
     white: '#FFFFFF',
     black: "#000000",
-    grey: '#373F46', // Our Color Palette 
 
     transparent: 'transparent',
     transparentWhite1: "rgba(255, 255, 255, 0.1)",

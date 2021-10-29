@@ -14,6 +14,7 @@ import { isIphoneX } from 'react-native-iphone-x-helper';
 // Might Need to Use State
 import { Home, Account, CartTab, Notification } from "../screens";
 import { COLORS, icons } from "../constants"
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -24,8 +25,10 @@ const TabBarCustomButton = ({ accessibilityState, children, onPress }) => {
 
     if (isSelected) {
         return (
+
             <View style={{ flex: 1, alignItems: "center" }}>
                 <View style={{ flexDirection: 'row', position: 'absolute', top: 0, backgroundColor: COLORS.grey}}>
+
                     <View style={{ flex: 1, backgroundColor: COLORS.primary }}></View>
                     <Svg
                         width={75}
@@ -85,6 +88,7 @@ const CustomTabBar = (props) => {
                         right: 0,
                         height: 0,
                         backgroundColor: COLORS.black
+                        
                     }}
                 ></View>
                 <BottomTabBar

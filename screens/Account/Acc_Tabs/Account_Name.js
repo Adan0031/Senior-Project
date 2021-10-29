@@ -1,47 +1,61 @@
 import 'react-native-gesture-handler';
 
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet,TextInput,TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { FONTS, SIZES, COLORS, icons, images, dummyData } from "../../../constants"
+import { SIZES, COLORS, FONTS } from "../../../constants"
 
 const MainStack = createStackNavigator();
 
-const acc_screen = ({navigation}) => {
+
+const acc_screen = ({ navigation }) => {
+    const [FirstN, onchangeTextFirst] = React.useState(null);
+    const [LastN, onChangeTextLast] = React.useState(null);
     return (
+
         <View style={styles.screen}>
-
-
-            
-
+            {/* This is the Text for First name*/}
             <Text style={{ color: COLORS.white, marginHorizontal: SIZES.padding, paddingTop: "10%" }}>
                 First Name*
-            </Text>
-            <View 
-                style={{
-                    borderBottomColor: COLORS.linelightGray,
-                    borderBottomWidth: 1,
-                    paddingTop: SIZES.padding,
-                    width: "80%",
-                    marginHorizontal: SIZES.padding
-                }}
-            />
 
-            <Text style={{ color: COLORS.white, marginHorizontal: SIZES.padding, paddingTop: "10%"}}>
-                Last Name*
             </Text>
+            {/* This is the inputText for First name*/}
+            <TextInput
+                style={{ color: COLORS.white, marginHorizontal: SIZES.padding }} onChangeText={onchangeTextFirst}
+                value={FirstN}
+                placeholder="First Name"
+                keyboardType="numeric"
+            />
             <View
                 style={{
                     borderBottomColor: COLORS.linelightGray,
                     borderBottomWidth: 1,
-                    paddingTop: SIZES.padding,
+
+                    width: "80%",
+                    marginHorizontal: SIZES.padding
+                }}
+
+            />
+            {/* This is the Text for Last name*/}
+            <Text style={{ color: COLORS.white, marginHorizontal: SIZES.padding, paddingTop: "10%" }}>
+                Last Name*
+            </Text>
+            {/* This is the inputText for Last name*/}
+            <TextInput
+                style={{ color: COLORS.white, marginHorizontal: SIZES.padding }} onChangeText={onChangeTextLast}
+                value={LastN}
+                placeholder="Last Name"
+                keyboardType="numeric"
+            />
+            <View
+                style={{
+                    borderBottomColor: COLORS.linelightGray,
+                    borderBottomWidth: 1,
                     width: "80%",
                     marginHorizontal: SIZES.padding
                 }}
             />
-
-            
-            <TouchableOpacity style={{  // Save Button
+             <TouchableOpacity style={{  // Save Button
                 marginTop: "10%",
                 paddingTop: "2%",
                 paddingBottom: "2%",
@@ -51,7 +65,7 @@ const acc_screen = ({navigation}) => {
                 backgroundColor: COLORS.primary,
                 borderRadius: 30,
             }}
-                onPress={() => navigation.navigate('Saved')}
+                onPress={() => navigation.navigate('Save')}
             >
                 <Text style={{
                     textAlign: "center", color: COLORS.white,
@@ -61,6 +75,8 @@ const acc_screen = ({navigation}) => {
                     Save
                 </Text>
             </TouchableOpacity>
+
+            
         </View>
     );
 };
@@ -81,7 +97,7 @@ function Account_name() {
                     // Center the header title on Android
                     headerTitleAlign: 'center',
                 }}
-                
+
             />
 
         </MainStack.Navigator>

@@ -44,6 +44,7 @@ const SignUp = ({ navigation }) => {
                 }}
             >
                 <FormInput
+                    placeholder="john.doe6@utrgv.edu"
                     label="Email"
                     keyboardType="email-address"
                     autoCompleteType="email"
@@ -73,6 +74,7 @@ const SignUp = ({ navigation }) => {
                 />
 
                 <FormInput
+                    placeholder="john.doe"
                     label="Username"
                     containerStyle={{
                         marginTop: SIZES.radius
@@ -102,6 +104,7 @@ const SignUp = ({ navigation }) => {
                 />
 
                 <FormInput
+                    placeholder="********"
                     label="Password"
                     secureTextEntry={!showPass}
                     autoCompleteType="password"

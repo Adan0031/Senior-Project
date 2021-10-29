@@ -22,9 +22,9 @@ const FooterTotal = ({ subTotal, shippingFee, total, onPress }) => {
                 colors={[COLORS.transparent, COLORS.lightGray1]}
                 style={{
                     position: 'absolute',
-                    top: -15,
-                    left: 0,
-                    right: 0,
+                    // top: -8,
+                    // left: 0,
+                    // right: 0,
                     height: Platform.OS === 'ios' ? 200 : 50,
                     borderTopLeftRadius: 15,
                     borderTopRightRadius: 15

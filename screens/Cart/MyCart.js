@@ -48,13 +48,16 @@ const MyCart = ({ navigation }) => {
                 title="MY CART"
                 containerStyle={{
                     height: 50,
-                    marginHorizontal: SIZES.padding,
-                    marginTop: 40
+                    marginTop: 40,
+                    borderBottomColor: '#757575',
+                    borderBottomWidth: 1,
                 }}
                 leftComponent={
                     <IconButton
                         icon={icons.back}
                         containerStyle={{
+                            marginLeft: SIZES.padding,
+
                             width: 40,
                             height: 40,
                             justifyContent: 'center',
@@ -64,6 +67,8 @@ const MyCart = ({ navigation }) => {
                             borderColor: COLORS.gray2,
                         }}
                         iconStyle={{
+
+
                             width: 20,
                             height: 20,
                             tintColor: COLORS.gray2
@@ -74,6 +79,9 @@ const MyCart = ({ navigation }) => {
                 rightComponent={
                     <CartQuantityButton
                         quantity={3}
+                        containerStyle={{
+                            marginRight: SIZES.padding,
+                        }}
                     />
                 }
             />
@@ -104,7 +112,8 @@ const MyCart = ({ navigation }) => {
                             style={{
                                 width: 90,
                                 height: 100,
-                                marginLeft: -10
+                                marginLeft: -10,
+
                             }}
                         >
                             <Image
@@ -115,7 +124,7 @@ const MyCart = ({ navigation }) => {
                                     width: "100%",
                                     height: "100%",
                                     position: 'absolute',
-                                
+
                                 }}
                             />
                         </View>
@@ -173,7 +182,7 @@ const MyCart = ({ navigation }) => {
                 subTotal={37.97}
                 shippingFee={0.00}
                 total={37.97}
-                // onPress={() => navigation.navigate("MyCard")}
+            // onPress={() => navigation.navigate("MyCard")}
             />
         )
     }
@@ -182,9 +191,15 @@ const MyCart = ({ navigation }) => {
         <View
             style={{
                 flex: 1,
-                backgroundColor: COLORS.white
+                backgroundColor: COLORS.grey
             }}
         >
+            <Text style={{
+                borderBottomColor: '#757575',
+                borderBottomWidth: 1,
+                marginTop: "3%",
+                marginBottom: "-6.5%",
+            }}></Text>
             {/* Header */}
             {renderHeader()}
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
     View,
     Text,
@@ -73,12 +73,14 @@ const FoodSelection = ({ route }) => {
 
     function renderHeader() {
         return (
+
             <Header
-                //title="DETAILS"
+
+                title="Menu List"
                 containerStyle={{
                     height: 50,
                     marginHorizontal: SIZES.padding,
-                    marginTop: 40
+                    marginTop: "2%"
                 }}
                 leftComponent={
                     //back button style and onpress
@@ -97,6 +99,7 @@ const FoodSelection = ({ route }) => {
                             width: 20,
                             height: 20,
                             tintColor: COLORS.gray2
+
                         }}
                         onPress={() => navigation.goBack()}
                     />
@@ -123,11 +126,11 @@ const FoodSelection = ({ route }) => {
                 <View
 
                     style={{
-                       
+
                         justifyContent: 'center',
                         height: 275,
                         borderRadius: 15,
-                        backgroundColor: COLORS.grey,
+                        backgroundColor: COLORS.white,
                     }}
                 >
 
@@ -155,10 +158,16 @@ const FoodSelection = ({ route }) => {
 
                         }}
                     />
+                    <Text style={{
+                        paddingTop: '-5%',
+                        borderBottomColor: '#373F46',
+                        borderBottomWidth: 3,
+
+                    }}></Text>
                     {/* Name & Description */}
-                    <Text style={{ ...FONTS.h2, marginLeft: "2%", color: COLORS.white }}>{foodItem?.name}</Text>
-                    <Text style={{ ...FONTS.body5, marginLeft: "2%", color: COLORS.white }}>{foodItem?.description}</Text>
-                    <Text style={{ ...FONTS.body5, marginLeft: "2%", color: COLORS.white }}>{foodItem?.distance}</Text>
+                    <Text style={{ ...FONTS.h2, marginLeft: "2%", color: COLORS.grey }}>{foodItem?.name}</Text>
+                    <Text style={{ ...FONTS.body5, marginLeft: "2%", color: COLORS.grey }}>{foodItem?.description}</Text>
+                    <Text style={{ ...FONTS.body5, marginLeft: "2%", color: COLORS.grey }}>{foodItem?.distance}</Text>
 
                 </View>
 
@@ -207,20 +216,25 @@ const FoodSelection = ({ route }) => {
                     marginTop: 30,
                     marginBottom: 20
                 }}
+
+
                 renderItem={({ item, index }) => (
+
                     <TouchableOpacity
                         style={{
                             marginLeft: SIZES.padding,
                             marginRight: index == dummyData.menuHorizontal.length - 1 ? SIZES.padding : 0
                         }}
+
                         onPress={() => {
+
                             setSelectedMenuType(item.id)
                             handleChangeCategory(selectedCategoryId, item.id)
                         }}
                     >
                         <Text
                             style={{
-                                color: selectedMenuType == item.id ? COLORS.primary : COLORS.black,
+                                color: selectedMenuType == item.id ? COLORS.primary : COLORS.white,
                                 ...FONTS.h3
                             }}
                         >
@@ -228,7 +242,9 @@ const FoodSelection = ({ route }) => {
                         </Text>
                     </TouchableOpacity>
                 )}
+
             />
+
         )
     }
 
@@ -238,8 +254,10 @@ const FoodSelection = ({ route }) => {
         <View
             style={{
                 flex: 1,
+                backgroundColor: COLORS.grey,
                 //padding to bottom so card is not behind tab.
-                marginBottom: 60,
+                paddingBottom: "2%",
+
 
             }}
         >
@@ -251,7 +269,19 @@ const FoodSelection = ({ route }) => {
                     onClose={() => setShowFilterModal(false)}
                 />
             }
-
+            <Text style={{
+                borderBottomColor: '#757575',
+                borderBottomWidth: 1, 
+                marginTop: "3%"
+                     
+            }}></Text>
+            {renderHeader()}
+            <Text style={{
+                borderBottomColor: '#757575',
+                borderBottomWidth: 1,
+                marginTop: "-4%",
+              
+            }}></Text>
             {/* List */}
             <FlatList
 
@@ -260,24 +290,35 @@ const FoodSelection = ({ route }) => {
                 showsVerticalScrollIndicator={false}
 
                 ListHeaderComponent={
-                    <View
-
-                    >
+                    <View>
 
                         {/* Header */}
-                        {renderHeader()}
+
+                        {/* top border */}
 
                         {renderDetails()}
-
+                        <Text style={{
+                            borderTopColor: '#757575',
+                            borderTopWidth: 1,
+                            marginTop: 15,
+                            marginBottom: -35,
+                        }}></Text>
                         {/* Popular */}
                         {/* {renderPopularSection()} */}
-
                         {renderMenuTypes()}
+                        <Text style={{
+                            borderTopColor: '#757575',
+                            borderTopWidth: 1,
+                            marginTop: -7,
+
+                        }}></Text>
+
 
                     </View>
                 }
                 renderItem={({ item, index }) => {
                     return (
+
                         <HorizontalFoodCard
                             containerStyle={{
                                 height: 130,

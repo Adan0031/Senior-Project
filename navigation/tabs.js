@@ -25,7 +25,7 @@ const TabBarCustomButton = ({ accessibilityState, children, onPress }) => {
     if (isSelected) {
         return (
             <View style={{ flex: 1, alignItems: "center" }}>
-                <View style={{ flexDirection: 'row', position: 'absolute', top: 0 }}>
+                <View style={{ flexDirection: 'row', position: 'absolute', top: 0, backgroundColor: COLORS.grey}}>
                     <View style={{ flex: 1, backgroundColor: COLORS.primary }}></View>
                     <Svg
                         width={75}
@@ -37,7 +37,7 @@ const TabBarCustomButton = ({ accessibilityState, children, onPress }) => {
                             fill={COLORS.primary}
                         />
                     </Svg>
-                    <View style={{ flex: 1, backgroundColor: COLORS.primary }}></View>
+                    <View style={{ flex: 1, backgroundColor: COLORS.primary}}></View>
                 </View>
 
                 <TouchableOpacity

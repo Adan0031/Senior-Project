@@ -3,7 +3,7 @@ import {
     View,
     Text
 } from 'react-native';
-import { FONTS } from "../constants"
+import { COLORS, FONTS } from "../constants"
 
 // The header tag being passed in props
 const Header = ({ containerStyle, title, titleStyle, leftComponent, rightComponent }) => {
@@ -19,7 +19,7 @@ const Header = ({ containerStyle, title, titleStyle, leftComponent, rightCompone
                 leftComponent
             }
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-                <Text style={{  ...FONTS.h3, ...titleStyle}}>{title}</Text>
+                <Text style={{  ...FONTS.h3, color: COLORS.white, ...titleStyle}}>{title}</Text>
             </View>
             {
                 rightComponent

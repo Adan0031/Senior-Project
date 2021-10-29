@@ -15,6 +15,7 @@ import {
     VerticalFoodCard
 } from "../../components";
 import { FONTS, SIZES, COLORS, icons, dummyData } from "../../constants";
+import { getPixelSizeForLayoutSize } from 'react-native/Libraries/Utilities/PixelRatio';
 
 const Section = ({ title, onPress, children }) => {
     return (
@@ -377,9 +378,11 @@ const Home = () => {
     return (
         <View
             style={{
+                backgroundColor: COLORS.grey,
                 flex: 1,
                 //padding to bottom so card is not behind tab.
-                marginBottom: 60
+                paddingBottom: "13%",
+                
                 
             }}
         >

@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import { COLORS, FONTS, icons, SIZES } from '../constants';
 import { AuthLayout } from '../screens';
+import LineDivider from './LineDivider';
 
 const VerticalFoodCard = ({ containerStyle, item, onPress }) => {
     return (
@@ -14,13 +15,13 @@ const VerticalFoodCard = ({ containerStyle, item, onPress }) => {
             //card styling
             style={{
 
-                paddingVertical: SIZES.radius,
-                paddingHorizontal: SIZES.radius,
+                paddingTop: SIZES.radius,
+                // paddingHorizontal: SIZES.radius,
                 // alignItems: 'center',
                 borderRadius: SIZES.radius,
-                backgroundColor: COLORS.grey,
+                backgroundColor: COLORS.white,
                 marginBottom: 15,
-                
+
                 ...containerStyle
             }}
             onPress={onPress}
@@ -53,7 +54,7 @@ const VerticalFoodCard = ({ containerStyle, item, onPress }) => {
             {/* Image */}
             <View
                 style={{
-                 
+
                     height: 150,
                     //EDIT* increased width to fit to card
                     width: '100%',
@@ -64,28 +65,36 @@ const VerticalFoodCard = ({ containerStyle, item, onPress }) => {
                 <Image
                     source={item.image}
                     resizeMode="contain"
-                    style={{height: "100%", width: "100%" }}
+                    style={{ height: "100%", width: "100%" }}
+
                 />
+
             </View>
 
             {/* Info */}
-            
+
             <View
                 style={{
 
                     //EDIT* adding padding to text
-                    marginBottom: -25
+                    marginBottom: -25,
                     
+
                 }}
             >
-                <Text style={{ ...FONTS.h2, color: COLORS.white  }}>{item.name}</Text>
-                <Text style={{ ...FONTS.body5, color: COLORS.white}}>{item.description}</Text>
-                <Text style={{ ...FONTS.body5, color: COLORS.white}}>{item.distance}</Text>
+                <Text style={{
+                    borderBottomColor: '#373F46',
+                    borderBottomWidth: 3,
+                   
+                }}></Text>
+                <Text style={{ ...FONTS.h2, color: COLORS.grey, paddingHorizontal: SIZES.radius }}>{item.name}</Text>
+                <Text style={{ ...FONTS.body5, color: COLORS.grey, paddingHorizontal: SIZES.radius }}>{item.description}</Text>
+                <Text style={{ ...FONTS.body5, color: COLORS.grey, paddingHorizontal: SIZES.radius }}>{item.distance}</Text>
 
                 {/*removed marginTop */}
-              
-                <Text style={{ ...FONTS.h2, color: COLORS.white}}>{item.price}</Text>
-         
+
+                <Text style={{ ...FONTS.h2, color: COLORS.grey }}>{item.price}</Text>
+
 
             </View>
         </TouchableOpacity>

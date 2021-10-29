@@ -37,12 +37,14 @@ const FoodDetail = ({ navigation, route }) => {
     function renderHeader() {
         return (
             <Header
-                //title="DETAILS"
+                title="DETAILS"
                 containerStyle={{
                     height: 50,
-                    marginHorizontal: SIZES.padding,
-                    marginTop: 40
+                    borderBottomColor: '#757575',
+                    borderBottomWidth: 1,
+                    marginTop: "6%"
                 }}
+
                 leftComponent={
                     //back button style and onpress
                     <IconButton
@@ -50,16 +52,19 @@ const FoodDetail = ({ navigation, route }) => {
                         containerStyle={{
                             width: 40,
                             height: 40,
+                            marginLeft: SIZES.padding,
                             justifyContent: 'center',
                             alignItems: 'center',
                             borderWidth: 1,
                             borderRadius: SIZES.radius,
                             borderColor: COLORS.gray2,
+
                         }}
                         iconStyle={{
                             width: 20,
                             height: 20,
-                            tintColor: COLORS.gray2
+                            tintColor: COLORS.gray2,
+
                         }}
                         onPress={() => navigation.goBack()}
                     />
@@ -67,9 +72,15 @@ const FoodDetail = ({ navigation, route }) => {
                 rightComponent={
                     <CartQuantityButton
                         quantity={3}
+                        containerStyle={{
+                            marginRight: SIZES.padding,
+                        }}
                     />
+
                 }
+
             />
+
         )
     }
 
@@ -79,15 +90,17 @@ const FoodDetail = ({ navigation, route }) => {
                 style={{
                     marginTop: SIZES.radius,
                     marginBottom: SIZES.padding,
-                    paddingHorizontal: SIZES.padding
+
                 }}
             >
                 {/* Food Card */}
                 <View
                     style={{
-                        height: 190,
-                        borderRadius: 15,
-                        backgroundColor: COLORS.grey,
+                        flex: 1,
+                        paddingHorizontal: SIZES.padding,
+                        height: 170,
+
+
                     }}
                 >
                     {/* Calories & Favourite */}
@@ -129,33 +142,45 @@ const FoodDetail = ({ navigation, route }) => {
                     {/* Food Image */}
                     <Image
 
-                        source={foodItem?.image}
-                        resizeMode="contain"
                         style={{
                             borderRadius: 5,
-                            height: 170,
-                            width: "100%"
+                            flex: 1,
+                            width: null
                         }}
+                        resizeMode="cover"
+                        source={foodItem?.image}
+
+
+
                     />
                 </View>
 
                 {/* Food Info */}
                 <View
                     style={{
-                        marginTop: SIZES.padding
+                        marginTop: SIZES.padding,
                     }}
                 >
+                    <Text style={{
+                        borderTopColor: '#757575',
+                        borderTopWidth: 1,
+                    }}>
+
+
+                    </Text>
                     {/* Name & Description */}
-                    <Text style={{ ...FONTS.h1 }}>{foodItem?.name}</Text>
+                    <Text style={{ ...FONTS.h1, paddingHorizontal: SIZES.padding, color: COLORS.white }}>{foodItem?.name}</Text>
 
                     <Text
                         style={{
                             marginTop: SIZES.base,
-                            color: COLORS.grey,
+                            color: COLORS.white,
+                            paddingHorizontal: SIZES.padding,
                             ...FONTS.body3,
                         }}
                     >
-                        Tomato, mozzarella, basil, parmigiano-reggiano.
+                        <Text style={{ color: COLORS.white, ...FONTS.body4 }}>{foodItem?.description}</Text>
+
                     </Text>
 
                     {/* Ratings & Duration & Shipping */}
@@ -211,17 +236,18 @@ const FoodDetail = ({ navigation, route }) => {
                         style={{
                             flexDirection: 'row',
                             marginTop: SIZES.padding,
-                            alignItems: 'center'
+                            alignItems: 'center',
+
                         }}
                     >
-                        <Text style={{ ...FONTS.h3 }}>Sizes:</Text>
+                        <Text style={{ ...FONTS.h3, paddingLeft: SIZES.padding, }}>Sizes:</Text>
 
 
                         <View
                             style={{
                                 flexDirection: 'row',
                                 flexWrap: 'wrap',
-                                marginLeft: SIZES.padding
+                                marginLeft: SIZES.padding,
                             }}
                         >
                             {dummyData.sizes.map((item, index) => {
@@ -266,7 +292,7 @@ const FoodDetail = ({ navigation, route }) => {
                 <Text
                     style={{
                         marginTop: SIZES.base,
-                        color: COLORS.grey,
+                        color: COLORS.white,
                         ...FONTS.body3,
                     }}
                 >
@@ -284,7 +310,6 @@ const FoodDetail = ({ navigation, route }) => {
                     height: 40,
                     alignItems: 'center',
                     marginHorizontal: SIZES.padding,
-                    marginBottom: SIZES.base,
                     paddingHorizontal: SIZES.radius,
                     borderRadius: SIZES.radius,
                     backgroundColor: COLORS.lightGray2
@@ -303,6 +328,20 @@ const FoodDetail = ({ navigation, route }) => {
         )
     }
 
+    //Holds the renderInstructions and renderInput in a container
+    function informationBlock() {
+        return (
+            <View
+                style={{
+                    height: 190,
+                    backgroundColor: COLORS.black,
+                }}
+            >
+                { renderInstructions()}
+                { renderInput()}
+            </View >
+        )
+    }
     //EDIT* commented out function call
     function renderRestaurant() {
         return (
@@ -316,7 +355,7 @@ const FoodDetail = ({ navigation, route }) => {
             >
                 <Text
                     style={{
-                        marginTop: SIZES.base,
+                        marginTop: 25,
                         color: COLORS.grey,
                         textAlign: 'justify',
                         ...FONTS.body3,
@@ -359,13 +398,15 @@ const FoodDetail = ({ navigation, route }) => {
 
     function renderFooter() {
         return (
+
             <View
+
                 style={{
                     flexDirection: 'row',
                     height: 120,
                     alignItems: 'center',
                     paddingHorizontal: SIZES.padding,
-                    paddingBottom: SIZES.radius
+                    paddingBottom: SIZES.radius,
                 }}
             >
                 <StepperInput
@@ -390,7 +431,7 @@ const FoodDetail = ({ navigation, route }) => {
                     }}
                     label="Buy Now"
                     label2="$15.99"
-                onPress={() => navigation.navigate("MyCart")}
+                    onPress={() => navigation.navigate("MyCart")}
                 />
             </View>
         )
@@ -400,31 +441,41 @@ const FoodDetail = ({ navigation, route }) => {
         <View
             style={{
                 flex: 1,
-                backgroundColor: COLORS.white
-                
+                backgroundColor: COLORS.grey
+
             }}
         >
 
             {/* Header */}
+            <Text style={{
+                borderBottomColor: '#757575',
+                borderBottomWidth: 1,
+                marginTop: "3%",
+                marginBottom: "-4%",
+            }}>
+            </Text>
             {renderHeader()}
 
             <ScrollView>
                 {/* Food Details */}
+
                 {renderDetails()}
 
-                <LineDivider />
+
+                <Text style={{
+                    borderBottomColor: '#757575',
+                    borderBottomWidth: 1,
+                    marginTop: "-4%",
+                    marginBottom: "-5%"
+
+                }}></Text>
                 {/* Instructions */}
-                {renderInstructions()}
-                {renderInput()}
-
-
+                {informationBlock()}
             </ScrollView>
 
             {/* Footer */}
-            <LineDivider />
-
-            {renderFooter()}
-        </View>
+            { renderFooter()}
+        </View >
     )
 }
 

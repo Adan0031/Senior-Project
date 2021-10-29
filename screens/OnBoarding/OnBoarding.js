@@ -4,12 +4,12 @@ import {
     Text,
     ImageBackground,
     Image,
-    Animated
+    Animated,
+    FlatList
 } from 'react-native';
 
 import { constants, images, FONTS, SIZES, COLORS } from "../../constants";
 import { TextButton } from "../../components";
-import { FlatList } from 'react-native-gesture-handler';
 
 const OnBoarding = ({ navigation }) => {
 

@@ -12,11 +12,3 @@
 //   return Reanimated;
 // });
 
-
-
-// "setupFiles": [
-//     "<rootDir>/testing/jest-setup.js"
-//   ],
-//   "setupFilesAfterEnv": [
-//     "@testing-library/jest-native/extend-expect"
-//   ]

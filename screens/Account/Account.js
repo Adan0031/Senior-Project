@@ -192,7 +192,7 @@ const Account = ({navigation}) => {
                 backgroundColor: COLORS.primary,
                 borderRadius: 30,
             }}
-                onPress={() => navigation.navigate('Log')}
+                onPress={() => navigation.navigate('SignIn')}
             >
                 <Text style={{
                     textAlign: "center", color: COLORS.white2,

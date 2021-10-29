@@ -1,27 +1,33 @@
 import 'react-native-gesture-handler';
 
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity,TextInput } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { FONTS, SIZES, COLORS, icons, images, dummyData } from "../../../constants"
+import { FONTS, SIZES, COLORS} from "../../../constants"
 
 const MainStack = createStackNavigator();
 
 const password_screen = ({navigation}) => {
+    const [New_Pass, onchangeTextNew] = React.useState(null);
+    const [Current_Pass, onChangeTextCurrent] = React.useState(null);
     return (
+
         <View style={styles.screen}>
-
-
             
-
             <Text style={{ color: COLORS.white, marginHorizontal: SIZES.padding, paddingTop: "10%" }}>
-                Email*
+                New Password*
             </Text>
+
+            <TextInput
+                style={{ color: COLORS.white, marginHorizontal: SIZES.padding }} onChangeText={onchangeTextNew}
+                value={New_Pass}
+                placeholder="New Password"
+                keyboardType="numeric"
+            />
             <View 
                 style={{
                     borderBottomColor: COLORS.linelightGray,
                     borderBottomWidth: 1,
-                    paddingTop: SIZES.padding,
                     width: "80%",
                     marginHorizontal: SIZES.padding
                 }}
@@ -30,18 +36,24 @@ const password_screen = ({navigation}) => {
             <Text style={{ color: COLORS.white, marginHorizontal: SIZES.padding, paddingTop: "10%"}}>
                 Current Password*
             </Text>
+
+            <TextInput
+                style={{ color: COLORS.white, marginHorizontal: SIZES.padding }} onChangeText={onChangeTextCurrent}
+                value={Current_Pass}
+                placeholder="Current Password"
+                keyboardType="numeric"
+            />
+
             <View
                 style={{
                     borderBottomColor: COLORS.linelightGray,
                     borderBottomWidth: 1,
-                    paddingTop: SIZES.padding,
                     width: "80%",
                     marginHorizontal: SIZES.padding
                 }}
             />
-
             
-            <TouchableOpacity style={{  // Save Button
+            <TouchableOpacity style={{
                 marginTop: "10%",
                 paddingTop: "2%",
                 paddingBottom: "2%",

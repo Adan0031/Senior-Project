@@ -49,7 +49,7 @@ const SignUp = ({ navigation }) => {
                     autoCompleteType="email"
                     value={email}
                     onChange={(value) => {
-                        utils.validateEmail(value, setEmailError)
+                        // utils.validateEmail(value, setEmailError)
                         setEmail(value)
                     }}
                     errorMsg={emailError}
@@ -60,7 +60,8 @@ const SignUp = ({ navigation }) => {
                             }}
                         >
                             <Image
-                                source={(email == "") || (email != "" && emailError == "") ? icons.correct : icons.cancel}
+                                // source={(email == "") || (email != "" && emailError == "") ? icons.correct : icons.cancel}
+                                source={(email == "") || (email != "" && emailError == "") ? null : null}
                                 style={{
                                     height: 20,
                                     width: 20,
@@ -88,7 +89,8 @@ const SignUp = ({ navigation }) => {
                             }}
                         >
                             <Image
-                                source={(username == "") || (username != "" && usernameError == "") ? icons.correct : icons.cancel}
+                                // source={(username == "") || (username != "" && usernameError == "") ? icons.correct : icons.cancel}
+                                source={(username == "") || (username != "" && usernameError == "") ? null : null }
                                 style={{
                                     height: 20,
                                     width: 20,
@@ -108,7 +110,7 @@ const SignUp = ({ navigation }) => {
                     }}
                     value={password}
                     onChange={(value) => {
-                        utils.validatePassword(value, setPasswordError)
+                        // utils.validatePassword(value, setPasswordError)
                         setPassword(value)
                     }}
                     errorMsg={passwordError}
@@ -122,7 +124,8 @@ const SignUp = ({ navigation }) => {
                             onPress={() => setShowPass(!showPass)}
                         >
                             <Image
-                                source={showPass ? icons.eye_close : icons.eye}
+                                // source={showPass ? icons.eye_close : icons.eye}
+                                source={showPass ? null : null}
                                 style={{
                                     height: 20,
                                     width: 20,
@@ -144,7 +147,9 @@ const SignUp = ({ navigation }) => {
                         borderRadius: SIZES.radius,
                         backgroundColor: isEnableSignUp() ? COLORS.primary : COLORS.transparentPrimary,
                     }}
-                    onPress={() => navigation.navigate("Otp")}
+                    // Do not Show OTP screen
+                    // onPress={() => navigation.navigate("Otp")}
+                    onPress={() => navigation.navigate("Home")}
                 />
 
                 <View
@@ -171,7 +176,7 @@ const SignUp = ({ navigation }) => {
 
             {/* Footer */}
             <View>
-                <TextIconButton
+                {/* <TextIconButton
                     containerStyle={{
                         height: 50,
                         alignItems: 'center',
@@ -189,7 +194,7 @@ const SignUp = ({ navigation }) => {
                         color: COLORS.white
                     }}
                     onPress={() => navigation.replace("Home")}
-                />
+                /> */}
 
                 <TextIconButton
                     containerStyle={{
@@ -199,12 +204,12 @@ const SignUp = ({ navigation }) => {
                         borderRadius: SIZES.radius,
                         backgroundColor: COLORS.lightGray2,
                     }}
-                    icon={icons.google}
+                    icon={icons.outlook}
                     iconPosition="LEFT"
                     iconStyle={{
                         tintColor: null
                     }}
-                    label="Continue With Google"
+                    label="Continue With Outlook"
                     labelStyle={{
                         marginLeft: SIZES.radius,
                     }}

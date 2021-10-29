@@ -50,6 +50,7 @@ const location_pin = require("../assets/icons/location_pin.png")
 const navigator = require("../assets/icons/navigator.png")
 const navigator1 = require("../assets/icons/navigator1.png")
 const user = require("../assets/icons/user.png") // Added for account tab
+const outlook = require("../assets/icons/outlook.png") // Added for Sign Up/In
 
 export default {
     apple,
@@ -103,5 +104,6 @@ export default {
     location_pin,
     navigator,
     navigator1,
-    user //Added for account tab
+    user, //Added for account tab
+    outlook // Added
 }

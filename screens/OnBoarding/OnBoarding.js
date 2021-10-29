@@ -9,6 +9,7 @@ import {
 
 import { constants, images, FONTS, SIZES, COLORS } from "../../constants";
 import { TextButton } from "../../components";
+import { FlatList } from 'react-native-gesture-handler';
 
 const OnBoarding = ({ navigation }) => {
 
@@ -23,48 +24,48 @@ const OnBoarding = ({ navigation }) => {
         setCurrentIndex(viewableItems[0].index)
     })
 
-    const Dots = () => {
-        const dotPosition = Animated.divide(scrollX, SIZES.width)
+    // const Dots = () => {
+    //     const dotPosition = Animated.divide(scrollX, SIZES.width)
 
-        return (
-            <View
-                style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                }}
-            >
-                {
-                    constants.onboarding_screens.map((item, index) => {
-                        const dotColor = dotPosition.interpolate({
-                            inputRange: [index - 1, index, index + 1],
-                            outputRange: [COLORS.lightOrange, COLORS.primary, COLORS.lightOrange],
-                            extrapolate: "clamp"
-                        })
+    //     return (
+    //         <View
+    //             style={{
+    //                 flexDirection: 'row',
+    //                 alignItems: 'center',
+    //                 justifyContent: 'center'
+    //             }}
+    //         >
+    //             {
+    //                 constants.onboarding_screens.map((item, index) => {
+    //                     const dotColor = dotPosition.interpolate({
+    //                         inputRange: [index - 1, index, index + 1],
+    //                         outputRange: [COLORS.lightOrange, COLORS.primary, COLORS.lightOrange],
+    //                         extrapolate: "clamp"
+    //                     })
 
-                        const dotWidth = dotPosition.interpolate({
-                            inputRange: [index - 1, index, index + 1],
-                            outputRange: [10, 30, 10],
-                            extrapolate: "clamp"
-                        })
+    //                     const dotWidth = dotPosition.interpolate({
+    //                         inputRange: [index - 1, index, index + 1],
+    //                         outputRange: [10, 30, 10],
+    //                         extrapolate: "clamp"
+    //                     })
 
-                        return (
-                            <Animated.View
-                                key={`dot-${index}`}
-                                style={{
-                                    borderRadius: 5,
-                                    marginHorizontal: 6,
-                                    width: dotWidth,
-                                    height: 10,
-                                    backgroundColor: dotColor
-                                }}
-                            />
-                        )
-                    })
-                }
-            </View>
-        )
-    }
+    //                     return (
+    //                         <Animated.View
+    //                             key={`dot-${index}`}
+    //                             style={{
+    //                                 borderRadius: 5,
+    //                                 marginHorizontal: 6,
+    //                                 width: dotWidth,
+    //                                 height: 10,
+    //                                 backgroundColor: dotColor
+    //                             }}
+    //                         />
+    //                     )
+    //                 })
+    //             }
+    //         </View>
+    //     )
+    // }
 
     function renderHeaderLogo() {
         return (
@@ -79,7 +80,7 @@ const OnBoarding = ({ navigation }) => {
                 }}
             >
                 <Image
-                    source={images.logo_02}
+                    source={images.utrgv}
                     resizeMode="contain"
                     style={{
                         width: SIZES.width * 0.5,
@@ -104,22 +105,26 @@ const OnBoarding = ({ navigation }) => {
                         justifyContent: 'center'
                     }}
                 >
-                    <Dots />
+                    {/* Don't Render Dots */}
+                    {/* <Dots /> */}
                 </View>
 
                 {/* Buttons */}
                 {/* While we are still within the two out of three screens */}
-                {currentIndex < constants.onboarding_screens.length - 1 &&
+                {/* {currentIndex < constants.onboarding_screens.length - 1 && */}
                     <View
                         style={{
                             flexDirection: 'row',
-                            justifyContent: 'space-between',
+                            // justifyContent: 'space-between',
+                            justifyContent: 'center',
                             paddingHorizontal: SIZES.padding,
                             marginVertical: SIZES.padding
                         }}
                     >
-                        <TextButton
-                            label="Skip"
+                        {/* Have TO fix routing with Sign Up Button */}
+                        {/* <TextButton
+                            // label="Skip"
+                            label="Sign Up"
                             buttonContainerStyle={{
                                 backgroundColor: null
                             }}
@@ -127,28 +132,31 @@ const OnBoarding = ({ navigation }) => {
                                 color: COLORS.darkGray2
                             }}
                             // Takes you to the next set of screens
+                            // onPress={() => navigation.replace("SignIn")}
                             onPress={() => navigation.replace("SignIn")}
-                        />
+                        /> */}
 
                         <TextButton
-                            label="Next"
+                            // label="Next"
+                            label="Log In"
                             buttonContainerStyle={{
                                 height: 60,
                                 width: 200,
                                 borderRadius: SIZES.radius
                             }}
                              // When Button is pressed we increase our index to scroll to the next screen
-                            onPress={() => {
-                                flatListRef?.current?.scrollToIndex({
-                                    index: currentIndex + 1,
-                                    animated: true
-                                })
-                            }}
+                            // onPress={() => {
+                            //     flatListRef?.current?.scrollToIndex({
+                            //         index: currentIndex + 1,
+                            //         animated: true
+                            //     })
+                            // }}
+                            onPress={() => navigation.replace("SignIn")}
                         />
                     </View>
-                }
+                {/* } */}
                 {/* Once we have reached the last screen the buttons should change */}
-                {currentIndex == constants.onboarding_screens.length - 1 &&
+                {/* {currentIndex == constants.onboarding_screens.length - 1 &&
                     <View
                         style={{
                             paddingHorizontal: SIZES.padding,
@@ -162,10 +170,11 @@ const OnBoarding = ({ navigation }) => {
                                 borderRadius: SIZES.radius
                             }}
                             // Takes you to the next set of screens
-                            onPress={() => navigation.replace("SignIn")}
+                            // onPress={() => navigation.replace("SignIn")}
+                            onPress={() => navigation.replace("Home")}
                         />
                     </View>
-                }
+                } */}
             </View>
         )
     }
@@ -174,29 +183,30 @@ const OnBoarding = ({ navigation }) => {
         <View
             style={{
                 flex: 1,
-                backgroundColor: COLORS.white
+                backgroundColor: COLORS.grey
             }}
         >
             {/* Do Not Render Logo, Render UTRGV LOGO */}
-            {/* {renderHeaderLogo()} */}
+            {renderHeaderLogo()}
 
-            <Animated.FlatList
-                ref={flatListRef}
-                horizontal
+            {/* <Animated.FlatList */}
+            <FlatList
+                // ref={flatListRef}
+                // horizontal
                 pagingEnabled
                 data={constants.onboarding_screens}
-                scrollEventThrottle={16}
-                snapToAlignment="center"
-                showsHorizontalScrollIndicator={false}
+                // scrollEventThrottle={16}
+                // snapToAlignment="center"
+                // showsHorizontalScrollIndicator={false}
                 // Horizontal Scroll for the three screens
-                onScroll={Animated.event(
-                    [
-                        { nativeEvent: { contentOffset: { x: scrollX } } }
-                    ],
-                    { useNativeDriver: false }
-                )}
+                // onScroll={Animated.event(
+                //     [
+                //         { nativeEvent: { contentOffset: { x: scrollX } } }
+                //     ],
+                //     { useNativeDriver: false }
+                // )}
                 // Which screen is currently visible
-                onViewableItemsChanged={onViewChangeRef.current}
+                // onViewableItemsChanged={onViewChangeRef.current}
                 keyExtractor={(item) => `${item.id}`}
                 renderItem={({ item, index }) => {
                     return (
@@ -206,7 +216,7 @@ const OnBoarding = ({ navigation }) => {
                             }}
                         >
                             {/* Header */}
-                            <View
+                            {/* <View
                                 style={{
                                     flex: 3
                                 }}
@@ -231,20 +241,21 @@ const OnBoarding = ({ navigation }) => {
                                         }}
                                     />
                                 </ImageBackground>
-                            </View>
+                            </View> */}
 
                             {/* Detail */}
                             <View
                                 style={{
                                     flex: 1,
-                                    marginTop: 30,
+                                    marginTop: 450,
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     paddingHorizontal: SIZES.radius
                                 }}
                             >
                                 <Text style={{ ...FONTS.h1, fontSize: 25 }}>
-                                    {item.title}
+                                    {/* {item.title} */}
+                                    Welcome Vaquero
                                 </Text>
                                 <Text
                                     style={{
@@ -255,7 +266,7 @@ const OnBoarding = ({ navigation }) => {
                                         ...FONTS.body3
                                     }}
                                 >
-                                    {item.description}
+                                    {/* {item.description} */}
                                 </Text>
                             </View>
                         </View>

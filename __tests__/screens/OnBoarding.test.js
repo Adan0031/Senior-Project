@@ -9,7 +9,7 @@ describe('OnBoarding Navigation', () => {
   it('navigates on button press', () => {
     const replace = jest.fn();
     const { getByText } = render(<OnBoarding navigation={{ replace }} />);
-    fireEvent.press(getByText('Skip'));
+    fireEvent.press(getByText('Log In'));
     expect(replace).toHaveBeenCalledWith('SignIn');
   });
 });

@@ -1,7 +1,10 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
+// Import Tabs Used for Navigation
+import Tabs from './navigation/tabs';
 import CustomDrawer from './navigation/CustomDrawer';
 
 // Redux Used to Keep track of Drawer Items and Seletcted Bottom Tabs
@@ -18,17 +21,20 @@ import {
     ForgotPassword,
     Otp,
     FoodDetail,
+    FoodSelection,
     MyCart,
     Checkout,
     Success,
-
+    Account_name,
     MyCard,
     AddCard,
-
     App_notifications,
     DeliveryStatus,
     Account_email,
     Map,
+    Account_password,
+    Account_payment,
+    Account_orders_history_screen
 } from "./screens";
 
 const Stack = createStackNavigator();
@@ -61,15 +67,14 @@ const App = () => {
                         headerShown: false
                     }}
                     // Do not want to route to this screen yet
-                    // initialRouteName={'OnBoarding'}
-                    initialRouteName={'OnBoarding'}
+                        initialRouteName={'OnBoarding'}
+                    // initialRouteName={'Home'}
                 >
                     {/* Do not Display this one yet */}
                     <Stack.Screen
                         name="OnBoarding"
                         component={OnBoarding}
                     />
-                    {/* Do not Display this one yet */}
                     <Stack.Screen
                         name="SignIn"
                         component={SignIn}
@@ -92,12 +97,19 @@ const App = () => {
                     {/* Rename */}
                     <Stack.Screen
                         name="Home"
-                        component={CustomDrawer}
+                        // Instead Load Tabs Navigation
+                        // component={CustomDrawer}
+                        component={Tabs}
                     />
 
                     <Stack.Screen
                         name="FoodDetail"
                         component={FoodDetail}
+                    />
+
+                    <Stack.Screen
+                        name="FoodSelection"
+                        component={FoodSelection}
                     />
 
                     <Stack.Screen
@@ -136,6 +148,32 @@ const App = () => {
                         name="Map"
                         component={Map}
                     />
+                    <Stack.Screen
+                        name="Account_name"
+                        component={Account_name}
+                    />
+
+                    <Stack.Screen
+                        name="App_notifications"
+                        component={App_notifications}
+                    />
+                    <Stack.Screen
+                        name="Account_email"
+                        component={Account_email}
+                    />
+                    <Stack.Screen
+                        name="Account_password"
+                        component={Account_password}
+                    />
+                    <Stack.Screen
+                        name="Account_payment"
+                        component={Account_payment}
+                    />
+                    <Stack.Screen
+                        name="Account_orders_history_screen"
+                        component={Account_orders_history_screen}
+                    />
+
                 </Stack.Navigator>
             </NavigationContainer>
         </Provider>

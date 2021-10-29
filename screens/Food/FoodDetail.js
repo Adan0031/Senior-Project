@@ -4,6 +4,7 @@ import {
     Text,
     Image,
     ScrollView,
+    TextInput,
 } from 'react-native';
 
 import {
@@ -18,7 +19,9 @@ import {
 } from "../../components"
 import { FONTS, SIZES, COLORS, icons, images, dummyData } from "../../constants"
 
+
 const FoodDetail = ({ navigation, route }) => {
+
 
     const [selectedSize, setSelectedSize] = React.useState("")
     const [foodItem, setFoodItem] = React.useState([])
@@ -34,13 +37,14 @@ const FoodDetail = ({ navigation, route }) => {
     function renderHeader() {
         return (
             <Header
-                title="DETAILS"
+                //title="DETAILS"
                 containerStyle={{
                     height: 50,
                     marginHorizontal: SIZES.padding,
                     marginTop: 40
                 }}
                 leftComponent={
+                    //back button style and onpress
                     <IconButton
                         icon={icons.back}
                         containerStyle={{
@@ -83,7 +87,7 @@ const FoodDetail = ({ navigation, route }) => {
                     style={{
                         height: 190,
                         borderRadius: 15,
-                        backgroundColor: COLORS.lightGray2,
+                        backgroundColor: COLORS.grey,
                     }}
                 >
                     {/* Calories & Favourite */}
@@ -95,8 +99,9 @@ const FoodDetail = ({ navigation, route }) => {
                             paddingHorizontal: SIZES.radius,
                         }}
                     >
+                        {/* EDIT* commented out calories and favorite */}
                         {/* Calories */}
-                        <View
+                        {/* <View
                             style={{ flexDirection: 'row' }}
                         >
                             <Image
@@ -107,25 +112,27 @@ const FoodDetail = ({ navigation, route }) => {
                                 }}
                             />
                             <Text style={{ color: COLORS.darkGray2, ...FONTS.body4 }}>{foodItem?.calories} calories</Text>
-                        </View>
+                        </View> */}
 
                         {/* Favourite */}
-                        <Image
+                        {/* <Image
                             source={icons.love}
                             style={{
                                 height: 20,
                                 width: 20,
                                 tintColor: foodItem?.isFavourite ? COLORS.primary : COLORS.gray
                             }}
-                        />
+                        /> */}
 
                     </View>
 
                     {/* Food Image */}
                     <Image
+
                         source={foodItem?.image}
                         resizeMode="contain"
                         style={{
+                            borderRadius: 5,
                             height: 170,
                             width: "100%"
                         }}
@@ -144,23 +151,24 @@ const FoodDetail = ({ navigation, route }) => {
                     <Text
                         style={{
                             marginTop: SIZES.base,
-                            color: COLORS.darkGray,
-                            textAlign: 'justify',
+                            color: COLORS.grey,
                             ...FONTS.body3,
                         }}
                     >
-                        A popular spice and vegetables mixed favoured rice dish which is typically prepared by layering the biryani gravy and basmati rice in flat bottom vessel.
+                        Tomato, mozzarella, basil, parmigiano-reggiano.
                     </Text>
 
                     {/* Ratings & Duration & Shipping */}
                     <View
-                        style={{
-                            flexDirection: 'row',
-                            marginTop: SIZES.padding
-                        }}
+                    // style={{
+                    //     flexDirection: 'row',
+                    //     marginTop: SIZES.padding
+                    // }}
                     >
+
+                        {/* EDIT* commented out ratings, duration and shipping label*/}
                         {/* Ratings */}
-                        <IconLabel
+                        {/* <IconLabel
                             containerStyle={{
                                 backgroundColor: COLORS.primary
                             }}
@@ -169,10 +177,10 @@ const FoodDetail = ({ navigation, route }) => {
                             labelStyle={{
                                 color: COLORS.white
                             }}
-                        />
+                        /> */}
 
                         {/* Duration */}
-                        <IconLabel
+                        {/* <IconLabel
                             containerStyle={{
                                 marginLeft: SIZES.radius,
                                 paddingHorizontal: 0
@@ -182,10 +190,10 @@ const FoodDetail = ({ navigation, route }) => {
                                 tintColor: COLORS.black
                             }}
                             label="30 Mins"
-                        />
+                        /> */}
 
                         {/* Shipping */}
-                        <IconLabel
+                        {/* <IconLabel
                             containerStyle={{
                                 marginLeft: SIZES.radius,
                                 paddingHorizontal: 0
@@ -195,7 +203,7 @@ const FoodDetail = ({ navigation, route }) => {
                                 tintColor: COLORS.black
                             }}
                             label="Free shipping"
-                        />
+                        /> */}
                     </View>
 
                     {/* Sizes */}
@@ -207,6 +215,7 @@ const FoodDetail = ({ navigation, route }) => {
                         }}
                     >
                         <Text style={{ ...FONTS.h3 }}>Sizes:</Text>
+
 
                         <View
                             style={{
@@ -244,6 +253,57 @@ const FoodDetail = ({ navigation, route }) => {
         )
     }
 
+    function renderInstructions() {
+        return (
+            <View
+                style={{
+                    flexDirection: 'row',
+                    marginVertical: SIZES.padding,
+                    paddingHorizontal: SIZES.padding,
+                    alignItems: 'center'
+                }}
+            >
+                <Text
+                    style={{
+                        marginTop: SIZES.base,
+                        color: COLORS.grey,
+                        ...FONTS.body3,
+                    }}
+                >
+                    Please note that special requests may result in price adjustments after your order is processed.
+                </Text>
+            </View >
+        )
+    }
+
+    function renderInput() {
+        return (
+            <View
+                style={{
+                    flexDirection: 'row',
+                    height: 40,
+                    alignItems: 'center',
+                    marginHorizontal: SIZES.padding,
+                    marginBottom: SIZES.base,
+                    paddingHorizontal: SIZES.radius,
+                    borderRadius: SIZES.radius,
+                    backgroundColor: COLORS.lightGray2
+                }}
+            >
+                {/* Text Input */}
+                <TextInput
+                    style={{
+                        flex: 1,
+                        marginLeft: SIZES.radius,
+                        ...FONTS.body3
+                    }}
+                    placeholder="instructions..."
+                />
+            </View>
+        )
+    }
+
+    //EDIT* commented out function call
     function renderRestaurant() {
         return (
             <View
@@ -254,6 +314,16 @@ const FoodDetail = ({ navigation, route }) => {
                     alignItems: 'center'
                 }}
             >
+                <Text
+                    style={{
+                        marginTop: SIZES.base,
+                        color: COLORS.grey,
+                        textAlign: 'justify',
+                        ...FONTS.body3,
+                    }}
+                >
+                    Please note that special requests may result in price adjustments after your order is processed.
+                    </Text>
                 {/* Image */}
                 <Image
                     source={images.profile}
@@ -320,7 +390,7 @@ const FoodDetail = ({ navigation, route }) => {
                     }}
                     label="Buy Now"
                     label2="$15.99"
-                    onPress={() => navigation.navigate("MyCart")}
+                onPress={() => navigation.navigate("MyCart")}
                 />
             </View>
         )
@@ -331,8 +401,10 @@ const FoodDetail = ({ navigation, route }) => {
             style={{
                 flex: 1,
                 backgroundColor: COLORS.white
+                
             }}
         >
+
             {/* Header */}
             {renderHeader()}
 
@@ -341,9 +413,11 @@ const FoodDetail = ({ navigation, route }) => {
                 {renderDetails()}
 
                 <LineDivider />
+                {/* Instructions */}
+                {renderInstructions()}
+                {renderInput()}
 
-                {/* Restaurant */}
-                {renderRestaurant()}
+
             </ScrollView>
 
             {/* Footer */}

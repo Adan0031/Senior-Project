@@ -4,8 +4,8 @@ const { width, height } = Dimensions.get("window");
 export const COLORS = {
     // primary: "#FF6C44", //orange
     primary: '#CF4411', // Our Colors Palette 
+    // secondary: 'black',
     transparentPrimary: 'rgba(227, 120, 75, 0.4)',
-    orange: "#FFA133",
     lightOrange: "#FFA133",
     lightOrange2: "#FDDED4",
     lightOrange3: '#FFD9AD',
@@ -14,14 +14,14 @@ export const COLORS = {
     red2: "#FF6C44",
     blue: '#0064C0',
     darkBlue: "#111A2C",
-    darkGray: "#525C67",
+    darkGray: "#212121", // Our very dark gray for the account tabs
     darkGray2: "#757D85",
-    gray: "#898B9A",
+    gray: "#373F46", // Our Gray secondary color
     gray2: "#BBBDC1",
     gray3: '#CFD0D7',
-    lightGray1: "#DDDDDD",
+    linelightGray: "#757575",
     lightGray2: "#F5F5F8",
-    white2: "#FBFBFB",
+    white2: "#F0F0F0",
     white: '#FFFFFF',
     black: "#000000",
     grey: '#373F46', // Our Color Palette 
@@ -42,7 +42,7 @@ export const SIZES = {
     // font sizes
     largeTitle: 40,
     h1: 30,
-    h2: 22,
+    h2: 20,
     h3: 16,
     h4: 14,
     h5: 12,
@@ -70,6 +70,7 @@ export const FONTS = {
     body5: { fontFamily: "Poppins-Regular", fontSize: SIZES.body5, lineHeight: 22 },
 };
 
-const appTheme = { COLORS, SIZES, FONTS };
+
+const appTheme = { COLORS, SIZES, FONTS};
 
 export default appTheme;

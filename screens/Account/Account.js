@@ -3,20 +3,20 @@ import {
     View,
     Text,
     TouchableOpacity,
-    Linking,
-    StyleSheet
+    ScrollView,
 } from 'react-native';
 import { COLORS, FONTS, SIZES } from "../../constants";
-const Account = ({ navigation }) => {
+const Account = ({navigation}) => {
     return (
-        <View>
-        
+        <ScrollView
+            style={{ backgroundColor: COLORS.gray }}
+        >
             <Text style={{
                 ...FONTS.h1,
                 color: COLORS.white,
-                paddingBottom: 100,
+                paddingBottom: '10%',
+                paddingTop: '10%',
                 marginHorizontal: SIZES.padding
-
             }}
             >
                 Hi Username
@@ -25,32 +25,30 @@ const Account = ({ navigation }) => {
             <TouchableOpacity onPress={() => navigation.navigate('Account_name')}>
                 <Text // This is the button for Name
                     style={{
-                        color: COLORS.white,
-                        ...FONTS.h2,
+                        color: COLORS.white2,
+                        ...FONTS.h3,
                         marginHorizontal: SIZES.padding,
                         paddingTop: SIZES.padding,
-
                     }}
                 >
                     Name
                 </Text>
- 
+
             </TouchableOpacity>
-            <View // This is the line for Name
-                    style={{
-                        borderBottomColor: COLORS.gray,
-                        borderBottomWidth: 1,
-                        paddingTop: SIZES.padding,
-                        paddingBottom: SIZES.padding
-                    }}
+            <View // This is the line for name
+                style={{
+                    borderBottomColor: COLORS.linelightGray,
+                    borderBottomWidth: 1,
+                    paddingTop: SIZES.padding,
+                }}
             />
 
 
             <TouchableOpacity onPress={() => navigation.navigate('Account_email')}>
                 <Text // This is the button for Email
                     style={{
-                        color: COLORS.white,
-                        ...FONTS.h2,
+                        color: COLORS.white2,
+                        ...FONTS.h3,
                         marginHorizontal: SIZES.padding,
                         paddingTop: SIZES.padding,
 
@@ -60,21 +58,19 @@ const Account = ({ navigation }) => {
                 </Text>
 
             </TouchableOpacity>
-            <View // This is the line for Email
-                    style={{
-                        borderBottomColor: COLORS.gray,
-                        borderBottomWidth: 1,
-                        paddingTop: SIZES.padding,
-                        paddingBottom: SIZES.padding
-                    }}
+            <View // This is the line for email
+                style={{
+                    borderBottomColor: COLORS.linelightGray,
+                    borderBottomWidth: 1,
+                    paddingTop: SIZES.padding,
+                }}
             />
-
 
             <TouchableOpacity onPress={() => navigation.navigate('Account_password')}>
                 <Text // This is the button for Password
                     style={{
-                        color: COLORS.white,
-                        ...FONTS.h2,
+                        color: COLORS.white2,
+                        ...FONTS.h3,
                         marginHorizontal: SIZES.padding,
                         paddingTop: SIZES.padding,
 
@@ -84,21 +80,20 @@ const Account = ({ navigation }) => {
                 </Text>
 
             </TouchableOpacity>
-            <View  // This is the line for Password
-                    style={{
-                        borderBottomColor: COLORS.gray,
-                        borderBottomWidth: 1,
-                        paddingTop: SIZES.padding,
-                        paddingBottom: SIZES.padding
-                    }}
+            <View // This is the line for password
+                style={{
+                    borderBottomColor: COLORS.linelightGray,
+                    borderBottomWidth: 1,
+                    paddingTop: SIZES.padding,
+                }}
             />
 
 
             <TouchableOpacity onPress={() => navigation.navigate('Account_payment')}>
                 <Text  // This is the button for Payment
                     style={{
-                        color: COLORS.white,
-                        ...FONTS.h2,
+                        color: COLORS.white2,
+                        ...FONTS.h3,
                         marginHorizontal: SIZES.padding,
                         paddingTop: SIZES.padding,
 
@@ -108,20 +103,19 @@ const Account = ({ navigation }) => {
                 </Text>
             </TouchableOpacity>
             <View // This is the line for Payment
-                    style={{
-                        borderBottomColor: COLORS.gray,
-                        borderBottomWidth: 1,
-                        paddingTop: SIZES.padding,
-                        paddingBottom: SIZES.padding
-                    }}
+                style={{
+                    borderBottomColor: COLORS.linelightGray,
+                    borderBottomWidth: 1,
+                    paddingTop: SIZES.padding,
+                }}
             />
 
 
-            <TouchableOpacity onPress={() => navigation.navigate('Account_order_history')}>
+            <TouchableOpacity onPress={() => navigation.navigate('Account_orders_history_screen')}>
                 <Text // This is the button for Order History
                     style={{
-                        color: COLORS.white,
-                        ...FONTS.h2,
+                        color: COLORS.white2,
+                        ...FONTS.h3,
                         marginHorizontal: SIZES.padding,
                         paddingTop: SIZES.padding,
 
@@ -131,21 +125,20 @@ const Account = ({ navigation }) => {
                 </Text>
 
             </TouchableOpacity>
-            <View // This is the line for Order History
-                    style={{
-                        borderBottomColor: COLORS.gray,
-                        borderBottomWidth: 1,
-                        paddingTop: SIZES.padding,
-                        paddingBottom: SIZES.padding
-                    }}
+            <View // This is the line for order history
+                style={{
+                    borderBottomColor: COLORS.linelightGray,
+                    borderBottomWidth: 1,
+                    paddingTop: SIZES.padding,
+                }}
             />
 
 
-            <TouchableOpacity onPress={() => navigation.navigate('Account_push_notifications')}>
+            <TouchableOpacity onPress={() => navigation.navigate('App_notifications')}>
                 <Text // This is the button for Push Notifications
                     style={{
-                        color: COLORS.white,
-                        ...FONTS.h2,
+                        color: COLORS.white2,
+                        ...FONTS.h3,
                         marginHorizontal: SIZES.padding,
                         paddingTop: SIZES.padding,
 
@@ -155,39 +148,67 @@ const Account = ({ navigation }) => {
                 </Text>
 
             </TouchableOpacity>
-            <View // This is the line for Push Notifications
-                    style={{
-                        borderBottomColor: COLORS.gray,
-                        borderBottomWidth: 1,
-                        paddingTop: SIZES.padding,
-                        paddingBottom: SIZES.padding
-                    }}
+            <View // This is the line for push notifications
+                style={{
+                    borderBottomColor: COLORS.linelightGray,
+                    borderBottomWidth: 1,
+                    paddingTop: SIZES.padding,
+                }}
             />
 
 
             <TouchableOpacity onPress={() => navigation.navigate('Account_app_feedback')}>
                 <Text // This is the button for App Feedback
                     style={{
-                        color: COLORS.white,
-                        ...FONTS.h2,
+                        color: COLORS.white2,
+                        ...FONTS.h3,
                         marginHorizontal: SIZES.padding,
                         paddingTop: SIZES.padding,
 
                     }}
                 >
-                   App Feedback 
+                    App Feedback
                 </Text>
             </TouchableOpacity>
-            <View // This is the line for App Feedback
-                    style={{
-                        borderBottomColor: COLORS.gray,
-                        borderBottomWidth: 1,
-                        paddingTop: SIZES.padding,
-                        paddingBottom: SIZES.padding
-                    }}
+            <View // This is the line for app feedback
+                style={{
+                    borderBottomColor: COLORS.linelightGray,
+                    borderBottomWidth: 1,
+                    paddingTop: SIZES.padding,
+                }}
             />
-        </View>
+            <View // This is the space between the button and the last gray line
+                style={{
+                    paddingTop: "5%",
+                }}
+            />
+            <TouchableOpacity style={{
+                marginTop: "10%",
+                paddingTop: "2%",
+                paddingBottom: "2%",
+                margin: "5%",
+                width: "50%",
+                alignSelf: "center",
+                backgroundColor: COLORS.primary,
+                borderRadius: 30,
+            }}
+                onPress={() => navigation.navigate('Log')}
+            >
+                <Text style={{
+                    textAlign: "center", color: COLORS.white2,
+                    ...FONTS.h4,
+                    marginHorizontal: SIZES.padding,
+                }}>
+                    Log Out
+                </Text>
+            </TouchableOpacity>
+            <View // This is the line for app feedback
+                style={{
+                    paddingTop: "20%",
+                }}
+            />
 
+        </ScrollView>
     )
 }
 export default Account;

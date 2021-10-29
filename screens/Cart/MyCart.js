@@ -86,9 +86,8 @@ const MyCart = ({ navigation }) => {
                 data={myCartList}
                 keyExtractor={item => `${item.id}`}
                 contentContainerStyle={{
-                    marginTop: SIZES.radius,
                     paddingHorizontal: SIZES.padding,
-                    paddingBottom: SIZES.padding * 2
+                    paddingBottom: SIZES.padding
                 }}
                 disableRightSwipe={true}
                 rightOpenValue={-75}
@@ -110,12 +109,13 @@ const MyCart = ({ navigation }) => {
                         >
                             <Image
                                 source={data.item.image}
-                                resizeMode="contain"
+                                resizeMode="cover"
                                 style={{
+                                    borderRadius: 10,
                                     width: "100%",
                                     height: "100%",
                                     position: 'absolute',
-                                    top: 10,
+                                
                                 }}
                             />
                         </View>
@@ -123,7 +123,8 @@ const MyCart = ({ navigation }) => {
                         {/* Food Info */}
                         <View
                             style={{
-                                flex: 1
+                                flex: 1,
+                                marginLeft: '2%',
                             }}
                         >
                             <Text style={{ ...FONTS.body3 }}>{data.item.name}</Text>
@@ -172,7 +173,7 @@ const MyCart = ({ navigation }) => {
                 subTotal={37.97}
                 shippingFee={0.00}
                 total={37.97}
-                onPress={() => navigation.navigate("MyCard")}
+                // onPress={() => navigation.navigate("MyCard")}
             />
         )
     }

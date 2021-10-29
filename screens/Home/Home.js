@@ -170,14 +170,9 @@ const Home = () => {
                 backgroundColor: COLORS.grey,
                 flex: 1,
                 //padding to bottom so card is not behind tab.
-<<<<<<< Updated upstream
                 paddingBottom: "13%",
                 
                 
-=======
-                paddingBottom: 50,
-                backgroundColor: COLORS.gray
->>>>>>> Stashed changes
             }}
         >
             {/* Search */}

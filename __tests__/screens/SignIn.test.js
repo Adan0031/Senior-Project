@@ -12,11 +12,6 @@ jest.mock('react-native-keyboard-aware-scroll-view', () => {
 });
 
 
-
-
-
-
-
 // Stack Navigator SignIn Screen Renders Correctly 
 describe('SignIn Screen', () => {
     it('Renders the correct header title', () => {
@@ -33,32 +28,40 @@ describe('SignIn Screen', () => {
         expect(subTitle).toBeTruthy();
     });
 
-    // it('Renders the correct header left button', () => {
-    //     const { getByTestId } = render(<SignIn />);
-    //     expect(getByTestId('sign-in-screen-header-left-button')).toHaveTextContent('Cancel');
-    // });
-
-    // it('Renders the correct header right button', () => {
-    //     const { getByTestId } = render(<SignIn />);
-    //     expect(getByTestId('sign-in-screen-header-right-button')).toHaveTextContent('Next');
-    // });
-
-    it('Renders the correct email input', () => {
-        const { getByTestId } = render(<SignIn />);
-        expect(getByTestId('email-Input')).toBeTruthy();
+    it('Renders the correct email input label', () => {
+        const { getByText } = render(<SignIn />);
+        const emailInput = getByText('Email');
+        expect(emailInput).toBeTruthy();
     });
 
-    // it('Renders the correct email input label', () => {
-    //     const { getByTestId } = render(<SignIn />);
-    //     expect(getByTestId('sign-in-screen-email-input-label')).toHaveTextContent('Email');
-    // });
+    it('Renders the correct password input label', () => {
+        const { getByText } = render(<SignIn />);
+        const passwordInput = getByText('Password');
+        expect(passwordInput).toBeTruthy();
+    });
 
-    // it('Renders the correct email input placeholder', () => {
-    //     const { getByTestId } = render(<SignIn />);
-    //     expect(getByTestId('sign-in-screen-email-input-placeholder')).toHaveTextContent('Email');
-    // });
 });
 
+// Stack Navigator SignIn Screen Navigates to SignUp Screen
+describe('SignIn Screen Navigates', () => {
+        it('Navigates to SignUp Screen when SignUp Button Link is clicked', () => {
+        const navigation = { navigate: jest.fn() };
+        const { getByText } = render(
+            <SignIn navigation={navigation} />
+        );
+        fireEvent.press(getByText('Sign Up'));
+        expect(navigation.navigate).toHaveBeenCalledWith('SignUp');
+    });
+});
 
-
-
+// Stack Navigator SignIn Screen Navigates to Home Screen Once We Continue with Outlook Login
+describe('SignIn Screen Navigates', () => {
+        it('Navigates to Home Screen when Continue with Outlook Button Link is clicked', () => {
+        const navigation = { replace: jest.fn() };
+        const { getByText } = render(
+            <SignIn navigation={ navigation } />
+        );
+        fireEvent.press(getByText('Continue With Outlook'));
+        expect(navigation.replace).toHaveBeenCalledWith('Home');
+    });
+});

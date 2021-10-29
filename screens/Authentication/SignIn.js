@@ -41,6 +41,7 @@ const SignIn = ({ navigation }) => {
             >
                 {/* Form Inputs */}
                 <FormInput
+                    placeholder="john.doe6@utrgv.edu"
                     label="Email"
                     keyboardType="email-address"
                     autoCompleteType="email"
@@ -71,6 +72,7 @@ const SignIn = ({ navigation }) => {
                 />
 
                 <FormInput
+                    placeholder="********"
                     label="Password"
                     secureTextEntry={!showPass}
                     autoCompleteType="password"

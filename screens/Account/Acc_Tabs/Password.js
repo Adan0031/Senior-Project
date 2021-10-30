@@ -1,19 +1,19 @@
 import 'react-native-gesture-handler';
 
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity,TextInput } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { FONTS, SIZES, COLORS} from "../../../constants"
+import { FONTS, SIZES, COLORS } from "../../../constants"
 
 const MainStack = createStackNavigator();
 
-const password_screen = ({navigation}) => {
+const password_screen = ({ navigation }) => {
     const [New_Pass, onchangeTextNew] = React.useState(null);
     const [Current_Pass, onChangeTextCurrent] = React.useState(null);
     return (
 
-        <View style={styles.screen}>
-            
+        <View style={{flex: 1, backgroundColor: COLORS.darkGray}}>
+
             <Text style={{ color: COLORS.white, marginHorizontal: SIZES.padding, paddingTop: "10%" }}>
                 New Password*
             </Text>
@@ -22,9 +22,10 @@ const password_screen = ({navigation}) => {
                 style={{ color: COLORS.white, marginHorizontal: SIZES.padding }} onChangeText={onchangeTextNew}
                 value={New_Pass}
                 placeholder="New Password"
+                placeholderTextColor={COLORS.linelightGray} /* this will give the text color of choice for the placeholder*/
                 keyboardType="numeric"
             />
-            <View 
+            <View
                 style={{
                     borderBottomColor: COLORS.linelightGray,
                     borderBottomWidth: 1,
@@ -33,7 +34,7 @@ const password_screen = ({navigation}) => {
                 }}
             />
 
-            <Text style={{ color: COLORS.white, marginHorizontal: SIZES.padding, paddingTop: "10%"}}>
+            <Text style={{ color: COLORS.white, marginHorizontal: SIZES.padding, paddingTop: "10%" }}>
                 Current Password*
             </Text>
 
@@ -41,6 +42,7 @@ const password_screen = ({navigation}) => {
                 style={{ color: COLORS.white, marginHorizontal: SIZES.padding }} onChangeText={onChangeTextCurrent}
                 value={Current_Pass}
                 placeholder="Current Password"
+                placeholderTextColor={COLORS.linelightGray} /* this will give the text color of choice for the placeholder*/
                 keyboardType="numeric"
             />
 
@@ -52,7 +54,7 @@ const password_screen = ({navigation}) => {
                     marginHorizontal: SIZES.padding
                 }}
             />
-            
+
             <TouchableOpacity style={{
                 marginTop: "10%",
                 paddingTop: "2%",
@@ -71,6 +73,18 @@ const password_screen = ({navigation}) => {
                     marginHorizontal: SIZES.padding,
                 }}>
                     Save
+                </Text>
+            </TouchableOpacity>
+
+            {/*this create the forgot your password text just below the save button.
+             This button is clikeable and should take your to the password reset page*/ }
+            <TouchableOpacity onPress={() => navigation.navigate('Acc_ForgotPassword')}> 
+                <Text style={{
+                    textAlign: "center", color: "#FC8D64",
+                    ...FONTS.h5,
+                    marginHorizontal: SIZES.padding,
+                }}>
+                    Forgot your Password?
                 </Text>
             </TouchableOpacity>
         </View>
@@ -93,7 +107,7 @@ function Account_password() {
                     // Center the header title on Android
                     headerTitleAlign: 'center',
                 }}
-                
+
             />
 
         </MainStack.Navigator>
@@ -101,11 +115,3 @@ function Account_password() {
 }
 
 export default Account_password;
-
-/// Just some styles
-const styles = StyleSheet.create({
-    screen: {
-        flex: 1,
-        backgroundColor: COLORS.darkGray,
-    },
-});

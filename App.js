@@ -34,7 +34,8 @@ import {
     Map,
     Account_password,
     Account_payment,
-    Account_orders_history_screen
+    Account_orders_history_screen,
+    Acc_ForgotPassword
 } from "./screens";
 
 const Stack = createStackNavigator();
@@ -67,8 +68,8 @@ const App = () => {
                         headerShown: false
                     }}
                     // Do not want to route to this screen yet
-                        initialRouteName={'OnBoarding'}
-                    // initialRouteName={'Home'}
+                    initialRouteName={'OnBoarding'}
+                // initialRouteName={'Home'}
                 >
                     {/* Do not Display this one yet */}
                     <Stack.Screen
@@ -173,7 +174,10 @@ const App = () => {
                         name="Account_orders_history_screen"
                         component={Account_orders_history_screen}
                     />
-
+                    <Stack.Screen
+                        name="Acc_ForgotPassword"
+                        component={Acc_ForgotPassword}
+                    />
                 </Stack.Navigator>
             </NavigationContainer>
         </Provider>

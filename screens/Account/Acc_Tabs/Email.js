@@ -21,6 +21,7 @@ const email_screen = ({ navigation }) => {
                 style={{ color: COLORS.white, marginHorizontal: SIZES.padding }} onChangeText={onchangeTextEmail}
                 value={Email}
                 placeholder="Current email"
+                placeholderTextColor= {COLORS.linelightGray} /* this will give the text color of choice for the placeholder*/
                 keyboardType="numeric"
             />
             <View
@@ -40,6 +41,7 @@ const email_screen = ({ navigation }) => {
                 style={{ color: COLORS.white, marginHorizontal: SIZES.padding }} onChangeText={onChangeTextPass}
                 value={Current_Pass}
                 placeholder="Current password"
+                placeholderTextColor= {COLORS.linelightGray} /* this will give the text color of choice for the placeholder*/
                 keyboardType="numeric"
             />
 
@@ -71,9 +73,20 @@ const email_screen = ({ navigation }) => {
                 }}>
                     Save
                 </Text>
-
             </TouchableOpacity>
 
+
+            {/*this create the forgot your password text just below the save button.
+             This button is clikeable and should take your to the password reset page*/ }
+            <TouchableOpacity onPress={() => navigation.navigate('Acc_ForgotPassword')}> 
+                <Text style={{
+                    textAlign: "center", color: "#FC8D64",
+                    ...FONTS.h5,
+                    marginHorizontal: SIZES.padding,
+                }}>
+                    Forgot your Password?
+                </Text>
+            </TouchableOpacity>
 
         </View>
     );

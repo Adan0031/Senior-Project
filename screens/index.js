@@ -51,6 +51,7 @@ import Account_email from "./Account/Acc_Tabs/Email"
 import Account_password from "./Account/Acc_Tabs/Password"
 import Account_payment from "./Account/Acc_Tabs/Payment"
 import Account_orders_history_screen from "./Account/Acc_Tabs/Order_History"
+import Acc_ForgotPassword from "./Account/Acc_Tabs/Account_Password_Reset"
 export {
     OnBoarding,
     Account_email,
@@ -83,5 +84,6 @@ export {
     Map,
     Account_password,
     Account_payment,
-    Account_orders_history_screen
+    Account_orders_history_screen,
+    Acc_ForgotPassword
 }

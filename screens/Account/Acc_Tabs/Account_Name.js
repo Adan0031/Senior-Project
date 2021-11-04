@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 
 import React from 'react';
-import { View, Text, StyleSheet,TextInput,TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SIZES, COLORS, FONTS } from "../../../constants"
 
@@ -13,7 +13,7 @@ const acc_screen = ({ navigation }) => {
     const [LastN, onChangeTextLast] = React.useState(null);
     return (
 
-        <View style={styles.screen}>
+        <View style={{flex: 1, backgroundColor: COLORS.darkGray}}>
             {/* This is the Text for First name*/}
             <Text style={{ color: COLORS.white, marginHorizontal: SIZES.padding, paddingTop: "10%" }}>
                 First Name*
@@ -21,16 +21,16 @@ const acc_screen = ({ navigation }) => {
             </Text>
             {/* This is the inputText for First name*/}
             <TextInput
-                style={{ color: COLORS.white, marginHorizontal: SIZES.padding }} onChangeText={onchangeTextFirst}
+                style={{ color: COLORS.white, marginHorizontal: SIZES.padding }} onChangeText={onchangeTextFirst} /* Will change the color of the text inputed*/
                 value={FirstN}
                 placeholder="First Name"
+                placeholderTextColor={COLORS.linelightGray} /* this will give the text color of choice for the placeholder*/
                 keyboardType="numeric"
             />
             <View
                 style={{
                     borderBottomColor: COLORS.linelightGray,
                     borderBottomWidth: 1,
-
                     width: "80%",
                     marginHorizontal: SIZES.padding
                 }}
@@ -45,6 +45,7 @@ const acc_screen = ({ navigation }) => {
                 style={{ color: COLORS.white, marginHorizontal: SIZES.padding }} onChangeText={onChangeTextLast}
                 value={LastN}
                 placeholder="Last Name"
+                placeholderTextColor={COLORS.linelightGray}
                 keyboardType="numeric"
             />
             <View
@@ -55,7 +56,7 @@ const acc_screen = ({ navigation }) => {
                     marginHorizontal: SIZES.padding
                 }}
             />
-             <TouchableOpacity style={{  // Save Button
+            <TouchableOpacity style={{  // Save Button
                 marginTop: "10%",
                 paddingTop: "2%",
                 paddingBottom: "2%",
@@ -76,7 +77,10 @@ const acc_screen = ({ navigation }) => {
                 </Text>
             </TouchableOpacity>
 
-            
+
+
+
+
         </View>
     );
 };
@@ -104,12 +108,6 @@ function Account_name() {
     );
 }
 
-export default Account_name;
 
-/// Just some styles
-const styles = StyleSheet.create({
-    screen: {
-        flex: 1,
-        backgroundColor: COLORS.darkGray,
-    },
-});
+
+export default Account_name;

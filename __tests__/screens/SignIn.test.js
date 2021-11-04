@@ -65,3 +65,4 @@ describe('SignIn Screen Navigates', () => {
         expect(navigation.replace).toHaveBeenCalledWith('Home');
     });
 });
+

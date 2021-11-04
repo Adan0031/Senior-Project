@@ -35,7 +35,7 @@ import {
     Account_password,
     Account_payment,
     Account_orders_history_screen,
-    Acc_ForgotPassword
+    Acc_ForgotPassword,
 } from "./screens";
 
 const Stack = createStackNavigator();
@@ -61,6 +61,7 @@ const App = () => {
     return (
         // This Tag wraps aroud all of our screens for state management purposes
         // Comment out screens to change order
+        <SafeAreaProvider>
         <Provider store={store}>
             <NavigationContainer>
                 <Stack.Navigator
@@ -69,8 +70,8 @@ const App = () => {
                     }}
                     // Do not want to route to this screen yet
                     initialRouteName={'OnBoarding'}
-                // initialRouteName={'Home'}
-                >
+                    // initialRouteName={'Home'}
+                    >
                     {/* Do not Display this one yet */}
                     <Stack.Screen
                         name="OnBoarding"
@@ -179,8 +180,10 @@ const App = () => {
                         component={Acc_ForgotPassword}
                     />
                 </Stack.Navigator>
+
             </NavigationContainer>
         </Provider>
+        </SafeAreaProvider>
     )
 }
 

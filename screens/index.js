@@ -85,5 +85,5 @@ export {
     Account_password,
     Account_payment,
     Account_orders_history_screen,
-    Acc_ForgotPassword
+    Acc_ForgotPassword,
 }

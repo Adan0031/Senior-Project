@@ -110,9 +110,10 @@ const Tabs = () => {
             flex: 1,
             paddingTop: 0 - insets.top,
             paddingBottom: 0,
-            backgroundColor: COLORS.primary
+            backgroundColor: COLORS.primary,
         }}>
         <Tab.Navigator
+            testID="tabs"
             screenOptions={{
                 tabBarShowLabel: false,
                 tabBarStyle: {
@@ -132,6 +133,7 @@ const Tabs = () => {
                     props={props}
                 />
             )}
+            initialRouteName="Home"
         >
             <Tab.Screen
                 name="Home"

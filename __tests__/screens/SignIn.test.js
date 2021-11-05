@@ -1,8 +1,5 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
-import { ScrollView } from 'react-native';
-
-
 import { SignIn } from '../../screens';
 
 // Mock Third Party Modules

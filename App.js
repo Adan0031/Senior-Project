@@ -175,10 +175,11 @@ const App = () => {
                         name="Account_orders_history_screen"
                         component={Account_orders_history_screen}
                     />
-                    <Stack.Screen
+                    {/* Not Necesarry Duplicate */}
+                    {/* <Stack.Screen
                         name="Acc_ForgotPassword"
                         component={Acc_ForgotPassword}
-                    />
+                    /> */}
                 </Stack.Navigator>
 
             </NavigationContainer>

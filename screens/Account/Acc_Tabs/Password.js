@@ -78,7 +78,8 @@ const password_screen = ({ navigation }) => {
 
             {/*this create the forgot your password text just below the save button.
              This button is clikeable and should take your to the password reset page*/ }
-            <TouchableOpacity onPress={() => navigation.navigate('Acc_ForgotPassword')}> 
+            {/* <TouchableOpacity onPress={() => navigation.navigate('Acc_ForgotPassword')}>  */}
+            <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
                 <Text style={{
                     textAlign: "center", color: "#FC8D64",
                     ...FONTS.h5,

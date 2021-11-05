@@ -41,26 +41,26 @@ const ForgotPassword = ({ navigation }) => {
                     autoCompleteType="email"
                     value={email}
                     onChange={(value) => {
-                        utils.validateEmail(value, setEmailError)
+                        // utils.validateEmail(value, setEmailError)
                         setEmail(value)
                     }}
                     errorMsg={emailError}
-                    appendComponent={
-                        <View
-                            style={{
-                                justifyContent: 'center'
-                            }}
-                        >
-                            <Image
-                                source={(email == "") || (email != "" && emailError == "") ? icons.correct : icons.cancel}
-                                style={{
-                                    height: 20,
-                                    width: 20,
-                                    tintColor: (email == "") ? COLORS.gray : (email != "" && emailError == "") ? COLORS.green : COLORS.red
-                                }}
-                            />
-                        </View>
-                    }
+                    // appendComponent={
+                    //     <View
+                    //         style={{
+                    //             justifyContent: 'center'
+                    //         }}
+                    //     >
+                    //         <Image
+                    //             source={(email == "") || (email != "" && emailError == "") ? icons.correct : icons.cancel}
+                    //             style={{
+                    //                 height: 20,
+                    //                 width: 20,
+                    //                 tintColor: (email == "") ? COLORS.gray : (email != "" && emailError == "") ? COLORS.green : COLORS.red
+                    //             }}
+                    //         />
+                    //     </View>
+                    // }
                 />
 
                 <View
@@ -70,11 +70,11 @@ const ForgotPassword = ({ navigation }) => {
                         justifyContent: 'center'
                     }}
                 >
-                    <Text style={{ color: COLORS.darkGray, ...FONTS.body3 }}>Already have an account? </Text>
+                    <Text style={{ color: COLORS.darkGray, ...FONTS.body3 }}>Head Back To </Text>
                     <TouchableOpacity
-                        onPress={() => navigation.goBack()}
+                        onPress={() => navigation.replace("SignIn")}
                     >
-                        <Text style={{ color: COLORS.primary, ...FONTS.h3 }}>Sign In</Text>
+                        <Text style={{ color: COLORS.primary, ...FONTS.h3 }}>Sign In?</Text>
                     </TouchableOpacity>
                 </View>
             </View>

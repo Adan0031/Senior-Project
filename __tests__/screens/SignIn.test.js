@@ -41,7 +41,7 @@ describe('SignIn Screen', () => {
 
 // Stack Navigator SignIn Screen Navigates to SignUp Screen
 describe('SignIn Screen Navigates', () => {
-        it('Navigates to SignUp Screen when SignUp Button Link is clicked', () => {
+    it('Navigates to SignUp Screen when SignUp Button Link is clicked', () => {
         const navigation = { navigate: jest.fn() };
         const { getByText } = render(
             <SignIn navigation={navigation} />
@@ -49,11 +49,20 @@ describe('SignIn Screen Navigates', () => {
         fireEvent.press(getByText('Sign Up'));
         expect(navigation.navigate).toHaveBeenCalledWith('SignUp');
     });
-});
 
-// Stack Navigator SignIn Screen Navigates to Home Screen Once We Continue with Outlook Login
-describe('SignIn Screen Navigates', () => {
-        it('Navigates to Home Screen when Continue with Outlook Button Link is clicked', () => {
+    // Stack Navigator SignIn Screen Navigates to Forgot Password Screen
+    it('Navigates to Forgot Password Screen when Forgot Password Button Link is clicked', () => {
+        const navigation = { navigate: jest.fn() };
+        const { getByText } = render(
+            <SignIn navigation={navigation} />
+        );
+        const forgotPasswordButton = getByText('Forgot Password?');
+        fireEvent.press(forgotPasswordButton);
+        expect(navigation.navigate).toHaveBeenCalledWith('ForgotPassword');
+    });
+
+    // Stack Navigator SignIn Screen Navigates to Home Screen Once We Continue with Outlook Login.
+    it('Navigates to Home Screen when Continue with Outlook Button Link is clicked', () => {
         const navigation = { replace: jest.fn() };
         const { getByText } = render(
             <SignIn navigation={ navigation } />

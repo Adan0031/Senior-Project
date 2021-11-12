@@ -49,7 +49,7 @@ const Section = ({ title, onPress, children }) => {
     )
 }
 
-const Home = () => {
+const Home = ({ navigation }) => {
 
     
 
@@ -68,7 +68,7 @@ const Home = () => {
 
     const [showFilterModal, setShowFilterModal] = React.useState(false)
 
-    const navigation = useNavigation();
+    // const navigation = useNavigation();
 
     React.useEffect(() => {
         handleChangeCategory(selectedCategoryId, selectedMenuType)

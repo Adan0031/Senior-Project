@@ -8,8 +8,13 @@ afterEach(cleanup);
 // Home Screen Renders Correctly
 describe('Home Screen', () => {
     it('renders correctly', () => {
-        const { getByText } = render(<Home />);
-        // const textTitle = getByText('Home');
-        // expect(textTitle).toBeTruthy();
+        const { getByPlaceholderText } = render(<Home />);
+        const textTitle = getByPlaceholderText('search food...');
+        expect(textTitle).toBeTruthy();
+
+        
     });
 });
+
+
+// Navigate to a Food Selection Screen from Home Screen

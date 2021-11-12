@@ -108,13 +108,14 @@ const Tabs = () => {
     return (
         <SafeAreaView style={{
             flex: 1,
-            paddingTop: 0 - insets.top,
+            paddingTop: 1% - insets.top,
             paddingBottom: 0,
             backgroundColor: COLORS.primary,
         }}>
         <Tab.Navigator
             testID="tabs"
             screenOptions={{
+                headerShown: false,
                 tabBarShowLabel: false,
                 tabBarStyle: {
                     // what makes tab bar transparent

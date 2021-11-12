@@ -29,5 +29,12 @@ describe("ForgotPassword Screen", () => {
         const signInButton = getByText("Sign In?");
         fireEvent.press(signInButton);
         expect(replace).toHaveBeenCalledWith("SignIn");
-  });
+    });
+    // it("Navigates to Sign In Screen once Send Email Button Has been pressed", () => {
+    //     const goBack = jest.fn();
+    //     const { getByText } = render(<ForgotPassword navigation={{ goBack }} />);
+    //     const sendEmailButton = getByText("Send Email");
+    //     fireEvent.press(sendEmailButton);
+    //     expect(goBack).toHaveBeenCalledWith("SignIn");
+    // });
 });

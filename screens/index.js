@@ -47,11 +47,14 @@ import Account_name from "./Account/Acc_Tabs/Account_Name"
 import App_notifications from "./Account/Acc_Tabs/App_Notifications"
 // Delivery
 import DeliveryStatus from "./Delivery/DeliveryStatus"
+// Account
 import Account_email from "./Account/Acc_Tabs/Email"
 import Account_password from "./Account/Acc_Tabs/Password"
 import Account_payment from "./Account/Acc_Tabs/Payment"
 import Account_orders_history_screen from "./Account/Acc_Tabs/Order_History"
 import Acc_ForgotPassword from "./Account/Acc_Tabs/Account_Password_Reset"
+import Account_App_feedback from "./Account/Acc_Tabs/App_Feedback"
+
 export {
     OnBoarding,
     Account_email,
@@ -85,5 +88,6 @@ export {
     Account_password,
     Account_payment,
     Account_orders_history_screen,
-    Acc_ForgotPassword
+    Acc_ForgotPassword,
+    Account_App_feedback
 }

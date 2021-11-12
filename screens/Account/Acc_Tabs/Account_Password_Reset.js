@@ -18,7 +18,7 @@ const Acc_FP = ({ navigation }) => {
     function isEnableSendEmail() {
         return email != "" && emailError == ""
     }
-
+    
     return (
         <AuthLayout
             title="Password Recovery"

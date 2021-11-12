@@ -23,7 +23,7 @@ function Account_payment() {
                 component={acc_payment_screen}
 
                 options={{
-                    title: 'Password',
+                    title: 'Payment Methods',
                     headerTintColor: COLORS.white,
                     headerStyle: {
                         backgroundColor: COLORS.gray

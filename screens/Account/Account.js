@@ -5,7 +5,7 @@ import {
     TouchableOpacity,
     ScrollView,
 } from 'react-native';
-import { COLORS, FONTS, SIZES } from "../../constants";
+import { COLORS, FONTS, SIZES, dummyData } from "../../constants";
 const Account = ({navigation}) => {
     return (
         <ScrollView
@@ -19,7 +19,7 @@ const Account = ({navigation}) => {
                 marginHorizontal: SIZES.padding
             }}
             >
-                Hi Username
+                Hi {dummyData.myProfile.name}
             </Text>
 
             <TouchableOpacity onPress={() => navigation.navigate('Account_name')}>
@@ -99,7 +99,7 @@ const Account = ({navigation}) => {
 
                     }}
                 >
-                    Payment
+                    Payments
                 </Text>
             </TouchableOpacity>
             <View // This is the line for Payment
@@ -157,7 +157,7 @@ const Account = ({navigation}) => {
             />
 
 
-            <TouchableOpacity onPress={() => navigation.navigate('Account_app_feedback')}>
+            <TouchableOpacity onPress={() => navigation.navigate('Account_App_feedback')}>
                 <Text // This is the button for App Feedback
                     style={{
                         color: COLORS.white2,

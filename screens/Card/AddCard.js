@@ -64,7 +64,7 @@ const AddCard = ({ navigation, route }) => {
                             alignItems: 'center',
                             borderWidth: 1,
                             borderRadius: SIZES.radius,
-                            borderColor: COLORS.gray2,
+                            borderColor: COLORS.gray,
                         }}
                         iconStyle={{
                             width: 20,
@@ -272,7 +272,7 @@ const AddCard = ({ navigation, route }) => {
         <View
             style={{
                 flex: 1,
-                backgroundColor: COLORS.white
+                backgroundColor: COLORS.gray
             }}
         >
             {/* Header */}

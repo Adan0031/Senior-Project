@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import {
     View,
     Text,
@@ -15,11 +16,12 @@ const MyCard = ({ navigation }) => {
     function renderHeader() {
         return (
             <Header
-                title="MY CARDS"
+                title="My Cards"
+
                 containerStyle={{
                     height: 50,
                     marginHorizontal: SIZES.padding,
-                    marginTop: 40
+                    marginTop: 40,
                 }}
                 leftComponent={
                     <IconButton
@@ -31,7 +33,7 @@ const MyCard = ({ navigation }) => {
                             alignItems: 'center',
                             borderWidth: 1,
                             borderRadius: SIZES.radius,
-                            borderColor: COLORS.gray2
+                            borderColor: COLORS.gray
                         }}
                         iconStyle={{
                             width: 20,
@@ -51,11 +53,12 @@ const MyCard = ({ navigation }) => {
             />
         )
     }
-
+    {/* This will render the cards */ }
     function renderMyCards() {
         return (
             <View>
                 {dummyData.myCards.map((item, index) => {
+                    {/* This will return the displayed item in this case is a map with multiple 'cards' */ }
                     return (
                         <CardItem
                             key={`MyCard-${item.id}`}
@@ -76,7 +79,7 @@ const MyCard = ({ navigation }) => {
                     marginTop: SIZES.padding
                 }}
             >
-                <Text style={{ ...FONTS.h3 }}>Add new card</Text>
+                <Text style={{ ...FONTS.h3, color: COLORS.white }}>Add new card</Text>
 
                 {dummyData.allCards.map((item, index) => {
                     return (
@@ -107,13 +110,14 @@ const MyCard = ({ navigation }) => {
                         height: 60,
                         borderRadius: SIZES.radius,
                         backgroundColor: selectedCard == null ? COLORS.gray : COLORS.primary
+
                     }}
-                    label={selectedCard?.key == "NewCard" ? "Add" : "Place your Order"}
+                    label={selectedCard?.key == "NewCard" ? "Add" : "Set as default"}
                     onPress={() => {
                         if (selectedCard?.key == "NewCard") {
                             navigation.navigate("AddCard", { selectedCard: selectedCard })
                         } else {
-                            navigation.navigate("Checkout", { selectedCard: selectedCard })
+                            navigation.navigate("User", { selectedCard: selectedCard })
                         }
                     }}
                 />
@@ -124,31 +128,34 @@ const MyCard = ({ navigation }) => {
     return (
         <View
             style={{
-                flex: 1,
-                backgroundColor: COLORS.white
+                flex: 1, backgroundColor: COLORS.gray
             }}
         >
             {/* Header */}
             {renderHeader()}
-
-            {/* Cards */}
-            <ScrollView
-                contentContainerStyle={{
-                    flexGrow: 1,
-                    marginTop: SIZES.radius,
-                    paddingHorizontal: SIZES.padding,
-                    paddingBottom: SIZES.radius
-                }}
+            <View style={{
+                flex: 1, backgroundColor: COLORS.darkGray
+            }}
             >
-                {/* My Cards */}
-                {renderMyCards()}
+                {/* Cards */}
+                <ScrollView
+                    contentContainerStyle={{
+                        flexGrow: 1,
+                        marginTop: SIZES.radius,
+                        paddingHorizontal: SIZES.padding,
+                        paddingBottom: SIZES.radius,
+                    }}
+                >
+                    {/* My Cards */}
+                    {renderMyCards()}
 
-                {/* Add New Card */}
-                {renderAddNewCard()}
-            </ScrollView>
+                    {/* Add New Card */}
+                    {renderAddNewCard()}
+                </ScrollView>
+                {/* Footer */}
+                {renderFooter()}
+            </View>
 
-            {/* Footer */}
-            {renderFooter()}
         </View>
     )
 }

@@ -33,10 +33,10 @@ import {
     Account_email,
     Map,
     Account_password,
-    Account_payment,
+
     Account_orders_history_screen,
     Acc_ForgotPassword,
-    Account_App_feedback
+    Account_App_feedback,
 } from "./screens";
 
 const Stack = createStackNavigator();
@@ -63,133 +63,129 @@ const App = () => {
         // This Tag wraps aroud all of our screens for state management purposes
         // Comment out screens to change order
         <SafeAreaProvider>
-        <Provider store={store}>
-            <NavigationContainer>
-                <Stack.Navigator
-                    screenOptions={{
-                        headerShown: false
-                    }}
-                    // Do not want to route to this screen yet
-                    initialRouteName={'OnBoarding'}
+            <Provider store={store}>
+                <NavigationContainer>
+                    <Stack.Navigator
+                        screenOptions={{
+                            headerShown: false
+                        }}
+                        // Do not want to route to this screen yet
+                        initialRouteName={'OnBoarding'}
                     // initialRouteName={'Home'}
                     >
-                    {/* Do not Display this one yet */}
-                    <Stack.Screen
-                        name="OnBoarding"
-                        component={OnBoarding}
-                    />
-                    <Stack.Screen
-                        name="SignIn"
-                        component={SignIn}
-                    />
-                    {/* Do not Display this one yet */}
-                    <Stack.Screen
-                        name="SignUp"
-                        component={SignUp}
-                    />
-                    {/* Do not Display this one yet */}
-                    <Stack.Screen
-                        name="ForgotPassword"
-                        component={ForgotPassword}
-                    />
-                    {/* Do not Display this one yet */}
-                    <Stack.Screen
-                        name="Otp"
-                        component={Otp}
-                    />
-                    {/* Rename */}
-                    <Stack.Screen
-                        name="Home"
-                        // Instead Load Tabs Navigation
-                        // component={CustomDrawer}
-                        component={Tabs}
-                    />
+                        {/* Do not Display this one yet */}
+                        <Stack.Screen
+                            name="OnBoarding"
+                            component={OnBoarding}
+                        />
+                        <Stack.Screen
+                            name="SignIn"
+                            component={SignIn}
+                        />
+                        {/* Do not Display this one yet */}
+                        <Stack.Screen
+                            name="SignUp"
+                            component={SignUp}
+                        />
+                        {/* Do not Display this one yet */}
+                        <Stack.Screen
+                            name="ForgotPassword"
+                            component={ForgotPassword}
+                        />
+                        {/* Do not Display this one yet */}
+                        <Stack.Screen
+                            name="Otp"
+                            component={Otp}
+                        />
+                        {/* Rename */}
+                        <Stack.Screen
+                            name="Home"
+                            // Instead Load Tabs Navigation
+                            // component={CustomDrawer}
+                            component={Tabs}
+                        />
 
-                    <Stack.Screen
-                        name="FoodDetail"
-                        component={FoodDetail}
-                    />
+                        <Stack.Screen
+                            name="FoodDetail"
+                            component={FoodDetail}
+                        />
 
-                    <Stack.Screen
-                        name="FoodSelection"
-                        component={FoodSelection}
-                    />
+                        <Stack.Screen
+                            name="FoodSelection"
+                            component={FoodSelection}
+                        />
 
-                    <Stack.Screen
-                        name="MyCart"
-                        component={MyCart}
-                    />
+                        <Stack.Screen
+                            name="MyCart"
+                            component={MyCart}
+                        />
 
-                    <Stack.Screen
-                        name="MyCard"
-                        component={MyCard}
-                    />
+                        <Stack.Screen
+                            name="MyCard"
+                            component={MyCard}
+                        />
 
-                    <Stack.Screen
-                        name="AddCard"
-                        component={AddCard}
-                    />
+                        <Stack.Screen
+                            name="AddCard"
+                            component={AddCard}
+                        />
 
-                    <Stack.Screen
-                        name="Checkout"
-                        component={Checkout}
-                    />
+                        <Stack.Screen
+                            name="Checkout"
+                            component={Checkout}
+                        />
 
-                    <Stack.Screen
-                        name="Success"
-                        component={Success}
-                        options={{ gestureEnabled: false }}
-                    />
+                        <Stack.Screen
+                            name="Success"
+                            component={Success}
+                            options={{ gestureEnabled: false }}
+                        />
 
-                    <Stack.Screen
-                        name="DeliveryStatus"
-                        component={DeliveryStatus}
-                        options={{ gestureEnabled: false }}
-                    />
+                        <Stack.Screen
+                            name="DeliveryStatus"
+                            component={DeliveryStatus}
+                            options={{ gestureEnabled: false }}
+                        />
 
-                    <Stack.Screen
-                        name="Map"
-                        component={Map}
-                    />
-                    <Stack.Screen
-                        name="Account_name"
-                        component={Account_name}
-                    />
+                        <Stack.Screen
+                            name="Map"
+                            component={Map}
+                        />
+                        <Stack.Screen
+                            name="Account_name"
+                            component={Account_name}
+                        />
 
-                    <Stack.Screen
-                        name="App_notifications"
-                        component={App_notifications}
-                    />
-                    <Stack.Screen
-                        name="Account_email"
-                        component={Account_email}
-                    />
-                    <Stack.Screen
-                        name="Account_password"
-                        component={Account_password}
-                    />
-                    <Stack.Screen
-                        name="Account_payment"
-                        component={Account_payment}
-                    />
-                    <Stack.Screen
-                        name="Account_orders_history_screen"
-                        component={Account_orders_history_screen}
-                    />
-                    {/* Not Necesarry Duplicate */}
-                    <Stack.Screen
-                        name="Acc_ForgotPassword"
-                        component={Acc_ForgotPassword}
-                    />
-                    <Stack.Screen
-                        name="Account_App_feedback"
-                        component={Account_App_feedback}
-                    />
+                        <Stack.Screen
+                            name="App_notifications"
+                            component={App_notifications}
+                        />
+                        <Stack.Screen
+                            name="Account_email"
+                            component={Account_email}
+                        />
+                        <Stack.Screen
+                            name="Account_password"
+                            component={Account_password}
+                        />
 
-                </Stack.Navigator>
+                        <Stack.Screen
+                            name="Account_orders_history_screen"
+                            component={Account_orders_history_screen}
+                        />
+                        {/* Not Necesarry Duplicate */}
+                        <Stack.Screen
+                            name="Acc_ForgotPassword"
+                            component={Acc_ForgotPassword}
+                        />
+                        <Stack.Screen
+                            name="Account_App_feedback"
+                            component={Account_App_feedback}
+                        />
+                    </Stack.Navigator>
 
-            </NavigationContainer>
-        </Provider>
+                </NavigationContainer>
+            </Provider>
         </SafeAreaProvider>
     )
 }

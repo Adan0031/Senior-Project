@@ -1,7 +1,8 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react-native';
+import { render, cleanup, fireEvent } from '@testing-library/react-native';
 import  { OnBoarding } from '../../screens';
 
+afterEach(cleanup);
 
 // Stack Navigator OnBoarding Screen Renders correctly
 describe('OnBoarding Screen', () => { 

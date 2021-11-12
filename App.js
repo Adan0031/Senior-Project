@@ -36,6 +36,7 @@ import {
     Account_payment,
     Account_orders_history_screen,
     Acc_ForgotPassword,
+    Account_App_feedback
 } from "./screens";
 
 const Stack = createStackNavigator();
@@ -176,10 +177,15 @@ const App = () => {
                         component={Account_orders_history_screen}
                     />
                     {/* Not Necesarry Duplicate */}
-                    {/* <Stack.Screen
+                    <Stack.Screen
                         name="Acc_ForgotPassword"
                         component={Acc_ForgotPassword}
-                    /> */}
+                    />
+                    <Stack.Screen
+                        name="Account_App_feedback"
+                        component={Account_App_feedback}
+                    />
+
                 </Stack.Navigator>
 
             </NavigationContainer>

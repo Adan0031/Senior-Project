@@ -1,7 +1,9 @@
+import { useState } from "react"
+
 const myProfile = {
-    name: "ByProgrammers",
+    name: "UTRGV User",
     profile_image: require("../assets/images/profile.png"),
-    address: "No. 88, Jln Padungan, Kuching"
+    address: "1201 W University Dr, Edinburg, TX 78539, United States"
 }
 
 const categories = [
@@ -35,12 +37,22 @@ const tacoBell = {
     id: 2,
     name: "Tacobell",
     description: "tacos",
+    address: "1804 W University Dr",
     distance: "12-15min - $1.99 Delivery",
     image: require("../assets/dummyData/tacobell.png")
 }
+ 
+const Canes = {
+    id: 3,
+    name: "Raising Cane's Chicken Fingers",
+    description: "Chicken Strips",
+    address: "718 W University Dr",
+    distance: "5-10min - $0.99 Delivery",
+    
+} 
 
 const burgerKing = {
-    id: 3,
+    id: 4,
     name: "Burger King",
     description: "burgers",
     distance: "12-15min - $1.99 Delivery",
@@ -48,7 +60,7 @@ const burgerKing = {
 }
 
 const wrapSandwich = {
-    id: 4,
+    id: 5,
     name: "Milkflower",
     description: "Italian Pizza",
     distance: "12-15min - $1.99 Delivery",
@@ -57,6 +69,21 @@ const wrapSandwich = {
 }
 
 
+const Mcdonalds = {
+    id: 6,
+    name: "Mcdonalds",
+    description: "Fast food company",
+    address: "2120 W University Dr",
+    distance: "12-15min - $1.99 Delivery",
+}
+
+const Dominos = {
+    id: 7,
+    name: "Dominos",
+    description: "Pizza",
+    address: "1522 W University Dr",
+    distance: "12-15min - $1.99 Delivery",
+}
 /////////////////////////////////////menu list//////////////////////////////
 const pizza = {
     id: 1,
@@ -89,7 +116,6 @@ const drink = {
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
-
 const menu = [
     {
         id: 1,
@@ -282,28 +308,10 @@ const restaurant = [
         id: 0,
         name: "Restaurant",
         list: [
-            milkFlower, tacoBell, burgerKing,
+            tacoBell, milkFlower, Dominos, Mcdonalds, Canes
         ]
     },
 ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export default {
     myProfile,

@@ -9,12 +9,15 @@ describe('Account Screen', () => {
     it('renders correctly', () => {
         const navigate = jest.fn();
         const { getByText } = render(<Account navigation={{ }}/>);
-        const titleElement1 = getByText('Hi Username');
+        const titleElement1 = getByText('Hi UTRGV User');
         const titleElement2 = getByText('Name');
         const titleElement3 = getByText('Email');
         const titleElement4 = getByText('Password');
-        const titleElement5 = getByText('Payment');
-        const titleElement6 = getByText('Log Out');
+        const titleElement5 = getByText('Payments');
+        const titleElement6 = getByText('Order History');
+        const titleElement7 = getByText('Push Notifications');
+        const titleElement8 = getByText('App Feedback');
+        const titleElement9 = getByText('Log Out');
 
         expect(titleElement1).toBeTruthy();
         expect(titleElement2).toBeTruthy();
@@ -22,6 +25,9 @@ describe('Account Screen', () => {
         expect(titleElement4).toBeTruthy();
         expect(titleElement5).toBeTruthy();
         expect(titleElement6).toBeTruthy();
+        expect(titleElement7).toBeTruthy();
+        expect(titleElement8).toBeTruthy();
+        expect(titleElement9).toBeTruthy();
     });
 });
 
@@ -33,7 +39,8 @@ describe('Account Screen', () => {
         const titleElement2 = getByText('Name');
         const titleElement3 = getByText('Email');
         const titleElement4 = getByText('Password');
-        const titleElement5 = getByText('Payment');
+        const titleElement5 = getByText('Payments');
+
         const titleElement6 = getByText('Log Out');
 
         fireEvent.press(titleElement2);

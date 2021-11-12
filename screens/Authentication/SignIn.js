@@ -118,7 +118,7 @@ const SignIn = ({ navigation }) => {
                         /> */}
                     </View>
                     <TextButton
-                        // label="Forgot Password?"
+                        label="Forgot Password?"
                         buttonContainerStyle={{
                             backgroundColor: null
                         }}

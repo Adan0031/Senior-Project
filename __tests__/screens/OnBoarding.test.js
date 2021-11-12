@@ -16,6 +16,7 @@ describe('OnBoarding Screen', () => {
   })
 });
 
+// Onboarding Screen Navigates to SignIn Screen
 describe('OnBoarding Navigation', () => {
   it('Navigates on button press', () => {
     const replace = jest.fn();

@@ -13,7 +13,7 @@ import { isIphoneX } from 'react-native-iphone-x-helper';
 // Update Path to Home, Paths added below will redirect us to different screens
 // Might Need to Use State
 import { Home, Account, CartTab, Notification } from "../screens";
-import { COLORS, icons } from "../constants"
+import { COLORS, icons } from "../constants";
 
 const Tab = createBottomTabNavigator();
 

@@ -277,8 +277,11 @@ const Home = ({ navigation }) => {
                             }}
                             item={item}
                             onPress={() => navigation.navigate("FoodSelection", { foodItem: item })}
+                            // testID={`restaurant-${item.id}`}
+                            testID='restaurant-1'
                         />
                     )}
+                    testID="restaurant-list"
                 />
             </Section>
         )

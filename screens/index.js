@@ -41,6 +41,10 @@ import FoodSelection from "./Food/FoodSelection"
 // Card
 import MyCard from "./Card/MyCard"
 import AddCard from "./Card/AddCard"
+import PaymentCard from "./Card/PaymentCard"
+
+
+
 // Map
 import Map from "./Map/Map"
 import Account_name from "./Account/Acc_Tabs/Account_Name"
@@ -80,6 +84,7 @@ export {
     Success,
 
     MyCard,
+    PaymentCard,
     AddCard,
 
     DeliveryStatus,

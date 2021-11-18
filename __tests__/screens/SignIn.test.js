@@ -1,6 +1,9 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react-native';
+import { render, cleanup, fireEvent } from '@testing-library/react-native';
 import { SignIn } from '../../screens';
+
+
+afterEach(cleanup);
 
 // Mock Third Party Modules
 jest.mock('react-native-keyboard-aware-scroll-view', () => {

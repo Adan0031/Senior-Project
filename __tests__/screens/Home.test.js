@@ -66,14 +66,14 @@ describe('FlatList', () => {
         const testID1 = getByTestId('restaurant-list');
         expect(testID1).toBeTruthy();
 
-        const testID2 = getByText('Tacobell');
-        fireEvent.press(testID2);
+        const cardTitle = getByText('Tacobell');
+        fireEvent.press(cardTitle);
 
         expect(navigation.navigate).toHaveBeenCalledWith('FoodSelection', {
             foodItem: DATA[0]
         });
 
-        const restaurantTitle = getByText('Tacobell');
-        expect(restaurantTitle).toBeTruthy();
+        // const restaurantTitle = getByText('Tacobell');
+        // expect(restaurantTitle).toBeTruthy();
     });
 });

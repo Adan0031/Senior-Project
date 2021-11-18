@@ -89,7 +89,7 @@ const Account = ({navigation}) => {
             />
 
 
-            <TouchableOpacity onPress={() => navigation.navigate('Account_payment')}>
+            <TouchableOpacity onPress={() => navigation.navigate('MyCard')}>
                 <Text  // This is the button for Payment
                     style={{
                         color: COLORS.white2,
@@ -99,7 +99,7 @@ const Account = ({navigation}) => {
 
                     }}
                 >
-                    Payments
+                    My Wallet
                 </Text>
             </TouchableOpacity>
             <View // This is the line for Payment

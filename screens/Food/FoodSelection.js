@@ -7,6 +7,7 @@ import {
     TextInput,
     FlatList,
     TouchableOpacity,
+    Alert,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { FilterModal } from "../";
@@ -55,7 +56,7 @@ const FoodSelection = ({ route }) => {
     }, [])
 
     React.useEffect(() => {
-        handleChangeCategory(selectedCategoryId)
+        handleChangeCategory(selectedCategoryId, selectedMenuType)
     }, [])
     function handleChangeCategory(categoryId, menuTypeId) {
 
@@ -248,9 +249,48 @@ const FoodSelection = ({ route }) => {
         )
     }
 
+    function renderMenuList() {
+        return (
+            <FlatList
+
+                keyExtractor={(item) => `${item.id}`}
+                showsVerticalScrollIndicator={false}
+
+
+                renderItem={({ item }) => {
+                    return (
+
+                        <HorizontalFoodCard
+
+                            containerStyle={{
+                                height: 130,
+                                alignItems: 'center',
+                                marginHorizontal: SIZES.padding,
+                                marginBottom: SIZES.radius
+                            }}
+                            imageStyle={{
+                                marginTop: 20,
+                                height: 110,
+                                width: 110,
+                                marginHorizontal: 10,
+                                marginBottom: 15
+                            }}
+                            item={item}
+                            onPress={() => navigation.navigate("FoodDetail", { foodItem: item })}
+                        />
+                    )
+                }}
+            />
+
+        )
+
+
+    }
+
     //////////////////////////////////////////////////////////////////////////////////
 
     return (
+
         <View
             style={{
                 flex: 1,
@@ -271,16 +311,16 @@ const FoodSelection = ({ route }) => {
             }
             <Text style={{
                 borderBottomColor: '#757575',
-                borderBottomWidth: 1, 
+                borderBottomWidth: 1,
                 marginTop: "3%"
-                     
+
             }}></Text>
             {renderHeader()}
             <Text style={{
                 borderBottomColor: '#757575',
                 borderBottomWidth: 1,
                 marginTop: "-4%",
-              
+
             }}></Text>
             {/* List */}
             <FlatList
@@ -312,14 +352,15 @@ const FoodSelection = ({ route }) => {
                             marginTop: -7,
 
                         }}></Text>
-
+                        {renderMenuList()}
 
                     </View>
                 }
-                renderItem={({ item, index }) => {
-                    return (
 
+                renderItem={({ item }) => {
+                    return (
                         <HorizontalFoodCard
+
                             containerStyle={{
                                 height: 130,
                                 alignItems: 'center',
@@ -338,9 +379,6 @@ const FoodSelection = ({ route }) => {
                         />
                     )
                 }}
-            // ListFooterComponent={
-            //     <View style={{ height: 200 }} />
-            // }
             />
         </View>
     )

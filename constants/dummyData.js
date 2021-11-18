@@ -308,7 +308,7 @@ const restaurant = [
         id: 0,
         name: "Restaurant",
         list: [
-            tacoBell, milkFlower, Dominos, Mcdonalds, Canes
+            milkFlower, tacoBell, burgerKing, Dominos, Mcdonalds, Canes
         ]
     },
 ]

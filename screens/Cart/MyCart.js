@@ -198,7 +198,7 @@ const MyCart = ({ navigation }) => {
                 borderBottomColor: '#757575',
                 borderBottomWidth: 1,
                 marginTop: "3%",
-                marginBottom: "-6.5%",
+        marginBottom: "-6.5%",
             }}></Text>
             {/* Header */}
             {renderHeader()}

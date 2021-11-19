@@ -4,11 +4,12 @@ import {
     Image
 } from 'react-native';
 import { COLORS } from '../constants';
-
-const IconButton = ({ containerStyle, icon, iconStyle, onPress }) => {
+// Add props here due to testID issue, pass incoming props and into components in function
+const IconButton = ({ containerStyle, icon, iconStyle, onPress, ...props }) => {
 
     return (
         <TouchableOpacity
+            {...props}
             style={{
                 ...containerStyle
             }}

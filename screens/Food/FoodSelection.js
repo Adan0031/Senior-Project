@@ -81,6 +81,7 @@ const FoodSelection = ({ navigation, route }) => {
                 leftComponent={
                     //back button style and onpress
                     <IconButton
+                        testID="back-button"
                         icon={icons.back}
                         containerStyle={{
                             width: 40,
@@ -275,6 +276,7 @@ const FoodSelection = ({ navigation, route }) => {
                         />
                     )
                 }}
+                testID='horizontal-food-card'
             />
 
         )
@@ -370,6 +372,7 @@ const FoodSelection = ({ navigation, route }) => {
                             }}
                             item={item}
                             onPress={() => navigation.navigate("FoodDetail", { foodItem: item })}
+                            // testID='horizontal-food-card'
                         />
                     )
                 }}

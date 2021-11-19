@@ -8,36 +8,37 @@ import { FlatList } from 'react-native-gesture-handler';
 
 afterEach(cleanup);
 
-const menuList = [
-   pizza = {
+const DATA=
+[
+    {
         id: 1,
         name: "Queen Pizza",
         description: "Tomato, mozzarella, basil, parmigiano-reggiano.",
         price: "15.99",
         calories: 78,
         isFavourite: true,
-        // image: require("../assets/dummyData/queenpizza.png")
+        image: require("../../assets/dummyData/queenpizza.png")
     },
-    salad = {
-        id: 2,
-        name: "Swiss Chard Caesar",
-        description: "Pangrattato and paresan with lemon anchovy dressing",
-        categories: [1, 2],
-        price: "15.99",
-        calories: 78,
-        isFavourite: true,
-        // image: require("../assets/dummyData/salad.png")
-    },
-    drink = {
-        id: 3,
-        name: "Coke",
-        description: "12 oz Coca-Cola",
-        categories: [1, 2],
-        price: "15.99",
-        calories: 78,
-        isFavourite: true,
-        // image: require("../assets/dummyData/drink.png")
-    }
+    // salad = {
+    //     id: 2,
+    //     name: "Swiss Chard Caesar",
+    //     description: "Pangrattato and paresan with lemon anchovy dressing",
+    //     categories: [1, 2],
+    //     price: "15.99",
+    //     calories: 78,
+    //     isFavourite: true,
+    //     // image: require("../assets/dummyData/salad.png")
+    // },
+    // drink = {
+    //     id: 3,
+    //     name: "Coke",
+    //     description: "12 oz Coca-Cola",
+    //     categories: [1, 2],
+    //     price: "15.99",
+    //     calories: 78,
+    //     isFavourite: true,
+    //     // image: require("../assets/dummyData/drink.png")
+    // }
     
 ];
 
@@ -65,7 +66,7 @@ describe('FoodSelection screen renders correctly', () => {
 
     });
     // Flast List Renders Restaurant Details, Restaurant Options and Restaurant's Menu List
-    it('renders flatlist on screen', () => {
+    it('renders main flatlist on screen', () => {
         const navigation = { 
             navigate: jest.fn(),
         };
@@ -74,20 +75,38 @@ describe('FoodSelection screen renders correctly', () => {
                 foodItem: "Mock Food Item"
             }
         };
-        const { getByTestId } = render(
+        const { getByTestId, getByText } = render(
             <FoodSelection navigation={navigation} route={route} />,
             <FlatList 
-                data={menuList}
+                data={DATA}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => <HorizontalFoodCard item={item} />}
             />,
         );
         const foodCard = getByTestId('food-list');
         expect(foodCard).toBeTruthy();
-        // fireEvent.press(foodCard);
-        // expect(navigation.navigate).toHaveBeenCalled();
-
-        // expect(foodCard).toBeTruthy();
+    });
+    it('renders horizontal card flatlist on screen', ()=> {
+        const navigation = { 
+            navigate: jest.fn(),
+        };
+        const route = {
+            params: {
+                foodItem: "Mock Food Item"
+            }
+        };
+        const { getByTestId, getByText } = render(
+            <FoodSelection navigation={navigation} route={route} />,
+            <FlatList 
+                keyExtractor={(item) => item.id.toString()}
+                renderItem={({ item }) => <HorizontalFoodCard item={item} />}
+            />,
+        );
+        const horizantalCard = getByTestId('horizontal-food-card');
+        expect(horizantalCard).toBeTruthy();
+        // expect(navigation.navigate).toHaveBeenCalledWith(
+        //     "FoodSelection", {"foodItem": {"calories": 78, "description": "Tomato, mozzarella, basil, parmigiano-reggiano.", "id": 1, "image": 1, "isFavourite": true, "name": "Queen Pizza", "price": "15.99"}}
+        // );
     });
 });
 
@@ -95,22 +114,22 @@ describe('FoodSelection screen renders correctly', () => {
 
 // Issue with Custom Icon Button and React Native Testing Library
 // Test Suite: Navigation to Home Screen on a press of a back button
-// describe('Navigation to Home Screen on a press of a back button', () => {
-//     it('Navigates Back Home', () => {
-//         const navigation = { 
-//             goBack: jest.fn(),
-//         };
-//         const route = {
-//             params: {
-//                 foodItem: "Mock Food Item"
-//             }
-//         };
-//         const { getByText } = render(
-//             <FoodSelection navigation={navigation} route={route} />
-//         );
-//         const backButton = getByText('Back');
-//         fireEvent.press(backButton);
+describe('Navigation to Home Screen on a press of a back button', () => {
+    it('Navigates Back Home', () => {
+        const navigation = { 
+            goBack: jest.fn(),
+        };
+        const route = {
+            params: {
+                foodItem: "Mock Food Item"
+            }
+        };
+        const { getByTestId } = render(
+            <FoodSelection navigation={navigation} route={route} />
+        );
+        const backButton = getByTestId('back-button');
+        fireEvent.press(backButton);
 
-//         expect(navigation.goBack).toHaveBeenCalled();
-//     });
-// });
+        expect(navigation.goBack).toHaveBeenCalled();
+    });
+});

@@ -7,9 +7,10 @@ import {
 } from 'react-native';
 import { COLORS, FONTS, icons, SIZES } from '../constants';
 
-const HorizontalFoodCard = ({ containerStyle, imageStyle, item, onPress }) => {
+const HorizontalFoodCard = ({ containerStyle, imageStyle, item, onPress, ...props }) => {
     return (
         <TouchableOpacity
+            {...props}
             style={{
                 flexDirection: 'row',
                 borderRadius: SIZES.radius,

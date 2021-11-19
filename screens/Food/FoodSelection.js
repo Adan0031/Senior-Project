@@ -245,44 +245,43 @@ const FoodSelection = ({ navigation, route }) => {
         )
     }
 
-    function renderMenuList() {
-        return (
-            <FlatList
+    // function renderMenuList() {
+    //     return (
+    //         <FlatList
 
-                keyExtractor={(item) => `${item.id}`}
-                showsVerticalScrollIndicator={false}
-
-
-                renderItem={({ item }) => {
-                    return (
-
-                        <HorizontalFoodCard
-
-                            containerStyle={{
-                                height: 130,
-                                alignItems: 'center',
-                                marginHorizontal: SIZES.padding,
-                                marginBottom: SIZES.radius
-                            }}
-                            imageStyle={{
-                                marginTop: 20,
-                                height: 110,
-                                width: 110,
-                                marginHorizontal: 10,
-                                marginBottom: 15
-                            }}
-                            item={item}
-                            onPress={() => navigation.navigate("FoodDetail", { foodItem: item })}
-                        />
-                    )
-                }}
-                testID='horizontal-food-card'
-            />
-
-        )
+    //             keyExtractor={(item) => `${item.id}`}
+    //             showsVerticalScrollIndicator={false}
 
 
-    }
+    //             renderItem={({ item }) => {
+    //                 return (
+
+    //                     <HorizontalFoodCard
+
+    //                         containerStyle={{
+    //                             height: 130,
+    //                             alignItems: 'center',
+    //                             marginHorizontal: SIZES.padding,
+    //                             marginBottom: SIZES.radius
+    //                         }}
+    //                         imageStyle={{
+    //                             marginTop: 20,
+    //                             height: 110,
+    //                             width: 110,
+    //                             marginHorizontal: 10,
+    //                             marginBottom: 15
+    //                         }}
+    //                         item={item}
+    //                         onPress={() => navigation.navigate("FoodDetail", { foodItem: item })}
+    //                     />
+    //                 )
+    //             }}
+    //         />
+
+    //     )
+
+
+    // }
 
     //////////////////////////////////////////////////////////////////////////////////
 
@@ -349,7 +348,7 @@ const FoodSelection = ({ navigation, route }) => {
                             marginTop: -7,
 
                         }}></Text>
-                        {renderMenuList()}
+                        {/* {renderMenuList()} */}
 
                     </View>
                 }
@@ -373,6 +372,7 @@ const FoodSelection = ({ navigation, route }) => {
                             item={item}
                             onPress={() => navigation.navigate("FoodDetail", { foodItem: item })}
                             // testID='horizontal-food-card'
+                            testID={`horizontal-food-card-${item.id}`}
                         />
                     )
                 }}

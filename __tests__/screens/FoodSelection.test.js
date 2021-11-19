@@ -2,8 +2,7 @@ import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react-native';
 
 import FoodSelection from '../../screens/Food/FoodSelection';
-import { HorizontalFoodCard, IconButton } from '../../components';
-import { Header } from '../../components';
+import { HorizontalFoodCard } from '../../components';
 import { FlatList } from 'react-native-gesture-handler';
 
 afterEach(cleanup);
@@ -19,26 +18,26 @@ const DATA=
         isFavourite: true,
         image: require("../../assets/dummyData/queenpizza.png")
     },
-    // salad = {
-    //     id: 2,
-    //     name: "Swiss Chard Caesar",
-    //     description: "Pangrattato and paresan with lemon anchovy dressing",
-    //     categories: [1, 2],
-    //     price: "15.99",
-    //     calories: 78,
-    //     isFavourite: true,
-    //     // image: require("../assets/dummyData/salad.png")
-    // },
-    // drink = {
-    //     id: 3,
-    //     name: "Coke",
-    //     description: "12 oz Coca-Cola",
-    //     categories: [1, 2],
-    //     price: "15.99",
-    //     calories: 78,
-    //     isFavourite: true,
-    //     // image: require("../assets/dummyData/drink.png")
-    // }
+    salad = {
+        id: 2,
+        name: "Swiss Chard Caesar",
+        description: "Pangrattato and paresan with lemon anchovy dressing",
+        categories: [1, 2],
+        price: "15.99",
+        calories: 78,
+        isFavourite: true,
+        image: require("../../assets/dummyData/salad.png")
+    },
+    drink = {
+        id: 3,
+        name: "Coke",
+        description: "12 oz Coca-Cola",
+        categories: [1, 2],
+        price: "15.99",
+        calories: 78,
+        isFavourite: true,
+        image: require("../../assets/dummyData/drink.png")
+    }
     
 ];
 
@@ -102,14 +101,27 @@ describe('FoodSelection screen renders correctly', () => {
                 renderItem={({ item }) => <HorizontalFoodCard item={item} />}
             />,
         );
-        const horizantalCard = getByTestId('horizontal-food-card');
-        expect(horizantalCard).toBeTruthy();
+
+        const horizontalFoodCardArr = [];
+        let regEx = new RegExp('(100)|(0*\d{1,2})');   
+
+        // if(getByTestId(`horizontal-food-card-${regEx}`)) {
+        //     horizontalFoodCardArr.push(getByTestId(`horizontal-food-card-${regEx}`));
+        // }
+
+        horizontalFoodCardArr.push(getByTestId("horizontal-food-card-1"));
+        horizontalFoodCardArr.push(getByTestId("horizontal-food-card-2"));
+        horizontalFoodCardArr.push(getByTestId("horizontal-food-card-3"));
+
+    
+        expect(horizontalFoodCardArr).toBeTruthy();
+
+        expect(horizontalFoodCardArr.length).toBe(3);
         // expect(navigation.navigate).toHaveBeenCalledWith(
-        //     "FoodSelection", {"foodItem": {"calories": 78, "description": "Tomato, mozzarella, basil, parmigiano-reggiano.", "id": 1, "image": 1, "isFavourite": true, "name": "Queen Pizza", "price": "15.99"}}
+        //     "FoodSelection", 
         // );
     });
 });
-
 
 
 // Issue with Custom Icon Button and React Native Testing Library

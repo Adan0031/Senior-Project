@@ -3,13 +3,14 @@ import { createPortal } from 'react-dom';
 import {
     View,
     Text,
-    ScrollView
+    ScrollView,
+    StyleSheet
 } from 'react-native';
 
 import { Header, IconButton, TextButton, CardItem } from "../../components";
 import { FONTS, SIZES, COLORS, icons, dummyData } from "../../constants";
 
-const MyCard = ({ navigation }) => {
+const PaymentCard = ({ navigation }) => {
 
     const [selectedCard, setSelectedCard] = React.useState(null)
 
@@ -33,7 +34,7 @@ const MyCard = ({ navigation }) => {
                             alignItems: 'center',
                             borderWidth: 1,
                             borderRadius: SIZES.radius,
-                            borderColor: COLORS.grey
+                            borderColor: COLORS.white
                         }}
                         iconStyle={{
                             width: 20,
@@ -53,10 +54,12 @@ const MyCard = ({ navigation }) => {
             />
         )
     }
+
     {/* This will render the cards */ }
     function renderMyCards() {
         return (
-            <View>
+            <View >
+
                 {dummyData.myCards.map((item, index) => {
                     {/* This will return the displayed item in this case is a map with multiple 'cards' */ }
                     return (
@@ -109,15 +112,15 @@ const MyCard = ({ navigation }) => {
                     buttonContainerStyle={{
                         height: 60,
                         borderRadius: SIZES.radius,
-                        backgroundColor: selectedCard == null ? COLORS.gray : COLORS.primary
+                        backgroundColor: selectedCard == null ? COLORS.darkGray2 : COLORS.primary
 
                     }}
-                    label={selectedCard?.key == "NewCard" ? "Add" : "Set as default"}
+                    label={selectedCard?.key == "NewCard" ? "Add" : "Place Order"}
                     onPress={() => {
                         if (selectedCard?.key == "NewCard") {
                             navigation.navigate("AddCard", { selectedCard: selectedCard })
                         } else {
-                            navigation.navigate("User", { selectedCard: selectedCard })
+                            navigation.navigate("Checkout", { selectedCard: selectedCard })
                         }
                     }}
                 />
@@ -134,7 +137,7 @@ const MyCard = ({ navigation }) => {
             {/* Header */}
             {renderHeader()}
             <View style={{
-                flex: 1, backgroundColor: COLORS.darkGray
+                flex: 1, backgroundColor: COLORS.grey
             }}
             >
                 {/* Cards */}
@@ -160,4 +163,14 @@ const MyCard = ({ navigation }) => {
     )
 }
 
-export default MyCard;
+const styles = StyleSheet.create({
+    cartItemContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: SIZES.radius,
+        paddingHorizontal: SIZES.radius,
+        borderRadius: SIZES.radius,
+    },
+});
+
+export default PaymentCard;

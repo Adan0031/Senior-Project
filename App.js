@@ -27,6 +27,7 @@ import {
     Success,
     Account_name,
     MyCard,
+    PaymentCard,
     AddCard,
     App_notifications,
     DeliveryStatus,
@@ -123,6 +124,11 @@ const App = () => {
                         <Stack.Screen
                             name="MyCard"
                             component={MyCard}
+                        />
+
+                        <Stack.Screen
+                            name="PaymentCard"
+                            component={PaymentCard}
                         />
 
                         <Stack.Screen

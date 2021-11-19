@@ -319,7 +319,7 @@ const FoodSelection = ({ navigation, route }) => {
             }}></Text>
             {/* List */}
             <FlatList
-
+                testID="food-list"
                 data={menuList}
                 keyExtractor={(item) => `${item.id}`}
                 showsVerticalScrollIndicator={false}
@@ -355,7 +355,6 @@ const FoodSelection = ({ navigation, route }) => {
                 renderItem={({ item }) => {
                     return (
                         <HorizontalFoodCard
-
                             containerStyle={{
                                 height: 130,
                                 alignItems: 'center',

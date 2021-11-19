@@ -1,31 +1,49 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react-native';
+import { render, cleanup, fireEvent } from '@testing-library/react-native';
 
 import FoodSelection from '../../screens/Food/FoodSelection';
-import { interpolate } from 'react-native-reanimated';
+import { HorizontalFoodCard, IconButton } from '../../components';
+import { Header } from '../../components';
+import { FlatList } from 'react-native-gesture-handler';
 
-// Dummy Data Used for Testing FlatList Component in Home Screen 
-const DATA = [
-    {
-        id: 2,
-        name: "Tacobell",
-        description: "tacos",
-        address: "1804 W University Dr",
-        distance: "12-15min - $1.99 Delivery",
-        image: require("../../assets/dummyData/tacobell.png")  
-    },
-    {
+afterEach(cleanup);
+
+const menuList = [
+   pizza = {
         id: 1,
-        name: "Milkflower",
-        description: "Italian Pizza",
-        distance: "12-15min - $1.99 Delivery",
-        image: require("../../assets/dummyData/milkFlower.png")
+        name: "Queen Pizza",
+        description: "Tomato, mozzarella, basil, parmigiano-reggiano.",
+        price: "15.99",
+        calories: 78,
+        isFavourite: true,
+        // image: require("../assets/dummyData/queenpizza.png")
+    },
+    salad = {
+        id: 2,
+        name: "Swiss Chard Caesar",
+        description: "Pangrattato and paresan with lemon anchovy dressing",
+        categories: [1, 2],
+        price: "15.99",
+        calories: 78,
+        isFavourite: true,
+        // image: require("../assets/dummyData/salad.png")
+    },
+    drink = {
+        id: 3,
+        name: "Coke",
+        description: "12 oz Coca-Cola",
+        categories: [1, 2],
+        price: "15.99",
+        calories: 78,
+        isFavourite: true,
+        // image: require("../assets/dummyData/drink.png")
     }
+    
 ];
 
-// Test Suite: FoodSelection renders correctly
-describe('FoodSelection renders correctly', () => {
-    it('renders correctly', () => {
+// Test Suite: FoodSelection screen renders correctly
+describe('FoodSelection screen renders correctly', () => {
+    it('renders titles correctly', () => {
         const navigation = { 
             navigate: jest.fn(),
         };
@@ -34,15 +52,65 @@ describe('FoodSelection renders correctly', () => {
                 foodItem: "Mock Food Item"
             }
         };
-        const { getByText } = render(<FoodSelection route={route} />);
+        const { getByText } = render(<FoodSelection navigation={navigation} route={route} />);
         const screenTitle = getByText('Menu List');
+        const menuOptionTitles = getByText('Main Dish');
+        const menuOptionTitles2 = getByText('Starters');
+        const menuOptionTitles3 = getByText('Drinks');
+
         expect(screenTitle).toBeTruthy();
- 
-        // expect(getByTestId('food-selection-screen')).toBeTruthy();
+        expect(menuOptionTitles).toBeTruthy();
+        expect(menuOptionTitles2).toBeTruthy();
+        expect(menuOptionTitles3).toBeTruthy();
+
+    });
+    // Flast List Renders Restaurant Details, Restaurant Options and Restaurant's Menu List
+    it('renders flatlist on screen', () => {
+        const navigation = { 
+            navigate: jest.fn(),
+        };
+        const route = {
+            params: {
+                foodItem: "Mock Food Item"
+            }
+        };
+        const { getByTestId } = render(
+            <FoodSelection navigation={navigation} route={route} />,
+            <FlatList 
+                data={menuList}
+                keyExtractor={(item) => item.id.toString()}
+                renderItem={({ item }) => <HorizontalFoodCard item={item} />}
+            />,
+        );
+        const foodCard = getByTestId('food-list');
+        expect(foodCard).toBeTruthy();
+        // fireEvent.press(foodCard);
+        // expect(navigation.navigate).toHaveBeenCalled();
+
+        // expect(foodCard).toBeTruthy();
     });
 });
 
-// const { getByTestId } = render(<FoodSelection navigation={navigation, { foodItem: DATA[0]}} />);
-// const { getByText } = render(<FoodSelection />);
-// const foodSelectionText = getByText('Menu List');
-// expect(foodSelectionText).toBeTruthy();
+
+
+// Issue with Custom Icon Button and React Native Testing Library
+// Test Suite: Navigation to Home Screen on a press of a back button
+// describe('Navigation to Home Screen on a press of a back button', () => {
+//     it('Navigates Back Home', () => {
+//         const navigation = { 
+//             goBack: jest.fn(),
+//         };
+//         const route = {
+//             params: {
+//                 foodItem: "Mock Food Item"
+//             }
+//         };
+//         const { getByText } = render(
+//             <FoodSelection navigation={navigation} route={route} />
+//         );
+//         const backButton = getByText('Back');
+//         fireEvent.press(backButton);
+
+//         expect(navigation.goBack).toHaveBeenCalled();
+//     });
+// });

@@ -1,6 +1,9 @@
 import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react-native';
+
 import Home from '../../screens/Home/Home';
+import { FoodSelection } from '../../screens';
+
 import { FlatList } from 'react-native';
 import { VerticalFoodCard } from '../../components';
 
@@ -18,6 +21,7 @@ describe('Home Screen', () => {
     });
 });
 
+// Dummy Data Used for Testing FlatList Component in Home Screen 
 const DATA = [
     {
         id: 2,
@@ -34,7 +38,7 @@ const DATA = [
         distance: "12-15min - $1.99 Delivery",
         image: require("../../assets/dummyData/milkFlower.png")
     }
-  ];
+];
 
 // FlatList Renders Correctly
 describe('FlatList', () => {
@@ -61,7 +65,7 @@ describe('FlatList', () => {
                 data={DATA}
                 keyExtractor={item => item.id.toString()}
                 renderItem={({ item }) => <VerticalFoodCard item={item} />}
-            />
+            />,
         );
         const testID1 = getByTestId('restaurant-list');
         expect(testID1).toBeTruthy();
@@ -73,7 +77,5 @@ describe('FlatList', () => {
             foodItem: DATA[0]
         });
 
-        // const restaurantTitle = getByText('Tacobell');
-        // expect(restaurantTitle).toBeTruthy();
     });
 });

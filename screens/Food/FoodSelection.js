@@ -34,22 +34,17 @@ const Section = ({ title, onPress, children }) => {
     )
 }
 
-const FoodSelection = ({ route }) => {
+const FoodSelection = ({ navigation, route }) => {
     const [selectedCategoryId, setSelectedCategoryId] = React.useState(1)
     const [milkflower, setMilkflower] = React.useState([])
-    const navigation = useNavigation();
+    // const navigation = useNavigation();
     const [showFilterModal, setShowFilterModal] = React.useState(false)
 
     //need for menu list horizantal view
     const [menuList, setMenuList] = React.useState([])
     const [selectedMenuType, setSelectedMenuType] = React.useState(1)
-
-
-
-
-
-
     const [foodItem, setFoodItem] = React.useState([])
+    
     React.useEffect(() => {
         let { foodItem } = route.params
         setFoodItem(foodItem)

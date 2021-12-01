@@ -103,23 +103,26 @@ describe('FoodSelection screen renders correctly', () => {
         );
 
         const horizontalFoodCardArr = [];
-        let regEx = new RegExp('(100)|(0*\d{1,2})');   
 
-        // if(getByTestId(`horizontal-food-card-${regEx}`)) {
-        //     horizontalFoodCardArr.push(getByTestId(`horizontal-food-card-${regEx}`));
-        // }
+        let flag = true;
+        let i = 1;
+        while(flag === true) {
+            try{
+                if(getByTestId(`horizontal-food-card-${i}`)){
+                    horizontalFoodCardArr.push(getByTestId(`horizontal-food-card-${i}`));
+                }
+                ++i; 
+            }
+            catch(error){
+                flag = false;
+                console.log(error);
+                break; 
+            }
+        }
 
-        horizontalFoodCardArr.push(getByTestId("horizontal-food-card-1"));
-        horizontalFoodCardArr.push(getByTestId("horizontal-food-card-2"));
-        horizontalFoodCardArr.push(getByTestId("horizontal-food-card-3"));
-
-    
         expect(horizontalFoodCardArr).toBeTruthy();
+        expect(horizontalFoodCardArr.length).toBe(i-1);
 
-        expect(horizontalFoodCardArr.length).toBe(3);
-        // expect(navigation.navigate).toHaveBeenCalledWith(
-        //     "FoodSelection", 
-        // );
     });
 });
 

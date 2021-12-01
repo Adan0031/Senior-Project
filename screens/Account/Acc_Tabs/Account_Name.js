@@ -25,7 +25,7 @@ const acc_screen = ({ navigation }) => {
                 value={FirstN}
                 placeholder="First Name"
                 placeholderTextColor={COLORS.linelightGray} /* this will give the text color of choice for the placeholder*/
-                keyboardType="numeric"
+                keyboardType="default"
             />
             <View
                 style={{
@@ -46,7 +46,7 @@ const acc_screen = ({ navigation }) => {
                 value={LastN}
                 placeholder="Last Name"
                 placeholderTextColor={COLORS.linelightGray}
-                keyboardType="numeric"
+                keyboardType="default"
             />
             <View
                 style={{

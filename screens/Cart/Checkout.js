@@ -116,7 +116,6 @@ const Checkout = ({ navigation, route }) => {
                     <Image
                         source={icons.location1}
                         style={{
-                            color: COLORS.white,
                             width: 40,
                             height: 40
                         }}
@@ -130,7 +129,7 @@ const Checkout = ({ navigation, route }) => {
                             ...FONTS.body3
                         }}
                     >
-                        300 Post Street San Francisco, CA
+                        1201 West University Dr. Edinburg, TX
                     </Text>
                 </View>
             </View>

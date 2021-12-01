@@ -19,6 +19,8 @@ import {
 } from "../../components"
 import { FONTS, SIZES, COLORS, icons, images, dummyData } from "../../constants"
 
+//hold food info for my cart screen
+
 
 const FoodDetail = ({ navigation, route }) => {
 
@@ -75,6 +77,8 @@ const FoodDetail = ({ navigation, route }) => {
                         containerStyle={{
                             marginRight: SIZES.padding,
                         }}
+                        onPress={() => navigation.navigate("MyCart")}
+
                     />
 
                 }
@@ -176,6 +180,7 @@ const FoodDetail = ({ navigation, route }) => {
                             marginTop: SIZES.base,
                             color: COLORS.white,
                             paddingHorizontal: SIZES.padding,
+                            paddingBottom: SIZES.padding,
                             ...FONTS.body3,
                         }}
                     >
@@ -183,56 +188,8 @@ const FoodDetail = ({ navigation, route }) => {
 
                     </Text>
 
-                    {/* Ratings & Duration & Shipping */}
-                    <View
-                    // style={{
-                    //     flexDirection: 'row',
-                    //     marginTop: SIZES.padding
-                    // }}
-                    >
-
-                        {/* EDIT* commented out ratings, duration and shipping label*/}
-                        {/* Ratings */}
-                        {/* <IconLabel
-                            containerStyle={{
-                                backgroundColor: COLORS.primary
-                            }}
-                            icon={icons.star}
-                            label="4.5"
-                            labelStyle={{
-                                color: COLORS.white
-                            }}
-                        /> */}
-
-                        {/* Duration */}
-                        {/* <IconLabel
-                            containerStyle={{
-                                marginLeft: SIZES.radius,
-                                paddingHorizontal: 0
-                            }}
-                            icon={icons.clock}
-                            iconStyle={{
-                                tintColor: COLORS.black
-                            }}
-                            label="30 Mins"
-                        /> */}
-
-                        {/* Shipping */}
-                        {/* <IconLabel
-                            containerStyle={{
-                                marginLeft: SIZES.radius,
-                                paddingHorizontal: 0
-                            }}
-                            icon={icons.dollar}
-                            iconStyle={{
-                                tintColor: COLORS.black
-                            }}
-                            label="Free shipping"
-                        /> */}
-                    </View>
-
                     {/* Sizes */}
-                    <View
+                    {/* <View
                         style={{
                             flexDirection: 'row',
                             marginTop: SIZES.padding,
@@ -273,7 +230,7 @@ const FoodDetail = ({ navigation, route }) => {
                                 )
                             })}
                         </View>
-                    </View>
+                    </View> */}
                 </View>
             </View>
         )
@@ -343,58 +300,58 @@ const FoodDetail = ({ navigation, route }) => {
         )
     }
     //EDIT* commented out function call
-    function renderRestaurant() {
-        return (
-            <View
-                style={{
-                    flexDirection: 'row',
-                    marginVertical: SIZES.padding,
-                    paddingHorizontal: SIZES.padding,
-                    alignItems: 'center'
-                }}
-            >
-                <Text
-                    style={{
-                        marginTop: 25,
-                        color: COLORS.grey,
-                        textAlign: 'justify',
-                        ...FONTS.body3,
-                    }}
-                >
-                    Please note that special requests may result in price adjustments after your order is processed.
-                    </Text>
-                {/* Image */}
-                <Image
-                    source={images.profile}
-                    style={{
-                        width: 50,
-                        height: 50,
-                        borderRadius: SIZES.radius
-                    }}
-                />
+    // function renderRestaurant() {
+    //     return (
+    //         <View
+    //             style={{
+    //                 flexDirection: 'row',
+    //                 marginVertical: SIZES.padding,
+    //                 paddingHorizontal: SIZES.padding,
+    //                 alignItems: 'center'
+    //             }}
+    //         >
+    //             <Text
+    //                 style={{
+    //                     marginTop: 25,
+    //                     color: COLORS.grey,
+    //                     textAlign: 'justify',
+    //                     ...FONTS.body3,
+    //                 }}
+    //             >
+    //                 Please note that special requests may result in price adjustments after your order is processed.
+    //                 </Text>
+    //             {/* Image */}
+    //             <Image
+    //                 source={images.profile}
+    //                 style={{
+    //                     width: 50,
+    //                     height: 50,
+    //                     borderRadius: SIZES.radius
+    //                 }}
+    //             />
 
-                {/* Info */}
-                <View
-                    style={{
-                        flex: 1,
-                        marginLeft: SIZES.radius,
-                        justifyContent: 'center'
-                    }}
-                >
-                    <Text style={{ ...FONTS.h3 }}>ByProgrammers</Text>
-                    <Text style={{ color: COLORS.gray, ...FONTS.body4 }}>1.2 KM away from you</Text>
-                </View>
+    //             {/* Info */}
+    //             <View
+    //                 style={{
+    //                     flex: 1,
+    //                     marginLeft: SIZES.radius,
+    //                     justifyContent: 'center'
+    //                 }}
+    //             >
+    //                 <Text style={{ ...FONTS.h3 }}>ByProgrammers</Text>
+    //                 <Text style={{ color: COLORS.gray, ...FONTS.body4 }}>1.2 KM away from you</Text>
+    //             </View>
 
-                {/* Ratings */}
-                <Rating
-                    rating={4}
-                    iconStyle={{
-                        marginLeft: 3
-                    }}
-                />
-            </View>
-        )
-    }
+    //             {/* Ratings */}
+    //             <Rating
+    //                 rating={4}
+    //                 iconStyle={{
+    //                     marginLeft: 3
+    //                 }}
+    //             />
+    //         </View>
+    //     )
+    // }
 
     function renderFooter() {
         return (
@@ -431,11 +388,37 @@ const FoodDetail = ({ navigation, route }) => {
                     }}
                     label="Buy Now"
                     label2="$15.99"
+                    // onPress={() => {
+                    //     dummyData.myCart = 
+                    // }}
                     onPress={() => navigation.navigate("MyCart")}
                 />
             </View>
         )
     }
+
+    // {dummyData.myCart.map((item, index) => {
+    //     return (
+    //         <TextButton
+    //             key={`Sizes-${index}`}
+    //             buttonContainerStyle={{
+    //                 width: 55,
+    //                 height: 55,
+    //                 margin: SIZES.base,
+    //                 borderWidth: 1,
+    //                 borderRadius: SIZES.radius,
+    //                 borderColor: selectedSize == item.id ? COLORS.primary : COLORS.gray2,
+    //                 backgroundColor: selectedSize == item.id ? COLORS.primary : null
+    //             }}
+    //             label={item.label}
+    //             labelStyle={{
+    //                 color: selectedSize == item.id ? COLORS.white : COLORS.gray2,
+    //                 ...FONTS.body2
+    //             }}
+    //             onPress={() => setSelectedSize(item.id)}
+    //         />
+    //     )
+    // })}
 
     return (
         <View

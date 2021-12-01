@@ -11,6 +11,7 @@ import {
     Header,
     IconButton,
     CartQuantityButton,
+    HomeButton,
     StepperInput,
     FooterTotal
 } from "../../components"
@@ -20,6 +21,9 @@ const MyCart = ({ navigation }) => {
 
     const [myCartList, setMyCartList] = React.useState(dummyData.myCart)
 
+    React.useEffect(() => {
+        setMyCartList(dummyData.myCart)
+    }, [])
     // Handler
 
     function updateQuantityHandler(newQty, id) {
@@ -77,11 +81,13 @@ const MyCart = ({ navigation }) => {
                     />
                 }
                 rightComponent={
-                    <CartQuantityButton
+                    <HomeButton
                         quantity={3}
                         containerStyle={{
                             marginRight: SIZES.padding,
                         }}
+                        onPress={() => navigation.navigate("Home")}
+
                     />
                 }
             />

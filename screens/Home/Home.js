@@ -17,32 +17,9 @@ import {
 import { FONTS, SIZES, COLORS, icons, dummyData } from "../../constants";
 import { getPixelSizeForLayoutSize } from 'react-native/Libraries/Utilities/PixelRatio';
 
-const Section = ({ title, onPress, children }) => {
+const Section = ({children }) => {
     return (
         <View>
-            {/* Header */}
-            <View
-                //EDIT* commented out to remove padding and show all
-                // style={{
-                //     flexDirection: 'row',
-                //     marginHorizontal: SIZES.padding,
-                //     marginTop: 30,
-                //     marginBottom: 20
-                // }}
-            >
-                {/* <Text style={{ flex: 1, ...FONTS.h3 }}>
-                    {title}
-                </Text>
-
-                <TouchableOpacity
-                    onPress={onPress}
-                >
-                    <Text style={{ color: COLORS.primary, ...FONTS.body3 }}>
-                        Show All
-                    </Text>
-                </TouchableOpacity> */}
-            </View>
-
             {/* Content */}
             {children}
         </View>

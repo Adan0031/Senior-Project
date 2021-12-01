@@ -99,7 +99,7 @@ const Checkout = ({ navigation, route }) => {
                     marginTop: SIZES.padding
                 }}
             >
-                <Text style={{ color: COLORS.white, ...FONTS.h3 }}>Delivery Address</Text>
+                <Text style={{ ...FONTS.h3 }}>Delivery Address</Text>
 
                 <View
                     style={{
@@ -116,7 +116,6 @@ const Checkout = ({ navigation, route }) => {
                     <Image
                         source={icons.location1}
                         style={{
-                            color: COLORS.white,
                             width: 40,
                             height: 40
                         }}
@@ -126,7 +125,6 @@ const Checkout = ({ navigation, route }) => {
                         style={{
                             marginLeft: SIZES.radius,
                             width: "85%",
-                            color: COLORS.white,
                             ...FONTS.body3
                         }}
                     >
@@ -144,7 +142,7 @@ const Checkout = ({ navigation, route }) => {
                     marginTop: SIZES.padding
                 }}
             >
-                <Text style={{color: COLORS.white,...FONTS.h3 }}>Add Coupon</Text>
+                <Text style={{ ...FONTS.h3 }}>Add Coupon</Text>
 
                 <FormInput
                     inputContainerStyle={{
@@ -199,7 +197,7 @@ const Checkout = ({ navigation, route }) => {
         <View
             style={{
                 flex: 1,
-                backgroundColor: COLORS.grey
+                backgroundColor: COLORS.white
             }}
         >
             {/* Header */}

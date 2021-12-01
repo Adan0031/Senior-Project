@@ -33,7 +33,7 @@ const MyCard = ({ navigation }) => {
                             alignItems: 'center',
                             borderWidth: 1,
                             borderRadius: SIZES.radius,
-                            borderColor: COLORS.grey
+                            borderColor: COLORS.gray
                         }}
                         iconStyle={{
                             width: 20,

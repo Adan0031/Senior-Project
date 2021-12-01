@@ -14,7 +14,7 @@ import {
     TextIconButton
 } from "../../components"
 import { utils } from "../../utils";
-import { auth } from "./firebase";
+
 const SignUp = ({ navigation }) => {
     const [email, setEmail] = React.useState("")
     const [username, setUsername] = React.useState("")
@@ -24,16 +24,6 @@ const SignUp = ({ navigation }) => {
     const [emailError, setEmailError] = React.useState("")
     const [usernameError, setUsernameError] = React.useState("")
     const [passwordError, setPasswordError] = React.useState("")
-
-    const handleSignUp = () => {
-        auth
-        .createUserWithEmailAndPassword(email, password)
-        .then(userCredentials => {
-            const user = userCredentials.user;
-            console.log('Register with: ',user.email)
-        })
-        .catch(error => alert(error.message))
-    }
 
     function isEnableSignUp() {
         return email != "" && username != "" && password != "" && emailError == "" && passwordError == ""
@@ -162,7 +152,7 @@ const SignUp = ({ navigation }) => {
                     }}
                     // Do not Show OTP screen
                     // onPress={() => navigation.navigate("Otp")}
-                    onPress={handleSignUp}
+                    onPress={() => navigation.navigate("Home")}
                 />
 
                 <View

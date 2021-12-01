@@ -1,23 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { useNavigation } from "@react-navigation/core";
+import React from "react";
 import {
     View,
     Text,
     TouchableOpacity,
     Image,
-    ActionSheetIOS,
 } from "react-native";
 import { FONTS, SIZES, COLORS, icons, } from "../../constants"
 import { AuthLayout } from "../";
 import {
+    CustomSwitch,
     FormInput,
     TextButton,
     TextIconButton
 } from "../../components"
-import { auth } from "./firebase";
+import { utils } from "../../utils";
 
-
-const SignIn = () => {
+const SignIn = ({ navigation }) => {
 
     const [email, setEmail] = React.useState("")
     const [password, setPassword] = React.useState("")
@@ -25,33 +23,6 @@ const SignIn = () => {
 
     const [showPass, setShowPass] = React.useState(false)
     const [saveMe, setSaveMe] = React.useState(false)
-
-    // THIS WILL ALLOW THE USER TO BE REDIRECTED TO THE HOMESCREEN ONCE A VALID USER IS USE TO SIGN IN
-    const navigation = useNavigation()
-
-
-    // THIS WILL HANDLE THE LOGIN USING FIREBASE
-    const handleLogIn = () => {
-        auth
-            .signInWithEmailAndPassword(email, password)
-            .then(userCredentials => {
-                const user = userCredentials.user;
-                console.log('Logged in with: ', user.email)
-            })
-            .catch(error => alert(error.message))
-    }
-
-    useEffect(() => {
-
-        const unsub = auth.onAuthStateChanged(user => {
-            if (user) {
-                navigation.navigate("Home")
-            }
-        })
-
-        return unsub
-        
-    })
 
     function isEnableSignIn() {
         return email != "" && password != "" && emailError == ""
@@ -170,9 +141,7 @@ const SignIn = () => {
                         borderRadius: SIZES.radius,
                         backgroundColor: isEnableSignIn() ? COLORS.primary : COLORS.transparentPrimary,
                     }}
-                    // CHANGED THIS TO HANDLE THE LOGIN FOR A USER
-                    // PROBLEM: USER IS STUCK ON THE SIGN IN SCREEEN
-                    onPress={handleLogIn}
+                    onPress={() => navigation.replace("Home")}
                 />
 
                 {/* Sign Up */}
@@ -190,7 +159,7 @@ const SignIn = () => {
                             backgroundColor: null
                         }}
                         labelStyle={{
-                            color: COLORS.primary,
+                            color: COLORS.primary, 
                             ...FONTS.h3
                         }}
                         onPress={() => navigation.navigate("SignUp")}

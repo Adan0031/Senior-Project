@@ -89,12 +89,19 @@ const FoodSelection = ({ route }) => {
     //     }, [])
     // }
 
-    React.useEffect(() =>{
+    React.useEffect(() => {
+        let { foodItem } = route.params
+        if (foodItem?.name == "Starbucks") {
+            let selectedMenu = dummyData.menuStarbucks.find(a => a.id == 1)
+            setMenuList(selectedMenu?.list)
+        }
+        else if(foodItem?.name == "Chick-fil-A") {
+            let selectedMenu = dummyData.menuChickFilA.find(a => a.id == 1)
+            setMenuList(selectedMenu?.list)
+        }
 
-        console.log(foodItem?.name)
+    },[])
 
-    },[foodItem?.name])
-   
 
 
     function handleChangeCategory(categoryId, menuTypeId) {
@@ -156,6 +163,8 @@ const FoodSelection = ({ route }) => {
                 rightComponent={
                     <CartQuantityButton
                         quantity={3}
+                        onPress={() => navigation.navigate("MyCart")}
+
                     />
                 }
             />

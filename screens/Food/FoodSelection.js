@@ -75,20 +75,26 @@ const FoodSelection = ({ route }) => {
     //     // console.log(selectedMenuType)
     // }, [])
 
-    if (foodItem?.name == "Starbucks") {
-        React.useEffect(() => {
-            let selectedMenu = dummyData.menuStarbucks.find(a => a.id == 1)
-            setMenuList(selectedMenu?.list)
-        }, [])
-    }
+    // if (foodItem?.name == "Starbucks") {
+    //     React.useEffect(() => {
+    //         let selectedMenu = dummyData.menuStarbucks.find(a => a.id == 1)
+    //         setMenuList(selectedMenu?.list)
+    //     }, [])
+    // }
 
-    else{
-        React.useEffect(() => {
-            let selectedMenu = dummyData.menuChickFilA.find(a => a.id == 1)
-            setMenuList(selectedMenu?.list)
-        }, [])
-    }
-    console.log(foodItem)
+    // else{
+    //     React.useEffect(() => {
+    //         let selectedMenu = dummyData.menuChickFilA.find(a => a.id == 1)
+    //         setMenuList(selectedMenu?.list)
+    //     }, [])
+    // }
+
+    React.useEffect(() =>{
+
+        console.log(foodItem?.name)
+
+    },[foodItem?.name])
+   
 
 
     function handleChangeCategory(categoryId, menuTypeId) {

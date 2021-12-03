@@ -25,12 +25,12 @@ const categories = [
 ]
 
 //////////////////////////Restaurants list///////////////////////////////
-const milkFlower = {
+const chickFilA = {
     id: 1,
-    name: "Milkflower",
+    name: "Chick-fil-A",
     description: "Italian Pizza",
     distance: "12-15min - $1.99 Delivery",
-    image: require("../assets/dummyData/milkFlower.png")
+    image: require("../assets/Chick-fil-a/chick-fil-a-logo.png")
 }
 
 const tacoBell = {
@@ -77,12 +77,13 @@ const Mcdonalds = {
     distance: "12-15min - $1.99 Delivery",
 }
 
-const Dominos = {
+const Starbucks = {
     id: 7,
-    name: "Dominos",
-    description: "Pizza",
+    name: "Starbucks",
+    description: "Coffee",
     address: "1522 W University Dr",
     distance: "12-15min - $1.99 Delivery",
+    image: require("../assets/Starbucks/Starbucks-Logo.png")
 }
 /////////////////////////////////////menu list//////////////////////////////
 const pizza = {
@@ -114,64 +115,119 @@ const drink = {
     isFavourite: true,
     image: require("../assets/dummyData/drink.png")
 }
+//Chick-fil-A Main dish
+const chickenSammich = {
+    id: 4,
+    name: "Chick-fil-A® Chicken Sandwich",
+    description: "A boneless breast of chicken seasoned to perfection, and freshly breaded.",
+    price: "3.99",
+    calories: 440,
+    isFavourite: true,
+    image: require("../assets/Chick-fil-a/MainDish/ChickenSammich.png")
+}
+
+//Starbucks drinks
+const frappuccino = {
+    id: 5,
+    name: "Caramel Frappuccino",
+    description: "Caramel syrup, milk, ice and coffee.",
+    categories: [1, 2],
+    price: "15.99",
+    calories: 78,
+    isFavourite: true,
+    image: require("../assets/Starbucks/Drinks/Frappuccino.png")
+}
+
+const cappuccino = {
+    id: 6,
+    name: "Cappuccino",
+    description: "Dark, rich espresso under a smoothed and stretched layer of thick milk foam.",
+    categories: [1, 2],
+    price: "15.99",
+    calories: 78,
+    isFavourite: true,
+    image: require("../assets/Starbucks/Drinks/Cappuccino.png")
+}
+
+const coldBrew = {
+    id: 7,
+    name: "Cold-Brew Coffee",
+    description: "slow-steeped in cool water for 20 hours",
+    categories: [1, 2],
+    price: "15.99",
+    calories: 78,
+    isFavourite: true,
+    image: require("../assets/Starbucks/Drinks/Cold-Brew.png")
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////
-const menu = [
+// const menu = [
+//     {
+//         id: 1,
+//         name: "Milkflower",
+//         list: [
+//             pizza, salad, drink,
+//         ]
+//     },
+//     {
+//         id: 2,
+//         name: "Taco Bell",
+//         list: [
+//             chickFilA, burgerKing, wrapSandwich,
+//         ]
+//     },
+
+// ]
+
+///////////////////////////////////////////////////////////////////////////////////////
+//Menu List based on Restaurant
+// const menuHorizontal = [
+//     {
+//         id: 1,
+//         name: "Main Dish",
+//         list: [
+//             pizza, salad, drink
+//         ]
+//     },
+//     {
+//         id: 2,
+//         name: "Starters",
+//         list: [
+//             salad, drink, pizza       ]
+//     },
+//     {
+//         id: 3,
+//         name: "Drinks",
+//         list: [
+//             salad, drink, pizza      ]
+//     },
+
+// ]
+
+const menuChickFilA = [
     {
         id: 1,
-        name: "Milkflower",
+        name: "Main Dish",
         list: [
-            pizza, salad, drink,
+            chickenSammich, salad, drink
         ]
     },
-    // {
-    //     id: 1,
-    //     name: "Restaurant",
-    //     list: [
-    //         milkFlower, tacoBell, burgerKing,
-    //     ]
-    // },
     {
         id: 2,
-        name: "Taco Bell",
+        name: "Starters",
         list: [
-            milkFlower, burgerKing, wrapSandwich,
-        ]
+            salad, drink, pizza       ]
     },
-    // {
-    //     id: 3,
-    //     name: "Popular",
-    //     list: [
-    //         milkFlower, tacoBell, wrapSandwich,
-    //     ]
-    // },
-    // {
-    //     id: 4,
-    //     name: "Newest",
-    //     list: [
-    //         milkFlower, tacoBell, burgerKing,
-    //     ]
-    // },
-    // {
-    //     id: 5,
-    //     name: "Trending",
-    //     list: [
-    //         milkFlower, burgerKing, wrapSandwich,
-    //     ]
-    // },
-    // {
-    //     id: 6,
-    //     name: "Recommended",
-    //     list: [
-    //         milkFlower, tacoBell, wrapSandwich,
-    //     ]
-    // },
+    {
+        id: 3,
+        name: "Drinks",
+        list: [
+            salad, drink, pizza     ]
+    },
 
 ]
 
-///////////////////////////////////////////////////////////////////////////////////////
-
-const menuHorizontal = [
+const menuStarbucks = [
     {
         id: 1,
         name: "Main Dish",
@@ -189,7 +245,7 @@ const menuHorizontal = [
         id: 3,
         name: "Drinks",
         list: [
-            drink, pizza, salad     ]
+            frappuccino, cappuccino, coldBrew     ]
     },
 
 ]
@@ -308,7 +364,7 @@ const restaurant = [
         id: 0,
         name: "Restaurant",
         list: [
-            milkFlower, tacoBell, burgerKing, Dominos, Mcdonalds, Canes
+            chickFilA, tacoBell, burgerKing, Starbucks, Mcdonalds, Canes
         ]
     },
 ]
@@ -316,8 +372,8 @@ const restaurant = [
 export default {
     myProfile,
     categories,
-    menu,
-    menuHorizontal,
+    menuStarbucks,
+    menuChickFilA,
     restaurant,
     sizes,
     myCart,

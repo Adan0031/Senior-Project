@@ -32,6 +32,7 @@
     "expo": "~42.0.1",
     "expo-linear-gradient": "~9.2.0",
     "expo-status-bar": "~1.0.4",
+    "jest": "^27.4.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
@@ -50,7 +51,8 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0"
+    "@babel/core": "^7.9.0",
+    "jest-expo": "^43.0.1"
   },
   "private": true
 }

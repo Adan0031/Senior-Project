@@ -34,10 +34,10 @@ const Section = ({ title, onPress, children }) => {
     )
 }
 
-const FoodSelection = ({ route }) => {
+const FoodSelection = ({ navigation, route }) => {
     const [selectedCategoryId] = React.useState(1)
     const [milkflower] = React.useState([])
-    const navigation = useNavigation();
+    // const navigation = useNavigation();
     const [showFilterModal, setShowFilterModal] = React.useState(false)
 
     //need for menu list horizantal view
@@ -141,6 +141,7 @@ const FoodSelection = ({ route }) => {
                 leftComponent={
                     //back button style and onpress
                     <IconButton
+                        testID="back-button"
                         icon={icons.back}
                         containerStyle={{
                             width: 40,
@@ -385,7 +386,7 @@ const FoodSelection = ({ route }) => {
             }}></Text>
             {/* List */}
             <FlatList
-
+                testID="food-list"
                 data={menuList}
                 // keyExtractor={(item) => `${item.id}`}
                 // showsVerticalScrollIndicator={false}
@@ -421,7 +422,7 @@ const FoodSelection = ({ route }) => {
                 renderItem={({ item }) => {
                     return (
                         <HorizontalFoodCard
-
+                            testID={`food-card-${item.id}`}
                             containerStyle={{
                                 height: 130,
                                 alignItems: 'center',

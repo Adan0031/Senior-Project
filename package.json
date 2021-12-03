@@ -15,7 +15,6 @@
       "node_modules/(?!(jest-)?react-native|@react-native-community|@react-navigation)"
     ],
     "setupFiles": [
-      "<rootDir>/testing/jest-setup.js",
       "./node_modules/react-native-gesture-handler/jestSetup.js"
     ],
     "verbose": true

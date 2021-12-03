@@ -14,7 +14,7 @@ describe('Account Screen', () => {
         const titleElement2 = getByText('Name');
         const titleElement3 = getByText('Email');
         const titleElement4 = getByText('Password');
-        const titleElement5 = getByText('Payments');
+        const titleElement5 = getByText('My Wallet');
         const titleElement6 = getByText('Order History');
         const titleElement7 = getByText('Push Notifications');
         const titleElement8 = getByText('App Feedback');
@@ -40,7 +40,7 @@ describe('Account Screen', () => {
         const titleElement2 = getByText('Name');
         const titleElement3 = getByText('Email');
         const titleElement4 = getByText('Password');
-        const titleElement5 = getByText('Payments');
+        const titleElement5 = getByText('My Wallet');
         const titleElement6 = getByText('Order History');
         const titleElement7 = getByText('Push Notifications');
         const titleElement8 = getByText('App Feedback');
@@ -59,7 +59,7 @@ describe('Account Screen', () => {
         expect(navigate).toHaveBeenNthCalledWith(1, 'Account_name');
         expect(navigate).toHaveBeenNthCalledWith(2, 'Account_email');
         expect(navigate).toHaveBeenNthCalledWith(3, 'Account_password');
-        expect(navigate).toHaveBeenNthCalledWith(4, 'Account_payment');
+        expect(navigate).toHaveBeenNthCalledWith(4, 'MyCard');
         expect(navigate).toHaveBeenNthCalledWith(5, 'Account_orders_history_screen');
         expect(navigate).toHaveBeenNthCalledWith(6, 'App_notifications');
         expect(navigate).toHaveBeenNthCalledWith(7, 'Account_App_feedback');

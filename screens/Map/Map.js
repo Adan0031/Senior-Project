@@ -9,7 +9,7 @@ import {
 } from "react-native"
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import MapViewDirections from "react-native-maps-directions";
-import { LinearGradient } from "expo-linear-gradient";
+// import { LinearGradient } from "expo-linear-gradient";
 
 import {
     IconButton,
@@ -188,7 +188,7 @@ const Map = ({ navigation, route }) => {
                 }}
             >
                 {/* Shadow */}
-                <LinearGradient
+                {/* <LinearGradient
                     start={{ x: 0, y: 0 }}
                     end={{ x: 0, y: 1 }}
                     colors={[
@@ -202,7 +202,7 @@ const Map = ({ navigation, route }) => {
                         right: 0,
                         height: Platform.OS === 'ios' ? 200 : 50,
                     }}
-                />
+                /> */}
 
                 <View
                     style={{

@@ -97,7 +97,7 @@ const drink = {
 const chickenSammich = {
     id: 4,
     name: "Chick-fil-A® Chicken Sandwich",
-    description: "A boneless breast of chicken seasoned to perfection, and freshly breaded.",
+    description: "A boneless breaded breast of chicken seasoned to perfection.",
     price: "3.99",
     calories: 440,
     isFavourite: true,
@@ -109,7 +109,7 @@ const spicyChicken = {
     id: 5,
     name: "Spicy Deluxe w/ Pepper Jack",
     description: "Chicken seasoned with a spicy blend of peppers",
-    price: "3.99",
+    price: "4.25",
     calories: 550,
     isFavourite: true,
     image: require("../assets/Chick-fil-a/MainDish/SpicyDeluxeSandwich.png")
@@ -117,7 +117,7 @@ const spicyChicken = {
 
 const grilledChicken = {
     id: 6,
-    name: "Spicy Deluxe w/ Pepper Jack",
+    name: "Grilled Chicken Sandwich",
     description: "Grilled boneless breast of chicken, served on a toasted multigrain bun.",
     price: "3.99",
     calories: 550,
@@ -157,14 +157,51 @@ const cheese = {
     image: require("../assets/PizzaHut/MainDish/Cheese.png")
 }
 
+////////////Starbucks//////////////
+////Main Dish/////
+const hamPanini = {
+    id: 20,
+    name: "Ham & Swiss Panini",
+    description: "Ham and Swiss cheese meld with Dijon butter an extraordinary feel-good taste.",
+    categories: [1, 2],
+    price: "4.99",
+    calories: 480,
+    isFavourite: true,
+    image: require("../assets/Starbucks/MainDish/HamPanini.png")
+}
 
-//Starbucks drinks
+const chickenPanini = {
+    id: 21,
+    name: "Chicken & Bacon Panini",
+    description: "Herbed chicken piled high on toasted apple brioche, topped with bacon and maple mustard.",
+    categories: [1, 2],
+    price: "6.99",
+    calories: 600,
+    isFavourite: true,
+    image: require("../assets/Starbucks/MainDish/ChickenPanini.png")
+}
+
+const grilledCheese = {
+    id: 22,
+    name: "Grilled Cheese Sandwich",
+    description: "Cheddar and mozzarella on sourdough bread, topped with a Parmesan butter.",
+    categories: [1, 2],
+    price: "4.99",
+    calories: 520,
+    isFavourite: true,
+    image: require("../assets/Starbucks/MainDish/GrilledCheese.png")
+}
+
+
+
+
+/////Starbucks drinks/////
 const frappuccino = {
     id: 24,
     name: "Caramel Frappuccino",
     description: "Caramel syrup, milk, ice and coffee.",
     categories: [1, 2],
-    price: "15.99",
+    price: "4.99",
     calories: 78,
     isFavourite: true,
     image: require("../assets/Starbucks/Drinks/Frappuccino.png")
@@ -175,7 +212,7 @@ const cappuccino = {
     name: "Cappuccino",
     description: "Dark, rich espresso under a smoothed and stretched layer of thick milk foam.",
     categories: [1, 2],
-    price: "15.99",
+    price: "5.99",
     calories: 78,
     isFavourite: true,
     image: require("../assets/Starbucks/Drinks/Cappuccino.png")
@@ -186,16 +223,20 @@ const coldBrew = {
     name: "Cold-Brew Coffee",
     description: "slow-steeped in cool water for 20 hours",
     categories: [1, 2],
-    price: "15.99",
+    price: "3.99",
     calories: 78,
     isFavourite: true,
     image: require("../assets/Starbucks/Drinks/Cold-Brew.png")
 }
 
+
+
+////////////Sandella's Flatbread Cafe/////////
+/////////Main Dish///////////
 const brazilianFlatbread = {
     id: 40,
     name: "Brazilian Bacon Grilled Flatbread",
-    description: "Sandella’s Brazilian sauce, turkey bacon, mushrooms, black olives, roasted red peppers & mozzarella cheese.",
+    description: "Brazilian sauce, turkey bacon, olives, red peppers & cheese.",
     categories: [1, 2],
     price: "5.99",
     calories: 560,
@@ -206,7 +247,7 @@ const brazilianFlatbread = {
 const turkeyPanini = {
     id: 41,
     name: "Tangy Turkey & Mozzarella Panini",
-    description: "Turkey breast, mozzarella cheese & sun-dried tomatoes, fresh basil, Sandella's Brazilian sauce.",
+    description: "Turkey breast, mozzarella & tomatoes w/ Brazilian sauce.",
     categories: [1, 2],
     price: "5.99",
     calories: 520,
@@ -321,7 +362,7 @@ const menuStarbucks = [
         id: 1,
         name: "Main Dish",
         list: [
-            pizza, salad, drink
+            hamPanini, chickenPanini, grilledCheese
         ]
     },
     {

@@ -214,7 +214,7 @@ const sizes = [
     }
 ]
 
-const myCart = [
+let myCart = [
     {
         ...pizza,
         qty: 1

@@ -61,10 +61,10 @@ const Home = ({ navigation }) => {
  
 
         // // Retrieve the recommended menu
-        let selectedRecommend = dummyData.menu.find(a => a.name == "Recommended")
+        // let selectedRecommend = dummyData.menu.find(a => a.name == "Recommended")
 
         // // Find the menu based on the menuTypeId
-        let selectedMenu = dummyData.menuHorizontal.find(a => a.id == menuTypeId)
+        // let selectedMenu = dummyData.menuHorizantal.find(a => a.id == menuTypeId)
 
        
 
@@ -75,10 +75,10 @@ const Home = ({ navigation }) => {
 
 
         // // Set the recommended menu based on the categoryId
-        setRecommends(selectedRecommend?.list)
+        // setRecommends(selectedRecommend?.list)
 
         // // Set the menu based on the categoryId
-        setMenuList(selectedMenu?.list)
+        // setMenuList(selectedMenu?.list)
 
 
         // Retrieve restaurant list
@@ -140,41 +140,41 @@ const Home = ({ navigation }) => {
         )
     }
 
-    function renderMenuTypes() {
-        return (
-            <FlatList
-                horizontal
-                data={dummyData.menuHorizontal}
-                keyExtractor={item => `${item.id}`}
-                showsHorizontalScrollIndicator={false}
-                contentContainerStyle={{
-                    marginTop: 30,
-                    marginBottom: 20
-                }}
-                renderItem={({ item, index }) => (
-                    <TouchableOpacity
-                        style={{
-                            marginLeft: SIZES.padding,
-                            marginRight: index == dummyData.menuHorizontal.length - 1 ? SIZES.padding : 0
-                        }}
-                        onPress={() => {
-                            setSelectedMenuType(item.id)
-                            handleChangeCategory(selectedCategoryId, item.id)
-                        }}
-                    >
-                        <Text
-                            style={{
-                                color: selectedMenuType == item.id ? COLORS.primary : COLORS.black,
-                                ...FONTS.h3
-                            }}
-                        >
-                            {item.name}
-                        </Text>
-                    </TouchableOpacity>
-                )}
-            />
-        )
-    }
+    // function renderMenuTypes() {
+    //     return (
+    //         <FlatList
+    //             horizontal
+    //             data={dummyData.menuHorizontal}
+    //             keyExtractor={item => `${item.id}`}
+    //             showsHorizontalScrollIndicator={false}
+    //             contentContainerStyle={{
+    //                 marginTop: 30,
+    //                 marginBottom: 20
+    //             }}
+    //             renderItem={({ item, index }) => (
+    //                 <TouchableOpacity
+    //                     style={{
+    //                         marginLeft: SIZES.padding,
+    //                         marginRight: index == dummyData.menuHorizontal.length - 1 ? SIZES.padding : 0
+    //                     }}
+    //                     onPress={() => {
+    //                         setSelectedMenuType(item.id)
+    //                         handleChangeCategory(selectedCategoryId, item.id)
+    //                     }}
+    //                 >
+    //                     <Text
+    //                         style={{
+    //                             color: selectedMenuType == item.id ? COLORS.primary : COLORS.black,
+    //                             ...FONTS.h3
+    //                         }}
+    //                     >
+    //                         {item.name}
+    //                     </Text>
+    //                 </TouchableOpacity>
+    //             )}
+    //         />
+    //     )
+    // }
 
     function renderRecommendedSection() {
         return (

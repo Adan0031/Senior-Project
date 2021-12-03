@@ -11,6 +11,7 @@ import {
     Header,
     IconButton,
     CartQuantityButton,
+    HomeButton,
     StepperInput,
     FooterTotal
 } from "../../components"
@@ -20,6 +21,9 @@ const MyCart = ({ navigation }) => {
 
     const [myCartList, setMyCartList] = React.useState(dummyData.myCart)
 
+    React.useEffect(() => {
+        setMyCartList(dummyData.myCart)
+    }, [])
     // Handler
 
     function updateQuantityHandler(newQty, id) {
@@ -77,11 +81,13 @@ const MyCart = ({ navigation }) => {
                     />
                 }
                 rightComponent={
-                    <CartQuantityButton
+                    <HomeButton
                         quantity={3}
                         containerStyle={{
                             marginRight: SIZES.padding,
                         }}
+                        onPress={() => navigation.navigate("Home")}
+
                     />
                 }
             />
@@ -180,9 +186,10 @@ const MyCart = ({ navigation }) => {
         return (
             <FooterTotal
                 subTotal={37.97}
-                shippingFee={0.00}
-                total={37.97}
-            // onPress={() => navigation.navigate("MyCard")}
+                shippingFee={1.99}
+                total={39.96}
+            onPress={() => navigation.navigate("PaymentCard")}
+
             />
         )
     }

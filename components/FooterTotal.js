@@ -37,7 +37,8 @@ const FooterTotal = ({ subTotal, shippingFee, total, onPress }) => {
                     padding: SIZES.padding,
                     borderTopLeftRadius: 20,
                     borderTopRightRadius: 20,
-                    backgroundColor: COLORS.white
+                    backgroundColor: COLORS.white,
+                    paddingBottom: "15%"
                 }}
             >
                 {/* Subtotal */}
@@ -58,7 +59,7 @@ const FooterTotal = ({ subTotal, shippingFee, total, onPress }) => {
                         marginBottom: SIZES.padding
                     }}
                 >
-                    <Text style={{ flex: 1, ...FONTS.body3 }}>Shipping fee</Text>
+                    <Text style={{ flex: 1, ...FONTS.body3 }}>Delivery fee</Text>
                     <Text style={{ ...FONTS.h3 }}>${shippingFee.toFixed(2)}</Text>
                 </View>
 

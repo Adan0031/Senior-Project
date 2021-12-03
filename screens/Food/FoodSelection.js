@@ -107,8 +107,9 @@ const FoodSelection = ({ route }) => {
                 }
                 rightComponent={
                     <CartQuantityButton
-                        quantity={3}
+                        onPress={() => navigation.navigate("MyCart")}
                     />
+
                 }
             />
         )

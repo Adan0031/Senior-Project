@@ -1,5 +1,7 @@
 import CardItem from "./CardItem"
 import CartQuantityButton from "./CartQuantityButton"
+import HomeButton from "./HomeButton"
+
 import CustomSwitch from "./CustomSwitch"
 import FooterTotal from "./FooterTotal"
 import FormInput from "./FormInput"
@@ -20,6 +22,7 @@ import VerticalFoodCard from "./VerticalFoodCard"
 export {
     CardItem,
     CartQuantityButton,
+    HomeButton,
     CustomSwitch,
     FooterTotal,
     FormInput,

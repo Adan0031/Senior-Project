@@ -22,7 +22,7 @@ const email_screen = ({ navigation }) => {
                 value={Email}
                 placeholder="Current email"
                 placeholderTextColor= {COLORS.linelightGray} /* this will give the text color of choice for the placeholder*/
-                keyboardType="default"
+                keyboardType="numeric"
             />
             <View
                 style={{
@@ -42,7 +42,7 @@ const email_screen = ({ navigation }) => {
                 value={Current_Pass}
                 placeholder="Current password"
                 placeholderTextColor= {COLORS.linelightGray} /* this will give the text color of choice for the placeholder*/
-                keyboardType="default"
+                keyboardType="numeric"
             />
 
             <View

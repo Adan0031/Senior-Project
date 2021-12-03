@@ -23,7 +23,7 @@ const password_screen = ({ navigation }) => {
                 value={New_Pass}
                 placeholder="New Password"
                 placeholderTextColor={COLORS.linelightGray} /* this will give the text color of choice for the placeholder*/
-                keyboardType="default"
+                keyboardType="numeric"
             />
             <View
                 style={{
@@ -43,7 +43,7 @@ const password_screen = ({ navigation }) => {
                 value={Current_Pass}
                 placeholder="Current Password"
                 placeholderTextColor={COLORS.linelightGray} /* this will give the text color of choice for the placeholder*/
-                keyboardType="default"
+                keyboardType="numeric"
             />
 
             <View

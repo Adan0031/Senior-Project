@@ -1,4 +1,3 @@
-import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import {
     View,
@@ -7,13 +6,7 @@ import {
     ScrollView,
 } from 'react-native';
 import { COLORS, FONTS, SIZES, dummyData } from "../../constants";
-import { auth } from "../Authentication/firebase";
-const Account = ({}) => {
-
-    const navigation = useNavigation()
-    const handleSignOut = () => {
-        auth.signOut().then(() => navigation.replace("SignIn")).catch(error => alert(error.message))
-    }
+const Account = ({navigation}) => {
     return (
         <ScrollView
             style={{ backgroundColor: COLORS.gray }}
@@ -26,7 +19,7 @@ const Account = ({}) => {
                 marginHorizontal: SIZES.padding
             }}
             >
-                Hi {auth.currentUser?.email}
+                Hi {dummyData.myProfile.name}
             </Text>
 
             <TouchableOpacity onPress={() => navigation.navigate('Account_name')}>
@@ -199,7 +192,7 @@ const Account = ({}) => {
                 backgroundColor: COLORS.primary,
                 borderRadius: 30,
             }}
-                onPress={handleSignOut}
+                onPress={() => navigation.navigate('SignIn')}
             >
                 <Text style={{
                     textAlign: "center", color: COLORS.white2,

@@ -288,7 +288,7 @@ const Map = ({ navigation, route }) => {
                         />
 
                         <View style={{ flex: 1, marginLeft: SIZES.radius }}>
-                            <Text style={{ color: COLORS.white, ...FONTS.h3 }}>ByProgrammers</Text>
+                            <Text style={{ color: COLORS.white, ...FONTS.h3 }}>Employee Name Here</Text>
                             <Text style={{ color: COLORS.white, ...FONTS.body4 }}>Delivery Man</Text>
                         </View>
 

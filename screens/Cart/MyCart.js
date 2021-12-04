@@ -189,6 +189,7 @@ const MyCart = ({ navigation }) => {
                 shippingFee={1.99}
                 total={39.96}
             onPress={() => navigation.navigate("PaymentCard")}
+
             />
         )
     }

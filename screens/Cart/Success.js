@@ -24,7 +24,7 @@ const Success = ({ navigation }) => {
             style={{
                 flex: 1,
                 paddingHorizontal: SIZES.padding,
-                backgroundColor: COLORS.grey
+                backgroundColor: COLORS.white
             }}
         >
             <View
@@ -43,8 +43,8 @@ const Success = ({ navigation }) => {
                     }}
                 />
 
-                <Text style={{ color: COLORS.white, marginTop: SIZES.padding, ...FONTS.h1 }}>Congratulations!</Text>
-                <Text style={{ textAlign: 'center', marginTop: SIZES.base, color: COLORS.white, ...FONTS.body3 }}>Payment was successfully made!</Text>
+                <Text style={{ marginTop: SIZES.padding, ...FONTS.h1 }}>Congratulations!</Text>
+                <Text style={{ textAlign: 'center', marginTop: SIZES.base, color: COLORS.darkGray, ...FONTS.body3 }}>Payment was successfully made!</Text>
             </View>
 
             <TextButton

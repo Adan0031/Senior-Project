@@ -284,7 +284,7 @@ const FoodSelection = ({ route }) => {
                 horizontal
 
                 data={dummyData.menuStarbucks}
-                keyExtractor={item => `${item.id}`}
+                keyExtractor={item => `${item.id.toString()}`}
                 showsHorizontalScrollIndicator={false}
                 contentContainerStyle={{
                     marginTop: 30,

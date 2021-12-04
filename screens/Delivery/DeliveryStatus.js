@@ -42,7 +42,7 @@ const DeliveryStatus = ({ navigation }) => {
                 }}
             >
                 <Text style={{ textAlign: 'center', color: COLORS.gray, ...FONTS.body4 }}>Estimated Delivery</Text>
-                <Text style={{ textAlign: 'center', ...FONTS.h2 }}>21 Sept 2021 / 12:30PM</Text>
+                <Text style={{ color: COLORS.white, textAlign: 'center', ...FONTS.h2 }}>21 Sept 2021 / 12:30PM</Text>
             </View>
         )
     }
@@ -55,7 +55,7 @@ const DeliveryStatus = ({ navigation }) => {
                     paddingVertical: SIZES.padding,
                     borderRadius: SIZES.radius,
                     borderWidth: 2,
-                    borderColor: COLORS.lightGray2,
+                    borderColor: COLORS.lightGray,
                     backgroundColor: COLORS.white2
                 }}
             >
@@ -75,7 +75,7 @@ const DeliveryStatus = ({ navigation }) => {
 
                 <LineDivider
                     lineStyle={{
-                        backgroundColor: COLORS.lightGray2
+                        backgroundColor: COLORS.grey
                     }}
                 />
 
@@ -224,7 +224,7 @@ const DeliveryStatus = ({ navigation }) => {
             style={{
                 flex: 1,
                 paddingHorizontal: SIZES.padding,
-                backgroundColor: COLORS.white
+                backgroundColor: COLORS.grey
             }}
         >
             {/* Header */}

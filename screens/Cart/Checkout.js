@@ -99,7 +99,7 @@ const Checkout = ({ navigation, route }) => {
                     marginTop: SIZES.padding
                 }}
             >
-                <Text style={{ ...FONTS.h3 }}>Delivery Address</Text>
+                <Text style={{ color: COLORS.white, ...FONTS.h3 }}>Delivery Address</Text>
 
                 <View
                     style={{
@@ -125,10 +125,11 @@ const Checkout = ({ navigation, route }) => {
                         style={{
                             marginLeft: SIZES.radius,
                             width: "85%",
+                            color: COLORS.white,
                             ...FONTS.body3
                         }}
                     >
-                        300 Post Street San Francisco, CA
+                        1201 West University Dr. Edinburg, TX
                     </Text>
                 </View>
             </View>
@@ -142,7 +143,7 @@ const Checkout = ({ navigation, route }) => {
                     marginTop: SIZES.padding
                 }}
             >
-                <Text style={{ ...FONTS.h3 }}>Add Coupon</Text>
+                <Text style={{color: COLORS.white,...FONTS.h3 }}>Add Coupon</Text>
 
                 <FormInput
                     inputContainerStyle={{
@@ -197,7 +198,7 @@ const Checkout = ({ navigation, route }) => {
         <View
             style={{
                 flex: 1,
-                backgroundColor: COLORS.white
+                backgroundColor: COLORS.grey
             }}
         >
             {/* Header */}

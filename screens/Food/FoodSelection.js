@@ -25,18 +25,18 @@ import {
 } from "../../components"
 import { FONTS, SIZES, COLORS, icons, images, dummyData } from "../../constants"
 
-const Section = ({ title, onPress, children }) => {
-    return (
-        <View>
-            {/* Content */}
-            {children}
-        </View>
-    )
-}
+// const Section = ({ title, onPress, children }) => {
+//     return (
+//         <View>
+//             {/* Content */}
+//             {children}
+//         </View>
+//     )
+// }
 
 const FoodSelection = ({ route }) => {
-    const [selectedCategoryId, setSelectedCategoryId] = React.useState(1)
-    const [milkflower, setMilkflower] = React.useState([])
+    const [selectedCategoryId] = React.useState(1)
+    const [milkflower] = React.useState([])
     const navigation = useNavigation();
     const [showFilterModal, setShowFilterModal] = React.useState(false)
 
@@ -46,29 +46,97 @@ const FoodSelection = ({ route }) => {
 
 
 
-
-
-
     const [foodItem, setFoodItem] = React.useState([])
+
     React.useEffect(() => {
         let { foodItem } = route.params
         setFoodItem(foodItem)
+
+        //test
+        // console.log(foodItem?.name)
     }, [])
 
+    // React.useEffect(() => {
+    //     handleChangeCategory(selectedCategoryId, selectedMenuType)
+    //     // console.log(selectedCategoryId)
+    //     // console.log(selectedMenuType)
+    // }, [])
+    // React.useEffect(() => {
+    //     let selectedMenu
+    //     if (foodItem?.name == "Starbucks") {
+    //         selectedMenu = dummyData.menuStarbucks.find(a => a.id == 1)
+    //     }
+    //     else if (foodItem?.name == "Chick-fil-A") {
+    //         selectedMenu = dummyData.menuChickFilA.find(a => a.id == 1)
+    //     }
+
+    //     setMenuList(selectedMenu?.list)
+    //     // console.log(selectedCategoryId)
+    //     // console.log(selectedMenuType)
+    // }, [])
+
+    // if (foodItem?.name == "Starbucks") {
+    //     React.useEffect(() => {
+    //         let selectedMenu = dummyData.menuStarbucks.find(a => a.id == 1)
+    //         setMenuList(selectedMenu?.list)
+    //     }, [])
+    // }
+
+    // else{
+    //     React.useEffect(() => {
+    //         let selectedMenu = dummyData.menuChickFilA.find(a => a.id == 1)
+    //         setMenuList(selectedMenu?.list)
+    //     }, [])
+    // }
+
     React.useEffect(() => {
-        handleChangeCategory(selectedCategoryId, selectedMenuType)
-    }, [])
+        let { foodItem } = route.params
+        if (foodItem?.name == "Starbucks") {
+            let selectedMenu = dummyData.menuStarbucks.find(a => a.id == 1)
+            setMenuList(selectedMenu?.list)
+        }
+        else if(foodItem?.name == "Chick-fil-A") {
+            let selectedMenu = dummyData.menuChickFilA.find(a => a.id == 1)
+            setMenuList(selectedMenu?.list)
+        }
+        else if(foodItem?.name == "Pizza Hut") {
+            let selectedMenu = dummyData.menuPizzaHut.find(a => a.id == 1)
+            setMenuList(selectedMenu?.list)
+        }
+        else if(foodItem?.name == "Sandella's Flatbread Cafe") {
+            let selectedMenu = dummyData.menuSandella.find(a => a.id == 1)
+            setMenuList(selectedMenu?.list)
+        }
+
+    },[])
+
+
+
     function handleChangeCategory(categoryId, menuTypeId) {
 
 
-        let selectedMilkflower = dummyData.menu.find(a => a.name == "Milkflower")
-        setMilkflower(selectedMilkflower?.list)
+        // let selectedMilkflower = dummyData.menu.find(a => a.name == "Milkflower")
+        // setMilkflower(selectedMilkflower?.list)
 
         // // Find the menu based on the menuTypeId
-        let selectedMenu = dummyData.menuHorizontal.find(a => a.id == menuTypeId)
+        let selectedMenu
+        if (foodItem?.name == "Starbucks") {
+            selectedMenu = dummyData.menuStarbucks.find(a => a.id == menuTypeId)
+        }
+        else if (foodItem?.name == "Chick-fil-A") {
+            selectedMenu = dummyData.menuChickFilA.find(a => a.id == menuTypeId)
+        }
+        else if(foodItem?.name == "Pizza Hut") {
+            selectedMenu = dummyData.menuPizzaHut.find(a => a.id == menuTypeId)
+        }
+        else if(foodItem?.name == "Sandella's Flatbread Cafe") {
+            selectedMenu = dummyData.menuSandella.find(a => a.id == menuTypeId)
+        }
 
+        // console.log(menuTypeId)
         // // Set the menu based on the categoryId
         setMenuList(selectedMenu?.list)
+        // console.log(selectedMenu?.list)
     }
 
 
@@ -108,6 +176,8 @@ const FoodSelection = ({ route }) => {
                 rightComponent={
                     <CartQuantityButton
                         quantity={3}
+                        onPress={() => navigation.navigate("MyCart")}
+
                     />
                 }
             />
@@ -178,40 +248,43 @@ const FoodSelection = ({ route }) => {
     }
 
     //////////////////////////////////////////////////////////////////////////////
-    function renderPopularSection() {
-        return (
-            <Section
-            // title="Popular Near You"
-            // onPress={() => console.log("Show all popular items")}
-            >
-                <FlatList
-                    data={milkflower}
-                    keyExtractor={item => `${item.id}`}
-                    showsHorizontalScrollIndicator={false}
-                    renderItem={({ item, index }) => (
+    // function renderPopularSection() {
+    //     return (
+    //         <Section
+    //         // title="Popular Near You"
+    //         // onPress={() => console.log("Show all popular items")}
+    //         >
+    //             <FlatList
+    //                 data={milkflower}
+    //                 keyExtractor={item => `${item.id}`}
+    //                 showsHorizontalScrollIndicator={false}
+    //                 renderItem={({ item, index }) => (
 
-                        <VerticalFoodCard
-                            containerStyle={{
-                                marginLeft: index == 0 ? SIZES.padding : 25,
-                                marginRight: index == milkflower.length - 1 ? SIZES.padding : 25,
-                            }}
+    //                     <VerticalFoodCard
+    //                         containerStyle={{
+    //                             marginLeft: index == 0 ? SIZES.padding : 25,
+    //                             marginRight: index == milkflower.length - 1 ? SIZES.padding : 25,
+    //                         }}
 
 
-                            item={item}
-                            onPress={() => navigation.navigate("FoodDetail", { foodItem: item })}
-                        />
-                    )}
-                />
-            </Section>
-        )
-    }
+    //                         item={item}
+    //                         onPress={() => navigation.navigate("FoodDetail", { foodItem: item })}
+    //                     />
+    //                 )}
+    //             />
+    //         </Section>
+    //     )
+    // }
     //////////////////////////////////////////////////////////////////////////////////
     function renderMenuTypes() {
+
+
         return (
             <FlatList
                 horizontal
-                data={dummyData.menuHorizontal}
-                keyExtractor={item => `${item.id}`}
+
+                data={dummyData.menuStarbucks}
+                keyExtractor={item => `${item.id.toString()}`}
                 showsHorizontalScrollIndicator={false}
                 contentContainerStyle={{
                     marginTop: 30,
@@ -224,11 +297,12 @@ const FoodSelection = ({ route }) => {
                     <TouchableOpacity
                         style={{
                             marginLeft: SIZES.padding,
-                            marginRight: index == dummyData.menuHorizontal.length - 1 ? SIZES.padding : 0
+                            marginRight: index == dummyData.menuStarbucks.length - 1 ? SIZES.padding : 0
                         }}
 
                         onPress={() => {
 
+                            // // Set the menu based on t
                             setSelectedMenuType(item.id)
                             handleChangeCategory(selectedCategoryId, item.id)
                         }}
@@ -249,43 +323,43 @@ const FoodSelection = ({ route }) => {
         )
     }
 
-    function renderMenuList() {
-        return (
-            <FlatList
+    // function renderMenuList() {
+    //     return (
+    //         <FlatList
 
-                keyExtractor={(item) => `${item.id}`}
-                showsVerticalScrollIndicator={false}
-
-
-                renderItem={({ item }) => {
-                    return (
-
-                        <HorizontalFoodCard
-
-                            containerStyle={{
-                                height: 130,
-                                alignItems: 'center',
-                                marginHorizontal: SIZES.padding,
-                                marginBottom: SIZES.radius
-                            }}
-                            imageStyle={{
-                                marginTop: 20,
-                                height: 110,
-                                width: 110,
-                                marginHorizontal: 10,
-                                marginBottom: 15
-                            }}
-                            item={item}
-                            onPress={() => navigation.navigate("FoodDetail", { foodItem: item })}
-                        />
-                    )
-                }}
-            />
-
-        )
+    //             keyExtractor={(item) => `${item.id}`}
+    //             showsVerticalScrollIndicator={false}
 
 
-    }
+    //             renderItem={({ item }) => {
+    //                 return (
+
+    //                     <HorizontalFoodCard
+
+    //                         containerStyle={{
+    //                             height: 130,
+    //                             alignItems: 'center',
+    //                             marginHorizontal: SIZES.padding,
+    //                             marginBottom: SIZES.radius
+    //                         }}
+    //                         imageStyle={{
+    //                             marginTop: 20,
+    //                             height: 110,
+    //                             width: 110,
+    //                             marginHorizontal: 10,
+    //                             marginBottom: 15
+    //                         }}
+    //                         item={item}
+    //                         onPress={() => navigation.navigate("FoodDetail", { foodItem: item })}
+    //                     />
+    //                 )
+    //             }}
+    //         />
+
+    //     )
+
+
+    // }
 
     //////////////////////////////////////////////////////////////////////////////////
 
@@ -326,8 +400,8 @@ const FoodSelection = ({ route }) => {
             <FlatList
 
                 data={menuList}
-                keyExtractor={(item) => `${item.id}`}
-                showsVerticalScrollIndicator={false}
+                // keyExtractor={(item) => `${item.id}`}
+                // showsVerticalScrollIndicator={false}
 
                 ListHeaderComponent={
                     <View>
@@ -352,7 +426,7 @@ const FoodSelection = ({ route }) => {
                             marginTop: -7,
 
                         }}></Text>
-                        {renderMenuList()}
+                        {/* {renderMenuList()} */}
 
                     </View>
                 }

@@ -11,7 +11,7 @@ import { auth } from "../Authentication/firebase";
 const Account = ({ navigation }) => {
 
     // const navigation = useNavigation()
-    const handleSignOut = ( {navigation}) => {
+    const handleSignOut = () => {
         auth.signOut().then(() => navigation.replace("SignIn")).catch(error => alert(error.message))
     }
     return (

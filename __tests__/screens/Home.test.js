@@ -10,9 +10,6 @@ import { VerticalFoodCard } from '../../components';
 
 afterEach(cleanup);
 
-// window.addEventListener = jest.fn();
-// window.attachEvent= jest.fn();
-
 // Home Screen Renders Correctly
 describe('Home Screen', () => {
     it('renders correctly', () => {

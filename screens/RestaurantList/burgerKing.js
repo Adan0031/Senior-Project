@@ -56,10 +56,10 @@ const Section = ({ title, onPress, children }) => {
     )
 }
 
-const FoodSelection = ({ route }) => {
+const FoodSelection = ({ navigation, route }) => {
     const [selectedCategoryId, setSelectedCategoryId] = React.useState(1)
     const [popular, setPopular] = React.useState([])
-    const navigation = useNavigation();
+    // const navigation = useNavigation();
     const [showFilterModal, setShowFilterModal] = React.useState(false)
     const [menuList, setMenuList] = React.useState([])
 

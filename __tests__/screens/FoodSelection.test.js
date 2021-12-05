@@ -132,6 +132,7 @@ describe('FoodSelection screen renders correctly', () => {
 
 // Issue with Custom Icon Button and React Native Testing Library
 // Test Suite: Navigation to Home Screen on a press of a back button
+// Solution: Pass Props all the way down to the custom component
 describe('Navigation to Home Screen on a press of a back button', () => {
     it('Navigates Back Home', () => {
         const navigation = { 

@@ -84,7 +84,7 @@ const Checkout = ({ navigation, route }) => {
                             key={`MyCard-${item.id}`}
                             item={item}
                             isSelected={`${selectedCard?.key}-${selectedCard?.id}` == `MyCard-${item.id}`}
-                            onPress={() => selectCardHandler({...item, key: "MyCard"})}
+                            onPress={() => selectCardHandler({ ...item, key: "MyCard" })}
                         />
                     )
                 })}
@@ -99,7 +99,7 @@ const Checkout = ({ navigation, route }) => {
                     marginTop: SIZES.padding
                 }}
             >
-                <Text style={{ ...FONTS.h3 }}>Delivery Address</Text>
+                <Text style={{ color: COLORS.white, ...FONTS.h3 }}>Delivery Address</Text>
 
                 <View
                     style={{
@@ -125,7 +125,9 @@ const Checkout = ({ navigation, route }) => {
                         style={{
                             marginLeft: SIZES.radius,
                             width: "85%",
-                            ...FONTS.body3
+                            ...FONTS.body3,
+                            color: COLORS.white,
+
                         }}
                     >
                         1201 West University Dr. Edinburg, TX
@@ -142,7 +144,7 @@ const Checkout = ({ navigation, route }) => {
                     marginTop: SIZES.padding
                 }}
             >
-                <Text style={{ ...FONTS.h3 }}>Add Coupon</Text>
+                <Text style={{color: COLORS.white, ...FONTS.h3 }}>Add Coupon</Text>
 
                 <FormInput
                     inputContainerStyle={{
@@ -150,7 +152,7 @@ const Checkout = ({ navigation, route }) => {
                         paddingLeft: SIZES.padding,
                         paddingRight: 0,
                         borderWidth: 2,
-                        borderColor: COLORS.lightGray2,
+                        borderColor: COLORS.black,
                         backgroundColor: COLORS.white,
                         overflow: 'hidden'
                     }}
@@ -197,7 +199,7 @@ const Checkout = ({ navigation, route }) => {
         <View
             style={{
                 flex: 1,
-                backgroundColor: COLORS.white
+                backgroundColor: COLORS.grey
             }}
         >
             {/* Header */}

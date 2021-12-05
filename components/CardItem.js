@@ -19,7 +19,8 @@ const CardItem = ({ item, isSelected, onPress }) => {
                 paddingHorizontal: SIZES.padding,
                 borderWidth: 2,
                 borderRadius: SIZES.radius,
-                borderColor: isSelected ? COLORS.primary : COLORS.lightGray2
+                borderColor: isSelected ? COLORS.primary : COLORS.black,
+                backgroundColor: COLORS.white
             }}
             onPress={() => onPress(item)}
         >
@@ -32,7 +33,7 @@ const CardItem = ({ item, isSelected, onPress }) => {
                     justifyContent: 'center',
                     borderWidth: 2,
                     borderRadius: SIZES.radius,
-                    borderColor: COLORS.lightGray2
+                    borderColor: COLORS.black
                 }}
             >
                 <Image

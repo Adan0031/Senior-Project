@@ -137,7 +137,7 @@ const tags = [
     },
     {
         id: 8,
-        label: "Taccos"
+        label: "Tacos"
     }
 ]
 
@@ -169,7 +169,7 @@ const track_order_status = [
     }
 ]
 
-const GOOGLE_MAP_API_KEY = "[Your Google Map API Key]"
+const GOOGLE_MAP_API_KEY = "AIzaSyB36NQWfqs19-zAiDX7mHd6rv6ONz2Vh60"
 
 export default {
     onboarding_screens,

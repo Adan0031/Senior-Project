@@ -35,11 +35,11 @@ const HorizontalFoodCard = ({ containerStyle, imageStyle, item, onPress }) => {
                 }}
             >
                 {/* Name */}
-                <Text style={{ ...FONTS.h3,  color: COLORS.grey, fontSize: 17 }}>{item.name}</Text>
+                <Text style={{ ...FONTS.h3,  color: COLORS.grey, fontSize: 14 }}>{item.name}</Text>
                 {/* Description */}
-                <Text style={{ color: COLORS.grey,  ...FONTS.body4 }}>{item.description}</Text>
+                <Text style={{ color: COLORS.grey,  ...FONTS.body4, fontSize: 11 }}>{item.description}</Text>
                 {/* Price */}
-                <Text style={{ color: COLORS.grey, marginTop: SIZES.base, ...FONTS.h3 }}>${item.price}</Text>
+                <Text style={{ color: COLORS.grey, marginTop: SIZES.base,  ...FONTS.h3, fontSize: 13, }}>${item.price}</Text>
             </View>
 
             {/* Calories */}

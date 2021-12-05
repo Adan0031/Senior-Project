@@ -25,14 +25,14 @@ import {
 } from "../../components"
 import { FONTS, SIZES, COLORS, icons, images, dummyData } from "../../constants"
 
-const Section = ({ title, onPress, children }) => {
-    return (
-        <View>
-            {/* Content */}
-            {children}
-        </View>
-    )
-}
+// const Section = ({ title, onPress, children }) => {
+//     return (
+//         <View>
+//             {/* Content */}
+//             {children}
+//         </View>
+//     )
+// }
 
 const FoodSelection = ({ navigation, route }) => {
     const [selectedCategoryId] = React.useState(1)
@@ -99,6 +99,14 @@ const FoodSelection = ({ navigation, route }) => {
             let selectedMenu = dummyData.menuChickFilA.find(a => a.id == 1)
             setMenuList(selectedMenu?.list)
         }
+        else if(foodItem?.name == "Pizza Hut") {
+            let selectedMenu = dummyData.menuPizzaHut.find(a => a.id == 1)
+            setMenuList(selectedMenu?.list)
+        }
+        else if(foodItem?.name == "Sandella's Flatbread Cafe") {
+            let selectedMenu = dummyData.menuSandella.find(a => a.id == 1)
+            setMenuList(selectedMenu?.list)
+        }
 
     },[])
 
@@ -118,7 +126,12 @@ const FoodSelection = ({ navigation, route }) => {
         else if (foodItem?.name == "Chick-fil-A") {
             selectedMenu = dummyData.menuChickFilA.find(a => a.id == menuTypeId)
         }
-
+        else if(foodItem?.name == "Pizza Hut") {
+            selectedMenu = dummyData.menuPizzaHut.find(a => a.id == menuTypeId)
+        }
+        else if(foodItem?.name == "Sandella's Flatbread Cafe") {
+            selectedMenu = dummyData.menuSandella.find(a => a.id == menuTypeId)
+        }
 
         // console.log(menuTypeId)
         // // Set the menu based on the categoryId
@@ -272,7 +285,7 @@ const FoodSelection = ({ navigation, route }) => {
                 horizontal
 
                 data={dummyData.menuStarbucks}
-                keyExtractor={item => `${item.id}`}
+                keyExtractor={item => `${item.id.toString()}`}
                 showsHorizontalScrollIndicator={false}
                 contentContainerStyle={{
                     marginTop: 30,

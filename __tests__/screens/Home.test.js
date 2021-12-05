@@ -1,3 +1,6 @@
+import '../../addEventListener.mock';
+import '../../attachEvent.mock';
+
 import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react-native';
 import Home from '../../screens/Home/Home';
@@ -7,6 +10,8 @@ import { VerticalFoodCard } from '../../components';
 
 afterEach(cleanup);
 
+// window.addEventListener = jest.fn();
+// window.attachEvent= jest.fn();
 
 // Home Screen Renders Correctly
 describe('Home Screen', () => {
@@ -66,14 +71,18 @@ describe('FlatList', () => {
         const testID1 = getByTestId('restaurant-list');
         expect(testID1).toBeTruthy();
 
-        const cardTitle = getByText('Tacobell');
+        const cardTitle = getByText('Coffee');
         fireEvent.press(cardTitle);
 
+        const nextScreen = getByText('Main Dish');
+
+        // expect(navigation.navigate).toHaveBeenCalledWith('FoodSelection', {
+        //     foodItem: DATA[0]
+        // });
         expect(navigation.navigate).toHaveBeenCalledWith('FoodSelection', {
-            foodItem: DATA[0]
+
         });
 
-        // const restaurantTitle = getByText('Tacobell');
-        // expect(restaurantTitle).toBeTruthy();
+      
     });
 });

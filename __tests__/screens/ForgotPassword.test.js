@@ -1,3 +1,6 @@
+import '../../addEventListener.mock';
+import '../../attachEvent.mock';
+
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react-native";
 import  ForgotPassword  from "../../screens/Authentication/ForgotPassword";

@@ -29,15 +29,15 @@ const Map = ({ navigation, route }) => {
 
     React.useEffect(() => {
         let initialRegion = {
-            latitude: 1.5496614931250685,
-            longitude: 110.36381866919922,
-            latitudeDelta: 0.02,
-            longitudeDelta: 0.02
+            latitude: 26.306145,
+            longitude: -98.174418,
+            latitudeDelta: 0.009,
+            longitudeDelta: 0.009
         }
 
         let destination = {
-            latitude: 1.5496614931250685,
-            longitude: 110.36381866919922,
+            latitude: 26.306145,
+            longitude: -98.174418,
         }
 
         setToLoc(destination)
@@ -56,7 +56,8 @@ const Map = ({ navigation, route }) => {
                     flex: 1
                 }}
                 provider={PROVIDER_GOOGLE}
-                initialRegion={region}   
+                initialRegion={region} 
+                apikey={constants.GOOGLE_MAP_API_KEY}  
             >
                 {
                     fromLoc &&
@@ -82,7 +83,7 @@ const Map = ({ navigation, route }) => {
                     />
                 }
 
-                <MapViewDirections
+                {/* <MapViewDirections
                     origin={fromLoc}
                     destination={toLoc}
                     apikey={constants.GOOGLE_MAP_API_KEY}
@@ -118,7 +119,7 @@ const Map = ({ navigation, route }) => {
                             setIsReady(true)
                         }
                     }}
-                />
+                /> */}
             </MapView>
         )
     }
@@ -234,7 +235,8 @@ const Map = ({ navigation, route }) => {
                             }}
                         >
                             <Text style={{ color: COLORS.gray, ...FONTS.body4 }}>Your delivery time</Text>
-                            <Text style={{ ...FONTS.h3 }}>{duration} minutes</Text>
+                            <Text style={{ ...FONTS.h3 }}>15 minutes</Text>
+                            {/* replaced with 15 in above line >>>{duration} */}
                         </View>
                     </View>
 
@@ -261,7 +263,7 @@ const Map = ({ navigation, route }) => {
                             }}
                         >
                             <Text style={{ color: COLORS.gray, ...FONTS.body4 }}>Your address</Text>
-                            <Text style={{ ...FONTS.h3 }}>88, Jln Padungan, Kuching</Text>
+                            <Text style={{ ...FONTS.h3 }}>1201 W University Dr, Edinburg, TX 78539</Text>
                         </View>
                     </View>
 

@@ -483,8 +483,8 @@ const allCards = [
 
 const fromLocs = [
     {
-        latitude: 1.5347282806345879,
-        longitude: 110.35632207358996,
+        latitude: 26.306145,
+        longitude: -98.174418,
     },
     {
         latitude: 1.556306570595712,

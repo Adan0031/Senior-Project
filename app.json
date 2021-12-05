@@ -17,14 +17,27 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.utrgveats",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyCU9x6hcFqbPwlVXkCZCdHZdJ6mcGBPNpc"
+        }
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyB36NQWfqs19-zAiDX7mHd6rv6ONz2Vh60"
+        },
+        "package": "com.utrgveats"
       }
     },
+
     "web": {
       "favicon": "./assets/favicon.png"
     }

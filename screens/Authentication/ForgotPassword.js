@@ -4,12 +4,15 @@ import {
     Text,
     TouchableOpacity,
     Image,
+    Alert,
 } from "react-native";
 
 import { AuthLayout } from "../";
 import { FONTS, SIZES, COLORS, icons } from "../../constants"
 import { FormInput, TextButton } from "../../components"
 import { utils } from "../../utils";
+import * as firebase from 'firebase';
+import { auth } from "firebase";
 
 const ForgotPassword = ({ navigation }) => {
 
@@ -18,6 +21,17 @@ const ForgotPassword = ({ navigation }) => {
 
     function isEnableSendEmail() {
         return email != "" && emailError == ""
+    }
+
+    // reset password with firebase
+    function resetPassword() {
+        if (isEnableSendEmail()) {
+            firebase.auth().sendPasswordResetEmail(email).then(() => {
+                alert("Email sent, please check your email to reset your password")
+            }).catch(error => {
+                alert("Error", error.message)
+            })
+        }
     }
 
     return (
@@ -41,26 +55,26 @@ const ForgotPassword = ({ navigation }) => {
                     autoCompleteType="email"
                     value={email}
                     onChange={(value) => {
-                        // utils.validateEmail(value, setEmailError)
+                        utils.validateEmail(value, setEmailError)
                         setEmail(value)
                     }}
                     errorMsg={emailError}
-                    // appendComponent={
-                    //     <View
-                    //         style={{
-                    //             justifyContent: 'center'
-                    //         }}
-                    //     >
-                    //         <Image
-                    //             source={(email == "") || (email != "" && emailError == "") ? icons.correct : icons.cancel}
-                    //             style={{
-                    //                 height: 20,
-                    //                 width: 20,
-                    //                 tintColor: (email == "") ? COLORS.gray : (email != "" && emailError == "") ? COLORS.green : COLORS.red
-                    //             }}
-                    //         />
-                    //     </View>
-                    // }
+                    appendComponent={
+                        <View
+                            style={{
+                                justifyContent: 'center'
+                            }}
+                        >
+                            <Image
+                                source={(email == "") || (email != "" && emailError == "") ? icons.correct : icons.cancel}
+                                style={{
+                                    height: 20,
+                                    width: 20,
+                                    tintColor: (email == "") ? COLORS.gray : (email != "" && emailError == "") ? COLORS.green : COLORS.red
+                                }}
+                            />
+                        </View>
+                    }
                 />
 
                 <View
@@ -90,7 +104,7 @@ const ForgotPassword = ({ navigation }) => {
                     borderRadius: SIZES.radius,
                     backgroundColor: isEnableSendEmail() ? COLORS.primary : COLORS.transparentPrimary,
                 }}
-                onPress={() => navigation.goBack()}
+                onPress={resetPassword}
             />
         </AuthLayout>
     )

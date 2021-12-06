@@ -353,6 +353,10 @@ const FoodDetail = ({ navigation, route }) => {
     //     )
     // }
 
+
+
+
+
     function renderFooter() {
         return (
 

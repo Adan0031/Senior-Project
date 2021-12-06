@@ -12,7 +12,7 @@ import { isIphoneX } from 'react-native-iphone-x-helper';
 
 // Update Path to Home, Paths added below will redirect us to different screens
 // Might Need to Use State
-import { Home, Account, CartTab, Notification } from "../screens";
+import { Home, Account, MyCart, Notification } from "../screens";
 import { COLORS, icons } from "../constants";
 
 const Tab = createBottomTabNavigator();
@@ -51,6 +51,7 @@ const TabBarCustomButton = ({ accessibilityState, children, onPress }) => {
                         backgroundColor: COLORS.primary
                     }}
                     onPress={onPress}
+                 
                 >
                     {children}
                 </TouchableOpacity>
@@ -162,7 +163,7 @@ const Tabs = () => {
             <Tab.Screen
                 name="Cart"
                 // Modify Components to show other screens
-                component={CartTab}
+                component={MyCart}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <Image

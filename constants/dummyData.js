@@ -628,10 +628,7 @@ const sizes = [
 ]
 
 const myCart = [
-    {
-
-        qty: 1
-    },
+ 
     // {
     //     ...scone,
     //     qty: 1

@@ -19,7 +19,8 @@ import { FONTS, SIZES, COLORS, icons, dummyData } from "../../constants"
 
 const MyCart = ({ navigation, route }) => {
 
-    const [myCartList, setMyCartList] = React.useState([])
+    let [myCartList, setMyCartList] = React.useState([])
+    let total = 0
     //////test//////
     const [foodItem, setFoodItem] = React.useState([])
 
@@ -30,24 +31,31 @@ const MyCart = ({ navigation, route }) => {
         let foodItem = route.params
         setFoodItem(foodItem)
         // console.log(foodItem)
-        if (dummyData.myCart.id != foodItem.id) {
-            dummyData.myCart.push(foodItem)
+        // if (dummyData.myCart.id != foodItem.id) {
+        //     dummyData.myCart.push(foodItem)
+        // }
+        // else{
+        //     dummyData.myCart.pop()
+        // }
+        myCartList = dummyData.myCart
+        if (myCartList.id != foodItem?.id) {
+            myCartList.push(foodItem)
+
         }
-        else{
-            dummyData.myCart.pop()
-        }
-   
-        console.log(dummyData.myCart)
-            
+
+        console.log(myCartList)
+
     }, [])
     React.useEffect(() => {
 
         setMyCartList(dummyData.myCart)
     }, [])
 
+    total += 5
 
-
-
+    
+        
+    console.log(total)
 
     // Handler
 
@@ -55,7 +63,7 @@ const MyCart = ({ navigation, route }) => {
         let newMyCartList = myCartList.map(cl => (
             cl.id === id ? { ...cl, qty: newQty } : cl
         ))
-
+        total = + myCartList.price
         setMyCartList(newMyCartList)
 
     }
@@ -64,7 +72,7 @@ const MyCart = ({ navigation, route }) => {
         let newMyCartList = [...myCartList]
 
         let index = newMyCartList.findIndex(cart => cart.id == id)
-
+        total = - myCartList.price
         newMyCartList.splice(index, 1)
         dummyData.myCart.splice(index, 1)
         setMyCartList(newMyCartList)

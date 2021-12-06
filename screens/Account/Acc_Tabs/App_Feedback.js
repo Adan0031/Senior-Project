@@ -11,16 +11,22 @@ import {
     TextIconButton
 } from "../../../components"
 const MainStack = createStackNavigator();
-
-
 const feedback_screen = ({ navigation }) => {
     const [FirstN, onchangeTextFirst] = React.useState(null);
     const [LastN, onChangeTextLast] = React.useState(null);
     const [Email, onChangeTextEmail] = React.useState(null);
 
-
-
-
+    // Submit handler
+    const onSubmit = () => {
+        // Validate form
+        if (!FirstN || !LastN || !Email) {
+            alert("Please fill all the fields");
+            return;
+        }
+        // Submit form
+        alert("Thank you for your feedback!");
+        navigation.goBack();
+    };
 
     const [email, setEmail] = React.useState("")
     const [password, setPassword] = React.useState("")
@@ -98,37 +104,25 @@ const feedback_screen = ({ navigation }) => {
                     marginHorizontal: SIZES.padding
                 }}
             />
-             {/* Form Inputs */}
-             <FormInput
-                    placeholder="Comments Here"
-                    label="Email"
-                    keyboardType="email-address"
-                    autoCompleteType="email"
-                    value={email}
-                    onChange={(value) => {
-                        // utils.validateEmail(value, setEmailError)
-                        setEmail(value)
-                    }}
-                    errorMsg={emailError}
-                    appendComponent={
-                        <View
-                            style={{
-                                justifyContent: 'center'
-                            }}
-                        >
-                            <Image
-
-                                // source={(email == "") || (email != "" && emailError == "") ? s.ciconorrect : icons.cancel}
-                                source={(email == "") || (email != "" && emailError == "") ? null : null}
-                                style={{
-                                    height: 20,
-                                    width: 20,
-                                    tintColor: (email == "") ? COLORS.gray : (email != "" && emailError == "") ? COLORS.green : COLORS.red
-                                }}
-                            />
-                        </View>
-                    }
-                />
+            {/* Creates a comment box */}
+            <Text style={{ color: COLORS.white, marginHorizontal: SIZES.padding, paddingTop: "10%" }}>
+                Comment (Optional)
+            </Text>
+            <TextInput
+                style={{ color: COLORS.white, marginHorizontal: SIZES.padding }}
+                placeholder="Comment"
+                placeholderTextColor={COLORS.linelightGray}
+                keyboardType="numeric"
+            />
+            <View
+                style={{
+                    borderBottomColor: COLORS.linelightGray,
+                    borderBottomWidth: 1,
+                    width: "80%",
+                    marginHorizontal: SIZES.padding
+                }}
+            />
+            
             {/* Submit Button */}
             <TouchableOpacity style={{
                 marginTop: "10%",
@@ -140,7 +134,7 @@ const feedback_screen = ({ navigation }) => {
                 backgroundColor: COLORS.primary,
                 borderRadius: 30,
             }}
-                onPress={() => navigation.navigate('Save')}
+                onPress={onSubmit}
             >
                 <Text style={{
                     textAlign: "center", color: COLORS.white,

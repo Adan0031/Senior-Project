@@ -118,7 +118,7 @@ const MyCart = ({ navigation }) => {
                             style={{
                                 width: 90,
                                 height: 100,
-                                marginLeft: -10,
+                                marginLeft: "-4%"
 
                             }}
                         >

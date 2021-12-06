@@ -72,16 +72,16 @@ const pizza = {
     isFavourite: true,
     image: require("../assets/dummyData/queenpizza.png")
 }
-const salad = {
-    id: 2,
-    name: "Swiss Chard Caesar",
-    description: "Pangrattato and paresan with lemon anchovy dressing",
-    categories: [1, 2],
-    price: "15.99",
-    calories: 78,
-    isFavourite: true,
-    image: require("../assets/dummyData/salad.png")
-}
+// const salad = {
+//     id: 2,
+//     name: "Swiss Chard Caesar",
+//     description: "Pangrattato and paresan with lemon anchovy dressing",
+//     categories: [1, 2],
+//     price: "15.99",
+//     calories: 78,
+//     isFavourite: true,
+//     image: require("../assets/dummyData/salad.png")
+// }
 const drink = {
     id: 3,
     name: "Coke",
@@ -124,11 +124,73 @@ const grilledChicken = {
     isFavourite: true,
     image: require("../assets/Chick-fil-a/MainDish/GrilledChickenSandwich.png")
 }
+/////Chick-fil-A Starters///////
+const salad = {
+    id: 7,
+    name: "Side Salad",
+    description: "Mixed greens, with shredded Monterey Jack and Cheddar cheeses and grape tomatoes.",
+    price: "3.99",
+    calories: 440,
+    isFavourite: true,
+    image: require("../assets/Chick-fil-a/Starters/salad.png")
+}
+
+const fries = {
+    id: 8,
+    name: "Waffle Potato Fries®",
+    description: "Waffle-cut potatoes cooked until crispy outside and tender inside. Sprinkled with Sea Salt.",
+    price: "2.09",
+    calories: 420,
+    isFavourite: true,
+    image: require("../assets/Chick-fil-a/Starters/fries.png")
+}
+
+const fruit = {
+    id: 9,
+    name: "Fruit Cup",
+    description: "Made with chopped pieces of red and green apples, orange segments, strawberry slices, and blueberries.",
+    price: "3.39",
+    calories: 60,
+    isFavourite: true,
+    image: require("../assets/Chick-fil-a/Starters/fruit.png")
+}
+/////Chick-fil-A Drinks///////
+const sweetTea = {
+    id: 10,
+    name: "Iced Tea Sweetened",
+    description: "Freshly-brewed each day from a blend of tea leaves sweetened with real cane sugar.",
+    price: "1.79",
+    calories: 120,
+    isFavourite: true,
+    image: require("../assets/Chick-fil-a/Drinks/sweettea.png")
+}
+
+const lemonade = {
+    id: 11,
+    name: "Lemonade",
+    description: "Classic lemonade: real lemon, cane sugar, and water.",
+    price: "2.19",
+    calories: 220,
+    isFavourite: true,
+    image: require("../assets/Chick-fil-a/Drinks/lemonade.png")
+}
+
+const fantaorange = {
+    id: 12,
+    name: "Fanta® Orange",
+    description: "Fountain beverage. A product of The Coca-Cola Company.",
+    price: "1.79",
+    calories: 210,
+    isFavourite: true,
+    image: require("../assets/Chick-fil-a/Drinks/fantaorange.png")
+}
+
+
 
 /////////Pizza Hut////////////////
 ////Main Dish////
 const pepperoni = {
-    id: 15,
+    id: 13,
     name: "Pepperoni Personal Pizza",
     description: "Pepperoni and mozzarella cheese pizza",
     price: "5.99",
@@ -138,7 +200,7 @@ const pepperoni = {
 }
 
 const meatLovers = {
-    id: 16,
+    id: 14,
     name: "Meatlovers Personal Pizza",
     description: "Packed with pepperoni, Italian sausage, ham, bacon, seasoned pork and beef.",
     price: "6.99",
@@ -148,13 +210,69 @@ const meatLovers = {
 }
 
 const cheese = {
-    id: 17,
+    id: 15,
     name: "Cheese Pizza",
     description: "Classic cheese pizza",
     price: "4.99",
     calories: 300,
     isFavourite: true,
     image: require("../assets/PizzaHut/MainDish/Cheese.png")
+}
+////Starters////
+const cheesesticks = {
+    id: 16,
+    name: "Cheese Sticks",
+    description: "Sprinkled with flavorful Italian seasoning and a cup of our delicious marinara.",
+    price: "4.99",
+    calories: 300,
+    isFavourite: true,
+    image: require("../assets/PizzaHut/Starters/cheesesticks.png")
+}
+const breadsticks = {
+    id: 17,
+    name: "Breadsticks",
+    description: "Crispy-on-the-outside, soft-on-the-inside, and seasoned with garlic and parmesan.",
+    price: "4.99",
+    calories: 300,
+    isFavourite: true,
+    image: require("../assets/PizzaHut/Starters/breadsticks.png")
+}
+const mozzarellasticks = {
+    id: 18,
+    name: "Fried Mozzarella Sticks",
+    description: "deep-fried to perfection and served with a tangy marinara dipping sauce.",
+    price: "5.99",
+    calories: 656,
+    isFavourite: true,
+    image: require("../assets/PizzaHut/Starters/mozzarellasticks.png")
+}
+////Drinks////
+const pepsi = {
+    id: 19,
+    name: "PEPSI®",
+    description: "The bold, refreshing, robust cola. 20oz",
+    price: "1.99",
+    calories: 250,
+    isFavourite: true,
+    image: require("../assets/PizzaHut/Drinks/pepsi.png")
+}
+const drPepper = {
+    id: 40,
+    name: "Dr Pepper®",
+    description: "A signature blend of 23 flavors makes every sip truly unique. 20oz",
+    price: "1.99",
+    calories: 250,
+    isFavourite: true,
+    image: require("../assets/PizzaHut/Drinks/drpepper.png")
+}
+const rootbeer = {
+    id: 41,
+    name: "Mug® Root Beer",
+    description: "Sweet and flavorful old-style root beer. 20oz",
+    price: "1.99",
+    calories: 260,
+    isFavourite: true,
+    image: require("../assets/PizzaHut/Drinks/rootbeer.png")
 }
 
 ////////////Starbucks//////////////
@@ -191,13 +309,42 @@ const grilledCheese = {
     isFavourite: true,
     image: require("../assets/Starbucks/MainDish/GrilledCheese.png")
 }
+/////Starbucks Starters/////
+const bbqChips = {
+    id: 23,
+    name: "Starbucks® BBQ Potato Chips",
+    description: "Thick-cut kettle potato chips coated with tangy barbecue flavor.",
+    categories: [1, 2],
+    price: "1.99",
+    calories: 270,
+    isFavourite: true,
+    image: require("../assets/Starbucks/Starters/BbqChips.png")
+} 
 
+const hamCroissant = {
+    id: 24,
+    name: "Ham & Swiss Croissant",
+    description: "Hickory-smoked ham and melted Swiss cheese enveloped in a croissant.",
+    categories: [1, 2],
+    price: "2.99",
+    calories: 320,
+    isFavourite: true,
+    image: require("../assets/Starbucks/Starters/HamCroissant.png")
+} 
 
-
-
+const scone = {
+    id: 25,
+    name: "Blueberry Scone",
+    description: "Traditional scone with blueberries, buttermilk and lemon.",
+    categories: [1, 2],
+    price: "2.99",
+    calories: 380,
+    isFavourite: true,
+    image: require("../assets/Starbucks/Starters/Scone.png")
+} 
 /////Starbucks drinks/////
 const frappuccino = {
-    id: 24,
+    id: 26,
     name: "Caramel Frappuccino",
     description: "Caramel syrup, milk, ice and coffee.",
     categories: [1, 2],
@@ -208,7 +355,7 @@ const frappuccino = {
 }
 
 const cappuccino = {
-    id: 25,
+    id: 27,
     name: "Cappuccino",
     description: "Dark, rich espresso under a smoothed and stretched layer of thick milk foam.",
     categories: [1, 2],
@@ -219,7 +366,7 @@ const cappuccino = {
 }
 
 const coldBrew = {
-    id: 26,
+    id: 28,
     name: "Cold-Brew Coffee",
     description: "slow-steeped in cool water for 20 hours",
     categories: [1, 2],
@@ -234,38 +381,99 @@ const coldBrew = {
 ////////////Sandella's Flatbread Cafe/////////
 /////////Main Dish///////////
 const brazilianFlatbread = {
-    id: 40,
+    id: 30,
     name: "Brazilian Bacon Grilled Flatbread",
     description: "Brazilian sauce, turkey bacon, olives, red peppers & cheese.",
     categories: [1, 2],
-    price: "5.99",
+    price: "6.99",
     calories: 560,
     isFavourite: true,
     image: require("../assets/Sandella/MainDish/BrazilianFlatbread.png")
 }
 
 const turkeyPanini = {
-    id: 41,
+    id: 31,
     name: "Tangy Turkey & Mozzarella Panini",
     description: "Turkey breast, mozzarella & tomatoes w/ Brazilian sauce.",
     categories: [1, 2],
-    price: "5.99",
+    price: "6.99",
     calories: 520,
     isFavourite: true,
     image: require("../assets/Sandella/MainDish/TurkeyPanini.png")
 }
 
 const buffaloWrap = {
-    id: 42,
+    id: 32,
     name: "Buffalo Chicken Wrap",
     description: "Grilled chicken, light blue cheese dressing, lettuce, tomato & buffalo wing sauce.",
     categories: [1, 2],
-    price: "4.99",
+    price: "6.99",
     calories: 400,
     isFavourite: true,
     image: require("../assets/Sandella/MainDish/BuffaloChickenWrap.png")
 }
-
+/////////Starters///////////
+const caesarSalad = {
+    id: 33,
+    name: "Chicken Caesar Salad",
+    description: "Iceberg lettuce, grilled chicken, Parmesan cheese, croutons with light Caesar dressing.",
+    categories: [1, 2],
+    price: "5.99",
+    calories: 320,
+    isFavourite: true,
+    image: require("../assets/Sandella/Starters/caesarsalad.png")
+}
+const quesadilla = {
+    id: 34,
+    name: "Cheese Quesadilla",
+    description: "Mild salsa, cheddar Jack cheese and sour cream. Vegetarian.",
+    categories: [1, 2],
+    price: "5.99",
+    calories: 450,
+    isFavourite: true,
+    image: require("../assets/Sandella/Starters/quesadilla.png")
+}
+const cheeseFlatbread = {
+    id: 35,
+    name: "Cheese Flatbread",
+    description: "Mozzarella cheese over zesty tomato sauce.",
+    categories: [1, 2],
+    price: "4.99",
+    calories: 370,
+    isFavourite: true,
+    image: require("../assets/Sandella/Starters/cheeseflatbread.png")
+}
+/////////Drinks///////////
+const brisk = {
+    id: 36,
+    name: "Brisk Lemon Flavored Iced Tea",
+    description: "Brisk cold-brewed iced tea sweetened with lemon flavor. 20oz",
+    categories: [1, 2],
+    price: "1.99",
+    calories: 110,
+    isFavourite: true,
+    image: require("../assets/Sandella/Drinks/brisk.png")
+}
+const snapple = {
+    id: 37,
+    name: "Snapple Peach Tea",
+    description: "A great-tasting combo tea blended with peach flavor.",
+    categories: [1, 2],
+    price: "1.99",
+    calories: 120,
+    isFavourite: true,
+    image: require("../assets/Sandella/Drinks/snapple.png")
+}
+const water = {
+    id: 38,
+    name: "Aquafina Water",
+    description: "Aquafina Purified Water. 20oz",
+    categories: [1, 2],
+    price: "1.85",
+    calories: 0,
+    isFavourite: true,
+    image: require("../assets/Sandella/Drinks/water.png")
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////
 // const menu = [
@@ -323,13 +531,13 @@ const menuChickFilA = [
         id: 2,
         name: "Starters",
         list: [
-            salad, drink, pizza       ]
+            salad, fries, fruit       ]
     },
     {
         id: 3,
         name: "Drinks",
         list: [
-            salad, drink, pizza     ]
+            sweetTea, lemonade, fantaorange     ]
     },
 
 ]
@@ -346,13 +554,13 @@ const menuPizzaHut = [
         id: 2,
         name: "Starters",
         list: [
-            salad, drink, pizza       ]
+            cheesesticks, breadsticks, mozzarellasticks       ]
     },
     {
         id: 3,
         name: "Drinks",
         list: [
-            salad, drink, pizza     ]
+            pepsi, drPepper, rootbeer     ]
     },
 
 ]
@@ -369,7 +577,7 @@ const menuStarbucks = [
         id: 2,
         name: "Starters",
         list: [
-            salad, drink, pizza       ]
+            bbqChips, hamCroissant, scone       ]
     },
     {
         id: 3,
@@ -391,13 +599,13 @@ const menuSandella = [
         id: 2,
         name: "Starters",
         list: [
-            salad, drink, pizza       ]
+            caesarSalad, quesadilla, cheeseFlatbread       ]
     },
     {
         id: 3,
         name: "Drinks",
         list: [
-            salad, drink, pizza     ]
+            brisk, snapple, water     ]
     },
 
 ]
@@ -424,15 +632,15 @@ const sizes = [
 
 let myCart = [
     {
-        ...pizza,
+        ...hamPanini,
         qty: 1
     },
     {
-        ...salad,
+        ...scone,
         qty: 1
     },
     {
-        ...drink,
+        ...frappuccino,
         qty: 1
     }
 ]

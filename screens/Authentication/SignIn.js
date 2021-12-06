@@ -17,7 +17,7 @@ import {
 import { auth } from "./firebase";
 
 
-const SignIn = () => {
+const SignIn = ({ navigation }) => {
 
     const [email, setEmail] = React.useState("")
     const [password, setPassword] = React.useState("")
@@ -27,7 +27,7 @@ const SignIn = () => {
     const [saveMe, setSaveMe] = React.useState(false)
 
     // THIS WILL ALLOW THE USER TO BE REDIRECTED TO THE HOMESCREEN ONCE A VALID USER IS USE TO SIGN IN
-    const navigation = useNavigation()
+    // const navigation = useNavigation()
 
 
     // THIS WILL HANDLE THE LOGIN USING FIREBASE

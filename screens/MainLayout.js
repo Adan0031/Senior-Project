@@ -16,7 +16,7 @@ import Animated, {
     useAnimatedStyle,
     withTiming
 } from "react-native-reanimated";
-import { LinearGradient } from "expo-linear-gradient";
+// import { LinearGradient } from "expo-linear-gradient";
 import { connect } from "react-redux";
 import { setSelectedTab } from "../stores/tab/tabActions";
 
@@ -364,7 +364,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                 
             >
                 {/* Shadow */}
-                <LinearGradient
+                {/* <LinearGradient
                     start={{ x: 0, y: 0 }}
                     colors={[COLORS.transparent, COLORS.lightGray1]}
                     style={{
@@ -378,7 +378,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                         borderTopLeftRadius: 15,
                         borderTopRightRadius: 15
                     }}
-                />
+                /> */}
 
                 {/* Tabs */}
                 <View

@@ -4,7 +4,7 @@ import {
     Text,
     Platform
 } from 'react-native';
-import  { LinearGradient } from "expo-linear-gradient";
+// import  { LinearGradient } from "expo-linear-gradient";
 
 import {
     TextButton,
@@ -16,7 +16,7 @@ const FooterTotal = ({ subTotal, shippingFee, total, onPress }) => {
     return (
         <View>
             {/* Shadow */}
-            <LinearGradient
+            {/* <LinearGradient
                 start={{ x: 0, y: 0 }}
                 end={{ x: 0, y: 1 }}
                 colors={[COLORS.transparent, COLORS.lightGray1]}
@@ -29,7 +29,7 @@ const FooterTotal = ({ subTotal, shippingFee, total, onPress }) => {
                     borderTopLeftRadius: 15,
                     borderTopRightRadius: 15
                 }}
-            />
+            /> */}
 
             {/* Order Details */}
             <View

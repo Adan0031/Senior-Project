@@ -17,13 +17,38 @@ import {
 } from "../../components"
 import { FONTS, SIZES, COLORS, icons, dummyData } from "../../constants"
 
-const MyCart = ({ navigation }) => {
+const MyCart = ({ navigation, route }) => {
 
-    const [myCartList, setMyCartList] = React.useState(dummyData.myCart)
+    const [myCartList, setMyCartList] = React.useState([])
+    //////test//////
+    const [foodItem, setFoodItem] = React.useState([])
 
     React.useEffect(() => {
+        // if (dummyData.myCart[0] == null) {
+        //     dummyData.myCart.pop()
+        // }
+        let foodItem = route.params
+        setFoodItem(foodItem)
+        // console.log(foodItem)
+        if (dummyData.myCart.id != foodItem.id) {
+            dummyData.myCart.push(foodItem)
+        }
+        else{
+            dummyData.myCart.pop()
+        }
+   
+        console.log(dummyData.myCart)
+            
+    }, [])
+    React.useEffect(() => {
+
         setMyCartList(dummyData.myCart)
     }, [])
+
+
+
+
+
     // Handler
 
     function updateQuantityHandler(newQty, id) {
@@ -32,6 +57,7 @@ const MyCart = ({ navigation }) => {
         ))
 
         setMyCartList(newMyCartList)
+
     }
 
     function removeMyCartHandler(id) {
@@ -40,7 +66,7 @@ const MyCart = ({ navigation }) => {
         let index = newMyCartList.findIndex(cart => cart.id == id)
 
         newMyCartList.splice(index, 1)
-
+        dummyData.myCart.splice(index, 1)
         setMyCartList(newMyCartList)
     }
 
@@ -188,7 +214,7 @@ const MyCart = ({ navigation }) => {
                 subTotal={37.97}
                 shippingFee={1.99}
                 total={39.96}
-            onPress={() => navigation.navigate("PaymentCard")}
+                onPress={() => navigation.navigate("PaymentCard")}
 
             />
         )
@@ -205,7 +231,7 @@ const MyCart = ({ navigation }) => {
                 borderBottomColor: '#757575',
                 borderBottomWidth: 1,
                 marginTop: "3%",
-        marginBottom: "-6.5%",
+                marginBottom: "-6.5%",
             }}></Text>
             {/* Header */}
             {renderHeader()}

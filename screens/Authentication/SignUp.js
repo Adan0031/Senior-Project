@@ -25,15 +25,24 @@ const SignUp = ({ navigation }) => {
     const [usernameError, setUsernameError] = React.useState("")
     const [passwordError, setPasswordError] = React.useState("")
 
+    // handle sign up button
     const handleSignUp = () => {
-        auth
-        .createUserWithEmailAndPassword(email, password)
-        .then(userCredentials => {
-            const user = userCredentials.user;
-            console.log('Register with: ',user.email)
-        })
-        .catch(error => alert(error.message))
+
+            auth.createUserWithEmailAndPassword(email, password)
+                .then(() => {   // create user
+                    auth.currentUser.updateProfile({
+                        displayName: username
+                    })
+                    console.log('Register with: ',user.email)
+                    navigation.navigate("Home")
+                })
+                .catch(error => {
+                    console.log(error)
+                })
     }
+
+
+
 
     function isEnableSignUp() {
         return email != "" && username != "" && password != "" && emailError == "" && passwordError == ""

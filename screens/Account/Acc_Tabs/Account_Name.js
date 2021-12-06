@@ -4,13 +4,29 @@ import React from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SIZES, COLORS, FONTS } from "../../../constants"
+import * as firebase from 'firebase';
 
 const MainStack = createStackNavigator();
 
 
 const acc_screen = ({ navigation }) => {
     const [FirstN, onchangeTextFirst] = React.useState(null);
-    const [LastN, onChangeTextLast] = React.useState(null);
+    // Update Users firebase profile
+    const updateProfile = () => {
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                user.updateProfile({
+                    displayName: FirstN
+                }).then(function () {
+                    console.log("Update Successful");
+                    alert("Update Successful");
+                    navigation.goback();
+                }).catch(function (error) {
+                    console.log("Update Failed");
+                });
+            }
+        });
+    }
     return (
 
         <View style={{flex: 1, backgroundColor: COLORS.darkGray}}>
@@ -36,26 +52,6 @@ const acc_screen = ({ navigation }) => {
                 }}
 
             />
-            {/* This is the Text for Last name*/}
-            <Text style={{ color: COLORS.white, marginHorizontal: SIZES.padding, paddingTop: "10%" }}>
-                Last Name*
-            </Text>
-            {/* This is the inputText for Last name*/}
-            <TextInput
-                style={{ color: COLORS.white, marginHorizontal: SIZES.padding }} onChangeText={onChangeTextLast}
-                value={LastN}
-                placeholder="Last Name"
-                placeholderTextColor={COLORS.linelightGray}
-                keyboardType="default"
-            />
-            <View
-                style={{
-                    borderBottomColor: COLORS.linelightGray,
-                    borderBottomWidth: 1,
-                    width: "80%",
-                    marginHorizontal: SIZES.padding
-                }}
-            />
             <TouchableOpacity style={{  // Save Button
                 marginTop: "10%",
                 paddingTop: "2%",
@@ -66,7 +62,7 @@ const acc_screen = ({ navigation }) => {
                 backgroundColor: COLORS.primary,
                 borderRadius: 30,
             }}
-                onPress={() => navigation.navigate('Save')}
+                onPress={updateProfile}
             >
                 <Text style={{
                     textAlign: "center", color: COLORS.white,

@@ -5,6 +5,7 @@ import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-nativ
 import { createStackNavigator } from '@react-navigation/stack';
 import { FONTS, SIZES, COLORS } from "../../../constants"
 import * as firebase from 'firebase';
+import { auth } from '../../Authentication/firebase';
 
 const MainStack = createStackNavigator();
 
@@ -29,7 +30,10 @@ const password_screen = ({ navigation }) => {
         else {
             firebase.auth().signInWithEmailAndPassword(firebase.auth().currentUser.email, Current_Pass).then(() => {
                 updatePassword(New_Pass);
-                alert("Password updated successfully");
+                alert("Password updated successfully, you will be logged out");
+                // go back to AccountS screen
+                auth.signOut().then(() => navigation.replace("SignIn")).catch(error => alert(error.message))
+                console.log("Sign out successful");
             }).catch((error) => {
                 alert("Current password is incorrect");
             });
@@ -48,7 +52,7 @@ const password_screen = ({ navigation }) => {
                 value={New_Pass}
                 placeholder="New Password"
                 placeholderTextColor={COLORS.linelightGray} /* this will give the text color of choice for the placeholder*/
-                keyboardType="default"
+                secureTextEntry={true}
             />
             <View
                 style={{
@@ -68,7 +72,7 @@ const password_screen = ({ navigation }) => {
                 value={Current_Pass}
                 placeholder="Current Password"
                 placeholderTextColor={COLORS.linelightGray} /* this will give the text color of choice for the placeholder*/
-                keyboardType="default"
+                secureTextEntry={true}
             />
 
             <View

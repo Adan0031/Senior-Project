@@ -15,6 +15,7 @@ import {
     TextIconButton
 } from "../../components"
 import { auth } from "./firebase";
+import { utils } from "../../utils";
 
 
 const SignIn = ({ navigation }) => {
@@ -76,7 +77,7 @@ const SignIn = ({ navigation }) => {
                     autoCompleteType="email"
                     value={email}
                     onChange={(value) => {
-                        // utils.validateEmail(value, setEmailError)
+                        utils.validateEmail(value, setEmailError)
                         setEmail(value)
                     }}
                     errorMsg={emailError}

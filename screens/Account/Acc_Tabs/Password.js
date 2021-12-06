@@ -4,15 +4,40 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { FONTS, SIZES, COLORS } from "../../../constants"
+import * as firebase from 'firebase';
 
 const MainStack = createStackNavigator();
 
 const password_screen = ({ navigation }) => {
     const [New_Pass, onchangeTextNew] = React.useState(null);
     const [Current_Pass, onChangeTextCurrent] = React.useState(null);
-    return (
 
-        <View style={{flex: 1, backgroundColor: COLORS.darkGray}}>
+    // Update password
+    const updatePassword = (New_Pass) => {
+        firebase.auth().currentUser.updatePassword(New_Pass).then(() => {
+            console.log("Password updated successfully");
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+
+    // Once button is pressed update password
+    const onPressUpdate = () => {
+        if (New_Pass == null || Current_Pass == null) {
+            alert("Please fill all the fields");
+        }
+        else {
+            firebase.auth().signInWithEmailAndPassword(firebase.auth().currentUser.email, Current_Pass).then(() => {
+                updatePassword(New_Pass);
+                alert("Password updated successfully");
+            }).catch((error) => {
+                alert("Current password is incorrect");
+            });
+        }
+    }
+
+    return (
+        <View style={{ flex: 1, backgroundColor: COLORS.darkGray }}>
 
             <Text style={{ color: COLORS.white, marginHorizontal: SIZES.padding, paddingTop: "10%" }}>
                 New Password*
@@ -65,7 +90,7 @@ const password_screen = ({ navigation }) => {
                 backgroundColor: COLORS.primary,
                 borderRadius: 30,
             }}
-                onPress={() => navigation.navigate('Saved')}
+                onPress={onPressUpdate}
             >
                 <Text style={{
                     textAlign: "center", color: COLORS.white,
@@ -98,7 +123,6 @@ function Account_password() {
             <MainStack.Screen
                 name="home"
                 component={password_screen}
-
                 options={{
                     title: 'Password',
                     headerTintColor: COLORS.white,
@@ -108,9 +132,7 @@ function Account_password() {
                     // Center the header title on Android
                     headerTitleAlign: 'center',
                 }}
-
             />
-
         </MainStack.Navigator>
     );
 }

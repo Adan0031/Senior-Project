@@ -15,7 +15,7 @@ const Account = ({ navigation }) => {
         auth.signOut().then(() => navigation.replace("SignIn")).catch(error => alert(error.message))
     }
     // assigns firebase username to variable NOTE: Does not update automatically, needs to log out and back in to update
-    const user = auth.currentUser?.displayName;
+    const userName = auth.currentUser?.displayName ? auth.currentUser?.displayName : auth.currentUser?.email;
     return (
         <ScrollView
             style={{ backgroundColor: COLORS.gray }}
@@ -30,7 +30,7 @@ const Account = ({ navigation }) => {
             >
                 {/* greets username */}
 
-                Hi {user}
+                Hi {userName}
             </Text>
 
             <TouchableOpacity onPress={() => navigation.navigate('Account_name')}>

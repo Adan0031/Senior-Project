@@ -196,7 +196,7 @@ const pepperoni = {
     price: "5.99",
     calories: 400,
     isFavourite: true,
-    image: require("../assets/PizzaHut/MainDish/Pepperoni.png")
+    image: require("../assets/PizzaHut/MainDish/Pepperoni.png"),
 }
 
 const meatLovers = {
@@ -281,7 +281,6 @@ const hamPanini = {
     id: 20,
     name: "Ham & Swiss Panini",
     description: "Ham and Swiss cheese meld with Dijon butter an extraordinary feel-good taste.",
-    categories: [1, 2],
     price: "4.99",
     calories: 480,
     isFavourite: true,
@@ -292,7 +291,6 @@ const chickenPanini = {
     id: 21,
     name: "Chicken & Bacon Panini",
     description: "Herbed chicken piled high on toasted apple brioche, topped with bacon and maple mustard.",
-    categories: [1, 2],
     price: "6.99",
     calories: 600,
     isFavourite: true,
@@ -303,7 +301,6 @@ const grilledCheese = {
     id: 22,
     name: "Grilled Cheese Sandwich",
     description: "Cheddar and mozzarella on sourdough bread, topped with a Parmesan butter.",
-    categories: [1, 2],
     price: "4.99",
     calories: 520,
     isFavourite: true,
@@ -630,19 +627,16 @@ const sizes = [
     }
 ]
 
-let myCart = [
-    {
-        ...hamPanini,
-        qty: 1
-    },
-    {
-        ...scone,
-        qty: 1
-    },
-    {
-        ...frappuccino,
-        qty: 1
-    }
+const myCart = [
+ 
+    // {
+    //     ...scone,
+    //     qty: 1
+    // },
+    // {
+    //     ...frappuccino,
+    //     qty: 1
+    // }
 ]
 
 const myCards = [

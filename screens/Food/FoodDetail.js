@@ -388,14 +388,19 @@ const FoodDetail = ({ navigation, route }) => {
                         marginLeft: SIZES.radius,
                         paddingHorizontal: SIZES.radius,
                         borderRadius: SIZES.radius,
-                        backgroundColor: COLORS.primary
+                        backgroundColor: COLORS.primary,
+                        paddingLeft: "10%",
+                        paddingRight: "10%"
+                  
+                        
                     }}
                     label="Buy Now"
-                    label2="$15.99"
+                    label2= {foodItem?.price}
                     // onPress={() => {
                     //     dummyData.myCart = 
                     // }}
-                    onPress={() => navigation.navigate("MyCart")}
+                    onPress={() => navigation.navigate("MyCart", foodItem)}
+                    //add foodItem on press and send to MyCart
                 />
             </View>
         )

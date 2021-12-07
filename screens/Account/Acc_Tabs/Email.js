@@ -24,7 +24,6 @@ const email_screen = ({ navigation }) => {
                 firebase.auth().currentUser.updateEmail(New_Email).then(() => {
                     alert("Email updated successfully, you will be logged out");
                     console.log("Email updated successfully");
-                    navigation.goBack();
                     auth.signOut().then(() => navigation.replace("SignIn")).catch(error => alert(error.message))
                     console.log("Signed out");
                 }).catch(function (error) {
@@ -49,7 +48,6 @@ const email_screen = ({ navigation }) => {
                 value={Current_Email}
                 placeholder="Current email"
                 placeholderTextColor={COLORS.linelightGray} /* this will give the text color of choice for the placeholder*/
-                keyboardType="default"
             />
             <View
                 style={{
@@ -70,6 +68,7 @@ const email_screen = ({ navigation }) => {
                 placeholder="Current password"
                 placeholderTextColor={COLORS.linelightGray} /* this will give the text color of choice for the placeholder*/
                 keyboardType="default"
+                secureTextEntry={true}
             />
 
             <View

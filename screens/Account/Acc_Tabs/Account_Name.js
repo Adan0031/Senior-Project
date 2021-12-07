@@ -5,13 +5,28 @@ import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SIZES, COLORS, FONTS } from "../../../constants"
 import * as firebase from 'firebase';
-
+import { auth } from 'firebase';
 const MainStack = createStackNavigator();
 
 
 const acc_screen = ({ navigation }) => {
     const [FirstN, onchangeTextFirst] = React.useState(null);
-    // Update Users firebase profile
+    // const updateProfile = () => {
+    //     firebase.auth().onAuthStateChanged(function (user) {
+    //         if (user) {
+    //             user.updateProfile({
+    //                 displayName: FirstN
+    //             }).then(function () {
+    //                 console.log("Update Successful");
+    //                 alert("Update Successful");
+    //                 navigation.goback();
+    //             }).catch(function (error) {
+    //                 console.log("Update Failed");
+    //             });
+    //         }
+    //     });
+    // }
+    // Update users firebase profile
     const updateProfile = () => {
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
@@ -20,13 +35,20 @@ const acc_screen = ({ navigation }) => {
                 }).then(function () {
                     console.log("Update Successful");
                     alert("Update Successful");
-                    navigation.goback();
                 }).catch(function (error) {
                     console.log("Update Failed");
                 });
             }
         });
     }
+
+    // Once button is pressed update name and log out user
+    const onPress = () => {
+        updateProfile();
+        firebase.auth().signOut().then(() => navigation.replace("SignIn")).catch(error => alert(error.message))
+    }
+
+
     return (
 
         <View style={{flex: 1, backgroundColor: COLORS.darkGray}}>
@@ -62,7 +84,7 @@ const acc_screen = ({ navigation }) => {
                 backgroundColor: COLORS.primary,
                 borderRadius: 30,
             }}
-                onPress={updateProfile}
+                onPress={onPress}
             >
                 <Text style={{
                     textAlign: "center", color: COLORS.white,

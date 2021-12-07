@@ -21,19 +21,28 @@ const MyCart = ({ navigation, route }) => {
 
     const [myCartList, setMyCartList] = React.useState([])
     const [total, setTotal] = React.useState(0)
-    global.total = total
     //////test//////
     const [foodItem, setFoodItem] = React.useState([])
+    // Create total with useRef to update total value
+
+    if(total !== 0){
+        global.total = total
+        console.log("Global" + global.total)
+    }
+
     React.useEffect(() => {
         // If food item is undefined, set it to an empty array
         let foodItem = route.params
         if (foodItem === undefined) {
+         
             // display the global cartlist
             setMyCartList(global.cartlist)
+            // setTotal(global.total)
             console.log("global cartlist", global.cartlist)
         } else {
             setFoodItem(foodItem)
             let myCartList = dummyData.myCart
+            console.log("-----" + dummyData.myCart)
             // if food is a duplicate, increase quantity 
             if (myCartList.length > 0) {
                 for (let i = 0; i < myCartList.length; i++) {
@@ -64,7 +73,7 @@ const MyCart = ({ navigation, route }) => {
             setTotal(total)
         }
 
-    }, [setMyCartList])
+    }, [])
 
     // Handler
     function updateQuantityHandler(newQty, id) {
@@ -75,12 +84,13 @@ const MyCart = ({ navigation, route }) => {
         ))
 
         // Update the total price
-        let total = 0
+        let total = 0;
         newMyCartList.forEach(item => {
             total += Number(item?.price) * item.qty
         })
-
+        // global.total = total
         setTotal(total)
+
 
         setMyCartList(newMyCartList)
 
@@ -93,7 +103,28 @@ const MyCart = ({ navigation, route }) => {
 
     }
 
-    // Create a removeCartHandler function
+    // Remove cart item on pressing icon and save state
+    function removeCartItemHandler(id) {
+        let newMyCartList = myCartList.filter(item => item.id !== id)
+        dummyData.myCart = newMyCartList;
+
+        // Update the total price
+        let total = 0
+        newMyCartList.forEach(item => {
+            total += Number(item?.price) * item.qty
+        })
+
+        setTotal(total)
+
+        setMyCartList(newMyCartList)
+
+        // myCartList.forEach(item => {
+        //     if (item.id === id) {
+        //         item.qty = 0
+        //     }
+        // })
+
+    }
     function removeCartHandler(id) {
         let newMyCartList = [...myCartList]
 
@@ -174,9 +205,10 @@ const MyCart = ({ navigation, route }) => {
                 }
                 rightComponent={
                     <HomeButton
-                        quantity={3}
+                        // quantity={3}
                         containerStyle={{
                             marginRight: SIZES.padding,
+                            paddingTop: 12.49,
                         }}
                         onPress={() => navigation.navigate("Home")}
 
@@ -268,7 +300,7 @@ const MyCart = ({ navigation, route }) => {
                         iconStyle={{
                             marginRight: 10
                         }}
-                        onPress={() => removeCartHandler(data.item.id)}
+                        onPress={() => removeCartItemHandler(data.item.id)}
                     />
                 )}
             />
@@ -278,9 +310,9 @@ const MyCart = ({ navigation, route }) => {
     function renderFooter() {
         return (
             <FooterTotal
-                subTotal={total}
+                subTotal={Number(global.total)}
                 shippingFee={1.99}
-                total={total + 1.99}
+                total={global.total + 1.99}
 
                 // Send total to the checkout page
                 onPress={() => navigation.navigate("PaymentCard")}

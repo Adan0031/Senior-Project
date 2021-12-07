@@ -74,19 +74,15 @@ const VerticalFoodCard = ({ containerStyle, item, onPress }) => {
             {/* Info */}
 
             <View
-                style={{
-
-                    //EDIT* adding padding to text
-                    marginBottom: -25,
-                    
-
-                }}
+            
             >
-                <Text style={{
-                    borderBottomColor: '#373F46',
-                    borderBottomWidth: 3,
-                   
-                }}></Text>
+                <View // This is the line for email
+                    style={{
+                        borderBottomColor: COLORS.linelightGray,
+                        borderBottomWidth: "3%",
+                        paddingTop: SIZES.padding,
+                    }}
+                />             
                 <Text style={{ ...FONTS.h2, color: COLORS.grey, paddingHorizontal: SIZES.radius }}>{item.name}</Text>
                 <Text style={{ ...FONTS.body5, color: COLORS.grey, paddingHorizontal: SIZES.radius }}>{item.description}</Text>
                 <Text style={{ ...FONTS.body5, color: COLORS.grey, paddingHorizontal: SIZES.radius }}>{item.distance}</Text>

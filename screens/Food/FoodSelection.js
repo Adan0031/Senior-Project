@@ -230,12 +230,13 @@ const FoodSelection = ({ navigation, route }) => {
 
                         }}
                     />
-                    <Text style={{
-                        paddingTop: '-5%',
-                        borderBottomColor: '#373F46',
-                        borderBottomWidth: 3,
-
-                    }}></Text>
+                     <View // This is the line for email
+                    style={{
+                        borderBottomColor: COLORS.linelightGray,
+                        borderBottomWidth: "3%",
+                        paddingTop: SIZES.padding,
+                    }}
+                />    
                     {/* Name & Description */}
                     <Text style={{ ...FONTS.h2, marginLeft: "2%", color: COLORS.grey }}>{foodItem?.name}</Text>
                     <Text style={{ ...FONTS.body5, marginLeft: "2%", color: COLORS.grey }}>{foodItem?.description}</Text>

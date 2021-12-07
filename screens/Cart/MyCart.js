@@ -19,64 +19,120 @@ import { FONTS, SIZES, COLORS, icons, dummyData } from "../../constants"
 
 const MyCart = ({ navigation, route }) => {
 
-    let [myCartList, setMyCartList] = React.useState([])
-    let total = 0
+    const [myCartList, setMyCartList] = React.useState([])
+    const [total, setTotal] = React.useState(0)
+    global.total = total
     //////test//////
     const [foodItem, setFoodItem] = React.useState([])
-
     React.useEffect(() => {
-        // if (dummyData.myCart[0] == null) {
-        //     dummyData.myCart.pop()
-        // }
+        // If food item is undefined, set it to an empty array
         let foodItem = route.params
-        setFoodItem(foodItem)
-        // console.log(foodItem)
-        // if (dummyData.myCart.id != foodItem.id) {
-        //     dummyData.myCart.push(foodItem)
-        // }
-        // else{
-        //     dummyData.myCart.pop()
-        // }
-        myCartList = dummyData.myCart
-        if (myCartList.id != foodItem?.id) {
+        if (foodItem === undefined) {
+            // display the global cartlist
+            setMyCartList(global.cartlist)
+            console.log("global cartlist", global.cartlist)
+        } else {
+            setFoodItem(foodItem)
+            let myCartList = dummyData.myCart
+            // if food is a duplicate, increase quantity 
+            if (myCartList.length > 0) {
+                for (let i = 0; i < myCartList.length; i++) {
+                    if (myCartList[i].id === foodItem?.id) {
+                        myCartList[i].qty += 1
+                        setMyCartList(myCartList)
+                        // calculate the total price
+                        let totalPrice = 0
+                        for (let i = 0; i < myCartList.length; i++) {
+                            totalPrice += myCartList[i].qty * myCartList[i].price
+                        }
+                        setTotal(totalPrice)
+                        return
+                    }
+                }
+            }
+            // if food is not a duplicate, add to cart
             myCartList.push(foodItem)
+            setMyCartList(myCartList)
+            global.cartlist = myCartList
 
+            console.log(myCartList)
+            //Calculate the total price of the cart
+            let total = 0
+            myCartList.forEach(item => {
+                total += Number(item?.price)
+            })
+            setTotal(total)
         }
 
-        console.log(myCartList)
-
-    }, [])
-    React.useEffect(() => {
-
-        setMyCartList(dummyData.myCart)
-    }, [])
-
-    total += 5
-
-    
-        
-    console.log(total)
+    }, [setMyCartList])
 
     // Handler
-
     function updateQuantityHandler(newQty, id) {
+
+
         let newMyCartList = myCartList.map(cl => (
             cl.id === id ? { ...cl, qty: newQty } : cl
         ))
-        total = + myCartList.price
+
+        // Update the total price
+        let total = 0
+        newMyCartList.forEach(item => {
+            total += Number(item?.price) * item.qty
+        })
+
+        setTotal(total)
+
         setMyCartList(newMyCartList)
+
+        myCartList.forEach(item => {
+            if (item.id === id) {
+                item.qty = newQty
+            }
+        })
+
 
     }
 
-    function removeMyCartHandler(id) {
+    // Create a removeCartHandler function
+    function removeCartHandler(id) {
         let newMyCartList = [...myCartList]
 
         let index = newMyCartList.findIndex(cart => cart.id == id)
-        total = - myCartList.price
+
         newMyCartList.splice(index, 1)
-        dummyData.myCart.splice(index, 1)
+
         setMyCartList(newMyCartList)
     }
+
+
+
+
+    // function removeMyCartHandler(id) {
+    //     let newMyCartList = [...myCartList]
+
+    //     let index = newMyCartList.findIndex(cart => cart.id == id)
+    //     // total = - myCartList.price
+    //     // If item removed reset the quantity to 0
+    //     if (newMyCartList[index].qty > 1) {
+    //         newMyCartList[index].qty -= 1
+    //     } else {
+    //         newMyCartList.splice(index, 1)
+    //     }
+    //     // when button is pressed remove the item from the cart and update the total price
+    //     setMyCartList(newMyCartList)
+    //     let total = 0
+    //     newMyCartList.forEach(item => {
+    //         total += Number(item.price) * item.qty
+    //     }
+    //     )
+    //     setTotal(total)
+
+
+
+
+
+
+    // }
 
     // Render
 
@@ -111,6 +167,8 @@ const MyCart = ({ navigation, route }) => {
                             height: 20,
                             tintColor: COLORS.gray2
                         }}
+                        // When back button is pressed save the cart to the database
+
                         onPress={() => navigation.goBack()}
                     />
                 }
@@ -177,7 +235,7 @@ const MyCart = ({ navigation, route }) => {
                             }}
                         >
                             <Text style={{ ...FONTS.body3 }}>{data.item.name}</Text>
-                            <Text style={{ color: COLORS.primary, ...FONTS.h3 }}>${data.item.price}</Text>
+                            <Text style={{ color: COLORS.primary, ...FONTS.h3 }}>${data.item?.price}</Text>
                         </View>
 
                         {/* Quantity */}
@@ -191,6 +249,7 @@ const MyCart = ({ navigation, route }) => {
                             onAdd={() => updateQuantityHandler(data.item.qty + 1, data.item.id)}
                             onMinus={() => {
                                 if (data.item.qty > 1) {
+
                                     updateQuantityHandler(data.item.qty - 1, data.item.id)
                                 }
                             }}
@@ -209,7 +268,7 @@ const MyCart = ({ navigation, route }) => {
                         iconStyle={{
                             marginRight: 10
                         }}
-                        onPress={() => removeMyCartHandler(data.item.id)}
+                        onPress={() => removeCartHandler(data.item.id)}
                     />
                 )}
             />
@@ -219,9 +278,11 @@ const MyCart = ({ navigation, route }) => {
     function renderFooter() {
         return (
             <FooterTotal
-                subTotal={37.97}
+                subTotal={total}
                 shippingFee={1.99}
-                total={39.96}
+                total={total + 1.99}
+
+                // Send total to the checkout page
                 onPress={() => navigation.navigate("PaymentCard")}
 
             />

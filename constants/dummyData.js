@@ -101,7 +101,8 @@ const chickenSammich = {
     price: "3.99",
     calories: 440,
     isFavourite: true,
-    image: require("../assets/Chick-fil-a/MainDish/ChickenSammich.png")
+    image: require("../assets/Chick-fil-a/MainDish/ChickenSammich.png"),
+    qty: 1
 }
 
 //Spicy Chicken
@@ -112,7 +113,8 @@ const spicyChicken = {
     price: "4.25",
     calories: 550,
     isFavourite: true,
-    image: require("../assets/Chick-fil-a/MainDish/SpicyDeluxeSandwich.png")
+    image: require("../assets/Chick-fil-a/MainDish/SpicyDeluxeSandwich.png"),
+    qty: 1
 }
 
 const grilledChicken = {
@@ -122,7 +124,8 @@ const grilledChicken = {
     price: "3.99",
     calories: 550,
     isFavourite: true,
-    image: require("../assets/Chick-fil-a/MainDish/GrilledChickenSandwich.png")
+    image: require("../assets/Chick-fil-a/MainDish/GrilledChickenSandwich.png"),
+    qty: 1
 }
 /////Chick-fil-A Starters///////
 const salad = {
@@ -132,7 +135,8 @@ const salad = {
     price: "3.99",
     calories: 440,
     isFavourite: true,
-    image: require("../assets/Chick-fil-a/Starters/salad.png")
+    image: require("../assets/Chick-fil-a/Starters/salad.png"),
+    qty: 1
 }
 
 const fries = {
@@ -142,7 +146,8 @@ const fries = {
     price: "2.09",
     calories: 420,
     isFavourite: true,
-    image: require("../assets/Chick-fil-a/Starters/fries.png")
+    image: require("../assets/Chick-fil-a/Starters/fries.png"),
+    qty: 1
 }
 
 const fruit = {
@@ -162,7 +167,8 @@ const sweetTea = {
     price: "1.79",
     calories: 120,
     isFavourite: true,
-    image: require("../assets/Chick-fil-a/Drinks/sweettea.png")
+    image: require("../assets/Chick-fil-a/Drinks/sweettea.png"),
+    qty: 1
 }
 
 const lemonade = {
@@ -172,7 +178,9 @@ const lemonade = {
     price: "2.19",
     calories: 220,
     isFavourite: true,
-    image: require("../assets/Chick-fil-a/Drinks/lemonade.png")
+    image: require("../assets/Chick-fil-a/Drinks/lemonade.png"),
+    qty: 1
+
 }
 
 const fantaorange = {
@@ -182,7 +190,8 @@ const fantaorange = {
     price: "1.79",
     calories: 210,
     isFavourite: true,
-    image: require("../assets/Chick-fil-a/Drinks/fantaorange.png")
+    image: require("../assets/Chick-fil-a/Drinks/fantaorange.png"),
+    qty: 1
 }
 
 
@@ -197,6 +206,7 @@ const pepperoni = {
     calories: 400,
     isFavourite: true,
     image: require("../assets/PizzaHut/MainDish/Pepperoni.png"),
+    qty: 1
 }
 
 const meatLovers = {
@@ -206,7 +216,8 @@ const meatLovers = {
     price: "6.99",
     calories: 700,
     isFavourite: true,
-    image: require("../assets/PizzaHut/MainDish/MeatLovers.png")
+    image: require("../assets/PizzaHut/MainDish/MeatLovers.png"),
+    qty: 1
 }
 
 const cheese = {
@@ -216,7 +227,8 @@ const cheese = {
     price: "4.99",
     calories: 300,
     isFavourite: true,
-    image: require("../assets/PizzaHut/MainDish/Cheese.png")
+    image: require("../assets/PizzaHut/MainDish/Cheese.png"),
+    qty: 1
 }
 ////Starters////
 const cheesesticks = {
@@ -226,7 +238,8 @@ const cheesesticks = {
     price: "4.99",
     calories: 300,
     isFavourite: true,
-    image: require("../assets/PizzaHut/Starters/cheesesticks.png")
+    image: require("../assets/PizzaHut/Starters/cheesesticks.png"),
+    qty: 1
 }
 const breadsticks = {
     id: 17,
@@ -235,7 +248,8 @@ const breadsticks = {
     price: "4.99",
     calories: 300,
     isFavourite: true,
-    image: require("../assets/PizzaHut/Starters/breadsticks.png")
+    image: require("../assets/PizzaHut/Starters/breadsticks.png"),
+    qty: 1
 }
 const mozzarellasticks = {
     id: 18,
@@ -244,7 +258,8 @@ const mozzarellasticks = {
     price: "5.99",
     calories: 656,
     isFavourite: true,
-    image: require("../assets/PizzaHut/Starters/mozzarellasticks.png")
+    image: require("../assets/PizzaHut/Starters/mozzarellasticks.png"),
+    qty: 1
 }
 ////Drinks////
 const pepsi = {
@@ -254,7 +269,8 @@ const pepsi = {
     price: "1.99",
     calories: 250,
     isFavourite: true,
-    image: require("../assets/PizzaHut/Drinks/pepsi.png")
+    image: require("../assets/PizzaHut/Drinks/pepsi.png"),
+    qty: 1
 }
 const drPepper = {
     id: 40,
@@ -263,7 +279,8 @@ const drPepper = {
     price: "1.99",
     calories: 250,
     isFavourite: true,
-    image: require("../assets/PizzaHut/Drinks/drpepper.png")
+    image: require("../assets/PizzaHut/Drinks/drpepper.png"),
+    qty: 1
 }
 const rootbeer = {
     id: 41,
@@ -272,7 +289,8 @@ const rootbeer = {
     price: "1.99",
     calories: 260,
     isFavourite: true,
-    image: require("../assets/PizzaHut/Drinks/rootbeer.png")
+    image: require("../assets/PizzaHut/Drinks/rootbeer.png"),
+    qty: 1
 }
 
 ////////////Starbucks//////////////
@@ -284,7 +302,8 @@ const hamPanini = {
     price: "4.99",
     calories: 480,
     isFavourite: true,
-    image: require("../assets/Starbucks/MainDish/HamPanini.png")
+    image: require("../assets/Starbucks/MainDish/HamPanini.png"),
+    qty: 1
 }
 
 const chickenPanini = {
@@ -294,7 +313,8 @@ const chickenPanini = {
     price: "6.99",
     calories: 600,
     isFavourite: true,
-    image: require("../assets/Starbucks/MainDish/ChickenPanini.png")
+    image: require("../assets/Starbucks/MainDish/ChickenPanini.png"),
+    qty: 1
 }
 
 const grilledCheese = {
@@ -304,7 +324,8 @@ const grilledCheese = {
     price: "4.99",
     calories: 520,
     isFavourite: true,
-    image: require("../assets/Starbucks/MainDish/GrilledCheese.png")
+    image: require("../assets/Starbucks/MainDish/GrilledCheese.png"),
+    qty: 1
 }
 /////Starbucks Starters/////
 const bbqChips = {
@@ -315,7 +336,8 @@ const bbqChips = {
     price: "1.99",
     calories: 270,
     isFavourite: true,
-    image: require("../assets/Starbucks/Starters/BbqChips.png")
+    image: require("../assets/Starbucks/Starters/BbqChips.png"),
+    qty: 1
 } 
 
 const hamCroissant = {
@@ -326,7 +348,8 @@ const hamCroissant = {
     price: "2.99",
     calories: 320,
     isFavourite: true,
-    image: require("../assets/Starbucks/Starters/HamCroissant.png")
+    image: require("../assets/Starbucks/Starters/HamCroissant.png"),
+    qty: 1
 } 
 
 const scone = {
@@ -337,7 +360,8 @@ const scone = {
     price: "2.99",
     calories: 380,
     isFavourite: true,
-    image: require("../assets/Starbucks/Starters/Scone.png")
+    image: require("../assets/Starbucks/Starters/Scone.png"),
+    qty: 1
 } 
 /////Starbucks drinks/////
 const frappuccino = {
@@ -348,7 +372,8 @@ const frappuccino = {
     price: "4.99",
     calories: 78,
     isFavourite: true,
-    image: require("../assets/Starbucks/Drinks/Frappuccino.png")
+    image: require("../assets/Starbucks/Drinks/Frappuccino.png"),
+    qty: 1
 }
 
 const cappuccino = {
@@ -359,7 +384,8 @@ const cappuccino = {
     price: "5.99",
     calories: 78,
     isFavourite: true,
-    image: require("../assets/Starbucks/Drinks/Cappuccino.png")
+    image: require("../assets/Starbucks/Drinks/Cappuccino.png"),
+    qty: 1
 }
 
 const coldBrew = {
@@ -370,7 +396,8 @@ const coldBrew = {
     price: "3.99",
     calories: 78,
     isFavourite: true,
-    image: require("../assets/Starbucks/Drinks/Cold-Brew.png")
+    image: require("../assets/Starbucks/Drinks/Cold-Brew.png"),
+    qty: 1
 }
 
 
@@ -385,7 +412,8 @@ const brazilianFlatbread = {
     price: "6.99",
     calories: 560,
     isFavourite: true,
-    image: require("../assets/Sandella/MainDish/BrazilianFlatbread.png")
+    image: require("../assets/Sandella/MainDish/BrazilianFlatbread.png"),
+    qty: 1
 }
 
 const turkeyPanini = {
@@ -396,7 +424,8 @@ const turkeyPanini = {
     price: "6.99",
     calories: 520,
     isFavourite: true,
-    image: require("../assets/Sandella/MainDish/TurkeyPanini.png")
+    image: require("../assets/Sandella/MainDish/TurkeyPanini.png"),
+    qty: 1
 }
 
 const buffaloWrap = {
@@ -407,7 +436,8 @@ const buffaloWrap = {
     price: "6.99",
     calories: 400,
     isFavourite: true,
-    image: require("../assets/Sandella/MainDish/BuffaloChickenWrap.png")
+    image: require("../assets/Sandella/MainDish/BuffaloChickenWrap.png"),
+    qty: 1
 }
 /////////Starters///////////
 const caesarSalad = {
@@ -418,7 +448,8 @@ const caesarSalad = {
     price: "5.99",
     calories: 320,
     isFavourite: true,
-    image: require("../assets/Sandella/Starters/caesarsalad.png")
+    image: require("../assets/Sandella/Starters/caesarsalad.png"),
+    qty: 1
 }
 const quesadilla = {
     id: 34,
@@ -428,7 +459,8 @@ const quesadilla = {
     price: "5.99",
     calories: 450,
     isFavourite: true,
-    image: require("../assets/Sandella/Starters/quesadilla.png")
+    image: require("../assets/Sandella/Starters/quesadilla.png"),
+    qty: 1
 }
 const cheeseFlatbread = {
     id: 35,
@@ -438,7 +470,8 @@ const cheeseFlatbread = {
     price: "4.99",
     calories: 370,
     isFavourite: true,
-    image: require("../assets/Sandella/Starters/cheeseflatbread.png")
+    image: require("../assets/Sandella/Starters/cheeseflatbread.png"),
+    qty: 1
 }
 /////////Drinks///////////
 const brisk = {
@@ -449,7 +482,8 @@ const brisk = {
     price: "1.99",
     calories: 110,
     isFavourite: true,
-    image: require("../assets/Sandella/Drinks/brisk.png")
+    image: require("../assets/Sandella/Drinks/brisk.png"),
+    qty: 1
 }
 const snapple = {
     id: 37,
@@ -459,7 +493,8 @@ const snapple = {
     price: "1.99",
     calories: 120,
     isFavourite: true,
-    image: require("../assets/Sandella/Drinks/snapple.png")
+    image: require("../assets/Sandella/Drinks/snapple.png"),
+    qty: 1
 }
 const water = {
     id: 38,
@@ -469,7 +504,8 @@ const water = {
     price: "1.85",
     calories: 0,
     isFavourite: true,
-    image: require("../assets/Sandella/Drinks/water.png")
+    image: require("../assets/Sandella/Drinks/water.png"),
+    qty: 1
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////

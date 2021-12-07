@@ -14,8 +14,11 @@ const Account = ({ navigation }) => {
     const handleSignOut = () => {
         auth.signOut().then(() => navigation.replace("SignIn")).catch(error => alert(error.message))
     }
-    // assigns firebase username to variable NOTE: Does not update automatically, needs to log out and back in to update
-    const userName = auth.currentUser?.displayName ? auth.currentUser?.displayName : auth.currentUser?.email;
+
+    // If user doesnt have a username, display email instead
+    const userName = auth.currentUser?.email.charAt(0).toUpperCase() + auth.currentUser?.email.slice(1).split("@")[0];
+
+
     return (
         <ScrollView
             style={{ backgroundColor: COLORS.gray }}
@@ -30,29 +33,9 @@ const Account = ({ navigation }) => {
             >
                 {/* greets username */}
 
-                Hi {userName}
+                HI {userName} !
             </Text>
 
-            <TouchableOpacity onPress={() => navigation.navigate('Account_name')}>
-                <Text // This is the button for Name
-                    style={{
-                        color: COLORS.white2,
-                        ...FONTS.h3,
-                        marginHorizontal: SIZES.padding,
-                        paddingTop: SIZES.padding,
-                    }}
-                >
-                    Name
-                </Text>
-
-            </TouchableOpacity>
-            <View // This is the line for name
-                style={{
-                    borderBottomColor: COLORS.linelightGray,
-                    borderBottomWidth: 1,
-                    paddingTop: SIZES.padding,
-                }}
-            />
 
 
             <TouchableOpacity onPress={() => navigation.navigate('Account_email')}>

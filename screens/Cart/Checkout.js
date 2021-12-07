@@ -187,9 +187,9 @@ const Checkout = ({ navigation, route }) => {
     function renderFooter() {
         return (
             <FooterTotal
-                subTotal={37.97}
-                shippingFee={0.00}
-                total={37.97}
+                subTotal={global.total}
+                shippingFee={1.99}
+                total={global.total + 1.99}
                 onPress={() => navigation.replace("Success")}
             />
         )

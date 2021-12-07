@@ -17,7 +17,6 @@ describe('Account Screen', () => {
         const navigate = jest.fn();
         const { getByText } = render(<Account navigation={{ }}/>);
         // const titleElement1 = getByText({firebase.auth().currentUser});
-        const titleElement2 = getByText('Name');
         const titleElement3 = getByText('Email');
         const titleElement4 = getByText('Password');
         const titleElement5 = getByText('My Wallet');
@@ -27,7 +26,6 @@ describe('Account Screen', () => {
         const titleElement9 = getByText('Log Out');
 
         // expect(titleElement1).toBeTruthy();
-        expect(titleElement2).toBeTruthy();
         expect(titleElement3).toBeTruthy();
         expect(titleElement4).toBeTruthy();
         expect(titleElement5).toBeTruthy();
@@ -43,7 +41,6 @@ describe('Account Screen', () => {
         it('redirects to the correct screen', () => {
         const navigate = jest.fn();
         const { getByText } = render(<Account navigation={{ navigate }}/>);
-        const titleElement2 = getByText('Name');
         const titleElement3 = getByText('Email');
         const titleElement4 = getByText('Password');
         const titleElement5 = getByText('My Wallet');
@@ -52,7 +49,6 @@ describe('Account Screen', () => {
         const titleElement8 = getByText('App Feedback');
         const titleElement9 = getByText('Log Out');
 
-        fireEvent.press(titleElement2);
         fireEvent.press(titleElement3);
         fireEvent.press(titleElement4);
         fireEvent.press(titleElement5);
@@ -61,14 +57,13 @@ describe('Account Screen', () => {
         fireEvent.press(titleElement8);
         fireEvent.press(titleElement9);
 
-        expect(navigate).toHaveBeenCalledTimes(7);
-        expect(navigate).toHaveBeenNthCalledWith(1, 'Account_name');
-        expect(navigate).toHaveBeenNthCalledWith(2, 'Account_email');
-        expect(navigate).toHaveBeenNthCalledWith(3, 'Account_password');
-        expect(navigate).toHaveBeenNthCalledWith(4, 'MyCard');
-        expect(navigate).toHaveBeenNthCalledWith(5, 'Account_orders_history_screen');
-        expect(navigate).toHaveBeenNthCalledWith(6, 'App_notifications');
-        expect(navigate).toHaveBeenNthCalledWith(7, 'Account_App_feedback');
+        expect(navigate).toHaveBeenCalledTimes(6);
+        expect(navigate).toHaveBeenNthCalledWith(1, 'Account_email');
+        expect(navigate).toHaveBeenNthCalledWith(2, 'Account_password');
+        expect(navigate).toHaveBeenNthCalledWith(3, 'MyCard');
+        expect(navigate).toHaveBeenNthCalledWith(4, 'Account_orders_history_screen');
+        expect(navigate).toHaveBeenNthCalledWith(5, 'App_notifications');
+        expect(navigate).toHaveBeenNthCalledWith(6, 'Account_App_feedback');
         // expect(navigate).toHaveBeenNthCalledWith(8, 'SignIn');
     });
 });

@@ -18,7 +18,6 @@ const Account = ({ navigation }) => {
     // If user doesnt have a username, display email instead
     const userName = auth.currentUser?.email.charAt(0).toUpperCase() + auth.currentUser?.email.slice(1).split("@")[0].split(".")[0];
 
-
     return (
         <ScrollView
             style={{ backgroundColor: COLORS.gray }}
